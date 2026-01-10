@@ -35,4 +35,6 @@
 // Include modules here. Order matters.
 #include "sections/01_control_theory/01_main.typ"
 #include "sections/02_modeling/02_main.typ"
+#include "sections/03_transient_response/03_main.typ"
+
 
