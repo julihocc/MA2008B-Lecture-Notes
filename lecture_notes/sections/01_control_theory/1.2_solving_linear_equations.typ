@@ -26,7 +26,7 @@ A Linear Time-Invariant (LTI) system $dot(x) = A x + B u$ has solutions describe
 
 === Solved Problems
 
-#example[Scalar Decay][
+#problem[Scalar Decay][
   Solve the scalar system $dot(x) = -2x$ with initial condition $x(0) = 5$.
 ]
 #solution[
@@ -35,7 +35,7 @@ A Linear Time-Invariant (LTI) system $dot(x) = A x + B u$ has solutions describe
   This represents an exponential decay.
 ]
 
-#example[Diagonal Matrix Exponential][
+#problem[Diagonal Matrix Exponential][
   Find $e^(A t)$ for $A = mat(2, 0; 0, 3)$.
 ]
 #solution[
@@ -45,10 +45,10 @@ A Linear Time-Invariant (LTI) system $dot(x) = A x + B u$ has solutions describe
 
 === Supplementary Problems
 
-#exercise[Nilpotent Matrix][
+#supplementary[Nilpotent Matrix][
   Find $e^(A t)$ for the nilpotent matrix $A = mat(0, 1; 0, 0)$.
 ]
 
-#exercise[Forced Response][
+#supplementary[Forced Response][
   Write the integral expression for the solution of $dot(x) = -x + 1$ with $x(0)=0$.
 ]

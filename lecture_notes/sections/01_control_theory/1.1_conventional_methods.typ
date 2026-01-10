@@ -31,7 +31,7 @@ $ G(s) = C(s I - A)^(-1) B + D $
 
 === Solved Problems
 
-#example[Transfer Function to State-Space][
+#problem[Transfer Function to State-Space][
   Given the transfer function $G(s) = 1 / (s^2 + 3s + 2)$, find a state-space representation.
 ]
 #solution[
@@ -43,7 +43,7 @@ $ G(s) = C(s I - A)^(-1) B + D $
   $ A = mat(0, 1; -2, -3), quad B = mat(0; 1), quad C = mat(1, 0), quad D = 0 $
 ]
 
-#example[State-Space to Transfer Function][
+#problem[State-Space to Transfer Function][
   Given $A = mat(-1, 0; 0, -2)$, $B=mat(1; 1)$, $C=mat(1, 1)$, $D=0$. Find $G(s)$.
 ]
 #solution[
@@ -55,10 +55,10 @@ $ G(s) = C(s I - A)^(-1) B + D $
 
 === Supplementary Problems
 
-#exercise[System Classification][
+#supplementary[System Classification][
   Classify the system $dot(x) = -x + x^3$ as linear or non-linear, and time-invariant or time-varying.
 ]
 
-#exercise[Dimensionality][
+#supplementary[Dimensionality][
   For a MIMO system with 2 inputs and 3 outputs, what are the dimensions of the $D$ matrix?
 ]

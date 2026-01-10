@@ -15,10 +15,22 @@
 // Corollaries
 #let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "heading")
 
-// Examples
+// Examples (for definitions)
 #let example = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
 
-// Exercises
+// Solved Problems (Specialized Environment)
+#let problem = thmbox("problem", "Solved Problem", fill: rgb("#e6f3ff"), stroke: rgb("#0066cc") + 1pt, base: "heading")
+
+// Supplementary Problems (Specialized Environment)
+#let supplementary = thmbox(
+  "supplementary",
+  "Supplementary Problem",
+  fill: rgb("#e6fff2"),
+  stroke: rgb("#00cc66") + 1pt,
+  base: "heading",
+)
+
+// Exercises (Generic)
 #let exercise = thmbox("exercise", "Exercise", fill: luma(250), stroke: luma(150) + 1pt, base: "heading")
 
 // Proofs

@@ -18,7 +18,7 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
 
 === Solved Problems
 
-#example[RC Circuit][
+#problem[RC Circuit][
   Consider a series RC circuit where the input is voltage $v_{in}(t)$ and output is capacitor voltage $v_c(t)$. Find $G(s)$.
 ]
 #solution[
@@ -33,7 +33,7 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
   $ G(s) = V_c(s) / V_{in}(s) = 1 / (R C s + 1) $
 ]
 
-#example[Poles and Stability][
+#problem[Poles and Stability][
   Given $G(s) = 10 / (s^2 + 2s + 5)$, find the poles and determine stability.
 ]
 #solution[
@@ -45,10 +45,10 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
 
 === Supplementary Problems
 
-#exercise[Mechanical System][
+#supplementary[Mechanical System][
   Find transfer function $X(s)/F(s)$ for a mass-spring-damper system: $M diaer(x) + B dot(x) + K x = f(t)$.
 ]
 
-#exercise[Zero Locations][
+#supplementary[Zero Locations][
   How do zeros in the right-half plane (non-minimum phase) affect the step response?
 ]

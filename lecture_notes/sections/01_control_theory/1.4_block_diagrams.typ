@@ -20,7 +20,7 @@
 
 === Solved Problems
 
-#example[Feedback Reduction][
+#problem[Feedback Reduction][
   A system has forward path $G(s) = K / (s+1)$ and unity negative feedback ($H(s)=1$). Find the closed loop transfer function $T(s)$.
 ]
 #solution[
@@ -30,7 +30,7 @@
   $ T(s) = K / (s + 1 + K) $
 ]
 
-#example[Mason's Rule Application][
+#problem[Mason's Rule Application][
   Find the transfer function $C/R$ for a simple loop with forward gain $G$ and feedback $H$.
 ]
 #solution[
@@ -43,10 +43,10 @@
 
 === Supplementary Problems
 
-#exercise[Multiple Loops][
+#supplementary[Multiple Loops][
   Simplify a block diagram with two nested feedback loops.
 ]
 
-#exercise[Signal Flow Construction][
+#supplementary[Signal Flow Construction][
   Draw the Signal Flow Graph corresponding to the equations: $x_2 = a x_1 + b x_3$, $x_3 = c x_2$.
 ]

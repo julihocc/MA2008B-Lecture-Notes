@@ -27,7 +27,7 @@ State-space analysis uses the vector-matrix representation of systems.
 
 === Solved Problems
 
-#example[Controllability Check][
+#problem[Controllability Check][
   Check controllability for $A = mat(0, 1; -2, -3)$, $B = mat(0; 1)$.
 ]
 #solution[
@@ -38,7 +38,7 @@ State-space analysis uses the vector-matrix representation of systems.
   Therefore, the system is *controllable*.
 ]
 
-#example[Observability Check][
+#problem[Observability Check][
   Check observability for same $A$ with $C = mat(1, 0)$.
 ]
 #solution[
@@ -51,10 +51,10 @@ State-space analysis uses the vector-matrix representation of systems.
 
 === Supplementary Problems
 
-#exercise[Uncontrollable Mode][
+#supplementary[Uncontrollable Mode][
   Identify the uncontrollable mode in a system with diagonal $A = mat(-1, 0; 0, -2)$ and $B = mat(0; 1)$.
 ]
 
-#exercise[Duality][
+#supplementary[Duality][
   Prove that the pair $(A, B)$ is controllable if and only if $(A^T, B^T)$ is observable? (Note: Check duality property accurately).
 ]

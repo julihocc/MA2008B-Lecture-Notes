@@ -31,7 +31,7 @@ Control system design involves selecting components and parameters to satisfy pe
 
 === Solved Problems
 
-#example[Parameter Selection for Damping][
+#problem[Parameter Selection for Damping][
   A second order system has characteristic equation $s^2 + 2 zeta omega_n s + omega_n^2 = 0$. Select $zeta$ for $M_p approx 5\%$.
 ]
 #solution[
@@ -43,7 +43,7 @@ Control system design involves selecting components and parameters to satisfy pe
   A damping ratio of $zeta approx 0.7$ typically gives $approx 5\%$ overshoot.
 ]
 
-#example[Steady State Error][
+#problem[Steady State Error][
   Find steady-state error for a unit step input with forward gain $G(s) = 10 / (s+1)$ in unity feedback.
 ]
 #solution[
@@ -54,10 +54,10 @@ Control system design involves selecting components and parameters to satisfy pe
 
 === Supplementary Problems
 
-#exercise[PID Tuning][
+#supplementary[PID Tuning][
   Describe the Ziegler-Nichols tuning method for a PID controller.
 ]
 
-#exercise[Root Locus Design][
+#supplementary[Root Locus Design][
   How does adding a pole at the origin affect the root locus and stability?
 ]
