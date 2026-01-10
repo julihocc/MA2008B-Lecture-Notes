@@ -1,0 +1,5 @@
+{
+    "tinymist.preview.cursorIndicator": true,
+    "tinymist.exportPdf": "onSave",
+    "tinymist.formatterMode": "typstfmt"
+}

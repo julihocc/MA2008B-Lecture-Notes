@@ -1,11 +1,5 @@
-#set page(
-  paper: "us-letter",
-  margin: 1in,
-)
-#set text(
-  font: "New Computer Modern",
-  size: 12pt,
-)
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "New Computer Modern", size: 12pt)
 #set heading(numbering: "1.1")
 
 #align(center)[
@@ -36,5 +30,7 @@
 #include "sections/01_control_theory/01_main.typ"
 #include "sections/02_modeling/02_main.typ"
 #include "sections/03_transient_response/03_main.typ"
+#include "sections/04_optimization/04_main.typ"
+
 
 
