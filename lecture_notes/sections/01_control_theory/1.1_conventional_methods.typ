@@ -1,5 +1,5 @@
 #import "../../utils.typ": *
-== 1.1 Conventional and State-Space Methods
+== Conventional and State-Space Methods
 
 === Mathematical Review
 

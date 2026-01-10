@@ -1,5 +1,5 @@
 #import "../../utils.typ": *
-== 1.2 Solving Linear Time-Invariant Differential Equations
+== Solving Linear Time-Invariant Differential Equations
 
 === Mathematical Review
 
