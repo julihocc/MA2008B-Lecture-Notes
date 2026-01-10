@@ -31,7 +31,7 @@ $ G(s) = C(s I - A)^(-1) B + D $
 
 === Solved Problems
 
-#problem[Transfer Function to State-Space][
+#solved_problem[Transfer Function to State-Space][
   Given the transfer function $G(s) = 1 / (s^2 + 3s + 2)$, find a state-space representation.
 ]
 #solution[
@@ -43,7 +43,7 @@ $ G(s) = C(s I - A)^(-1) B + D $
   $ A = mat(0, 1; -2, -3), quad B = mat(0; 1), quad C = mat(1, 0), quad D = 0 $
 ]
 
-#problem[State-Space to Transfer Function][
+#solved_problem[State-Space to Transfer Function][
   Given $A = mat(-1, 0; 0, -2)$, $B=mat(1; 1)$, $C=mat(1, 1)$, $D=0$. Find $G(s)$.
 ]
 #solution[

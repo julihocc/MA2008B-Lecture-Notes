@@ -31,7 +31,7 @@ Control system design involves selecting components and parameters to satisfy pe
 
 === Solved Problems
 
-#problem[Parameter Selection for Damping][
+#solved_problem[Parameter Selection for Damping][
   A second order system has characteristic equation $s^2 + 2 zeta omega_n s + omega_n^2 = 0$. Select $zeta$ for $M_p approx 5\%$.
 ]
 #solution[
@@ -43,7 +43,7 @@ Control system design involves selecting components and parameters to satisfy pe
   A damping ratio of $zeta approx 0.7$ typically gives $approx 5\%$ overshoot.
 ]
 
-#problem[Steady State Error][
+#solved_problem[Steady State Error][
   Find steady-state error for a unit step input with forward gain $G(s) = 10 / (s+1)$ in unity feedback.
 ]
 #solution[

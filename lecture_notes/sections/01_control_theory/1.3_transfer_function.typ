@@ -18,7 +18,7 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
 
 === Solved Problems
 
-#problem[RC Circuit][
+#solved_problem[RC Circuit][
   Consider a series RC circuit where the input is voltage $v_{in}(t)$ and output is capacitor voltage $v_c(t)$. Find $G(s)$.
 ]
 #solution[
@@ -33,7 +33,7 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
   $ G(s) = V_c(s) / V_{in}(s) = 1 / (R C s + 1) $
 ]
 
-#problem[Poles and Stability][
+#solved_problem[Poles and Stability][
   Given $G(s) = 10 / (s^2 + 2s + 5)$, find the poles and determine stability.
 ]
 #solution[

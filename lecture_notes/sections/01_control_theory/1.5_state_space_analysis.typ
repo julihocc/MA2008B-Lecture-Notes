@@ -27,7 +27,7 @@ State-space analysis uses the vector-matrix representation of systems.
 
 === Solved Problems
 
-#problem[Controllability Check][
+#solved_problem[Controllability Check][
   Check controllability for $A = mat(0, 1; -2, -3)$, $B = mat(0; 1)$.
 ]
 #solution[
@@ -38,7 +38,7 @@ State-space analysis uses the vector-matrix representation of systems.
   Therefore, the system is *controllable*.
 ]
 
-#problem[Observability Check][
+#solved_problem[Observability Check][
   Check observability for same $A$ with $C = mat(1, 0)$.
 ]
 #solution[
