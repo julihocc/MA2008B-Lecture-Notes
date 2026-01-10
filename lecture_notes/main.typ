@@ -18,6 +18,14 @@
   #datetime.today().display()
 ]
 
+#v(1em)
+#align(center)[
+  #v(0.5em)
+  *Author:* Dr. Juliho Castillo Colmenares, Ph.D. \
+  *AI Assistance:* Google Gemini 3.0 Pro & Claude Sonnet 4.5
+  #v(0.5em)
+]
+
 #import "utils.typ": *
 #show: thmrules
 
