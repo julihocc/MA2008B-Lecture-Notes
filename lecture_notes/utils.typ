@@ -16,7 +16,8 @@
 #let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "heading")
 
 // Examples (for definitions)
-#let example = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
+// Examples (for definitions)
+#let example = thmbox("example", "Example", fill: luma(250), stroke: luma(200) + 1pt, base: "heading")
 
 // Solved Problems (Specialized Environment)
 #let problem = thmbox("problem", "Solved Problem", fill: rgb("#e6f3ff"), stroke: rgb("#0066cc") + 1pt, base: "heading")
