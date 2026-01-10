@@ -10,6 +10,10 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
   where $n >= m$ for physical realizability. The roots of the denominator are the *poles*, and the roots of the numerator are the *zeros*.
 ]
 
+#example[Zero-Pole Example][
+  $G(s) = (s+2)/(s(s+3))$. Zero at $s=-2$. Poles at $s=0, s=-3$.
+]
+
 *Impulse Response:* The system output when the input is a Dirac delta function $delta(t)$. Its Laplace transform is $G(s)$.
 
 === Solved Problems

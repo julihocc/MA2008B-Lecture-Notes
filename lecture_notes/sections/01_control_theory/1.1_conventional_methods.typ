@@ -9,11 +9,21 @@ Control theory serves as the foundation for analyzing and designing systems that
   A frequency-domain approach using *Transfer Functions* ($G(s)$). It is primarily used for Single-Input Single-Output (SISO), Linear, Time-Invariant (LTI) systems. Key metrics include overshoot, settling time, and steady-state error.
 ]
 
+#example[Simple Transfer Function][
+  A cruise control system might be modeled as $G(s) = K / (m s + b)$, relating force input to velocity output.
+]
+
 #definition[State-Space Methods (Modern)][
   A time-domain approach using *differential equations*. It models systems via state variables:
   $ dot(x)(t) = A x(t) + B u(t) $
   $ y(t) = C x(t) + D u(t) $
   This method handles Multiple-Input Multiple-Output (MIMO), non-linear, and time-varying systems.
+]
+
+#example[Simple State-Space][
+  For the same cruise control system, let $v$ be the state $x$. Then $m dot(v) + b v = u$ becomes:
+  $ dot(v) = -b/m v + 1/m u $
+  Here $A = [-b/m]$, $B=[1/m]$.
 ]
 
 The relationship between the two representations for LTI systems is given by:

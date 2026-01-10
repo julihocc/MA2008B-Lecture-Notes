@@ -13,12 +13,20 @@ Control system design involves selecting components and parameters to satisfy pe
   - *Phase Margin / Gain Margin:* Measures of relative stability.
 ]
 
+#example[Fast vs Stable][
+  A requirement of $t_s < 1s$ requires fast decay, while $M_p < 5\%$ limits oscillation.
+]
+
 #theorem[PID Control][
   A Proportional-Integral-Derivative controller has the law:
   $ u(t) = K_p e(t) + K_i integral e(tau) d tau + K_d dot(e)(t) $
   - *P:* Improves speed.
   - *I:* Eliminates steady-state error.
   - *D:* Improves damping (reduces overshoot).
+]
+
+#example[PI Controller][
+  Ideally used when D is sensitive to noise. Law: $u(t) = K_p e(t) + K_i integral e(tau) d tau$.
 ]
 
 === Solved Problems

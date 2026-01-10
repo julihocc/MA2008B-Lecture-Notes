@@ -11,10 +11,18 @@ State-space analysis uses the vector-matrix representation of systems.
   The system is fully controllable if $op("rank")(cal(C)) = n$.
 ]
 
+#example[Uncontrollable System][
+  A system with states decoupled from input $u$: $dot(x)_1 = -x_1, dot(x)_2 = -x_2 + u$, is not fully controllable (cannot influence $x_1$).
+]
+
 #definition[State Observability][
   A system is *observable* if the initial state can be determined from the output history. The Observability Matrix is:
   $ cal(O) = [C^T, A^T C^T, (A^T)^2 C^T, ..., (A^T)^(n-1) C^T]^T $
   The system is fully observable if $op("rank")(cal(O)) = n$.
+]
+
+#example[Unobservable System][
+  If $y = x_2$ but $dot(x)_1 = -x_1$ (independent of $x_2$), we cannot deduce $x_1$ from $y$.
 ]
 
 === Solved Problems

@@ -11,9 +11,17 @@ A Linear Time-Invariant (LTI) system $dot(x) = A x + B u$ has solutions describe
   where $e^(A t) = sum_(k=0)^infinity (A^k t^k) / k!$ is the *Matrix Exponential*.
 ]
 
+#example[1D Homogenous][
+  If $dot(x) = 3x$, then $A=3$, and $x(t) = e^(3t)x(0)$.
+]
+
 #theorem[General Solution][
   For the non-homogenous system $dot(x) = A x + B u$, the general solution is:
   $ x(t) = e^(A (t - t_0)) x(t_0) + integral_(t_0)^t e^(A (t - tau)) B u(tau) d tau $
+]
+
+#example[Constant Input][
+  If $dot(x) = -x + 1$ with $x(0)=0$, then $x(t) = integral_0^t e^(-(t-tau)) d tau = 1 - e^(-t)$.
 ]
 
 === Solved Problems
