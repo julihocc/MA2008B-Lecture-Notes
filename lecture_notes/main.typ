@@ -31,6 +31,7 @@
 #include "sections/02_modeling/02_main.typ"
 #include "sections/03_transient_response/03_main.typ"
 #include "sections/04_optimization/04_main.typ"
+#include "sections/05_frequency_response/05_main.typ"
 
 
 
