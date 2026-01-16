@@ -32,6 +32,7 @@
 #include "sections/03_transient_response/03_main.typ"
 #include "sections/04_optimization/04_main.typ"
 #include "sections/05_frequency_response/05_main.typ"
+#include "sections/06_design_compensation/06_main.typ"
 
 
 
