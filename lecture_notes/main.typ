@@ -36,6 +36,7 @@
 #include "sections/07_lyapunov_stability/07_main.typ"
 #include "sections/08_finite_element_method/08_main.typ"
 #include "sections/09_nonlinear_fem/09_main.typ"
+#include "sections/10_topics_trends/10_main.typ"
 
 
 
