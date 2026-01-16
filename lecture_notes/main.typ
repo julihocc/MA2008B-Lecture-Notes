@@ -34,6 +34,7 @@
 #include "sections/05_frequency_response/05_main.typ"
 #include "sections/06_design_compensation/06_main.typ"
 #include "sections/07_lyapunov_stability/07_main.typ"
+#include "sections/08_finite_element_method/08_main.typ"
 
 
 
