@@ -15,8 +15,10 @@ Linear Time-Varying (LTV) systems are dynamic systems where the parameters depen
 #definition[State Transition Matrix][
   The State Transition Matrix (STM) $Phi(t, t_0)$ maps the state from initial time $t_0$ to time $t$ in the absence of input:
   $ x(t) = Phi(t, t_0) x(t_0) $
+]
 
-  Properties:
+#theorem[Properties of STM][
+  The State Transition Matrix satisfies the following properties:
   1. $Phi(t, t) = I$
   2. $Phi(t_2, t_0) = Phi(t_2, t_1) Phi(t_1, t_0)$
   3. $Phi(t, t_0)^(-1) = Phi(t_0, t)$
