@@ -32,7 +32,7 @@ Linear Time-Varying (LTV) systems are dynamic systems where the parameters depen
 
 === Solved Problems
 
-#solved_problem[STM Calculation][
+#solved_problem[State Transition Matrix Calculation][
   Find the state transition matrix for the scalar system $dot(x) = (-1/t) x$ for $t > 0$.
 ]
 #solution[

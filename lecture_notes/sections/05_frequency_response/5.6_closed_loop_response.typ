@@ -15,7 +15,7 @@
   The closed-loop frequency response is:
   $ T(j omega) = G(j omega)/(1 + G(j omega)H(j omega)) $
   This can be expressed in terms of magnitude and phase:
-  $ T(j omega) = |T(j omega)| e^(j angle(T(j omega))) $
+  $ T(j omega) = abs(T(j omega)) e^(j angle(T(j omega))) $
 ]
 
 #definition[Sensitivity Functions][
@@ -28,14 +28,14 @@
 
 #theorem[Bandwidth][
   The bandwidth $omega_B$ is the frequency where:
-  $ |T(j omega_B)| = 1/sqrt(2) |T(j 0)| $
-  For unity feedback with $T(j 0) = 1$: $|T(j omega_B)| = 0.707 = -3$ dB
+  $ abs(T(j omega_B)) = 1/sqrt(2) abs(T(j 0)) $
+  For unity feedback with $T(j 0) = 1$: $abs(T(j omega_B)) = 0.707 = -3$ dB
   Bandwidth indicates the frequency range where the system tracks inputs effectively.
 ]
 
 #definition[Resonant Peak][
-  The resonant peak $M_p$ is the maximum value of $|T(j omega)|$:
-  $ M_p = max_|omega| |T(j omega)| $
+  The resonant peak $M_p$ is the maximum value of $abs(T(j omega))$:
+  $ M_p = max_omega abs(T(j omega)) $
   The resonant frequency $omega_r$ is where this maximum occurs.
   For second-order systems: $M_p = 1/(2 zeta sqrt(1 - zeta^2))$ for $zeta < 1/sqrt(2)$
 ]
@@ -48,17 +48,17 @@
 #solution[
   Step 1: Form closed-loop transfer function
   $ T(s) = G(s)/(1 + G(s)) = 10/((s+1)(s+5) + 10) = 10/(s^2 + 6s + 15) $
-  
+
   Step 2: Evaluate at $s = j omega$
   $ T(j omega) = 10/((-omega^2 + 15) + j 6 omega) $
-  
+
   Step 3: Calculate magnitude and phase
-  $ |T(j omega)| = 10/sqrt((-omega^2 + 15)^2 + (6 omega)^2) $
+  $ abs(T(j omega)) = 10/sqrt((-omega^2 + 15)^2 + (6 omega)^2) $
   $ angle(T(j omega)) = -tan^(-1)(6 omega/(-omega^2 + 15)) $
-  
+
   Step 4: Key performance metrics
-  DC gain: $|T(j 0)| = 10/15 = 0.667 = -3.5$ dB
-  Bandwidth: Solve for $|T(j omega_B)| = 0.667/sqrt(2) = 0.471$
+  DC gain: $abs(T(j 0)) = 10/15 = 0.667 = -3.5$ dB
+  Bandwidth: Solve for $abs(T(j omega_B)) = 0.667/sqrt(2) = 0.471$
   $ omega_B approx 2.1$ rad/s
   No resonant peak (system is overdamped)
 ]
@@ -69,17 +69,17 @@
 #solution[
   Step 1: Closed-loop transfer function
   $ T(s) = K/((s+1)^2 + K) $
-  
+
   Step 2: Sensitivity function
   $ S(s) = 1/(1 + G(s)) = (s+1)^2/((s+1)^2 + K) $
-  
+
   Step 3: Frequency response
   $ S(j omega) = (-omega^2 + 2j omega + 1)/((-omega^2 + 1) + K + j 2 omega) $
-  
+
   Step 4: Sensitivity characteristics
-  At low frequencies ($omega -> 0$): $|S(j 0)| = 1/(1 + K)$
-  At high frequencies ($omega -> infinity$): $|S(j omega)| -> 1$
-  
+  At low frequencies ($omega -> 0$): $abs(S(j 0)) = 1/(1 + K)$
+  At high frequencies ($omega -> infinity$): $abs(S(j omega)) -> 1$
+
   Step 5: Interpretation
   - Low sensitivity at DC for large $K$
   - High sensitivity at high frequencies (inevitable)

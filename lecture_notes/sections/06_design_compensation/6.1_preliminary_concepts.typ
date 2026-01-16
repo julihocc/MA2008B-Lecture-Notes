@@ -11,7 +11,7 @@ Control system design involves systematically selecting controller structures an
   - *Rise Time ($t_r$):* Time to rise from 10% to 90% of final value
   - *Settling Time ($t_s$):* Time to reach within 2% of final value
   - *Percent Overshoot ($M_p$):* $(y_(max) - y_(s s))/y_(s s) × 100%$
-  - *Bandwidth ($omega_B$):* Frequency range with $|T(j omega)| ≥ 0.707|T(j 0)|$
+  - *Bandwidth ($omega_B$):* Frequency range with $abs(T(j omega)) ≥ 0.707 abs(T(j 0))$
 ]
 
 #theorem[Design Trade-Offs][
@@ -57,15 +57,15 @@ Control system design involves systematically selecting controller structures an
 ]
 #solution[
   Given: $M_p < 5%$ and $t_s < 1s$ for unit step input
-  
+
   Step 1: Relate to damping ratio and natural frequency
   $ M_p = exp((-zeta pi)/sqrt(1 - zeta^2)) < 0.05 $
   Solving: $zeta > 0.69$
-  
+
   Step 2: Settling time requirement
   $ t_s = 4/(zeta omega_n) < 1 $
   For $zeta = 0.69$: $omega_n > 5.8$ rad/s
-  
+
   Step 3: Design requirements
   $ zeta > 0.69$, $omega_n > 5.8$ rad/s
 ]
@@ -77,10 +77,10 @@ Control system design involves systematically selecting controller structures an
   For standard second-order system:
   $ t_r approx 1.8/omega_n$ (for $zeta = 0.5$)
   $ M_p = exp((-zeta pi)/sqrt(1 - zeta^2))$
-  
+
   As $omega_n$ increases: $t_r$ decreases (faster)
   But $zeta$ must increase for lower $M_p$ (slower response)
-  
+
   Optimal compromise: $zeta ≈ 0.7$ balances speed and overshoot
 ]
 
@@ -91,4 +91,5 @@ Control system design involves systematically selecting controller structures an
 ]
 
 #supplementary[Design Selection][
-   When should classical design methods be preferred over modern state-space techniques? Discuss advantages and limitations.]
+  When should classical design methods be preferred over modern state-space techniques? Discuss advantages and limitations.
+]

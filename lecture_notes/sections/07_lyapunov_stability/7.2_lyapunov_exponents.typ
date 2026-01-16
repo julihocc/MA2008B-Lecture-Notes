@@ -7,7 +7,7 @@
 
 #definition[Lyapunov Exponent (Continuous Time)][
   For a dynamical system $dot(x) = f(x)$, consider two trajectories starting at $x_0$ and $x_0 + delta_0$. The Lyapunov exponent $lambda$ is defined as:
-  $ lambda = lim_(t -> infinity) lim_(|delta_0| -> 0) 1/t ln |delta(t)|/|delta_0| $
+  $ lambda = lim_(t -> infinity) lim_(abs(delta_0) -> 0) 1/t ln(abs(delta(t))/abs(delta_0)) $
   where $delta(t)$ is the separation vector at time $t$.
 ]
 

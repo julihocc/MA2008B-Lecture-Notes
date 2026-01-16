@@ -7,20 +7,20 @@ The *frequency response* of a system is obtained by evaluating the transfer func
 
 #definition[Frequency Response][
   The frequency response $G(j omega)$ is obtained from the transfer function $G(s)$ by substituting $s = j omega$:
-  $ G(j omega) = G(s)|_(s=j omega) = |G(j omega)| e^(j angle(G(j omega))) $
-  where $|G(j omega)|$ is the magnitude and $angle(G(j omega))$ is the phase angle.
+  $ G(j omega) = G(s)|_(s=j omega) = abs(G(j omega)) e^(j angle(G(j omega))) $
+  where $abs(G(j omega))$ is the magnitude and $angle(G(j omega))$ is the phase angle.
 ]
 
 #definition[Bode Plots][
   Bode plots consist of two separate graphs:
-  1. *Magnitude plot*: $20 log_(10) |G(j omega)|$ (in decibels) vs $log_(10)(omega)$
+  1. *Magnitude plot*: $20 log_(10) abs(G(j omega))$ (in decibels) vs $log_(10)(omega)$
   2. *Phase plot*: $angle(G(j omega))$ (in degrees) vs $log_(10)(omega)$
 ]
 
 #example[First-Order System][
   For $G(s) = K/(tau s + 1)$, the frequency response is:
   $ G(j omega) = K/(j omega tau + 1) $
-  Magnitude: $|G(j omega)| = K/sqrt(1 + (omega tau)^2)$
+  Magnitude: $abs(G(j omega)) = K/sqrt(1 + (omega tau)^2)$
   Phase: $angle(G(j omega)) = -tan^(-1)(omega tau)$
 ]
 
@@ -49,12 +49,12 @@ The *frequency response* of a system is obtained by evaluating the transfer func
 #solution[
   Rewrite in standard form:
   $ G(s) = (10 × 2/5 × 10) (s/2 + 1)/(s/1 (s/5 + 1) (s/10 + 1)) = 0.4 (s/2 + 1)/(s (s/5 + 1) (s/10 + 1)) $
-  
+
   *Magnitude plot:*
   - Low frequency: $-20 log_(10)(omega)$ (integrator)
   - Break frequencies: $omega = 2, 5, 10$ rad/s
   - High frequency: $-40 log_(10)(omega)$
-  
+
   *Phase plot:*
   - Start at $-90°$ (integrator)
   - Add $+90°$ at $omega = 2$ (zero)
