@@ -1,5 +1,5 @@
 #import "../../utils.typ": *
-== Stability Analysis
+== Stability Analysis <stability_analysis>
 
 === Mathematical Review
 

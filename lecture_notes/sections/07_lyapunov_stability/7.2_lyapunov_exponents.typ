@@ -18,9 +18,9 @@
 
 #theorem[Interpretation of $lambda$][
   The sign of the maximum Lyapunov exponent $lambda_(max)$ determines the asymptotic behavior:
-  - $lambda_(max) < 0$: Stable fixed point or periodic orbit (trajectories converge).
-  - $lambda_(max) = 0$: Marginally stable (conservative system).
-  - $lambda_(max) > 0$: Unstable and chaotic (trajectories diverge exponentially).
+  - $lambda_(max) < 0$: Stable fixed point or periodic orbit (trajectories converge). See @stability_analysis.
+  - $lambda_(max) = 0$: Marginally stable. This often characterizes *conservative systems* (which preserve phase space volume, e.g., energy-conserving mechanical systems).
+  - $lambda_(max) > 0$: Unstable and chaotic (trajectories diverge exponentially). This extends the concept of instability introduced in Section 3.
 ]
 
 === Solved Problems
