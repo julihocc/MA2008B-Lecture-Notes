@@ -211,10 +211,70 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
 
 === Supplementary Problems
 
-#supplementary[Nilpotent Matrix][
-  Find $e^(A t)$ for $A = mat(0, 1;0, 0)$ (nilpotent).
+#supplementary[Diagonal Matrix Exponential I][
+  Compute the state transition matrix $e^(A t)$ for
+  $A = mat(-3, 0;0, -1)$.
 ]
 
-#supplementary[Periodic Input][
-  Solve for $u(t) = sin(omega t)$.
+#supplementary[Diagonal Matrix Exponential II][
+  Compute $e^(A t)$ for
+  $A = mat(0, 0;0, -4)$,
+  and state the long-term limit of each state mode as $t -> infinity$.
+]
+
+#supplementary[Nilpotent Matrix][
+  Compute $e^(A t)$ for the nilpotent matrix
+  $A = mat(0, 1;0, 0)$.
+]
+
+#supplementary[Pure Rotation Matrix][
+  Use Laplace-transform method to compute $e^(A t)$ for
+  $A = mat(0, 2;-2, 0)$.
+]
+
+#supplementary[Jordan Block][
+  Compute $e^(A t)$ for
+  $A = mat(-1, 1;0, -1)$,
+  and identify the polynomial factor multiplying $e^(-t)$.
+]
+
+#supplementary[Eigenvalue-Decomposition Method][
+  For
+  $A = mat(-4, 1;2, -3)$,
+  diagonalize $A = V Lambda V^(-1)$ and compute
+  $e^(A t) = V e^(Lambda t) V^(-1)$.
+]
+
+#supplementary[Method Comparison][
+  For
+  $A = mat(0, 1;-1, 0)$,
+  compute $e^(A t)$ using both Laplace method and power-series method, and verify both results are identical.
+]
+
+#supplementary[Zero-Input Response][
+  For
+  $A = mat(-2, 0;0, -5)$,
+  $x(0) = mat(3;-1)$,
+  compute the zero-input response
+  $x(t) = e^(A t)x(0)$.
+]
+
+#supplementary[Zero-State Response (Step Input)][
+  For
+  $A = mat(-1, 0;0, -3)$,
+  $B = mat(2;1)$,
+  $u(t)=1$,
+  $x(0)=0$,
+  compute
+  $x(t)=integral_0^t e^(A(t-tau))B d tau$.
+]
+
+#supplementary[Zero-State Response (Sinusoidal Input)][
+  For
+  $A = mat(-1, 0;0, -2)$,
+  $B = mat(1;1)$,
+  $u(t)=sin(omega t)$,
+  $x(0)=0$,
+  set up and compute the forced response
+  $x(t)=integral_0^t e^(A(t-tau))B sin(omega tau) d tau$.
 ]
