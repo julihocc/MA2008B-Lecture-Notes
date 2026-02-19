@@ -74,9 +74,25 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
   $ x(t) = e^(A t) mat(1;2) $
 ]
 
-#definition[Eigenvalue Decomposition][
-  If $A = V Lambda V^(-1)$ where $Lambda$ is diagonal:
+#proposition[Eigenvalue Decomposition Formula][
+  If $A$ is diagonalizable, i.e., $A = V Lambda V^(-1)$ with $Lambda$ diagonal, then:
   $ e^(A t) = V e^(Lambda t) V^(-1) $
+]
+
+#proof[
+  Using $A = V Lambda V^(-1)$, for any integer $k >= 1$:
+  $ A^k = (V Lambda V^(-1))^k = V Lambda^k V^(-1) $.
+
+  Now apply the power-series definition of the matrix exponential:
+  $ e^(A t) = sum_(k=0)^infinity ((A t)^k)/k! $
+  $ = sum_(k=0)^infinity (A^k t^k)/k! $
+  $ = sum_(k=0)^infinity (V Lambda^k V^(-1) t^k)/k! $.
+
+  Since $V$ and $V^(-1)$ do not depend on $k$, factor them outside the series:
+  $ e^(A t) = V (sum_(k=0)^infinity (Lambda^k t^k)/k!) V^(-1) $
+  $ = V e^(Lambda t) V^(-1) $.
+
+  Therefore, the proposition is proved.
 ]
 
 #example[Eigenvalue Method][
