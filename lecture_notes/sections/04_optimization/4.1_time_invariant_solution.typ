@@ -39,10 +39,34 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
 ]
 
 #theorem[Complete Solution][
-  The complete solution is:
+  For the linear time-invariant state equation $dot(x) = A x + B u$ with initial condition $x(0)$, the complete solution for the state trajectory $x(t)$ is:
   $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau $
   - First term: free response (initial conditions)
   - Second term: forced response (input)
+]
+
+#proof[
+  Start from the linear time-invariant state equation:
+  $ dot(x) = A x + B u, quad x(0) = x_0 $
+
+  Multiply by $e^(-A t)$ and define
+  $ z(t) = e^(-A t) x(t) $.
+  Then, by the product rule,
+  $ dot(z) = -A e^(-A t) x + e^(-A t) dot(x) $
+  $ = -A e^(-A t) x + e^(-A t)(A x + B u) $
+  $ = e^(-A t) B u(t) $.
+
+  Integrating from $0$ to $t$:
+  $ z(t) - z(0) = integral_0^t e^(-A tau) B u(tau) d tau $.
+
+  Since $z(0) = e^0 x(0) = x(0)$, we get
+  $ z(t) = x(0) + integral_0^t e^(-A tau) B u(tau) d tau $.
+
+  Multiply both sides by $e^(A t)$:
+  $ x(t) = e^(A t) x(0) + e^(A t) integral_0^t e^(-A tau) B u(tau) d tau $
+  $ = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau $.
+
+  Therefore, the complete solution is proved.
 ]
 
 #example[Zero Input Response][
