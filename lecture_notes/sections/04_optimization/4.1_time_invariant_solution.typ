@@ -17,8 +17,25 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
 ]
 
 #example[Diagonal Matrix][
-  For $A = mat(-1, 0;0, -2)$:
-  $ e^(A t) = mat(e^(-t), 0;0, e^(-2t)) $
+  Consider
+  $ A = mat(-1, 0;0, -2) $
+  and compute $e^(A t)$ from the power-series definition:
+  $ e^(A t) = I + A t + (A t)^2/2! + (A t)^3/3! + dots $
+
+  Because $A$ is diagonal, every power of $A$ remains diagonal:
+  $ A^k = mat((-1)^k, 0;0, (-2)^k) $
+  therefore
+  $ (A t)^k/k! = mat(((-1)t)^k/k!, 0;0, ((-2)t)^k/k!) $
+
+  Now sum term by term in each diagonal entry:
+  $ e^(A t) = mat(sum_(k=0)^infinity ((-t)^k)/k!, 0;0, sum_(k=0)^infinity ((-2t)^k)/k!) $
+  $ = mat(e^(-t), 0;0, e^(-2t)) $
+
+  Interpretation:
+  - The diagonal form means the two modal states evolve independently (no coupling terms).
+  - The first mode decays as $e^(-t)$ with time constant $1$, and the second decays as $e^(-2t)$ with time constant $1/2$.
+  - The faster decay $e^(-2t)$ disappears sooner, so the long-term transient is governed by $e^(-t)$.
+  - Since both eigenvalues are negative, the equilibrium at the origin is asymptotically stable and $Phi(t) -> 0$ as $t -> infinity$.
 ]
 
 #theorem[Complete Solution][
