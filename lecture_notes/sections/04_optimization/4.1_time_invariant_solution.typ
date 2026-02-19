@@ -142,6 +142,18 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
   $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)) $
 
   This represents rotation matrix.
+
+  Method 2: Power series (using $A^2 = -I$)
+  For $A = mat(0, 1;-1, 0)$:
+  $ A^2 = mat(-1, 0;0, -1) = -I $
+
+  Then
+  $ e^(A t) = I + A t + (A t)^2/2! + (A t)^3/3! + dots $
+  $ = (I - t^2/2! I + t^4/4! I - dots) + (t A - t^3/3! A + t^5/5! A - dots) $
+  $ = I cos(t) + A sin(t) $
+
+  Therefore
+  $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)) $.
 ]
 
 #solved_problem[Zero-State Response][
