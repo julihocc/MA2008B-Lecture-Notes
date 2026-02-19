@@ -17,8 +17,35 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 
 #theorem[Equivalent Representations of $Phi(t)$][
-  For constant $A$, the state transition matrix defined above satisfies
-  $ Phi(t)=e^(A t)=cal(L)^(-1){(s I-A)^(-1)} $. 
+  For constant $A$, the state transition matrix in time domain satisfies
+  $ Phi(t)=e^(A t) $. 
+
+  Also,
+  $ cal(L){Phi(t)}=(s I-A)^(-1) $, 
+  and equivalently,
+  $ Phi(t)=cal(L)^(-1){(s I-A)^(-1)} $. 
+]
+
+#proof[
+  By definition, $Phi(t)$ is the unique solution of
+  $ dot(Phi)(t)=A Phi(t), quad Phi(0)=I $. 
+
+  Consider $E(t)=e^(A t)$. From the power-series definition,
+  $ E(t)=sum_(k=0)^infinity ((A t)^k)/k! $, so
+  $ dot(E)(t)=A E(t), quad E(0)=I $. 
+  Hence $E(t)$ satisfies the same initial-value problem as $Phi(t)$; by uniqueness,
+  $ Phi(t)=e^(A t) $. 
+
+  Now take Laplace transform in the matrix differential equation:
+  $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)} $. 
+  Using $Phi(0)=I$,
+  $ (s I-A) cal(L){Phi(t)}=I $, therefore
+  $ cal(L){Phi(t)}=(s I-A)^(-1) $. 
+  Taking inverse Laplace transform gives
+  $ Phi(t)=cal(L)^(-1){(s I-A)^(-1)} $. 
+
+  Combining both identities,
+  $ Phi(t)=e^(A t)=cal(L)^(-1){(s I-A)^(-1)} $.
 ]
 
 #example[Diagonal Matrix][
