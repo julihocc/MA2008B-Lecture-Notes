@@ -37,6 +37,11 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ Phi(t)=e^(A t) $. 
 
   Now take Laplace transform in the matrix differential equation:
+  - Derivative property: $cal(L){dot(X)}=s cal(L){X}-X(0)$.
+  - Linearity with constant matrix: for constant $A$,
+    $cal(L){A X(t)}=A cal(L){X(t)}$.
+  - Inverse identity: $cal(L)^(-1){cal(L){X(t)}}=X(t)$.
+
   $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)} $. 
   Using $Phi(0)=I$,
   $ (s I-A) cal(L){Phi(t)}=I $, therefore
