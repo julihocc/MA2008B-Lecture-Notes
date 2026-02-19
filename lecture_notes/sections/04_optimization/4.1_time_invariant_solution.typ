@@ -5,15 +5,20 @@
 
 The solution of time-invariant state equations provides the foundation for analyzing system behavior over time.
 
-Before introducing the formal expression, it is useful to understand why the state transition matrix is central in state-space analysis.
-For the homogeneous system $dot(x) = A x$, the future state must be obtained from the initial condition through a linear mapping that depends on elapsed time.
-That mapping is exactly $Phi(t)$, so $x(t) = Phi(t) x(0)$ describes how dynamics propagate states in time.
-When an input is present, the same matrix also appears inside the convolution term of the complete solution, weighting how past input values influence the present state.
-This is why $Phi(t)$ is not only a computational tool, but the core object that links model structure ($A$), stability behavior, and time response.
+For the homogeneous system $dot(x) = A x$, the state at time $t$ must be obtained from $x(0)$ through a linear map that depends on elapsed time.
+That map is the state transition matrix $Phi(t)$, which propagates initial conditions and also appears in the forced-response convolution term when inputs are present.
 
 #definition[State Transition Matrix][
-  For $dot(x) = A x + B u$, the state transition matrix is:
-  $ Phi(t) = e^(A t) = cal(L)^(-1){(s I - A)^(-1)} $
+  For the linear time-invariant homogeneous system $dot(x)=A x$, the state transition matrix is the unique matrix function $Phi(t)$ such that
+  $ dot(Phi)(t)=A Phi(t), quad Phi(0)=I $. 
+
+  Consequently, for any initial condition $x(0)$,
+  $ x(t)=Phi(t)x(0) $. 
+]
+
+#theorem[Equivalent Representations of $Phi(t)$][
+  For constant $A$, the state transition matrix defined above satisfies
+  $ Phi(t)=e^(A t)=cal(L)^(-1){(s I-A)^(-1)} $. 
 ]
 
 #example[Diagonal Matrix][
