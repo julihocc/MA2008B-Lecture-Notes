@@ -97,7 +97,36 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
 
 #example[Eigenvalue Method][
   For $A = mat(0, 1;-2, -3)$ with eigenvalues $lambda_1 = -1, lambda_2 = -2$:
-  $ e^(A t) = V mat(e^(-t), 0;0, e^(-2t)) V^(-1) $
+  $ e^(A t) = V e^(Lambda t) V^(-1) $.
+
+  Step 1: Build eigenvectors.
+  For $lambda_1 = -1$:
+  $ (A + I) v_1 = 0 => mat(1, 1;-2, -2) v_1 = 0 $
+  choose $v_1 = mat(1;-1)$.
+
+  For $lambda_2 = -2$:
+  $ (A + 2I) v_2 = 0 => mat(2, 1;-2, -1) v_2 = 0 $
+  choose $v_2 = mat(1;-2)$.
+
+  Step 2: Form diagonalization matrices.
+  $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2) $
+  $ det(V) = -1, quad V^(-1) = mat(2, 1;-1, -1) $.
+
+  Step 3: Exponentiate the diagonal matrix.
+  $ e^(Lambda t) = mat(e^(-t), 0;0, e^(-2t)) $.
+
+  Step 4: Multiply explicitly.
+  $ V e^(Lambda t) = mat(e^(-t), e^(-2t);-e^(-t), -2e^(-2t)) $
+
+  Therefore,
+  $ e^(A t) = mat(
+    2e^(-t) - e^(-2t), e^(-t) - e^(-2t);
+    -2e^(-t) + 2e^(-2t), -e^(-t) + 2e^(-2t)
+  ) $.
+
+  Consistency checks:
+  - At $t = 0$, $e^(A 0) = I$.
+  - $d/(d t) e^(A t)|_(t=0) = A$.
 ]
 
 === Solved Problems
