@@ -154,6 +154,24 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
 
   Therefore
   $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)) $.
+
+  Verification:
+  - Both methods give the same candidate
+    $ Phi(t) = mat(cos(t), sin(t);-sin(t), cos(t)) $.
+
+  - Initial-condition check:
+    $ Phi(0) = mat(cos(0), sin(0);-sin(0), cos(0)) = mat(1, 0;0, 1) = I $.
+
+  - Differential-equation check:
+    $ dot(Phi)(t) = mat(-sin(t), cos(t);-cos(t), -sin(t)) $.
+
+    Also,
+    $ A Phi(t) = mat(0, 1;-1, 0) mat(cos(t), sin(t);-sin(t), cos(t)) $
+    $ = mat(-sin(t), cos(t);-cos(t), -sin(t)) = dot(Phi)(t) $.
+
+  Hence $Phi(t)$ satisfies both defining conditions
+  $ dot(Phi) = A Phi, quad Phi(0) = I $,
+  so it is indeed the state transition matrix.
 ]
 
 #solved_problem[Zero-State Response][
