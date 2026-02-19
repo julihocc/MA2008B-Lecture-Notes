@@ -5,6 +5,12 @@
 
 The solution of time-invariant state equations provides the foundation for analyzing system behavior over time.
 
+Before introducing the formal expression, it is useful to understand why the state transition matrix is central in state-space analysis.
+For the homogeneous system $dot(x) = A x$, the future state must be obtained from the initial condition through a linear mapping that depends on elapsed time.
+That mapping is exactly $Phi(t)$, so $x(t) = Phi(t) x(0)$ describes how dynamics propagate states in time.
+When an input is present, the same matrix also appears inside the convolution term of the complete solution, weighting how past input values influence the present state.
+This is why $Phi(t)$ is not only a computational tool, but the core object that links model structure ($A$), stability behavior, and time response.
+
 #definition[State Transition Matrix][
   For $dot(x) = A x + B u$, the state transition matrix is:
   $ Phi(t) = e^(A t) = cal(L)^(-1){(s I - A)^(-1)} $
