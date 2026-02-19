@@ -178,10 +178,35 @@ This is why $Phi(t)$ is not only a computational tool, but the core object that 
   Find response for $A = mat(-1, 0;0, -2)$, $B = mat(1;1)$, $u(t) = 1$, $x(0) = 0$.
 ]
 #solution[
-  $ x(t) = integral_0^t e^(A(t-tau)) B d tau $
-  $ = integral_0^t mat(e^(-(t-tau)), 0;0, e^(-2(t-tau))) mat(1;1) d tau $
+  Since $x(0)=0$, only the forced term remains:
+  $ x(t) = integral_0^t e^(A(t-tau)) B u(tau) d tau = integral_0^t e^(A(t-tau)) B d tau $
+
+  For diagonal $A = mat(-1, 0;0, -2)$:
+  $ e^(A(t-tau)) = mat(e^(-(t-tau)), 0;0, e^(-2(t-tau))) $
+
+  Therefore
+  $ x(t) = integral_0^t mat(e^(-(t-tau)), 0;0, e^(-2(t-tau))) mat(1;1) d tau $
   $ = integral_0^t mat(e^(-(t-tau));e^(-2(t-tau))) d tau $
-  $ = mat(1 - e^(-t);(1 - e^(-2t))/2) $
+
+  Compute each component separately:
+  $ x_1(t) = integral_0^t e^(-(t-tau)) d tau = 1 - e^(-t) $
+  $ x_2(t) = integral_0^t e^(-2(t-tau)) d tau = (1 - e^(-2t))/2 $
+
+  Hence
+  $ x(t) = mat(1 - e^(-t);(1 - e^(-2t))/2) $
+
+  Verification:
+  - Initial condition:
+    $ x(0) = mat(1-1;(1-1)/2) = mat(0;0) $.
+
+  - Differential equation check:
+    $ dot(x)(t) = mat(e^(-t);e^(-2t)) $.
+
+    Also,
+    $ A x(t) + B = mat(-1, 0;0, -2) mat(1 - e^(-t);(1 - e^(-2t))/2) + mat(1;1) $
+    $ = mat(e^(-t);e^(-2t)) = dot(x)(t) $.
+
+  So the computed $x(t)$ satisfies both $x(0)=0$ and $dot(x)=A x + B$.
 ]
 
 === Supplementary Problems
