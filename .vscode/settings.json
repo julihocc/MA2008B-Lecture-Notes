@@ -1,5 +1,6 @@
 {
     "tinymist.preview.cursorIndicator": true,
     "tinymist.exportPdf": "onSave",
-    "tinymist.formatterMode": "typstfmt"
+    "tinymist.formatterMode": "typstfmt",
+    "iis.configDir": ""
 }
