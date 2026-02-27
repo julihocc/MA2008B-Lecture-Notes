@@ -25,7 +25,7 @@
 // Examples
 #let _example_inner = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
 #let example(..args) = {
-  block(fill: luma(250), width: 100%, inset: 10pt, breakable: true, _example_inner(..args))
+  block(fill: luma(240), width: 100%, inset: 10pt, breakable: true, _example_inner(..args))
 }
 
 // Solved Problems (Schaum's Style)
