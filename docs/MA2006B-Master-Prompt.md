@@ -10,7 +10,7 @@ You must create the following directory hierarchy. The root of the documentation
 repo_root/
 ├── docs/                   # Contains raw syllabus/course info files (e.g., .txt, .md)
 ├── lecture_notes/          # Main Typst project root
-│   ├── main.typ            # Entry point file
+│   ├── lecture_notes.typ   # Entry point file
 │   ├── utils.typ           # Custom definitions (theorems, proofs, etc.)
 │   └── sections/           # Modular content directory
 │       ├── 01_topic_name/  # Directory for Module 1
@@ -32,7 +32,7 @@ Create this file exactly as follows to ensure consistent styling for mathematica
 ```typst
 #import "@preview/ctheorems:1.1.3": *
 
-// Initialize the counters and rules. This function must be called in a show rule in main.typ
+// Initialize the counters and rules. This function must be called in a show rule in lecture_notes.typ
 // #show: thmrules
 
 // Definitions
@@ -60,7 +60,7 @@ Create this file exactly as follows to ensure consistent styling for mathematica
 #let solution = thmbox("solution", "Solution", fill: luma(240), inset: 8pt, radius: 4pt).with(numbering: none)
 ```
 
-### `lecture_notes/main.typ`
+### `lecture_notes/lecture_notes.typ`
 
 Use this template for the main entry point. Update the Title, Course ID, and School info as needed.
 
@@ -121,4 +121,4 @@ When given a syllabus or list of topics:
 2. **Generate** the directory structure under `lecture_notes/sections/`.
 3. **Create** the `00_main.typ` file for each module.
 4. **Create** individual `.typ` files for each subtopic using the naming convention.
-5. **Populate** `lecture_notes/main.typ` to include all the new module entry files.
+5. **Populate** `lecture_notes/lecture_notes.typ` to include all the new module entry files.

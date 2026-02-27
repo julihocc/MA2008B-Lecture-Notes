@@ -7,7 +7,7 @@
 #let CC = $bb(C)$
 #let NN = $bb(N)$
 
-// Initialize the counters and rules. This function must be called in a show rule in main.typ
+// Initialize the counters and rules. This function must be called in a show rule in lecture_notes.typ
 // #show: thmrules
 
 // Definitions
@@ -17,13 +17,7 @@
 #let theorem = thmbox("theorem", "Theorem", fill: rgb("e8eaf6"), stroke: rgb("283593") + 1pt, base: "heading")
 
 // Propositions
-#let proposition = thmbox(
-  "proposition",
-  "Proposition",
-  fill: rgb("fce4ec"),
-  stroke: rgb("880e4f") + 1pt,
-  base: "heading",
-)
+#let proposition = thmbox("proposition", "Proposition", fill: rgb("fce4ec"), stroke: rgb("880e4f") + 1pt, base: "heading")
 
 // Corollaries
 #let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, base: "heading")
