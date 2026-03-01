@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 = Frequency Response Analysis and Design
 
 This module covers frequency response analysis and design techniques, including Bode plots, polar plots, Nyquist stability criterion, and closed-loop frequency response analysis. These methods provide powerful tools for analyzing and designing control systems in the frequency domain.

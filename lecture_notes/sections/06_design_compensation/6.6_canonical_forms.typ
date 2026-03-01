@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Canonical Forms of State Equations
 
 === Mathematical Review

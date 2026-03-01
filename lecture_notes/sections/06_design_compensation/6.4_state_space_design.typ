@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Introduction to State-Space Design
 
 === Mathematical Review

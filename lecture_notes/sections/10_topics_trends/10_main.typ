@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 
 = Topics and Trends in Numerical Analysis for Optimization
 

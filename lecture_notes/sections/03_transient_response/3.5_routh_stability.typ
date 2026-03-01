@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Routh Stability Criterion
 
 === Mathematical Review

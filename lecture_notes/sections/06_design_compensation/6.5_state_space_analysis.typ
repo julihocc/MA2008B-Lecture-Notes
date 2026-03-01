@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == State-Space Analysis and Transfer Matrix
 
 === Mathematical Review

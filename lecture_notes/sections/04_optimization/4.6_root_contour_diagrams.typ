@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Root Contour Diagrams
 
 === Mathematical Review

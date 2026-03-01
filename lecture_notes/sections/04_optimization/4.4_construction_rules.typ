@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == General Rules for Constructing Root Locus
 
 === Mathematical Review

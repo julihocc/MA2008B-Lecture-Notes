@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == PID Controller Tuning Rules
 
 === Mathematical Review

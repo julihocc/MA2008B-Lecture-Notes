@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 = Design and Compensation Techniques for Control Systems
 
 This module covers comprehensive design and compensation techniques for control systems, including classical compensation methods, PID controller tuning, and modern state-space design approaches. These techniques bridge the gap between theoretical analysis and practical controller implementation.

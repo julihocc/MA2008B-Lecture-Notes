@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == State-Space Representation of Dynamic Systems
 
 === Mathematical Review

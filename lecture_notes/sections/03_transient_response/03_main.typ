@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 = Transient Response Analysis and Steady-State Error
 
 This module analyzes the time-domain behavior of control systems, focusing on transient response characteristics, stability criteria, and steady-state error analysis for different system types and input signals.

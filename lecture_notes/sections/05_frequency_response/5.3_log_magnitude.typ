@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Logarithmic Magnitude Plots
 
 === Mathematical Review

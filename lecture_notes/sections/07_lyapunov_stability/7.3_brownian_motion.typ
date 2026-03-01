@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Brownian Motion and Stochastic Processes
 
 === Mathematical Review

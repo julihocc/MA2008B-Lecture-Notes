@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Root Locus Analysis and Design
 
 === Mathematical Review

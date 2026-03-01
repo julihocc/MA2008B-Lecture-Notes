@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Stability Analysis <stability_analysis>
 
 === Mathematical Review

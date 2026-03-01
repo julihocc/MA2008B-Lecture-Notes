@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 = Lyapunov Stability Analysis
 
 This module covers advanced stability analysis techniques, focusing on Lyapunov stability theory. It extends to time-varying systems and introduces concepts of chaos and stochastic processes in dynamic systems.

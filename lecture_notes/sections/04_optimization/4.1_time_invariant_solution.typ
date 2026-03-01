@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Solution of Time-Invariant State Equation
 
 === Mathematical Review

@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Fractals and Chaos
 
 === Mathematical Review

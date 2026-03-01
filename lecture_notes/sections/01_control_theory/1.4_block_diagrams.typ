@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Block Diagrams and Signal Flow Graphs
 
 === Mathematical Review

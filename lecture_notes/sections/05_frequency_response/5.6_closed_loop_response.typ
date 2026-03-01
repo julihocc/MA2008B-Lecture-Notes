@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Closed-Loop Frequency Response
 
 === Mathematical Review

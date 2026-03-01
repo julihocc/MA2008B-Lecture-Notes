@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 = Modeling and Simulation of Dynamic Systems
 
 This module introduces the modeling and simulation of dynamic systems, covering state-space representations, traditional physical systems (mechanical, electrical, thermal), electromechanical systems, and industrial control strategies including PID controllers.

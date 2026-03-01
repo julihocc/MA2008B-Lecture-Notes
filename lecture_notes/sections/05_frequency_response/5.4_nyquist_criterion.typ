@@ -1,4 +1,4 @@
-#import "../../utils.typ": *
+#import "../../../utils.typ": *
 == Nyquist Stability Criterion
 
 === Mathematical Review
