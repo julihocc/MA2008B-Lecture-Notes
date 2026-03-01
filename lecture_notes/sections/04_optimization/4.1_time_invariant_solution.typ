@@ -15,7 +15,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ x(t)=Phi(t)x(0). $
 ]
 
-#proposition[First Representation of $Phi(t)$][
+#proposition[Time-Domain Representation of $Phi(t)$][
   For a constant matrix $A$, the state transition matrix is
   $ Phi(t)=e^(A t). $
 ]
@@ -32,7 +32,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ Phi(t)=e^(A t). $
 ]
 
-#proposition[Laplace-Domain Equivalence][
+#proposition[Laplace-Domain Representation of $Phi(t)$][
   For a constant matrix $A$, the state transition matrix satisfies
   $ cal(L){Phi(t)}=(s I-A)^(-1). $
   Equivalently,
@@ -42,7 +42,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 #proof[
   Start from
   $ dot(Phi)(t)=A Phi(t), quad Phi(0)=I. $
-  Applying Laplace transform gives
+  Applying Laplace transform and using linearity (with constant $A$) gives
   $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)}. $
   Using $Phi(0)=I$,
   $ (s I-A) cal(L){Phi(t)}=I, $
@@ -54,26 +54,27 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 
 #theorem[Complete Solution][
-  For the linear time-invariant state equation $dot(x) = A x + B u$ with initial condition $x(0)$, the complete solution for the state trajectory $x(t)$ is:
+  For the linear time-invariant state equation $dot(x) = A x + B u$ with initial condition $x(0)$, the complete state response is
   $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau $
-  - First term: free response (initial conditions)
-  - Second term: forced response (input)
+  - first term: zero-input (free) response
+  - second term: zero-state (forced) response.
 ]
 
 #proof[
-  Start from the linear time-invariant state equation:
+  Start from
   $ dot(x) = A x + B u, quad x(0) = x_0 $
+  and define
+  $ z(t)=e^(-A t)x(t). $
 
-  Multiply by $e^(-A t)$ and define
-  $ z(t) = e^(-A t) x(t). $
-  Then, by the product rule,
-  $ dot(z) = -A e^(-A t) x + e^(-A t) dot(x) $
-  $ = -A e^(-A t) x + e^(-A t)(A x + B u) $
+  Since $A$ is constant, by the product rule,
+  $ dot(z) = e^(-A t)(dot(x)-A x) $
   $ = e^(-A t) B u(t). $
+
   Integrating from $0$ to $t$:
   $ z(t) - z(0) = integral_0^t e^(-A tau) B u(tau) d tau. $
   Since $z(0) = e^0 x(0) = x(0)$, we get
   $ z(t) = x(0) + integral_0^t e^(-A tau) B u(tau) d tau. $
+
   Multiply both sides by $e^(A t)$:
   $ x(t) = e^(A t) x(0) + e^(A t) integral_0^t e^(-A tau) B u(tau) d tau $
   $ = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau. $
@@ -269,6 +270,28 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
     $ A x(t) + B = mat(-1, 0;0, -2) mat(1 - e^(-t);(1 - e^(-2t))/2) + mat(1;1) $
     $ = mat(e^(-t);e^(-2t)) = dot(x)(t). $
   So the computed $x(t)$ satisfies both $x(0)=0$ and $dot(x)=A x + B$.
+]
+
+#solved_problem[Complete Response (Nonzero Initial Condition + Step Input)][
+  For
+  $ A = mat(-1, 0;0, -2), B = mat(1;1), u(t)=1, x(0)=mat(1;2), $
+  compute the complete response
+  $ x(t)=e^(A t)x(0)+integral_0^t e^(A(t-tau))B d tau. $
+]
+#solution[
+  From previous solved problems:
+  - zero-input term:
+    $ e^(A t)x(0)=mat(e^(-t), 0;0, e^(-2t)) mat(1;2)=mat(e^(-t);2e^(-2t)). $
+  - zero-state term:
+    $ integral_0^t e^(A(t-tau))B d tau = mat(1-e^(-t);(1-e^(-2t))/2). $
+
+  Add both terms:
+  $ x(t)=mat(e^(-t);2e^(-2t))+mat(1-e^(-t);(1-e^(-2t))/2) $
+  $ = mat(1;(1+3e^(-2t))/2). $
+
+  Checks:
+  - At $t=0$, $x(0)=mat(1;(1+3)/2)=mat(1;2)$.
+  - As $t -> infinity$, $x(t) -> mat(1;1/2)$, the steady-state under constant input.
 ]
 
 === Supplementary Problems
