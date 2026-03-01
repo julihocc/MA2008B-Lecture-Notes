@@ -147,8 +147,10 @@ aux_eq = Eq(3*s**2 + K_crit, 0)
 crossing_points = solve(aux_eq, s)
 
 print("Imaginary Axis Crossing Frequencies (s = ±jw):")
-print(f"s = {crossing_points[0].evalf():.3f}")
-print(f"s = {crossing_points[1].evalf():.3f}")
+cp0 = complex(crossing_points[0].evalf())
+cp1 = complex(crossing_points[1].evalf())
+print(f"s = {cp0.real:.3f} + {cp0.imag:.3f}j")
+print(f"s = {cp1.real:.3f} + {cp1.imag:.3f}j")
 
 # Verify graphically
 F3 = 1 / (s_ctrl**3 + 3*s_ctrl**2 + 2*s_ctrl)

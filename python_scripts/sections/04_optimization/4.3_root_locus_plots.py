@@ -65,7 +65,7 @@ print(f"Analytical Breakaway Point (dK/ds = 0): {breakaway_s}")
 # Let's verify by plotting the root locus
 plt.figure(figsize=(8, 6))
 ctrl.root_locus(F1, plot=True, grid=False)
-plt.plot(np.real(breakaway_s[0]), 0, 'rx', markersize=10, label=f'Breakaway ({breakaway_s[0]:.1f})')
+plt.plot(np.real(breakaway_s[0]), 0, 'rx', markersize=10, label=f'Breakaway ({float(np.real(breakaway_s[0])):.1f})')
 style_plot("Root Locus: 1 + K / (s(s+4))")
 plt.legend()
 plt.show()
@@ -211,9 +211,10 @@ print(f"\nCritical Gain (K) inducing marginal stability: {K_crit}")
 aux_eq = Eq(7*s**2 + K_crit, 0)
 crossing_points = solve(aux_eq, s)
 
-print("Imaginary Axis Crossing Points (s = ±jw):")
-print(f"s = {crossing_points[0].evalf():.3f}")
-print(f"s = {crossing_points[1].evalf():.3f}")
+c0 = complex(crossing_points[0].evalf())
+c1 = complex(crossing_points[1].evalf())
+print(f"s = {c0.real:.3f} + {c0.imag:.3f}j")
+print(f"s = {c1.real:.3f} + {c1.imag:.3f}j")
 
 # Verify graphically
 F4 = 1 / (s_ctrl**3 + 7*s_ctrl**2 + 10*s_ctrl)
