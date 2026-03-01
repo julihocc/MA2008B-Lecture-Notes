@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import control as ctrl
 from sympy import symbols, Eq, solve, diff
 
-s, K = symbols('s K', real=True)
+s, K = symbols('s K')
 
 # Helper function to print results nicely
 def print_section(title):
@@ -135,7 +135,7 @@ print(f"Branches to infinity (n - m): {n - m}")
 # Asymptote Centroid and Angles
 sigma_a = (np.sum(poles) - np.sum(zeros)) / (n - m)
 angles_deg = [(2*k + 1)*180 / (n - m) for k in range(n - m)]
-print(f"Asymptote Centroid (sigma_a): {sigma_a:.2f}")
+print(f"Asymptote Centroid (sigma_a): {float(np.real(sigma_a)):.2f}")
 print(f"Asymptote Angles (degrees): {angles_deg}")
 
 # Analytical Breakaway using SymPy
@@ -149,7 +149,7 @@ print("Only s ≈ -0.45 is admissible since it lies on the locus segment [-1, 0]
 # Plot using control library
 plt.figure(figsize=(10, 8))
 ctrl.root_locus(F, plot=True, grid=True, title="Root Locus Sketch")
-plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid: {sigma_a:.2f}')
+plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid: {float(np.real(sigma_a)):.2f}')
 plt.axvline(x=0, color='k', linestyle='--', alpha=0.5)
 plt.axhline(y=0, color='k', linestyle='--', alpha=0.5)
 plt.legend()

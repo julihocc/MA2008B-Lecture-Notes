@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import control as ctrl
 from sympy import symbols, Eq, solve, diff
 
-s, K = symbols('s K', real=True)
+s, K = symbols('s K')
 
 def print_section(title):
     print(f"\n{'='*50}")
@@ -56,7 +56,7 @@ print(f"Branches to infinity (n - m): {n - m}")
 sigma_a = np.sum(poles) / n
 angles_deg = [(2*k + 1)*180 / n for k in range(n)]
 
-print(f"\nCentroid (sigma_a): {sigma_a:.2f}")
+print(f"\nCentroid (sigma_a): {float(np.real(sigma_a)):.2f}")
 print(f"Asymptote Angles: {angles_deg} degrees")
 
 print("\nReal-Axis Segments (Odd Rule):")
@@ -79,7 +79,7 @@ print(f"  Calculated Theta_dep: {theta_dep} degrees")
 # Verify visually
 plt.figure(figsize=(8, 8))
 ctrl.root_locus(F1, plot=True, grid=False)
-plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid: {sigma_a:.2f}')
+plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid: {float(np.real(sigma_a)):.2f}')
 style_plot("Root Locus: 1 + K/((s+1)(s^2+2s+2))")
 plt.legend()
 plt.xlim([-4, 2])

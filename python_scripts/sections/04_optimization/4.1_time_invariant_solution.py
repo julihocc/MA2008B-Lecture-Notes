@@ -133,8 +133,8 @@ x_zi_simplified = sp.expand(x_zi)
 print(f"Zero-Input Response x(t):\n{x_zi_simplified}")
 
 # Check endpoint behavior: as t -> infinity, x(t) should go to [0, 0] because eigenvalues are negative
-# Evaluated at infinity:
-limit_x_zi = sp.limit(x_zi_simplified, t, sp.oo)
+# Evaluated at infinity element-wise:
+limit_x_zi = x_zi_simplified.applyfunc(lambda element: sp.limit(element, t, sp.oo))
 print(f"\nCheck: Limit of x(t) as t -> infinity:\n{limit_x_zi}")
 
 # %% [markdown]
@@ -200,7 +200,7 @@ print(f"Complete Response x(t):\n{x_total_simplified}\n")
 
 # Steady-state check: As t -> infinity, exp(-t) and exp(-2t) go to 0. 
 # x(t) should converge to the constant vector [1, 1/2]^T
-x_ss = sp.limit(x_total_simplified, t, sp.oo)
+x_ss = x_total_simplified.applyfunc(lambda element: sp.limit(element, t, sp.oo))
 print(f"Steady State check (as t -> infinity): x(t) approaches \n{x_ss}")
 
 print("\n(Note: This perfectly matches the analytical derivation found in the notes!)")

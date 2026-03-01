@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import control as ctrl
 from sympy import symbols, Eq, solve, diff
 
-s, K = symbols('s K', real=True)
+s, K = symbols('s K')
 
 # Helper function to print results nicely
 def print_section(title):
@@ -100,13 +100,13 @@ sigma_a = (np.sum(poles2) - np.sum(zeros2)) / (n2 - m2)
 # Calculate Angles
 angles_deg = [(2*k + 1)*180 / (n2 - m2) for k in range(n2 - m2)]
 
-print(f"\nCalculated Centroid (sigma_a): {sigma_a:.2f}")
+print(f"\nCalculated Centroid (sigma_a): {float(np.real(sigma_a)):.2f}")
 print(f"Calculated Asymptote Angles: {angles_deg} degrees")
 
 # Let's visualize the asymptotes on the root locus
 plt.figure(figsize=(8, 6))
 ctrl.root_locus(F2, plot=True, grid=False)
-plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid ({sigma_a:.2f})')
+plt.plot(sigma_a, 0, 'rx', markersize=10, label=f'Centroid ({float(np.real(sigma_a)):.2f})')
 
 # Plotting dashed lines for asymptotes
 for angle in angles_deg:
@@ -145,7 +145,7 @@ sigma_a3 = (np.sum(poles3) - np.sum(zeros3)) / (n3 - m3)
 angles_deg3 = [(2*k + 1)*180 / (n3 - m3) for k in range(n3 - m3)]
 
 print(f"Poles: {np.round(poles3, 1)} | Zeros: {np.round(zeros3, 1)}")
-print(f"Centroid: {sigma_a3:.2f} | Asymptote Angles: {angles_deg3}")
+print(f"Centroid: {float(np.real(sigma_a3)):.2f} | Asymptote Angles: {angles_deg3}")
 
 print("\nReal-Axis Segments (Odd Rule):")
 print("  Between [0, -1] -> 1 pole to right (Locus exists)")
@@ -168,7 +168,7 @@ for candidate in breakaway_candidates:
 
 plt.figure(figsize=(10, 8))
 ctrl.root_locus(F3, plot=True, grid=False)
-plt.plot(sigma_a3, 0, 'rx', markersize=10, label=f'Centroid ({sigma_a3:.2f})')
+plt.plot(sigma_a3, 0, 'rx', markersize=10, label=f'Centroid ({float(np.real(sigma_a3)):.2f})')
 
 # Add asymptotes
 for angle in angles_deg3:
