@@ -16,7 +16,7 @@ $ 1+K F(s)=0. $
   Let $n$ and $m$ denote, respectively, the number of poles and zeros of $F$, counted with multiplicity.
   The root locus has $n$ branches; each branch starts at a pole when $K=0$.
   As $K -> infinity$, $m$ branches terminate at finite zeros and the remaining $n-m$ branches go to infinity.
-  If coefficients are real, the trajectory is symmetric about the real axis.
+  If coefficients are real, the root locus is symmetric about the real axis.
 ]
 
 #proposition[Real-Axis Segment Criterion][
@@ -26,7 +26,7 @@ $ 1+K F(s)=0. $
 #proof[
   On the real axis, each factor $(s-a)$ contributes phase $0 degree$ if $s>a$ and $180 degree$ if $s<a$.
   Hence the phase of $F(s)$ is an odd multiple of $180 degree$ exactly when an odd number of real singular points lies to the right of $s$.
-  By the angle condition for $1+K F(s)=0$, this is equivalent to membership in the trajectory.
+  By the angle condition for $1+K F(s)=0$, this is equivalent to membership in the root locus.
 ]
 
 #theorem[Asymptotes and Centroid Rule][

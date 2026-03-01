@@ -75,9 +75,9 @@ Instead of tracing poles under variation of a single gain, one studies level set
   $ s_d=-zeta omega_n + j omega_n sqrt(1-zeta^2) = -1.4 + j 1.428. $
 
   With unity feedback,
-  $ Delta(s)=s(s+1)(s+3)+K_1(s+K_2)=0, $
+  $ Delta(s,K_1,K_2)=s(s+1)(s+3)+K_1(s+K_2)=0, $
   so
-  $ Delta(s)=s^3+4s^2+3s + K_1 s + K_1 K_2. $
+  $ Delta(s,K_1,K_2)=s^3+4s^2+3s + K_1 s + K_1 K_2. $
 
   Evaluate at $s_d$.
   Let

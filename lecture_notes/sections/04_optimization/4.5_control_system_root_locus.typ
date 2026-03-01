@@ -36,7 +36,9 @@ Root-locus design consists of choosing $K$ (and, when needed, a compensator $C$)
 === Solved Problems
 
 #solved_problem[Settling-Time Feasibility Check][
-  For $G(s)=K/(s(s+4))$ with unity feedback, determine whether the requirement $t_s=1"s"$ (2% criterion) can be met by gain adjustment alone.
+  For
+  $ Delta(s,K)=s(s+4)+K=0, $
+  determine whether the requirement $t_s=1"s"$ (2% criterion) can be met by gain adjustment alone.
 ]
 #solution[
   The characteristic equation is
@@ -112,13 +114,13 @@ Root-locus design consists of choosing $K$ (and, when needed, a compensator $C$)
 
 #supplementary[Settling-Time Feasibility][
   For
-  $ G(s)=K/(s(s+6)), $
+  $ Delta(s,K)=s(s+6)+K=0, $
   determine whether $t_s=1"s"$ (2% criterion) is achievable by gain adjustment alone.
 ]
 
 #supplementary[Target Pole Gain][
   For
-  $ G(s)=K/(s(s+3)), $
+  $ Delta(s,K)=s(s+3)+K=0, $
   compute $K$ that places poles at $-1.5 plus.minus 1.5j$.
 ]
 
