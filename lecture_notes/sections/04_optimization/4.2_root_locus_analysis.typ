@@ -7,9 +7,12 @@ In this section, root locus is presented as a general method for tracking how ro
 This viewpoint is useful in control systems and also in differential-equations courses where stability depends on parameterized characteristic polynomials.
 
 #definition[Parameterized Characteristic Equation][
-  Consider a family of equations
+  Consider a one-parameter family of characteristic equations
   $ Delta(s,K)=0, $
   where $s in CC$ and $K in RR$ is a scalar parameter.
+  In this section, $Delta$ is assumed to be polynomial (or rational) in $s$ and affine in $K$, typically written as
+  $ Delta(s,K)=P(s)+K Q(s), $
+  with $P,Q$ polynomial (or rational) functions of $s$.
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
