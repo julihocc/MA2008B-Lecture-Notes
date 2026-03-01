@@ -49,27 +49,6 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ Phi(t)=e^(A t)=cal(L)^(-1){(s I-A)^(-1)}. $
 ]
 
-#example[Diagonal Matrix][
-  Consider
-  $ A = mat(-1, 0;0, -2) $
-  and compute $e^(A t)$ from the power-series definition:
-  $ e^(A t) = I + A t + (A t)^2/2! + (A t)^3/3! + dots $
-
-  Because $A$ is diagonal, every power of $A$ remains diagonal:
-  $ A^k = mat((-1)^k, 0;0, (-2)^k), $ therefore
-  $ (A t)^k/k! = mat(((-1)t)^k/k!, 0;0, ((-2)t)^k/k!) $
-
-  Now sum term by term in each diagonal entry:
-  $ e^(A t) = mat(sum_(k=0)^infinity ((-t)^k)/k!, 0;0, sum_(k=0)^infinity ((-2t)^k)/k!) $
-  $ = mat(e^(-t), 0;0, e^(-2t)) $
-
-  Interpretation:
-  - The diagonal form means the two modal states evolve independently (no coupling terms).
-  - The first mode decays as $e^(-t)$ with time constant $1$, and the second decays as $e^(-2t)$ with time constant $1/2$.
-  - The faster decay $e^(-2t)$ disappears sooner, so the long-term transient is governed by $e^(-t)$.
-  - Since both eigenvalues are negative, the equilibrium at the origin is asymptotically stable and $Phi(t) -> 0$ as $t -> infinity$.
-]
-
 #theorem[Complete Solution][
   For the linear time-invariant state equation $dot(x) = A x + B u$ with initial condition $x(0)$, the complete solution for the state trajectory $x(t)$ is:
   $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau $
@@ -120,38 +99,32 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Therefore, the proposition is proved.
 ]
 
-#example[Eigenvalue Method][
-  For $A = mat(0, 1;-2, -3)$ with eigenvalues $lambda_1 = -1, lambda_2 = -2$:
-  $ e^(A t) = V e^(Lambda t) V^(-1). $
-  Step 1: Build eigenvectors.
-  For $lambda_1 = -1$:
-  $ (A + I) v_1 = 0 => mat(1, 1;-2, -2) v_1 = 0 $
-  choose $v_1 = mat(1;-1)$.
-
-  For $lambda_2 = -2$:
-  $ (A + 2I) v_2 = 0 => mat(2, 1;-2, -1) v_2 = 0 $
-  choose $v_2 = mat(1;-2)$.
-
-  Step 2: Form diagonalization matrices.
-  $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2) $
-  $ det(V) = -1, quad V^(-1) = mat(2, 1;-1, -1). $
-  Step 3: Exponentiate the diagonal matrix.
-  $ e^(Lambda t) = mat(e^(-t), 0;0, e^(-2t)). $
-  Step 4: Multiply explicitly.
-  $ V e^(Lambda t) = mat(e^(-t), e^(-2t);-e^(-t), -2e^(-2t)) $
-
-  Therefore,
-  $ e^(A t) = mat(
-    2e^(-t) - e^(-2t), e^(-t) - e^(-2t);
-    -2e^(-t) + 2e^(-2t), -e^(-t) + 2e^(-2t)
-  ) $.
-
-  Consistency checks:
-  - At $t = 0$, $e^(A 0) = I$.
-  - $d/(d t) e^(A t)|_(t=0) = A$.
-]
-
 === Solved Problems
+
+#solved_problem[Diagonal Matrix Exponential via Power Series][
+  Compute the state transition matrix $e^(A t)$ for
+  $ A = mat(-1, 0;0, -2) $
+  using the power-series definition.
+]
+#solution[
+  Start from
+  $ e^(A t) = I + A t + (A t)^2/2! + (A t)^3/3! + dots. $
+
+  Because $A$ is diagonal, every power remains diagonal:
+  $ A^k = mat((-1)^k, 0;0, (-2)^k), $
+  so
+  $ (A t)^k/k! = mat(((-1)t)^k/k!, 0;0, ((-2)t)^k/k!). $
+
+  Sum each diagonal entry term by term:
+  $ e^(A t) = mat(sum_(k=0)^infinity ((-t)^k)/k!, 0;0, sum_(k=0)^infinity ((-2t)^k)/k!) $
+  $ = mat(e^(-t), 0;0, e^(-2t)). $
+
+  Interpretation:
+  - The diagonal form means the two modal states evolve independently (no coupling terms).
+  - The first mode decays as $e^(-t)$ with time constant $1$, and the second decays as $e^(-2t)$ with time constant $1/2$.
+  - The faster decay $e^(-2t)$ disappears sooner, so the long-term transient is governed by $e^(-t)$.
+  - Since both eigenvalues are negative, the equilibrium at the origin is asymptotically stable and $Phi(t) -> 0$ as $t -> infinity$.
+]
 
 #solved_problem[Compute State Transition Matrix][
   Find $e^(A t)$ for $A = mat(0, 1;-1, 0)$.
@@ -189,6 +162,45 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Hence $Phi(t)$ satisfies both defining conditions
   $ dot(Phi) = A Phi, quad Phi(0) = I, $
   so it is indeed the state transition matrix.
+]
+
+#solved_problem[State Transition Matrix via Eigenvalue Decomposition][
+  Compute $e^(A t)$ for
+  $ A = mat(0, 1;-2, -3) $
+  using diagonalization.
+]
+#solution[
+  For $A = mat(0, 1;-2, -3)$ with eigenvalues $lambda_1 = -1$, $lambda_2 = -2$:
+  $ e^(A t) = V e^(Lambda t) V^(-1). $
+
+  Step 1: Build eigenvectors.
+  For $lambda_1 = -1$:
+  $ (A + I) v_1 = 0 => mat(1, 1;-2, -2) v_1 = 0, $
+  choose $v_1 = mat(1;-1)$. 
+
+  For $lambda_2 = -2$:
+  $ (A + 2I) v_2 = 0 => mat(2, 1;-2, -1) v_2 = 0, $
+  choose $v_2 = mat(1;-2)$.
+
+  Step 2: Form diagonalization matrices.
+  $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2) $
+  $ det(V) = -1, quad V^(-1) = mat(2, 1;-1, -1). $
+
+  Step 3: Exponentiate the diagonal matrix.
+  $ e^(Lambda t) = mat(e^(-t), 0;0, e^(-2t)). $
+
+  Step 4: Multiply explicitly.
+  $ V e^(Lambda t) = mat(e^(-t), e^(-2t);-e^(-t), -2e^(-2t)) $
+
+  Therefore,
+  $ e^(A t) = mat(
+    2e^(-t) - e^(-2t), e^(-t) - e^(-2t);
+    -2e^(-t) + 2e^(-2t), -e^(-t) + 2e^(-2t)
+  ) $. 
+
+  Consistency checks:
+  - At $t = 0$, $e^(A 0) = I$.
+  - $d/(d t) e^(A t)|_(t=0) = A$.
 ]
 
 #solved_problem[Zero-State Response][
