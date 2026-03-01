@@ -13,19 +13,28 @@ This viewpoint is useful in control systems and also in differential-equations c
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
+#definition[Feedback Notation and Assumptions][
+  In this section, when the feedback model is used:
+  - $K in RR$ is a real scalar gain (typically $K>=0$ for root-locus plots).
+  - $G,H: CC -> CC$ are rational transfer functions in the complex variable $s$.
+  - The characteristic equation is
+    $ Delta(s,K)=1+K G(s)H(s)=0, $
+    evaluated at points where $G(s)H(s)$ is defined.
+]
+
 #definition[Root Locus][
   The root locus is the set of points in the complex plane reached by roots of
   $ Delta(s,K)=0 $
   as $K$ varies over a specified interval (typically $K>=0$).
 
-  In the common unity-feedback form with open-loop transfer function $K G(s)H(s)$,
+  Under the feedback notation above,
   $ Delta(s,K)=1+K G(s)H(s), $
   so the locus satisfies
   $ 1 + K G(s)H(s) = 0. $
 ]
 
 #proposition[Characteristic Equation Form][
-  In the feedback setting, closed-loop poles are exactly the roots of
+  In the feedback setting of the previous definition, closed-loop poles are exactly the roots of
   $ 1 + K G(s)H(s) = 0. $
   Equivalently, in the general notation they are roots of
   $ Delta(s,K)=0, $
@@ -33,7 +42,7 @@ This viewpoint is useful in control systems and also in differential-equations c
 ]
 
 #theorem[Angle and Magnitude Conditions][
-  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0$ lies on the root locus if and only if:
+  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if:
   - *Angle condition:* $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ.$
   - *Magnitude condition:* $|K G(s_0)H(s_0)| = 1.$
 ]
