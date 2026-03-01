@@ -15,18 +15,15 @@ so the normalized form is
 $ 1+K F(s)=0. $
 
 #definition[Trajectory-Plot Elements][
-  For a normalized equation $1+K F(s)=0$ with rational $F(s)$:
-  - poles of $F$ are branch starting points (at $K=0$),
-  - zeros of $F$ are branch ending points (as $K -> infinity$),
-  - if $F$ has real coefficients, the trajectory is symmetric about the real axis.
+  Consider the normalized equation $1+K F(s)=0$ with rational $F(s)$.
+  The poles of $F$ are branch starting points at $K=0$, whereas the zeros of $F$ are branch ending points as $K -> infinity$.
+  If $F$ has real coefficients, the trajectory is symmetric with respect to the real axis.
 ]
 
 #proposition[Branch Count and Endpoints][
   Let $n$ be the number of poles of $F$ and $m$ the number of zeros of $F$ (counted with multiplicity).
-  Then:
-  - the trajectory has $n$ branches,
-  - $m$ branches end at finite zeros,
-  - $n-m$ branches go to infinity.
+  Then the trajectory has exactly $n$ branches.
+  Of these, $m$ branches terminate at finite zeros, and the remaining $n-m$ branches go to infinity.
 ]
 
 #proof[
@@ -55,29 +52,42 @@ $ 1+K F(s)=0. $
   Hence the trajectory has $n$ branches, with $m$ finite-end branches and $n-m$ branches ending at infinity.
 ]
 
-#theorem[Asymptotes and Centroid]
-[For $n>m$ in the normalized form $1+K F(s)=0$:
-  - number of asymptotes: $n-m$,
-  - asymptote angles:
-    $ theta_k = ((2k+1)180 degree)/(n-m), quad k=0,1,...,n-m-1, $
-  - centroid:
-    $ sigma_a = (sum "poles" - sum "zeros")/(n-m). $
+#theorem[Asymptotes and Centroid][Let
+  $ F(s)=N(s)/D(s), $
+  where $D$ is degree-$n$ with poles $p_1,...,p_n$ and
+  $N$ is degree-$m$ with zeros $z_1,...,z_m$ (counted with multiplicity), and $n>m$.
+  For the normalized equation $1+K F(s)=0$, the number of asymptotes is $n-m$.
+  Their angles are given by
+  $ theta_k = ((2k+1)180 degree)/(n-m), quad k=0,1,...,n-m-1, $
+  and their centroid is
+  $ sigma_a = ((sum_(i=1)^n p_i)-(sum_(j=1)^m z_j))/(n-m). $
 ]
 
 #proof[
-  For large $|s|$, finite zeros/poles contribute approximately their highest-order terms, so
-  $ F(s) approx c/s^(n-m), $
-  for some real constant $c != 0$.
-  The characteristic equation
+  Since $n>m$, for large $|s|$ we have
+  $ F(s)=N(s)/D(s) approx c/s^(n-m), $
+  where $c != 0$ is the ratio of leading coefficients.
+  Then
   $ 1+K F(s)=0 $
-  becomes asymptotically
+  gives asymptotically
   $ s^(n-m) approx -K c. $
-  Therefore the $n-m$ branches at infinity follow equally spaced directions,
-  giving angles
+  Therefore there are $n-m$ directions at infinity, equally spaced by
+  $ 360 degree/(n-m), $
+  with principal angles
   $ theta_k = ((2k+1)180 degree)/(n-m). $
 
-  The centroid formula follows from balancing pole-zero contributions in the first-order term of the large-$s$ expansion, yielding
-  $ sigma_a = (sum "poles" - sum "zeros")/(n-m). $
+  For the centroid, expand the products:
+  $ D(s)=s^n-(sum_(i=1)^n p_i)s^(n-1)+... $
+  and
+  $ N(s)=s^m-(sum_(j=1)^m z_j)s^(m-1)+... . $
+  Dividing the characteristic equation
+  $ D(s)+K N(s)=0 $
+  by $s^m$ and retaining the dominant two powers in $s$ for large $|s|$ yields
+  $ s^(n-m) - ((sum_(i=1)^n p_i)-(sum_(j=1)^m z_j)) s^(n-m-1) + ... approx -K. $
+  The asymptotes are the rays of the polynomial in the variable
+  $ w=s-sigma_a, $
+  and cancellation of the $w^(n-m-1)$ term gives
+  $ sigma_a = ((sum_(i=1)^n p_i)-(sum_(j=1)^m z_j))/(n-m). $
 ]
 
 #definition[Departure/Arrival Angles][
@@ -126,36 +136,27 @@ $ 1+K F(s)=0. $
   $ sigma_a = (0+(-2)+(-3)-(-1))/2 = -2. $
 ]
 
-#solved_problem[Complete Trajectory Sketch]
-[Sketch the root trajectory set for
+#solved_problem[Complete Trajectory Sketch][Sketch the root trajectory set for
   $ 1+K (s+2)/(s(s+1)(s+4))=0. $
 ]
 #solution[
-  1. Define
-     $ F(s)=(s+2)/(s(s+1)(s+4)). $
-     Poles: $0,-1,-4$ ($n=3$). Zero: $-2$ ($m=1$).
+  Define
+  $ F(s)=(s+2)/(s(s+1)(s+4)). $
+  The poles are $0,-1,-4$ ($n=3$), and the zero is $-2$ ($m=1$).
+  Therefore, three branches start at the poles; one ends at $-2$, and two go to infinity.
 
-  2. Branch structure:
-     three branches start at poles;
-     one ends at $-2$ and two go to infinity.
+  Since $n-m=2$, there are two asymptotes with angles $90 degree$ and $270 degree$.
+  The centroid is
+  $ sigma_a = (0+(-1)+(-4)-(-2))/2 = -1.5. $
 
-  3. Asymptotes:
-     $ n-m=2, $
-     angles $90 degree, 270 degree$,
-     centroid
-     $ sigma_a = (0+(-1)+(-4)-(-2))/2 = -1.5. $
-
-  4. Real-axis segments (odd-count rule):
-     $(-4,-2)$ and $(-1,0)$. 
-
-  5. Breakaway candidate:
-     from
-     $ K = -s(s+1)(s+4)/(s+2), $
-     solving
-     $ (d K)/(d s)=0 $
-     gives a candidate near
-     $ s approx -0.46, $
-     which lies in $(-1,0)$ and is admissible.
+  By the odd-count rule, the real-axis segments are $(-4,-2)$ and $(-1,0)$.
+  To locate a breakaway point, write
+  $ K = -s(s+1)(s+4)/(s+2). $
+  Solving
+  $ (d K)/(d s)=0 $
+  gives a candidate near
+  $ s approx -0.46, $
+  which belongs to $(-1,0)$ and is therefore admissible.
 ]
 
 #solved_problem[Imaginary-Axis Crossing Parameter][
@@ -194,8 +195,7 @@ $ 1+K F(s)=0. $
   compute asymptote angles and centroid.
 ]
 
-#supplementary[Real-Axis Segments]
-[For
+#supplementary[Real-Axis Segments][For
   $ 1+K (s+3)/(s(s+1)(s+4)(s+5))=0, $
   determine all real-axis segments belonging to the trajectory set.
 ]
@@ -229,8 +229,7 @@ $ 1+K F(s)=0. $
   if the phase condition is satisfied.
 ]
 
-#supplementary[Imaginary-Axis Crossing]
-[Find the parameter value(s) where
+#supplementary[Imaginary-Axis Crossing][Find the parameter value(s) where
   $ Delta(s,K)=s^3+5s^2+6s+K=0 $
   has purely imaginary roots.
 ]
