@@ -1,26 +1,15 @@
-#import "@preview/polylux:0.3.1": *
+#import "@preview/touying:0.5.3": *
+#import themes.metropolis: *
 
-#set page(paper: "presentation-16-9")
-#set text(size: 20pt, font: "New Computer Modern")
+#show: metropolis-theme.with(aspect-ratio: "16-9", config-info(
+  title: [MA2008B - Lecture Slides],
+  subtitle: [Numerical Analysis for Non-Linear Optimization],
+  author: [Dr. Juliho Castillo Colmenares, Ph.D.],
+  date: datetime.today(),
+  institution: [Tecnológico de Monterrey],
+))
 
-#show: polylux-setup
-
-#polylux-slide[
-  #align(center + horizon)[
-    #text(size: 2em, weight: "bold")[MA2008B - Numerical Analysis for Non-Linear Optimization]
-    
-    #text(size: 1.5em)[Lecture Slides]
-    
-    #v(1em)
-    Tecnológico de Monterrey
-    
-    #datetime.today().display()
-    
-    #v(1em)
-    *Author:* Dr. Juliho Castillo Colmenares, Ph.D.
-  ]
-]
-
+// Include modules here. Order matters.
 #include "sections/01_control_theory/01_main.typ"
 #include "sections/02_modeling/02_main.typ"
 #include "sections/03_transient_response/03_main.typ"
