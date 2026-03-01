@@ -21,7 +21,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
-#definition[Root Locus (Root Trajectory Set)][
+#definition[Root Locus][
   The root locus is the set
   $ cal(R) = { s in CC : Delta(s,K)=0, K in I }, $
   where $I$ is a subset of $RR$ (often $I=[0,infinity)$).
@@ -108,7 +108,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
   Hence,
   $ angle F(-1.5) = 180 degree = (2k+1)180 degree. $
 
-  Therefore, $s_0=-1.5$ satisfies the angle condition and is a candidate point on the root trajectory set.
+  Therefore, $s_0=-1.5$ satisfies the angle condition and is a candidate point on the root locus.
   If one also enforces the magnitude condition,
   $ |K F(-1.5)|=1 => K=1/|F(-1.5)|=1/4. $
 ]
@@ -134,7 +134,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 ]
 
 #solved_problem[Sketch Root Locus][
-  Sketch the root-trajectory set for the normalized equation
+  Sketch the root locus for the normalized equation
   $ 1+K/(s(s+1)(s+3))=0. $
 ]
 #solution[
@@ -238,7 +238,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 ]
 
 #supplementary[Trajectory Sketch with Complex Zeros][
-  Sketch the root-trajectory set for
+  Sketch the root locus for
   $ 1+K ((s+2)^2+4)/(s(s+1)(s+4)) = 0. $
   Identify real-axis segments, asymptotes, and how the complex zeros influence branch direction.
 ]
@@ -252,6 +252,6 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 #supplementary[Stability Threshold Parameter][
   For
   $ 1+K/(s(s+2)(s+4))=0, $
-  determine the value(s) of $K$ at which the root trajectory crosses the imaginary axis.
+  determine the value(s) of $K$ at which the root locus crosses the imaginary axis.
   Use the result to infer the stability threshold interval for $K$.
 ]

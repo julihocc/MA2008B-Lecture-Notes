@@ -1,7 +1,7 @@
 #import "../../utils.typ": *
 = System Optimization
 
-This module covers root locus analysis and design, a powerful graphical method for analyzing and designing control systems by examining how closed-loop poles move as system parameters vary.
+This module covers root-locus analysis and design, a powerful graphical method for analyzing and designing control systems by examining how closed-loop poles move as system parameters vary.
 
 #include "4.1_time_invariant_solution.typ"
 #include "4.2_root_locus_analysis.typ"

@@ -14,13 +14,13 @@ $ 1+K F(s)=0. $
 
 #definition[Branch Structure and Symmetry][
   Let $n$ and $m$ denote, respectively, the number of poles and zeros of $F$, counted with multiplicity.
-  The root trajectory has $n$ branches; each branch starts at a pole when $K=0$.
+  The root locus has $n$ branches; each branch starts at a pole when $K=0$.
   As $K -> infinity$, $m$ branches terminate at finite zeros and the remaining $n-m$ branches go to infinity.
   If coefficients are real, the trajectory is symmetric about the real axis.
 ]
 
 #proposition[Real-Axis Segment Criterion][
-  A real point belongs to the root trajectory if and only if the number of real poles and zeros of $F$ to its right is odd.
+  A real point belongs to the root locus if and only if the number of real poles and zeros of $F$ to its right is odd.
 ]
 
 #proof[
@@ -61,7 +61,7 @@ $ 1+K F(s)=0. $
 === Solved Problems
 
 #solved_problem[Apply All Rules][
-  Construct the root trajectory for
+  Construct the root locus for
   $ 1 + K/((s+1)(s^2+2s+2)) = 0 $
   using systematic rules.
 ]

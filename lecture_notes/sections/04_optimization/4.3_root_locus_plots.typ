@@ -3,7 +3,7 @@
 
 === Mathematical Review
 
-This section focuses on constructing root-trajectory plots for parameterized characteristic equations.
+This section focuses on constructing root-locus plots for parameterized characteristic equations.
 The objective is geometric: determine where branches start, where they terminate, and how they evolve in the complex plane as the parameter changes.
 
 Notation used below: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and
@@ -136,7 +136,7 @@ $ 1+K F(s)=0. $
   $ sigma_a = (0+(-2)+(-3)-(-1))/2 = -2. $
 ]
 
-#solved_problem[Complete Trajectory Sketch][Sketch the root trajectory set for
+#solved_problem[Complete Root-Locus Sketch][Sketch the root locus for
   $ 1+K (s+2)/(s(s+1)(s+4))=0. $
 ]
 #solution[
@@ -160,7 +160,7 @@ $ 1+K F(s)=0. $
 ]
 
 #solved_problem[Imaginary-Axis Crossing Parameter][
-  Determine where the root trajectory crosses the imaginary axis for
+  Determine where the root locus crosses the imaginary axis for
   $ Delta(s,K)=s^3+7s^2+10s+K=0. $
 ]
 #solution[
@@ -197,7 +197,7 @@ $ 1+K F(s)=0. $
 
 #supplementary[Real-Axis Segments][For
   $ 1+K (s+3)/(s(s+1)(s+4)(s+5))=0, $
-  determine all real-axis segments belonging to the trajectory set.
+  determine all real-axis segments belonging to the root locus.
 ]
 
 #supplementary[Breakaway Candidates][
