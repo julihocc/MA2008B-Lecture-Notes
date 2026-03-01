@@ -131,7 +131,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 
 #solved_problem[Compute State Transition Matrix][
-  Find $e^(A t)$ for $A = mat(0, 1;-1, 0)$.
+  Find $e^(A t)$ for
+  $ A = mat(0, 1;-1, 0). $
 ]
 #solution[
   Method 1: Laplace transform
@@ -243,7 +244,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 
 #solved_problem[Zero-State Response][
-  Find response for $A = mat(-1, 0;0, -2)$, $B = mat(1;1)$, $u(t) = 1$, $x(0) = 0$.
+  Find response for
+  $ A = mat(-1, 0;0, -2), quad B = mat(1;1), quad u(t) = 1, quad x(0) = 0. $
 ]
 #solution[
   Since $x(0)=0$, only the forced term remains:
