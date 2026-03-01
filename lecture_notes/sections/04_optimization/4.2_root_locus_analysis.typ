@@ -109,6 +109,8 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
   $ angle F(-1.5) = 180 degree = (2k+1)180 degree. $
 
   Therefore, $s_0=-1.5$ satisfies the angle condition and is a candidate point on the root trajectory set.
+  If one also enforces the magnitude condition,
+  $ |K F(-1.5)|=1 => K=1/|F(-1.5)|=1/4. $
 ]
 
 #solved_problem[Breakaway Point Calculation][
@@ -160,6 +162,10 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
      $ (d K)/(d s)=-(3s^2+8s+3)=0. $
      Thus
      $ s = (-8 plus.minus sqrt(64-36))/6 = -0.45, -2.22. $
+
+      Real-axis admissibility check:
+      the locus exists on $(-infinity,-3)$ and $(-1,0)$, but not on $(-3,-1)$.
+      Hence only $s approx -0.45$ is a valid breakaway point on the locus; $s approx -2.22$ is discarded.
 ]
 
 #solved_problem[Design for Damping Ratio][
