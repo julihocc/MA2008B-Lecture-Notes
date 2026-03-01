@@ -153,9 +153,9 @@ $ 1+K F(s)=0. $
   To locate a breakaway point, write
   $ K = -s(s+1)(s+4)/(s+2). $
   Solving
-  $ (d K)/(d s)=0 $
+  $ (d K)/(d s)=0, 2s^3+11s^2+20s+8=0, $
   gives a candidate near
-  $ s approx -0.46, $
+  $ s approx -0.55, $
   which belongs to $(-1,0)$ and is therefore admissible.
 ]
 
