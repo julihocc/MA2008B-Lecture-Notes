@@ -11,49 +11,102 @@
 // #show: thmrules
 
 // Definitions
-#let definition = thmbox("definition", "Definition", fill: rgb("fff3e0"), stroke: rgb("e65100") + 1pt, base: "heading", breakable: true)
+#let definition = thmbox(
+	"definition",
+	"Definition",
+	fill: rgb("fff3e0"),
+	stroke: rgb("e65100") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
+)
 
 // Theorems
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("e8eaf6"), stroke: rgb("283593") + 1pt, base: "heading", breakable: true)
+#let theorem = thmbox(
+	"theorem",
+	"Theorem",
+	fill: rgb("e8eaf6"),
+	stroke: rgb("283593") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
+)
 
 // Propositions
-#let proposition = thmbox("proposition", "Proposition", fill: rgb("fce4ec"), stroke: rgb("880e4f") + 1pt, base: "heading", breakable: true)
+#let proposition = thmbox(
+	"proposition",
+	"Proposition",
+	fill: rgb("fce4ec"),
+	stroke: rgb("880e4f") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
+)
 
 // Corollaries
-#let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, base: "heading", breakable: true)
+#let corollary = thmbox(
+	"corollary",
+	"Corollary",
+	fill: rgb("e0f2f1"),
+	stroke: rgb("00695c") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
+)
 
 // Examples
 #let _example_inner = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
 #let example(..args) = {
-  block(fill: luma(240), width: 100%, inset: 10pt, breakable: true, _example_inner(..args))
+	block(
+		fill: luma(240),
+		stroke: luma(170) + 0.5pt,
+		radius: 0pt,
+		width: 100%,
+		inset: 10pt,
+		breakable: true,
+		_example_inner(..args),
+	)
 }
 
 // Solved Problems (Schaum's Style)
 #let solved_problem = thmbox(
-  "solved_problem",
-  "Solved Problem",
-  fill: rgb("e6f3ff"),
-  inset: 8pt,
-  radius: 4pt,
-  stroke: rgb("0074d9") + 1pt,
-  base: "heading",
-  breakable: true,
+	"solved_problem",
+	"Solved Problem",
+	fill: rgb("e6f3ff"),
+	stroke: rgb("0074d9") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
 )
 
 // Supplementary Problems (Schaum's Style)
 #let supplementary = thmbox(
-  "supplementary",
-  "Supplementary Problem",
-  fill: rgb("fffde7"),
-  inset: 8pt,
-  radius: 4pt,
-  stroke: rgb("fbc02d") + 1pt,
-  base: "heading",
-  breakable: true,
+	"supplementary",
+	"Supplementary Problem",
+	fill: rgb("fffde7"),
+	stroke: rgb("fbc02d") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
 )
 
 // Exercises (Keeping for backward compatibility or generic use)
-#let exercise = thmbox("exercise", "Exercise", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, base: "heading", breakable: true)
+#let exercise = thmbox(
+	"exercise",
+	"Exercise",
+	fill: rgb("f3e5f5"),
+	stroke: rgb("6a1b9a") + 0.6pt,
+	radius: 0pt,
+	inset: 8pt,
+	base: "heading",
+	breakable: true,
+)
 
 // Proofs
 #let proof = thmproof("proof", "Proof")
