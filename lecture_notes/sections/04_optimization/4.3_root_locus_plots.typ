@@ -3,70 +3,141 @@
 
 === Mathematical Review
 
-Root locus diagrams provide visual insight into system stability and transient response as gain varies.
+In this section, we focus on plotting the root-trajectory set of a parameterized characteristic equation.
+The objective is geometric: determine where branches start, where they end, and how they move in the complex plane as the parameter changes.
 
-#definition[Key Features of Root Locus][
-  - *Number of branches:* Equal to number of poles
-  - *Starting points:* Open-loop poles (at $K=0$)
-  - *Ending points:* Open-loop zeros (at $K -> infinity$)
-  - *Symmetry:* Symmetric about real axis
+Notation used below: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and
+$ Delta(s,K)=P(s)+K Q(s)=0 $
+is the characteristic equation.
+When $P(s) != 0$, define
+$ F(s)=Q(s)/P(s), $
+so the normalized form is
+$ 1+K F(s)=0. $
+
+#definition[Trajectory-Plot Elements][
+  For a normalized equation $1+K F(s)=0$ with rational $F(s)$:
+  - poles of $F$ are branch starting points (at $K=0$),
+  - zeros of $F$ are branch ending points (as $K -> infinity$),
+  - if $F$ has real coefficients, the trajectory is symmetric about the real axis.
 ]
 
-#example[Second-Order Locus][
-  For $G(s) = 1/(s(s+4))$:
-  - 2 branches start at $s=0, -4$
-  - Both go to infinity (no finite zeros)
-  - Breakaway point at $s = -2$
+#proposition[Branch Count and Endpoints][
+  Let $n$ be the number of poles of $F$ and $m$ the number of zeros of $F$ (counted with multiplicity).
+  Then:
+  - the trajectory has $n$ branches,
+  - $m$ branches end at finite zeros,
+  - $n-m$ branches go to infinity.
 ]
 
-#theorem[Asymptotes][
-  For $n$ poles and $m$ zeros ($n > m$):
-  - Number of asymptotes: $n - m$
-  - Angles: $theta_("k") = (180 degree (2k+1))/(n-m)$ for $k = 0, 1, ..., n-m-1$
-  - Centroid: $sigma_a = (sum "poles" - sum "zeros")/(n-m)$
+#theorem[Asymptotes and Centroid]
+[For $n>m$ in the normalized form $1+K F(s)=0$:
+  - number of asymptotes: $n-m$,
+  - asymptote angles:
+    $ theta_k = ((2k+1)180 degree)/(n-m), quad k=0,1,...,n-m-1, $
+  - centroid:
+    $ sigma_a = (sum "poles" - sum "zeros")/(n-m). $
 ]
 
-#example[Asymptote Calculation][
-  For $G(s) = (s+1)/(s(s+2)(s+3))$:
-  - $n = 3, m = 1 => n-m = 2$ asymptotes
-  - Angles: $90 degree, 270 degree$
-  - Centroid: $(0-2-3-(-1))/2 = -2$
+#proof[
+  For large $|s|$, finite zeros/poles contribute approximately their highest-order terms, so
+  $ F(s) approx c/s^(n-m), $
+  for some real constant $c != 0$.
+  The characteristic equation
+  $ 1+K F(s)=0 $
+  becomes asymptotically
+  $ s^(n-m) approx -K c. $
+  Therefore the $n-m$ branches at infinity follow equally spaced directions,
+  giving angles
+  $ theta_k = ((2k+1)180 degree)/(n-m). $
+
+  The centroid formula follows from balancing pole-zero contributions in the first-order term of the large-$s$ expansion, yielding
+  $ sigma_a = (sum "poles" - sum "zeros")/(n-m). $
 ]
 
 #definition[Departure/Arrival Angles][
-  At complex poles/zeros, branches depart/arrive at specific angles:
-  $ theta_d = 180 degree - sum angle("from zeros") + sum angle("from other poles") $
-]
-
-#example[Departure Angle][
-  For pole at $s = -1 + j$ with other pole at $s = -1 - j$:
-  $ theta_d = 180 degree - 0 + 90 degree = 270 degree $
+  At a simple complex pole $p$, the local departure angle is obtained from the angle condition by subtracting all known angle contributions except the unknown branch angle at $p$.
+  At a simple complex zero $z$, the arrival angle is obtained analogously.
 ]
 
 === Solved Problems
 
-#solved_problem[Complete Root Locus Sketch][
-  Sketch root locus for $G(s) = (s+2)/(s(s+1)(s+4))$.
+#solved_problem[Basic Plot Data][
+  For
+  $ 1+K/(s(s+4))=0, $
+  determine branch count, start/end points, and any finite breakaway point.
 ]
 #solution[
-  1. *Poles:* $0, -1, -4$ | *Zeros:* $-2$
-  2. *Branches:* 3 (from poles)
-  3. *Asymptotes:* $n-m = 2$
-    - Angles: $90 degree, 270 degree$
-    - Centroid: $(0-1-4-(-2))/2 = -1.5$
-  4. *Real axis segments:* $[-4, -2]$ and $[-1, 0]$
-  5. *Breakaway:* Between $-1$ and $0$
-    From $K = -s(s+1)(s+4)/(s+2)$:
-    Solving $(d K)/(d s) = 0$ gives $s approx -0.46$
+  Here $F(s)=1/(s(s+4))$ has poles at $s=0,-4$ and no finite zeros.
+  So there are $n=2$ branches, both starting at $0,-4$ and ending at infinity.
+
+  From
+  $ 1+K/(s(s+4))=0, $
+  we get
+  $ K=-s(s+4). $
+  Breakaway candidates satisfy
+  $ (d K)/(d s)=-(2s+4)=0 => s=-2. $
+  Thus the finite breakaway point is
+  $ s=-2. $
 ]
 
-#solved_problem[Imaginary Axis Crossing][
-  Find where root locus crosses imaginary axis for $G(s) = 1/(s(s+2)(s+5))$.
+#solved_problem[Asymptotes and Centroid Calculation][
+  For
+  $ 1+K (s+1)/(s(s+2)(s+3))=0, $
+  compute asymptote count, asymptote angles, and centroid.
 ]
 #solution[
-  Characteristic equation: $s^3 + 7s^2 + 10s + K = 0$
+  Let
+  $ F(s)=(s+1)/(s(s+2)(s+3)). $
+  Then poles are $0,-2,-3$ ($n=3$) and zero is $-1$ ($m=1$), so
+  $ n-m=2. $
 
-  Routh array:
+  Asymptote angles:
+  $ theta_k=((2k+1)180 degree)/2, quad k=0,1, $
+  hence
+  $ 90 degree, 270 degree. $
+
+  Centroid:
+  $ sigma_a = (0+(-2)+(-3)-(-1))/2 = -2. $
+]
+
+#solved_problem[Complete Trajectory Sketch]
+[Sketch the root trajectory set for
+  $ 1+K (s+2)/(s(s+1)(s+4))=0. $
+]
+#solution[
+  1. Define
+     $ F(s)=(s+2)/(s(s+1)(s+4)). $
+     Poles: $0,-1,-4$ ($n=3$). Zero: $-2$ ($m=1$).
+
+  2. Branch structure:
+     three branches start at poles;
+     one ends at $-2$ and two go to infinity.
+
+  3. Asymptotes:
+     $ n-m=2, $
+     angles $90 degree, 270 degree$,
+     centroid
+     $ sigma_a = (0+(-1)+(-4)-(-2))/2 = -1.5. $
+
+  4. Real-axis segments (odd-count rule):
+     $(-4,-2)$ and $(-1,0)$. 
+
+  5. Breakaway candidate:
+     from
+     $ K = -s(s+1)(s+4)/(s+2), $
+     solving
+     $ (d K)/(d s)=0 $
+     gives a candidate near
+     $ s approx -0.46, $
+     which lies in $(-1,0)$ and is admissible.
+]
+
+#solved_problem[Imaginary-Axis Crossing Parameter][
+  Determine where the root trajectory crosses the imaginary axis for
+  $ Delta(s,K)=s^3+7s^2+10s+K=0. $
+]
+#solution[
+  Use the Routh array:
   $
     s^3: quad &1 quad 10 \
     s^2: quad &7 quad K \
@@ -74,18 +145,72 @@ Root locus diagrams provide visual insight into system stability and transient r
     s^0: quad &K
   $
 
-  At imaginary axis crossing: $(70-K)/7 = 0 => K = 70$
+  Crossing occurs when the $s^1$ row leading term is zero:
+  $ (70-K)/7=0 => K=70. $
 
-  From auxiliary equation: $7s^2 + K = 0$
-  $ s = plus.minus j sqrt(K/7) = plus.minus j sqrt(10) $
+  The auxiliary equation is
+  $ 7s^2+K=0. $
+  With $K=70$:
+  $ s=plus.minus j sqrt(10). $
 ]
 
 === Supplementary Problems
 
-#supplementary[Multiple Breakaway Points][
-  Find all breakaway/break-in points for third-order system.
+#supplementary[Branch Count and Endpoints][
+  For
+  $ 1+K (s+5)/(s(s+1)(s+2)(s+3))=0, $
+  determine $n,m$, branch count, and endpoint types.
 ]
 
-#supplementary[Root Locus with Delay][
-  Sketch root locus for system with time delay $e^(-s T)$.
+#supplementary[Asymptote Geometry][
+  For
+  $ 1+K/(s(s+2)(s+4)(s+6))=0, $
+  compute asymptote angles and centroid.
+]
+
+#supplementary[Real-Axis Segments]
+[For
+  $ 1+K (s+3)/(s(s+1)(s+4)(s+5))=0, $
+  determine all real-axis segments belonging to the trajectory set.
+]
+
+#supplementary[Breakaway Candidates][
+  For
+  $ 1+K/(s(s+1)(s+4))=0, $
+  compute all solutions of
+  $ (d K)/(d s)=0. $
+]
+
+#supplementary[Admissible Breakaway Points][
+  Using the previous problem, keep only candidates that lie on valid real-axis trajectory segments.
+]
+
+#supplementary[Complex-Zero Effect][
+  Sketch the trajectory for
+  $ 1+K ((s+2)^2+1)/(s(s+1)(s+4))=0, $
+  and describe how nonreal zeros affect branch direction.
+]
+
+#supplementary[Angle Check at a Test Point][
+  Let
+  $ F(s)=1/((s+1)(s+2)(s+5)). $
+  Check whether $s_0=-1.5$ satisfies the angle condition.
+]
+
+#supplementary[Magnitude Completion][
+  For the same $F(s)$ and test point $s_0=-1.5$, compute the corresponding parameter value from
+  $ |K F(s_0)|=1, $
+  if the phase condition is satisfied.
+]
+
+#supplementary[Imaginary-Axis Crossing]
+[Find the parameter value(s) where
+  $ Delta(s,K)=s^3+5s^2+6s+K=0 $
+  has purely imaginary roots.
+]
+
+#supplementary[Target Damping Region][
+  For
+  $ Delta(s,K)=s^2+3s+K, quad zeta=0.6, $
+  determine the value of $K$ that places the roots on the corresponding damping line.
 ]
