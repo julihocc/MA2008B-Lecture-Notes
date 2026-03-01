@@ -77,9 +77,10 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 
 #proposition[Eigenvalue Decomposition Formula][
-  If $A$ is diagonalizable, i.e., $A = V Lambda V^(-1)$ with $Lambda$ diagonal, then:
-  - $V$ is the modal matrix whose columns are eigenvectors of $A$ (so $V$ is invertible).
-  - $Lambda$ contains the corresponding eigenvalues on its diagonal.
+  Suppose $A$ is diagonalizable, so that
+  $ A = V Lambda V^(-1), $
+  where $V$ is the eigenvector (modal) matrix and $Lambda$ is diagonal with the corresponding eigenvalues.
+  Then the matrix exponential is given by
   $ e^(A t) = V e^(Lambda t) V^(-1) $
 ]
 
