@@ -3,7 +3,7 @@
 
 === Mathematical Review
 
-Systematic construction rules allow one to sketch root trajectories with limited computation while preserving exact geometric constraints.
+Systematic construction rules make it possible to sketch root trajectories with modest computation while preserving exact geometric constraints.
 Let
 $ Delta(s,K)=P(s)+K Q(s)=0 $
 be the characteristic equation, and define

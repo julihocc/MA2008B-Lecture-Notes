@@ -4,7 +4,7 @@
 === Mathematical Review
 
 Root contours generalize root-locus geometry from one-parameter variation to multi-parameter families.
-Instead of tracing poles as a single gain changes, one studies level sets and trajectories produced by simultaneous variation of parameters such as gain, compensator zero, and compensator pole.
+Instead of tracing poles under variation of a single gain, one studies level sets and trajectories produced by simultaneous variation of parameters such as gain, compensator zero, and compensator pole.
 
 #definition[Root-Contour Family][
   Let
@@ -49,8 +49,8 @@ Instead of tracing poles as a single gain changes, one studies level sets and tr
   Their intersection yields the admissible region.
 ]
 
-#proposition[Local Parameter Sensitivity]
-[If $Delta(s,p)=0$ and $partial Delta/partial s != 0$ at a nominal point $(s_0,p_0)$, then locally
+#proposition[Local Parameter Sensitivity][
+  If $Delta(s,p)=0$ and $partial Delta/partial s != 0$ at a nominal point $(s_0,p_0)$, then locally
   $ (d s)/(d p) = - (partial Delta/partial p)/(partial Delta/partial s) $ at $(s_0,p_0)$.
 ]
 

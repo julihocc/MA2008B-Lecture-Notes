@@ -7,7 +7,7 @@ Consider a unity-feedback system with open-loop transfer function
 $ L(s)=K C(s)P(s), $
 so the closed-loop characteristic equation is
 $ Delta(s,K)=1+L(s)=0. $
-Root-locus design consists of choosing $K$ (and, when needed, a compensator $C$) so that selected roots of $Delta$ satisfy transient-performance requirements.
+Root-locus design consists of choosing $K$ (and, when needed, a compensator $C$) so that selected roots of $Delta$ satisfy prescribed transient-performance requirements.
 
 #definition[Second-Order Target Pair][
   For damping ratio $zeta in (0,1)$ and natural frequency $omega_n>0$, the target dominant pair is

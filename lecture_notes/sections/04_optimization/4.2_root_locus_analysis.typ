@@ -3,9 +3,9 @@
 
 === Mathematical Review
 
-In this section, we study root locus analysis and design through a general mathematical lens.
-The core question is how roots of a parameterized characteristic equation move as a real parameter changes.
-Although root locus is classical in control theory, the same ideas apply to differential equations and parameter-dependent stability problems more broadly.
+This section develops root-locus analysis and design from a general mathematical viewpoint.
+The central question is how roots of a parameterized characteristic equation move as a real parameter varies.
+Although root locus is classical in control theory, the same framework applies to broader classes of differential equations and parameter-dependent stability problems.
 
 Notation used in this section: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and $Delta(s,K)$ is the characteristic equation.
 When needed, we write $Delta(s,K)=P(s)+K Q(s)$ and define $F(s)=Q(s)/P(s)$ (where $P(s) != 0$).

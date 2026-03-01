@@ -3,8 +3,8 @@
 
 === Mathematical Review
 
-In this section, we focus on plotting the root-trajectory set of a parameterized characteristic equation.
-The objective is geometric: determine where branches start, where they end, and how they move in the complex plane as the parameter changes.
+This section focuses on constructing root-trajectory plots for parameterized characteristic equations.
+The objective is geometric: determine where branches start, where they terminate, and how they evolve in the complex plane as the parameter changes.
 
 Notation used below: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and
 $ Delta(s,K)=P(s)+K Q(s)=0 $
