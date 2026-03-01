@@ -61,7 +61,9 @@ $ 1+K F(s)=0. $
 === Solved Problems
 
 #solved_problem[Apply All Rules][
-  Construct root locus for $G(s) = K/((s+1)(s^2+2s+2))$ using systematic rules.
+  Construct the root trajectory for
+  $ 1 + K/((s+1)(s^2+2s+2)) = 0 $
+  using systematic rules.
 ]
 #solution[
   With
@@ -89,7 +91,9 @@ $ 1+K F(s)=0. $
 ]
 
 #solved_problem[Design Using Root Locus][
-  For $G(s) = K/(s(s+2))$, find $K$ for poles at $s = -1 plus.minus j$.
+  For
+  $ Delta(s,K)=s(s+2)+K=0, $
+  find $K$ for poles at $s = -1 plus.minus j$.
 ]
 #solution[
   The characteristic equation is
@@ -173,7 +177,7 @@ $ 1+K F(s)=0. $
 
 #supplementary[Gain for Prescribed Pole][
   For
-  $ G(s)=K/(s(s+4)), $
+  $ Delta(s,K)=s(s+4)+K=0, $
   find $K$ such that the closed-loop poles are at $-2 plus.minus 2j$.
 ]
 

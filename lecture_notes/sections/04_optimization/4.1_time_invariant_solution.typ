@@ -56,9 +56,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 
 #theorem[Complete Solution][
   For the linear time-invariant state equation $dot(x) = A x + B u$ with initial condition $x(0)$, the complete state response is
-  $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau $
-  - first term: zero-input (free) response
-  - second term: zero-state (forced) response.
+  $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau. $
+  The first term is the zero-input (free) response, and the second term is the zero-state (forced) response.
 ]
 
 #proof[
@@ -124,10 +123,9 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ = mat(e^(-t), 0;0, e^(-2t)). $
 
   Interpretation:
-  - The diagonal form means the two modal states evolve independently (no coupling terms).
-  - The first mode decays as $e^(-t)$ with time constant $1$, and the second decays as $e^(-2t)$ with time constant $1/2$.
-  - The faster decay $e^(-2t)$ disappears sooner, so the long-term transient is governed by $e^(-t)$.
-  - Since both eigenvalues are negative, the equilibrium at the origin is asymptotically stable and $Phi(t) -> 0$ as $t -> infinity$.
+  The diagonal form means the two modal states evolve independently, with no coupling terms.
+  The first mode decays as $e^(-t)$ (time constant $1$), while the second decays as $e^(-2t)$ (time constant $1/2$), so the long-term transient is governed by $e^(-t)$.
+  Since both eigenvalues are negative, the equilibrium at the origin is asymptotically stable and $Phi(t) -> 0$ as $t -> infinity$.
 ]
 
 #solved_problem[Compute State Transition Matrix][
@@ -156,15 +154,15 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Therefore
   $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)). $
   Verification:
-  - Both methods give the same candidate
-    $ Phi(t) = mat(cos(t), sin(t);-sin(t), cos(t)). $
-  - Initial-condition check:
-    $ Phi(0) = mat(cos(0), sin(0);-sin(0), cos(0)) = mat(1, 0;0, 1) = I. $
-  - Differential-equation check:
-    $ dot(Phi)(t) = mat(-sin(t), cos(t);-cos(t), -sin(t)). $
-    Also,
-    $ A Phi(t) = mat(0, 1;-1, 0) mat(cos(t), sin(t);-sin(t), cos(t)) $
-    $ = mat(-sin(t), cos(t);-cos(t), -sin(t)) = dot(Phi)(t). $
+  Both methods give the same candidate
+  $ Phi(t) = mat(cos(t), sin(t);-sin(t), cos(t)). $
+  Also,
+  $ Phi(0) = mat(cos(0), sin(0);-sin(0), cos(0)) = mat(1, 0;0, 1) = I, $
+  and
+  $ dot(Phi)(t) = mat(-sin(t), cos(t);-cos(t), -sin(t)). $
+  Moreover,
+  $ A Phi(t) = mat(0, 1;-1, 0) mat(cos(t), sin(t);-sin(t), cos(t)) $
+  $ = mat(-sin(t), cos(t);-cos(t), -sin(t)) = dot(Phi)(t). $
   Hence $Phi(t)$ satisfies both defining conditions
   $ dot(Phi) = A Phi, quad Phi(0) = I, $
   so it is indeed the state transition matrix.
@@ -206,8 +204,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   ) $. 
 
   Consistency checks:
-  - At $t = 0$, $e^(A 0) = I$.
-  - $d/(d t) e^(A t)|_(t=0) = A$.
+  At $t = 0$, $e^(A 0) = I$, and
+  $d/(d t) e^(A t)|_(t=0) = A$.
 ]
 
 #solved_problem[Zero-Input Response][
@@ -239,8 +237,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ x_1(t)=4e^(-t)-3e^(-2t), quad x_2(t)=-4e^(-t)+6e^(-2t). $
 
   Quick checks:
-  - Initial condition: $x(0)=mat(4-3;-4+6)=mat(1;2)$.
-  - As $t -> infinity$, both components go to $0$ (stable decay since eigenvalues are negative).
+  $x(0)=mat(4-3;-4+6)=mat(1;2)$, and as $t -> infinity$ both components go to $0$ (stable decay since eigenvalues are negative).
 ]
 
 #solved_problem[Zero-State Response][
@@ -267,13 +264,12 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ x(t) = mat(1 - e^(-t);(1 - e^(-2t))/2) $
 
   Verification:
-  - Initial condition:
-    $ x(0) = mat(1-1;(1-1)/2) = mat(0;0). $
-  - Differential equation check:
-    $ dot(x)(t) = mat(e^(-t);e^(-2t)). $
-    Also,
-    $ A x(t) + B = mat(-1, 0;0, -2) mat(1 - e^(-t);(1 - e^(-2t))/2) + mat(1;1) $
-    $ = mat(e^(-t);e^(-2t)) = dot(x)(t). $
+  $ x(0) = mat(1-1;(1-1)/2) = mat(0;0). $
+  Also,
+  $ dot(x)(t) = mat(e^(-t);e^(-2t)), $
+  while
+  $ A x(t) + B = mat(-1, 0;0, -2) mat(1 - e^(-t);(1 - e^(-2t))/2) + mat(1;1) $
+  $ = mat(e^(-t);e^(-2t)) = dot(x)(t). $
   So the computed $x(t)$ satisfies both $x(0)=0$ and $dot(x)=A x + B$.
 ]
 
@@ -285,18 +281,17 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 #solution[
   From previous solved problems:
-  - zero-input term:
-    $ e^(A t)x(0)=mat(e^(-t), 0;0, e^(-2t)) mat(1;2)=mat(e^(-t);2e^(-2t)). $
-  - zero-state term:
-    $ integral_0^t e^(A(t-tau))B d tau = mat(1-e^(-t);(1-e^(-2t))/2). $
+  the zero-input term is
+  $ e^(A t)x(0)=mat(e^(-t), 0;0, e^(-2t)) mat(1;2)=mat(e^(-t);2e^(-2t)), $
+  and the zero-state term is
+  $ integral_0^t e^(A(t-tau))B d tau = mat(1-e^(-t);(1-e^(-2t))/2). $
 
   Add both terms:
   $ x(t)=mat(e^(-t);2e^(-2t))+mat(1-e^(-t);(1-e^(-2t))/2). $
   $ = mat(1;(1+3e^(-2t))/2). $
 
   Checks:
-  - At $t=0$, $x(0)=mat(1;(1+3)/2)=mat(1;2)$.
-  - As $t -> infinity$, $x(t) -> mat(1;1/2)$, the steady-state under constant input.
+  At $t=0$, $x(0)=mat(1;(1+3)/2)=mat(1;2)$, and as $t -> infinity$, $x(t) -> mat(1;1/2)$, the steady-state under constant input.
 ]
 
 === Supplementary Problems

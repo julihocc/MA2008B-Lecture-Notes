@@ -140,32 +140,26 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 #solution[
   Here $n$ denotes the number of poles of $F(s)$ and $m$ the number of zeros of $F(s)$.
 
-  1. Singular points of $F(s)=1/(s(s+1)(s+3))$:
-    poles at $s = 0, -1, -3$ (three branches start here).
+  The singular points of
+  $ F(s)=1/(s(s+1)(s+3)) $
+  are poles at $s=0,-1,-3$, and there are no finite zeros.
+  Therefore three branches start at these poles and all three terminate at infinity.
 
-  2. Zeros of $F(s)$:
-    none (three branches terminate at infinity).
+  Since $n=3$ and $m=0$, we have $n-m=3$ asymptotes with angles
+  $ theta_q = ((2q+1)180 degree)/(n-m), quad q=0,1,2, $
+  namely $60 degree$, $180 degree$, and $300 degree$.
+  The centroid is
+  $ sigma_a = (0 + (-1) + (-3) - 0)/(3-0) = -4/3. $
 
-  3. Asymptotes:
-      $ n=3, quad m=0, quad n-m=3. $
-     Angles are
-      $ theta_q = ((2q+1)180 degree)/(n-m), quad q=0,1,2, $
-     so
-     $ 60 degree, 180 degree, 300 degree. $
+  For breakaway analysis,
+  $ K = -s(s+1)(s+3), $
+  so
+  $ (d K)/(d s)=-(3s^2+8s+3)=0. $
+  This gives
+  $ s = (-8 plus.minus sqrt(64-36))/6 = -0.45, -2.22. $
 
-  4. Centroid:
-      $ sigma_a = (0 + (-1) + (-3) - 0)/(3-0) = -4/3. $
-
-  5. Breakaway candidates:
-     from
-     $ K = -s(s+1)(s+3), $
-     $ (d K)/(d s)=-(3s^2+8s+3)=0. $
-     Thus
-     $ s = (-8 plus.minus sqrt(64-36))/6 = -0.45, -2.22. $
-
-      Real-axis admissibility check:
-      the locus exists on $(-infinity,-3)$ and $(-1,0)$, but not on $(-3,-1)$.
-      Hence only $s approx -0.45$ is a valid breakaway point on the locus; $s approx -2.22$ is discarded.
+  The real-axis locus exists on $(-infinity,-3)$ and $(-1,0)$, but not on $(-3,-1)$.
+  Hence only $s approx -0.45$ is admissible on the locus, while $s approx -2.22$ is discarded.
 ]
 
 #solved_problem[Design for Damping Ratio][
