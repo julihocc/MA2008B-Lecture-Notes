@@ -43,7 +43,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Start from
   $ dot(Phi)(t)=A Phi(t), quad Phi(0)=I. $
   Applying Laplace transform and using linearity (with constant $A$) gives
-  $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)}. $
+  $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0). $
+  $ s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)}. $
   Using $Phi(0)=I$,
   $ (s I-A) cal(L){Phi(t)}=I, $
   hence
@@ -76,8 +77,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ z(t) = x(0) + integral_0^t e^(-A tau) B u(tau) d tau. $
 
   Multiply both sides by $e^(A t)$:
-  $ x(t) = e^(A t) x(0) + e^(A t) integral_0^t e^(-A tau) B u(tau) d tau $
-  $ = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau. $
+  $ x(t) = e^(A t) x(0) + e^(A t) integral_0^t e^(-A tau) B u(tau) d tau. $
+  $ x(t) = e^(A t) x(0) + integral_0^t e^(A(t-tau)) B u(tau) d tau. $
   Therefore, the complete solution is proved.
 ]
 
@@ -134,7 +135,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 #solution[
   Method 1: Laplace transform
-  $ (s I - A)^(-1) = mat(s, -1;1, s)^(-1) = 1/(s^2+1) mat(s, 1;-1, s) $
+  $ (s I - A)^(-1) = mat(s, -1;1, s)^(-1) $
+  $ = 1/(s^2+1) mat(s, 1;-1, s). $
 
   Taking inverse Laplace:
   $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)) $
@@ -148,7 +150,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Then
   $ e^(A t) = I + A t + (A t)^2/2! + (A t)^3/3! + dots $
   $ = (I - t^2/2! I + t^4/4! I - dots) + (t A - t^3/3! A + t^5/5! A - dots) $
-  $ = I cos(t) + A sin(t) $
+  $ = I cos(t) + A sin(t). $
 
   Therefore
   $ e^(A t) = mat(cos(t), sin(t);-sin(t), cos(t)). $
@@ -187,14 +189,14 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 
   Step 2: Form diagonalization matrices.
   Here $V=[v_1\ v_2]$ is the eigenvector matrix.
-  $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2) $
+  $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2). $
   $ det(V) = -1, quad V^(-1) = mat(2, 1;-1, -1). $
 
   Step 3: Exponentiate the diagonal matrix.
   $ e^(Lambda t) = mat(e^(-t), 0;0, e^(-2t)). $
 
   Step 4: Multiply explicitly.
-  $ V e^(Lambda t) = mat(e^(-t), e^(-2t);-e^(-t), -2e^(-2t)) $
+  $ V e^(Lambda t) = mat(e^(-t), e^(-2t);-e^(-t), -2e^(-2t)). $
 
   Therefore,
   $ e^(A t) = mat(
@@ -229,7 +231,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ x(t)=mat(
     (2e^(-t)-e^(-2t)) + 2(e^(-t)-e^(-2t));
     (-2e^(-t)+2e^(-2t)) + 2(-e^(-t)+2e^(-2t))
-  ) $
+  ). $
   $ = mat(4e^(-t)-3e^(-2t);-4e^(-t)+6e^(-2t)). $
 
   Therefore,
@@ -245,7 +247,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 ]
 #solution[
   Since $x(0)=0$, only the forced term remains:
-  $ x(t) = integral_0^t e^(A(t-tau)) B u(tau) d tau = integral_0^t e^(A(t-tau)) B d tau $
+  $ x(t) = integral_0^t e^(A(t-tau)) B u(tau) d tau. $
+  $ x(t) = integral_0^t e^(A(t-tau)) B d tau. $
 
   For diagonal $A = mat(-1, 0;0, -2)$:
   $ e^(A(t-tau)) = mat(e^(-(t-tau)), 0;0, e^(-2(t-tau))) $
@@ -286,7 +289,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
     $ integral_0^t e^(A(t-tau))B d tau = mat(1-e^(-t);(1-e^(-2t))/2). $
 
   Add both terms:
-  $ x(t)=mat(e^(-t);2e^(-2t))+mat(1-e^(-t);(1-e^(-2t))/2) $
+  $ x(t)=mat(e^(-t);2e^(-2t))+mat(1-e^(-t);(1-e^(-2t))/2). $
   $ = mat(1;(1+3e^(-2t))/2). $
 
   Checks:
