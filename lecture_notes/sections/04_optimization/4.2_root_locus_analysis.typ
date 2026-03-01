@@ -3,8 +3,13 @@
 
 === Mathematical Review
 
-In this section, root locus is presented as a general method for tracking how roots of a characteristic equation move when a real parameter varies.
-This viewpoint is useful in control systems and also in differential-equations courses where stability depends on parameterized characteristic polynomials.
+In this section, we study root locus analysis and design through a general mathematical lens.
+The core question is how roots of a parameterized characteristic equation move as a real parameter changes.
+Although root locus is classical in control theory, the same ideas apply to differential equations and parameter-dependent stability problems more broadly.
+
+Notation used in this section: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and $Delta(s,K)$ is the characteristic equation.
+When needed, we write $Delta(s,K)=P(s)+K Q(s)$ and define $F(s)=Q(s)/P(s)$ (where $P(s) != 0$).
+The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #definition[Parameterized Characteristic Equation][
   Consider a one-parameter family of characteristic equations
@@ -16,151 +21,99 @@ This viewpoint is useful in control systems and also in differential-equations c
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
-Many dynamical systems in engineering and applied mathematics are modeled by linear differential equations relating an input signal $u(t)$ to an output signal $y(t)$.
-For LTI models, Laplace transform converts this differential relation into an algebraic one, which motivates the transfer-function representation used below.
-
-#definition[Transfer Function][
-  Consider an LTI input-output model
-  $ a_n y^(n)(t)+dots+a_1 dot(y)(t)+a_0 y(t)=b_m u^(m)(t)+dots+b_1 dot(u)(t)+b_0 u(t), $
-  with zero initial conditions.
-
-  Let
-  $ U(s)=cal(L){u(t)}, quad Y(s)=cal(L){y(t)}. $
-  The transfer function is the mapping from input to output in Laplace domain:
-  $ T(s)=Y(s)/U(s). $
-
-  In rational form,
-  $ T(s)=N(s)/D(s), $
-  where $N(s)$ is the numerator polynomial (or, more generally, numerator rational factor) and $D(s)$ is the denominator polynomial (or denominator rational factor).
-  Zeros are roots of $N(s)$ and poles are roots of $D(s)$.
+#definition[Root Locus (Root Trajectory Set)][
+  The root locus is the set
+  $ cal(R) = { s in CC : Delta(s,K)=0, K in I }, $
+  where $I$ is a subset of $RR$ (often $I=[0,infinity)$).
 ]
 
-For root-locus analysis, we now specialize this general input-output description to a feedback interconnection.
-In that setting, the relevant characteristic equation is expressed in terms of forward-path and feedback-path transfer functions, denoted by $G(s)$ and $H(s)$.
-
-In what follows, we use the standard feedback notation. The gain $K in RR$ is a real scalar parameter (typically $K>=0$ for root-locus plots), and $G,H: CC -> CC$ are rational transfer functions in the complex variable $s$.
-Here $G(s)$ denotes the forward-path transfer function (e.g., plant/controller block), while $H(s)$ denotes the feedback-path transfer function (e.g., sensor/filter block).
-They are kept separate because feedback is not always unity; the unity-feedback case is the special choice $H(s)=1$.
-Under this notation, the characteristic equation is
-$ Delta(s,K)=1+K G(s)H(s)=0, $
-evaluated at points where $G(s)H(s)$ is defined.
-
-To keep notation compact, define the loop transfer function
-$ L(s)=K G(s)H(s). $
-Then the characteristic equation becomes
-$ 1+L(s)=0. $
-
-#definition[Root Locus][
-  The root locus is the set of points in the complex plane reached by roots of
-  $ Delta(s,K)=0 $
-  as $K$ varies over a specified interval (typically $K>=0$).
-
-  Under the feedback notation introduced above,
-  $ Delta(s,K)=1+L(s), $
-  so the locus satisfies
-  $ 1 + L(s) = 0. $
+#definition[Design Objective in Root Locus][
+  Root-locus design means selecting parameter values $K$ so that characteristic roots lie in a target region of the complex plane
+  (for example, left half-plane, prescribed damping region, or bounded real-part strip).
 ]
 
-#proposition[Characteristic Equation Form][
-  In the feedback setting introduced above, closed-loop poles are exactly the roots of
-  $ 1 + L(s) = 0. $
-  Equivalently, in the general notation they are roots of
-  $ Delta(s,K)=0, $
-  which are tracked as $K$ varies.
+#proposition[Normalized Form][
+  If $P(s) != 0$ in a region of interest, the equation
+  $ P(s)+K Q(s)=0 $
+  can be normalized as
+  $ 1 + K F(s) = 0, quad F(s)=Q(s)/P(s). $
 ]
 
 #proof[
-  For a standard feedback interconnection,
-  $ E(s)=R(s)-H(s)Y(s), quad Y(s)=K G(s)E(s), $
-  where $R(s)$ is the reference, $E(s)$ the error, and $Y(s)$ the output.
-  Substituting $E(s)$ into the output equation gives
-  $ Y(s)=K G(s)(R(s)-H(s)Y(s)). $
-  Rearranging,
-  $ (1+L(s))Y(s)=K G(s)R(s). $
-  Hence the closed-loop transfer relation is
-  $ Y(s)/R(s)=K G(s)/(1+L(s)). $
-
-  Therefore, the characteristic equation is
-  $ 1+L(s)=0, $
-  and its roots are the closed-loop characteristic roots (closed-loop poles).
-  Using the section notation
-  $ Delta(s,K)=1+L(s), $
-  the same condition is written as
-  $ Delta(s,K)=0. $
-  Tracking these roots as $K$ varies yields the root locus.
+  Divide the equation $P(s)+K Q(s)=0$ by $P(s)$:
+  $ 1 + K Q(s)/P(s) = 0. $
+  Defining
+  $ F(s)=Q(s)/P(s), $
+  we obtain
+  $ 1 + K F(s)=0. $
 ]
 
 #theorem[Angle and Magnitude Conditions][
-  For the feedback form $Delta(s,K)=1+L(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if its phase satisfies
-  $angle L(s_0) = (2k+1)180 degree, quad k in ZZ,$
+  For the normalized form $1+K F(s)=0$ with $K>0$, a point $s_0 in CC$ belongs to the root locus if and only if
+  $angle F(s_0) = (2k+1)180 degree, quad k in ZZ,$
   and its magnitude satisfies
-  $|L(s_0)| = 1.$
+  $|K F(s_0)| = 1.$
 ]
 
 #proof[
   From the characteristic equation,
-  $ L(s) = -1. $
+  $ K F(s) = -1. $
   In polar form,
   $ -1 = 1 angle ((2k+1)180 degree), quad k in ZZ. $
 
   Hence, for any point on the locus, the phase must satisfy
-  $ angle L(s) = (2k+1)180 degree. $
+  $ angle (K F(s)) = (2k+1)180 degree. $
+  Since $K>0$ is real,
+  $ angle F(s) = (2k+1)180 degree. $
   The magnitude must satisfy
-  $ |L(s)| = 1. $
+  $ |K F(s)| = 1. $
 
   Conversely, any point satisfying both conditions also satisfies
-  $ L(s) = -1, $
+  $ K F(s) = -1, $
   so it belongs to the root locus.
 ]
 
 #definition[Breakaway/Break-in Points][
   Breakaway/break-in points are real-axis points where multiple root-locus branches meet or separate.
-  They are found from
+  For equations written as $K=K(s)$, they are found from
   $ (d K)/(d s) = 0, $
-  after expressing the parameter as a function of $s$ from
-  $ Delta(s,K)=0 $
-  (or from $1+K G(s)H(s)=0$ in feedback form).
+  after solving the characteristic equation for the parameter.
 ]
 
 === Solved Problems
 
 #solved_problem[Characteristic Equation and Pole Locations][
   For
-  $ G(s) = 1/(s(s+2)), quad H(s)=1, $
-  derive the characteristic equation and closed-loop poles.
+  $ Delta(s,K)=s(s+2)+K, $
+  derive the characteristic equation and the characteristic roots as functions of $K$.
 ]
 #solution[
-  Start from
-  $ 1 + K G(s)H(s)=0. $
-  Substitute $G(s)$ and $H(s)=1$:
-  $ 1 + K/(s(s+2)) = 0. $
-
-  Multiply by $s(s+2)$:
-  $ s(s+2) + K = 0. $
-  Therefore,
+  Expand:
   $ s^2 + 2s + K = 0. $
 
-  Closed-loop poles are
+  The roots are
   $ s = (-2 plus.minus sqrt(4-4K))/2 = -1 plus.minus sqrt(1-K). $
 ]
 
 #solved_problem[Angle Condition Check][
   For
-  $ G(s) = 1/((s+1)(s+2)), quad H(s)=1, $
+  $ F(s)=1/((s+1)(s+2)), $
   check whether $s_0=-1.5$ satisfies the angle condition.
 ]
 #solution[
-  Evaluate
-  $ G(-1.5) = 1/((-1.5+1)(-1.5+2)) = 1/((-0.5)(0.5)) = 1/(-0.25). $
-  Hence,
-  $ angle G(-1.5) = 180 degree = (2k+1)180 degree. $
+  Here $s_0$ is the test point in the complex plane.
 
-  Therefore, $s_0=-1.5$ satisfies the angle condition and is a candidate root-locus point.
+  Evaluate
+  $ F(-1.5) = 1/((-1.5+1)(-1.5+2)) = 1/((-0.5)(0.5)) = 1/(-0.25). $
+  Hence,
+  $ angle F(-1.5) = 180 degree = (2k+1)180 degree. $
+
+  Therefore, $s_0=-1.5$ satisfies the angle condition and is a candidate point on the root trajectory set.
 ]
 
 #solved_problem[Breakaway Point Calculation][
   For
-  $ G(s) = 1/(s(s+2)), quad H(s)=1, $
+  $ Delta(s,K)=1+K/(s(s+2)), $
   compute the real-axis breakaway/break-in point.
 ]
 #solution[
@@ -179,20 +132,22 @@ $ 1+L(s)=0. $
 ]
 
 #solved_problem[Sketch Root Locus][
-  Sketch the root locus for
-  $ G(s)=1/(s(s+1)(s+3)), quad H(s)=1. $
+  Sketch the root-trajectory set for the normalized equation
+  $ 1+K/(s(s+1)(s+3))=0. $
 ]
 #solution[
-  1. Open-loop poles:
-     $ s = 0, -1, -3 $ (three branches start here).
+  Here $n$ denotes the number of poles of $F(s)$ and $m$ the number of zeros of $F(s)$.
 
-  2. Open-loop zeros:
-     none (three branches terminate at infinity).
+  1. Singular points of $F(s)=1/(s(s+1)(s+3))$:
+    poles at $s = 0, -1, -3$ (three branches start here).
+
+  2. Zeros of $F(s)$:
+    none (three branches terminate at infinity).
 
   3. Asymptotes:
-     $ n-m=3. $
+      $ n=3, quad m=0, quad n-m=3. $
      Angles are
-     $ theta_q = ((2q+1)180 degree)/3, quad q=0,1,2, $
+      $ theta_q = ((2q+1)180 degree)/(n-m), quad q=0,1,2, $
      so
      $ 60 degree, 180 degree, 300 degree. $
 
@@ -209,11 +164,13 @@ $ 1+L(s)=0. $
 
 #solved_problem[Design for Damping Ratio][
   For
-  $ G(s)=1/(s(s+4)), quad H(s)=1, quad zeta=0.5, $
+  $ Delta(s,K)=s^2+4s+K, quad zeta=0.5, $
   find gain $K$.
 ]
 #solution[
-  Desired pole angle from negative real axis:
+  Here $zeta$ is the damping ratio, $omega_n$ is the natural frequency, and $theta$ is the root angle measured from the negative real axis.
+
+  Desired root angle from negative real axis:
   $ theta = cos^(-1)(zeta)=60 degree. $
 
   Standard second-order form gives
@@ -221,7 +178,7 @@ $ 1+L(s)=0. $
   With $zeta=0.5$,
   $ s = -omega_n/2 plus.minus j omega_n sqrt(3)/2. $
 
-  Closed-loop characteristic equation is
+  Characteristic equation is
   $ s^2+4s+K=0. $
   Compare with
   $ s^2 + 2zeta omega_n s + omega_n^2 = 0. $
@@ -235,14 +192,14 @@ $ 1+L(s)=0. $
 === Supplementary Problems
 
 #supplementary[Complex Zeros][
-  Sketch the root locus for
-  $ G(s)H(s)=((s+2)^2+4)/(s(s+1)(s+4)). $
+  Sketch the root-trajectory set for
+  $ 1+K ((s+2)^2+4)/(s(s+1)(s+4)) = 0. $
   Identify real-axis segments, asymptotes, and the effect of the complex zeros on branch direction.
 ]
 
-#supplementary[Gain Margin][
+#supplementary[Stability Threshold Parameter][
   For
-  $ G(s)H(s)=K/(s(s+2)(s+4)), $
-  determine the value of $K$ at which the root locus crosses the imaginary axis.
-  Use that value to infer the stability limit (gain margin in the root-locus sense).
+  $ 1+K/(s(s+2)(s+4))=0, $
+  determine the value of $K$ at which the root trajectory crosses the imaginary axis.
+  Use that value to infer the stability threshold with respect to the parameter $K$.
 ]
