@@ -3,10 +3,10 @@
 
 === Mathematical Review
 
-The solution of time-invariant state equations provides the foundation for analyzing system behavior over time.
+This section develops the solution of time-invariant state equations as a foundation for time-domain system analysis.
 
-For the homogeneous system $dot(x) = A x$, the state at time $t$ must be obtained from $x(0)$ through a linear map that depends on elapsed time.
-That map is the state transition matrix $Phi(t)$, which propagates initial conditions and also appears in the forced-response convolution term when inputs are present.
+For the homogeneous system $dot(x) = A x$, the state at time $t$ is obtained from $x(0)$ through a linear map that depends only on elapsed time.
+This map is the state transition matrix $Phi(t)$, which propagates initial conditions and also appears in the convolution term of the forced response.
 
 #definition[State Transition Matrix][
   For the linear time-invariant homogeneous system $dot(x)=A x$, the state transition matrix is the unique matrix function $Phi(t)$ such that
