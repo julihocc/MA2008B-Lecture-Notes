@@ -15,12 +15,9 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ x(t)=Phi(t)x(0). $
 ]
 
-#theorem[Equivalent Representations of $Phi(t)$][
-  For a constant matrix $A$, the state transition matrix admits the equivalent forms
-  $ Phi(t)=e^(A t), $
-  $ cal(L){Phi(t)}=(s I-A)^(-1), $
-  and therefore
-  $ Phi(t)=cal(L)^(-1){(s I-A)^(-1)}. $
+#proposition[First Representation of $Phi(t)$][
+  For a constant matrix $A$, the state transition matrix is
+  $ Phi(t)=e^(A t). $
 ]
 
 #proof[
@@ -33,24 +30,27 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   $ dot(E)(t)=A E(t), quad E(0)=I. $
   Thus $E(t)$ satisfies the same initial-value problem as $Phi(t)$, so by uniqueness
   $ Phi(t)=e^(A t). $
+]
 
-  Next, apply Laplace transform to
-  $ dot(Phi)(t)=A Phi(t). $
-  Using
-  $ cal(L){dot(X)}=s cal(L){X}-X(0) $
-  and, for constant $A$,
-  $ cal(L){A X(t)}=A cal(L){X(t)}, $
-  we obtain
-  $ s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)}. $
-  Since $Phi(0)=I$,
+#proposition[Laplace-Domain Equivalence][
+  For a constant matrix $A$, the state transition matrix satisfies
+  $ cal(L){Phi(t)}=(s I-A)^(-1). $
+  Equivalently,
+  $ Phi(t)=cal(L)^(-1){(s I-A)^(-1)}. $
+]
+
+#proof[
+  Start from
+  $ dot(Phi)(t)=A Phi(t), quad Phi(0)=I. $
+  Applying Laplace transform gives
+  $ cal(L){dot(Phi)}=s cal(L){Phi(t)}-Phi(0)=A cal(L){Phi(t)}. $
+  Using $Phi(0)=I$,
   $ (s I-A) cal(L){Phi(t)}=I, $
   hence
   $ cal(L){Phi(t)}=(s I-A)^(-1). $
 
-  Finally, applying inverse Laplace transform gives
+  Applying inverse Laplace transform,
   $ Phi(t)=cal(L)^(-1){(s I-A)^(-1)}. $
-  Therefore,
-  $ Phi(t)=e^(A t)=cal(L)^(-1){(s I-A)^(-1)}. $
 ]
 
 #theorem[Complete Solution][
