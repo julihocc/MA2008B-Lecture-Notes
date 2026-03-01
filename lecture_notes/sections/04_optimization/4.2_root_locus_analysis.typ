@@ -45,20 +45,25 @@ Under this notation, the characteristic equation is
 $ Delta(s,K)=1+K G(s)H(s)=0, $
 evaluated at points where $G(s)H(s)$ is defined.
 
+To keep notation compact, define the loop transfer function
+$ L(s)=K G(s)H(s). $
+Then the characteristic equation becomes
+$ 1+L(s)=0. $
+
 #definition[Root Locus][
   The root locus is the set of points in the complex plane reached by roots of
   $ Delta(s,K)=0 $
   as $K$ varies over a specified interval (typically $K>=0$).
 
   Under the feedback notation introduced above,
-  $ Delta(s,K)=1+K G(s)H(s), $
+  $ Delta(s,K)=1+L(s), $
   so the locus satisfies
-  $ 1 + K G(s)H(s) = 0. $
+  $ 1 + L(s) = 0. $
 ]
 
 #proposition[Characteristic Equation Form][
   In the feedback setting introduced above, closed-loop poles are exactly the roots of
-  $ 1 + K G(s)H(s) = 0. $
+  $ 1 + L(s) = 0. $
   Equivalently, in the general notation they are roots of
   $ Delta(s,K)=0, $
   which are tracked as $K$ varies.
@@ -66,46 +71,45 @@ evaluated at points where $G(s)H(s)$ is defined.
 
 #proof[
   For a standard feedback interconnection,
-  $ E(s)=R(s)-H(s)Y(s), quad Y(s)=K G(s)E(s). $
+  $ E(s)=R(s)-H(s)Y(s), quad Y(s)=K G(s)E(s), $
+  where $R(s)$ is the reference, $E(s)$ the error, and $Y(s)$ the output.
   Substituting $E(s)$ into the output equation gives
   $ Y(s)=K G(s)(R(s)-H(s)Y(s)). $
   Rearranging,
-  $ (1+K G(s)H(s))Y(s)=K G(s)R(s). $
+  $ (1+L(s))Y(s)=K G(s)R(s). $
   Hence the closed-loop transfer relation is
-  $ Y(s)/R(s)=K G(s)/(1+K G(s)H(s)). $
+  $ Y(s)/R(s)=K G(s)/(1+L(s)). $
 
   Therefore, the characteristic equation is
-  $ 1+K G(s)H(s)=0, $
+  $ 1+L(s)=0, $
   and its roots are the closed-loop characteristic roots (closed-loop poles).
   Using the section notation
-  $ Delta(s,K)=1+K G(s)H(s), $
+  $ Delta(s,K)=1+L(s), $
   the same condition is written as
   $ Delta(s,K)=0. $
   Tracking these roots as $K$ varies yields the root locus.
 ]
 
 #theorem[Angle and Magnitude Conditions][
-  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if its phase satisfies
-  $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ,$
+  For the feedback form $Delta(s,K)=1+L(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if its phase satisfies
+  $angle L(s_0) = (2k+1)180 degree, quad k in ZZ,$
   and its magnitude satisfies
-  $|K G(s_0)H(s_0)| = 1.$
+  $|L(s_0)| = 1.$
 ]
 
 #proof[
   From the characteristic equation,
-  $ K G(s)H(s) = -1. $
+  $ L(s) = -1. $
   In polar form,
   $ -1 = 1 angle ((2k+1)180 degree), quad k in ZZ. $
 
   Hence, for any point on the locus, the phase must satisfy
-  $ angle (K G(s)H(s)) = (2k+1)180 degree. $
-  For real positive gain $K$, this reduces to
-  $ angle G(s)H(s) = (2k+1)180 degree. $
+  $ angle L(s) = (2k+1)180 degree. $
   The magnitude must satisfy
-  $ |K G(s)H(s)| = 1. $
+  $ |L(s)| = 1. $
 
   Conversely, any point satisfying both conditions also satisfies
-  $ K G(s)H(s) = -1, $
+  $ L(s) = -1, $
   so it belongs to the root locus.
 ]
 
