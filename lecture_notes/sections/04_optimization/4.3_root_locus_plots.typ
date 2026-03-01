@@ -29,6 +29,32 @@ $ 1+K F(s)=0. $
   - $n-m$ branches go to infinity.
 ]
 
+#proof[
+  Write
+  $ F(s)=N(s)/D(s), $
+  where $D$ has degree $n$ and $N$ has degree $m$ (with $n>=m$).
+  The normalized characteristic equation
+  $ 1+K F(s)=0 $
+  is equivalent to
+  $ D(s)+K N(s)=0. $
+
+  For each fixed $K$, this is an algebraic equation of degree $n$ in $s$, so counting multiplicities it has $n$ roots.
+  As $K$ varies continuously, these roots trace $n$ continuous branches.
+
+  At $K=0$, the equation becomes
+  $ D(s)=0, $
+  so branch starting points are the poles of $F$.
+
+  For large $K$, divide by $K$:
+  $ N(s) + D(s)/K = 0. $
+  As $K -> infinity$, $m$ roots approach solutions of
+  $ N(s)=0, $
+  i.e., finite zeros of $F$.
+  The remaining $n-m$ roots cannot converge to finite points and therefore go to infinity.
+
+  Hence the trajectory has $n$ branches, with $m$ finite-end branches and $n-m$ branches ending at infinity.
+]
+
 #theorem[Asymptotes and Centroid]
 [For $n>m$ in the normalized form $1+K F(s)=0$:
   - number of asymptotes: $n-m$,
