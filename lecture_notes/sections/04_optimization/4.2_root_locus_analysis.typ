@@ -3,23 +3,37 @@
 
 === Mathematical Review
 
-Root locus is a graphical method showing how closed-loop poles move as a parameter (typically gain $K$) varies.
+In this section, root locus is presented as a general method for tracking how roots of a characteristic equation move when a real parameter varies.
+This viewpoint is useful in control systems and also in differential-equations courses where stability depends on parameterized characteristic polynomials.
+
+#definition[Parameterized Characteristic Equation][
+  Consider a family of equations
+  $ Delta(s,K)=0, $
+  where $s in CC$ and $K in RR$ is a scalar parameter.
+  The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
+]
 
 #definition[Root Locus][
-  For a unity-feedback system with open-loop transfer function $K G(s)H(s)$, the root locus is the set of points in the s-plane that satisfy
+  The root locus is the set of points in the complex plane reached by roots of
+  $ Delta(s,K)=0 $
+  as $K$ varies over a specified interval (typically $K>=0$).
+
+  In the common unity-feedback form with open-loop transfer function $K G(s)H(s)$,
+  $ Delta(s,K)=1+K G(s)H(s), $
+  so the locus satisfies
   $ 1 + K G(s)H(s) = 0. $
-  Equivalently,
-  $ K G(s)H(s) = -1. $
 ]
 
 #proposition[Characteristic Equation Form][
-  For a unity-feedback system, closed-loop poles are the roots of
+  In the feedback setting, closed-loop poles are exactly the roots of
   $ 1 + K G(s)H(s) = 0. $
-  Therefore, the root locus is obtained by varying $K$ (usually $K>=0$) and tracking these roots in the s-plane.
+  Equivalently, in the general notation they are roots of
+  $ Delta(s,K)=0, $
+  which are tracked as $K$ varies.
 ]
 
 #theorem[Angle and Magnitude Conditions][
-  A point $s_0$ lies on the root locus if and only if:
+  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0$ lies on the root locus if and only if:
   - *Angle condition:* $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ.$
   - *Magnitude condition:* $|K G(s_0)H(s_0)| = 1.$
 ]
@@ -47,8 +61,9 @@ Root locus is a graphical method showing how closed-loop poles move as a paramet
   Breakaway/break-in points are real-axis points where multiple root-locus branches meet or separate.
   They are found from
   $ (d K)/(d s) = 0, $
-  after expressing gain as a function of $s$ from
-  $ 1 + K G(s)H(s) = 0. $
+  after expressing the parameter as a function of $s$ from
+  $ Delta(s,K)=0 $
+  (or from $1+K G(s)H(s)=0$ in feedback form).
 ]
 
 === Solved Problems
