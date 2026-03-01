@@ -64,6 +64,26 @@ evaluated at points where $G(s)H(s)$ is defined.
   which are tracked as $K$ varies.
 ]
 
+#proof[
+  For a standard feedback interconnection,
+  $ E(s)=R(s)-H(s)Y(s), quad Y(s)=K G(s)E(s). $
+  Substituting $E(s)$ into the output equation gives
+  $ Y(s)=K G(s)(R(s)-H(s)Y(s)). $
+  Rearranging,
+  $ (1+K G(s)H(s))Y(s)=K G(s)R(s). $
+  Hence the closed-loop transfer relation is
+  $ Y(s)/R(s)=K G(s)/(1+K G(s)H(s)). $
+
+  Therefore, the characteristic equation is
+  $ 1+K G(s)H(s)=0, $
+  and its roots are the closed-loop characteristic roots (closed-loop poles).
+  Using the section notation
+  $ Delta(s,K)=1+K G(s)H(s), $
+  the same condition is written as
+  $ Delta(s,K)=0. $
+  Tracking these roots as $K$ varies yields the root locus.
+]
+
 #theorem[Angle and Magnitude Conditions][
   For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if its phase satisfies
   $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ,$
