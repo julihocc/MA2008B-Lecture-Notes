@@ -76,11 +76,6 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Therefore, the complete solution is proved.
 ]
 
-#example[Zero Input Response][
-  For $x(0) = mat(1;2)$ and $A = mat(0, 1;-2, -3)$:
-  $ x(t) = e^(A t) mat(1;2) $
-]
-
 #proposition[Eigenvalue Decomposition Formula][
   If $A$ is diagonalizable, i.e., $A = V Lambda V^(-1)$ with $Lambda$ diagonal, then:
   $ e^(A t) = V e^(Lambda t) V^(-1) $
@@ -201,6 +196,39 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   Consistency checks:
   - At $t = 0$, $e^(A 0) = I$.
   - $d/(d t) e^(A t)|_(t=0) = A$.
+]
+
+#solved_problem[Zero-Input Response][
+  For
+  $ A = mat(0, 1;-2, -3), quad x(0) = mat(1;2), $
+  compute the zero-input response
+  $ x(t) = e^(A t) x(0). $
+]
+#solution[
+  For zero input $u(t)=0$, the state equation reduces to
+  $ dot(x)=A x, $
+  so the solution is
+  $ x(t)=e^(A t)x(0). $
+
+  From the previous solved problem,
+  $ e^(A t) = mat(
+    2e^(-t) - e^(-2t), e^(-t) - e^(-2t);
+    -2e^(-t) + 2e^(-2t), -e^(-t) + 2e^(-2t)
+  ). $
+
+  Multiply by $x(0)=mat(1;2)$:
+  $ x(t)=mat(
+    (2e^(-t)-e^(-2t)) + 2(e^(-t)-e^(-2t));
+    (-2e^(-t)+2e^(-2t)) + 2(-e^(-t)+2e^(-2t))
+  ) $
+  $ = mat(4e^(-t)-3e^(-2t);-4e^(-t)+6e^(-2t)). $
+
+  Therefore,
+  $ x_1(t)=4e^(-t)-3e^(-2t), quad x_2(t)=-4e^(-t)+6e^(-2t). $
+
+  Quick checks:
+  - Initial condition: $x(0)=mat(4-3;-4+6)=mat(1;2)$.
+  - As $t -> infinity$, both components go to $0$ (stable decay since eigenvalues are negative).
 ]
 
 #solved_problem[Zero-State Response][
