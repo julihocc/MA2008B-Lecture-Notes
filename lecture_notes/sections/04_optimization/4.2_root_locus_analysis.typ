@@ -17,6 +17,9 @@ This viewpoint is useful in control systems and also in differential-equations c
 ]
 
 #definition[Transfer Function][
+  Many dynamical systems in engineering and applied mathematics are modeled by linear differential equations that relate an input signal $u(t)$ to an output signal $y(t)$.
+  For LTI models, applying Laplace transform converts this differential relation into an algebraic one, which is why transfer functions are convenient for root-location analysis.
+
   Consider an LTI input-output model
   $ a_n y^(n)(t)+dots+a_1 dot(y)(t)+a_0 y(t)=b_m u^(m)(t)+dots+b_1 dot(u)(t)+b_0 u(t), $
   with zero initial conditions.
