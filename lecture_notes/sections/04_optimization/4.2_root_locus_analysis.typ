@@ -197,15 +197,67 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 === Supplementary Problems
 
-#supplementary[Complex Zeros][
+#supplementary[Normalized-Form Conversion][
+  Rewrite
+  $ Delta(s,K)=s^3+5s^2+6s+K(s+2)=0 $
+  in the form
+  $ 1+K F(s)=0, $
+  and identify $F(s)$.
+]
+
+#supplementary[Root Formula vs Parameter][
+  For
+  $ Delta(s,K)=s^2+6s+(8+K)=0, $
+  derive the two characteristic roots as explicit functions of $K$ and classify when they are real or complex.
+]
+
+#supplementary[Angle-Condition Test I][
+  Let
+  $ F(s)=1/(s(s+2)(s+5)). $
+  Check whether $s_0=-1$ satisfies the angle condition.
+]
+
+#supplementary[Angle + Magnitude Completion][
+  Let
+  $ F(s)=1/((s+1)(s+3)). $
+  Test whether $s_0=-2$ satisfies the angle condition, and if it does, compute the corresponding parameter value from
+  $ |K F(s_0)|=1. $
+]
+
+#supplementary[Breakaway Candidates][
+  For
+  $ 1+K/(s(s+1)(s+4))=0, $
+  compute breakaway/break-in candidates from
+  $ (d K)/(d s)=0. $
+]
+
+#supplementary[Admissible Breakaway Point][
+  For the same equation
+  $ 1+K/(s(s+1)(s+4))=0, $
+  determine which breakaway candidate(s) are admissible by checking real-axis locus segments.
+]
+
+#supplementary[Asymptotes and Centroid][
+  For
+  $ 1+K/(s(s+2)(s+4)(s+6))=0, $
+  compute $n-m$, asymptote angles, and centroid.
+]
+
+#supplementary[Trajectory Sketch with Complex Zeros][
   Sketch the root-trajectory set for
   $ 1+K ((s+2)^2+4)/(s(s+1)(s+4)) = 0. $
-  Identify real-axis segments, asymptotes, and the effect of the complex zeros on branch direction.
+  Identify real-axis segments, asymptotes, and how the complex zeros influence branch direction.
+]
+
+#supplementary[Damping-Ratio Design][
+  For
+  $ Delta(s,K)=s^2+2s+K, quad zeta=0.707, $
+  determine the parameter $K$ that matches the target damping ratio.
 ]
 
 #supplementary[Stability Threshold Parameter][
   For
   $ 1+K/(s(s+2)(s+4))=0, $
-  determine the value of $K$ at which the root trajectory crosses the imaginary axis.
-  Use that value to infer the stability threshold with respect to the parameter $K$.
+  determine the value(s) of $K$ at which the root trajectory crosses the imaginary axis.
+  Use the result to infer the stability threshold interval for $K$.
 ]
