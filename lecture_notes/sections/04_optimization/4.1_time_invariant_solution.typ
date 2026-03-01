@@ -78,6 +78,8 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
 
 #proposition[Eigenvalue Decomposition Formula][
   If $A$ is diagonalizable, i.e., $A = V Lambda V^(-1)$ with $Lambda$ diagonal, then:
+  - $V$ is the modal matrix whose columns are eigenvectors of $A$ (so $V$ is invertible).
+  - $Lambda$ contains the corresponding eigenvalues on its diagonal.
   $ e^(A t) = V e^(Lambda t) V^(-1) $
 ]
 
@@ -178,6 +180,7 @@ That map is the state transition matrix $Phi(t)$, which propagates initial condi
   choose $v_2 = mat(1;-2)$.
 
   Step 2: Form diagonalization matrices.
+  Here $V=[v_1\ v_2]$ is the eigenvector matrix.
   $ V = mat(1, 1;-1, -2), quad Lambda = mat(-1, 0;0, -2) $
   $ det(V) = -1, quad V^(-1) = mat(2, 1;-1, -1). $
 
