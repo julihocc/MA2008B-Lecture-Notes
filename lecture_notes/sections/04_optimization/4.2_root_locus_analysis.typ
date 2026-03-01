@@ -16,10 +16,31 @@ This viewpoint is useful in control systems and also in differential-equations c
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
+#definition[Transfer Function][
+  Consider an LTI input-output model
+  $ a_n y^(n)(t)+dots+a_1 dot(y)(t)+a_0 y(t)=b_m u^(m)(t)+dots+b_1 dot(u)(t)+b_0 u(t), $
+  with zero initial conditions.
+
+  Let
+  $ U(s)=cal(L){u(t)}, quad Y(s)=cal(L){y(t)}. $
+  The transfer function is the mapping from input to output in Laplace domain:
+  $ T(s)=Y(s)/U(s). $
+
+  In rational form,
+  $ T(s)=N(s)/D(s), $
+  where:
+  - $N(s)$ is the numerator polynomial (or, more generally, numerator rational factor),
+  - $D(s)$ is the denominator polynomial (or denominator rational factor),
+  - zeros are roots of $N(s)$,
+  - poles are roots of $D(s)$.
+]
+
 #definition[Feedback Notation and Assumptions][
   In this section, when the feedback model is used:
   - $K in RR$ is a real scalar gain (typically $K>=0$ for root-locus plots).
   - $G,H: CC -> CC$ are rational transfer functions in the complex variable $s$.
+  - $G(s)$ denotes the forward-path transfer function (e.g., plant/controller block), while $H(s)$ denotes the feedback-path transfer function (e.g., sensor/filter block).
+  - They are kept separate because, in general, feedback is not unity; the unity-feedback case is the special choice $H(s)=1$.
   - The characteristic equation is
     $ Delta(s,K)=1+K G(s)H(s)=0, $
     evaluated at points where $G(s)H(s)$ is defined.
