@@ -16,10 +16,10 @@ This viewpoint is useful in control systems and also in differential-equations c
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
-#definition[Transfer Function][
-  Many dynamical systems in engineering and applied mathematics are modeled by linear differential equations that relate an input signal $u(t)$ to an output signal $y(t)$.
-  For LTI models, applying Laplace transform converts this differential relation into an algebraic one, which is why transfer functions are convenient for root-location analysis.
+Many dynamical systems in engineering and applied mathematics are modeled by linear differential equations relating an input signal $u(t)$ to an output signal $y(t)$.
+For LTI models, Laplace transform converts this differential relation into an algebraic one, which motivates the transfer-function representation used below.
 
+#definition[Transfer Function][
   Consider an LTI input-output model
   $ a_n y^(n)(t)+dots+a_1 dot(y)(t)+a_0 y(t)=b_m u^(m)(t)+dots+b_1 dot(u)(t)+b_0 u(t), $
   with zero initial conditions.
@@ -31,37 +31,33 @@ This viewpoint is useful in control systems and also in differential-equations c
 
   In rational form,
   $ T(s)=N(s)/D(s), $
-  where:
-  - $N(s)$ is the numerator polynomial (or, more generally, numerator rational factor),
-  - $D(s)$ is the denominator polynomial (or denominator rational factor),
-  - zeros are roots of $N(s)$,
-  - poles are roots of $D(s)$.
+  where $N(s)$ is the numerator polynomial (or, more generally, numerator rational factor) and $D(s)$ is the denominator polynomial (or denominator rational factor).
+  Zeros are roots of $N(s)$ and poles are roots of $D(s)$.
 ]
 
-#definition[Feedback Notation and Assumptions][
-  In this section, when the feedback model is used:
-  - $K in RR$ is a real scalar gain (typically $K>=0$ for root-locus plots).
-  - $G,H: CC -> CC$ are rational transfer functions in the complex variable $s$.
-  - $G(s)$ denotes the forward-path transfer function (e.g., plant/controller block), while $H(s)$ denotes the feedback-path transfer function (e.g., sensor/filter block).
-  - They are kept separate because, in general, feedback is not unity; the unity-feedback case is the special choice $H(s)=1$.
-  - The characteristic equation is
-    $ Delta(s,K)=1+K G(s)H(s)=0, $
-    evaluated at points where $G(s)H(s)$ is defined.
-]
+For root-locus analysis, we now specialize this general input-output description to a feedback interconnection.
+In that setting, the relevant characteristic equation is expressed in terms of forward-path and feedback-path transfer functions, denoted by $G(s)$ and $H(s)$.
+
+In what follows, we use the standard feedback notation. The gain $K in RR$ is a real scalar parameter (typically $K>=0$ for root-locus plots), and $G,H: CC -> CC$ are rational transfer functions in the complex variable $s$.
+Here $G(s)$ denotes the forward-path transfer function (e.g., plant/controller block), while $H(s)$ denotes the feedback-path transfer function (e.g., sensor/filter block).
+They are kept separate because feedback is not always unity; the unity-feedback case is the special choice $H(s)=1$.
+Under this notation, the characteristic equation is
+$ Delta(s,K)=1+K G(s)H(s)=0, $
+evaluated at points where $G(s)H(s)$ is defined.
 
 #definition[Root Locus][
   The root locus is the set of points in the complex plane reached by roots of
   $ Delta(s,K)=0 $
   as $K$ varies over a specified interval (typically $K>=0$).
 
-  Under the feedback notation above,
+  Under the feedback notation introduced above,
   $ Delta(s,K)=1+K G(s)H(s), $
   so the locus satisfies
   $ 1 + K G(s)H(s) = 0. $
 ]
 
 #proposition[Characteristic Equation Form][
-  In the feedback setting of the previous definition, closed-loop poles are exactly the roots of
+  In the feedback setting introduced above, closed-loop poles are exactly the roots of
   $ 1 + K G(s)H(s) = 0. $
   Equivalently, in the general notation they are roots of
   $ Delta(s,K)=0, $
@@ -69,9 +65,10 @@ This viewpoint is useful in control systems and also in differential-equations c
 ]
 
 #theorem[Angle and Magnitude Conditions][
-  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if:
-  - *Angle condition:* $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ.$
-  - *Magnitude condition:* $|K G(s_0)H(s_0)| = 1.$
+  For the feedback form $Delta(s,K)=1+K G(s)H(s)$ with $K>0$, a point $s_0 in CC$ lies on the root locus if and only if its phase satisfies
+  $angle G(s_0)H(s_0) = (2k+1)180 degree, quad k in ZZ,$
+  and its magnitude satisfies
+  $|K G(s_0)H(s_0)| = 1.$
 ]
 
 #proof[
@@ -80,13 +77,12 @@ This viewpoint is useful in control systems and also in differential-equations c
   In polar form,
   $ -1 = 1 angle ((2k+1)180 degree), quad k in ZZ. $
 
-  Hence, for any point on the locus:
-  - the phase must satisfy
-    $ angle (K G(s)H(s)) = (2k+1)180 degree, $
-    and for real positive gain $K$, this reduces to
-    $ angle G(s)H(s) = (2k+1)180 degree; $
-  - the magnitude must satisfy
-    $ |K G(s)H(s)| = 1. $
+  Hence, for any point on the locus, the phase must satisfy
+  $ angle (K G(s)H(s)) = (2k+1)180 degree. $
+  For real positive gain $K$, this reduces to
+  $ angle G(s)H(s) = (2k+1)180 degree. $
+  The magnitude must satisfy
+  $ |K G(s)H(s)| = 1. $
 
   Conversely, any point satisfying both conditions also satisfies
   $ K G(s)H(s) = -1, $
