@@ -20,7 +20,7 @@
   #v(0.5em)
 ]
 
-#import "utils.typ": *
+#import "../utils.typ": *
 #show: thmrules
 
 #outline(indent: auto)
