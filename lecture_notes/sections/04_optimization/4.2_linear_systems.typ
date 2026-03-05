@@ -23,6 +23,19 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
   has solution
   $ x(t) = e^(A t) x_0, quad e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
 ]
+#proof[
+  Define
+  $ Phi(t) = e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
+  Since $A$ is constant, term-by-term differentiation gives
+  $ Phi'(t) = A Phi(t), quad Phi(0) = I. $
+
+  Let $x(t) = Phi(t) x_0$. Then
+  $ x'(t) = Phi'(t) x_0 = A Phi(t) x_0 = A x(t), $
+  and
+  $ x(0) = Phi(0) x_0 = I x_0 = x_0. $
+
+  Therefore, $x(t) = e^(A t) x_0$ satisfies the IVP.
+]
 
 #definition[Induced Matrix Norm][
   Given a vector norm $norm(·)$, the induced matrix norm is
@@ -36,7 +49,12 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
   Stability is characterized through Floquet multipliers (eigenvalues of $Phi(T)$).
 ]
 
-#example[Chapter 2 map][
+=== Solved Problems
+
+#solved_problem[Chapter 2 Coverage Checklist][
+  List the Chapter 2 topics included in this subsection.
+]
+#solution[
   - 2.1 Introduction
   - 2.2 The Vector Equation $x' = A(t) x$
   - 2.3 The Matrix Exponential Function
@@ -44,8 +62,6 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
   - 2.5 Floquet Theory
   - 2.6 Exercises
 ]
-
-=== Solved Problems
 
 #solved_problem[State Transition with Constant Matrix][
   Solve $x' = A x$, $x(0)=x_0$, with $A = mat(0, 1; -2, -3)$.
