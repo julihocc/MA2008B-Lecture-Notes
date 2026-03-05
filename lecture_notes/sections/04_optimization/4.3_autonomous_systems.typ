@@ -75,3 +75,15 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
 #supplementary[3D System Exploration][
   For a selected three-dimensional autonomous model, identify equilibria and classify them via Jacobian eigenvalues.
 ]
+
+#supplementary[Nullclines and Flow Regions][
+  For $x' = x - y^2$ and $y' = x^2 - y$, compute nullclines and determine the qualitative direction of the vector field in each region.
+]
+
+#supplementary[Linearization Limits][
+  Analyze the equilibrium at the origin for $x' = y, y' = -x^3$. Explain why linearization is inconclusive and suggest an alternative method.
+]
+
+#supplementary[Periodic Solution Nonexistence Test][
+  Apply a planar nonexistence criterion to $x' = x + y, y' = -x + 2y$ on a simply connected domain and conclude whether periodic orbits can exist.
+]

@@ -104,3 +104,15 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 #supplementary[Parameter-Driven Bifurcation][
   Study $x' = lambda - x^2$. Find the critical value of $lambda$ where the phase portrait changes.
 ]
+
+#supplementary[Existence and Uniqueness Check][
+  For $x' = t^2 + x^2$, $x(0)=1$, verify on a bounded rectangle in the $(t,x)$-plane whether standard existence and uniqueness conditions are satisfied.
+]
+
+#supplementary[Linear Equation with Variable Coefficient][
+  Solve $x' - 1/t x = t^2$ for $t > 0$ using an integrating factor, and impose $x(1)=0$.
+]
+
+#supplementary[Phase-Line Analysis][
+  For the autonomous equation $x' = x(x-2)(3-x)$, identify equilibria, determine their stability, and sketch the phase line.
+]

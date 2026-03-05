@@ -74,3 +74,15 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
   Compute and compare $norm(A)_1$, $norm(A)_2$, and $norm(A)_infinity$ for
   $A = mat(1, -2; 3, 0)$.
 ]
+
+#supplementary[Matrix Exponential by Diagonalization][
+  Compute $e^(A t)$ for $A = mat(4, 1; 0, 2)$ and write the explicit solution of $x' = A x$ with initial condition $x(0)=x_0$.
+]
+
+#supplementary[Liouville Formula Application][
+  For $x' = A(t)x$ with $tr(A(t)) = 3t$, use Liouville's formula to determine the determinant ratio $det(Phi(t))/det(Phi(0))$.
+]
+
+#supplementary[Floquet Stability Classification][
+  A periodic system has monodromy matrix eigenvalues $rho_1 = 0.7$ and $rho_2 = -1.1$. Classify the stability of the periodic solution.
+]
