@@ -15,7 +15,7 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   For
   $ x' + p(t)x = q(t), $
   the integrating-factor method gives
-  $ x(t) = 1/mu(t) left(x_0 + integral_(t_0)^t mu(s) q(s) dif s right), $
+  $ x(t) = 1/mu(t) (x_0 + integral_(t_0)^t mu(s) q(s) dif s), $
   where $ mu(t) = e^(integral_(t_0)^t p(s) dif s) $.
 ]
 
@@ -27,7 +27,7 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 
 #example[Generalized Logistic Equation][
   A generalized logistic model can be written as
-  $ x' = r x left(1 - (x/K)^nu right), $
+  $ x' = r x (1 - (x/K)^nu), $
   with growth rate $r$, carrying capacity $K$, and shape parameter $nu > 0$.
 ]
 
@@ -53,8 +53,8 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 #solution[
   Integrating factor: $mu(t)=e^(2t)$.
   Then
-  $ d/dt (e^(2t)x) = 4e^(2t) $. Integrating:
-  $ e^(2t)x = 2e^(2t) + C => x(t)=2 + Ce^(-2t) $.
+  $ (e^(2t)x)' = 4e^(2t) $. Integrating:
+  $ e^(2t)x = 2 e^(2t) + C => x(t)=2 + C e^(-2t) $.
   From $x(0)=1$, $C=-1$. Therefore
   $ x(t)=2-e^(-2t). $
 ]

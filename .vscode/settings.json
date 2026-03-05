@@ -2,5 +2,8 @@
     "tinymist.preview.cursorIndicator": true,
     "tinymist.exportPdf": "onSave",
     "tinymist.formatterMode": "typstfmt",
-    "iis.configDir": ""
+    "iis.configDir": "",
+    "chat.tools.terminal.autoApprove": {
+        "typst": true
+    }
 }

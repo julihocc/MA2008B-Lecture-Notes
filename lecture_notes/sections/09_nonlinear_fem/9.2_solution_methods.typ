@@ -11,7 +11,7 @@ Since $K(d)$ depends on $d$, the equilibrium equation $F = K(d) d$ cannot be sol
   Iteration $i+1$:
   $ K_T (d^((i))) Delta d^((i)) = R(d^((i))) $
   $ d^((i+1)) = d^((i)) + Delta d^((i)) $
-  where $K_T = (diff f_("int"))/(diff d)$ is the *tangent stiffness matrix*.
+  where $K_T = (partial f_("int"))/(partial d)$ is the *tangent stiffness matrix*.
 ]
 
 #definition[Load Control vs Displacement Control][

@@ -19,8 +19,8 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
 
 #theorem[Linearization Near Equilibrium][
   Let $x^*$ be an equilibrium of $x'=f(x)$.
-  If $J = Df(x^*)$ has no eigenvalues with zero real part, then the local behavior of the nonlinear system is topologically equivalent to
-  $ u' = Ju. $
+  If $J$ is the Jacobian matrix at $x^*$ and has no eigenvalues with zero real part, then the local behavior of the nonlinear system is topologically equivalent to
+  $ u' = J u. $
 ]
 
 #definition[Periodic Solutions][
