@@ -3,27 +3,31 @@
 
 === Mathematical Review
 
-This section develops root-locus analysis and design from a general mathematical viewpoint.
-The central question is how roots of a parameterized characteristic equation move as a real parameter varies.
-Although root locus is classical in control theory, the same framework applies to broader classes of differential equations and parameter-dependent stability problems.
+In the study of dynamic systems (such as linear differential equations or control systems), stability and transient behavior are governed by a fundamental algebraic relation known as the characteristic equation.
 
-Notation used in this section: $s in CC$ is the complex variable, $K in RR$ is the real parameter, and $Delta(s,K)$ is the characteristic equation.
-When needed, we write $Delta(s,K)=P(s)+K Q(s)$ and define $F(s)=Q(s)/P(s)$ (where $P(s) != 0$).
+#definition[Characteristic Equation][
+  The characteristic equation of a linear system is the algebraic equation formed by equating the denominator polynomial of its transfer function to zero. For a system with complex Laplace variable $s in CC$ and a transfer function $H(s) = N(s)/D(s)$, the characteristic equation is simply $D(s) = 0$. The roots of this equation are called the poles of the system, and their locations in the complex plane dictate the system's dynamic response and stability.
+]
+
+This section develops root-locus analysis and design from a general mathematical viewpoint. The central question is how the roots of a parameterized characteristic equation move across the complex plane as a real parameter varies. Although root locus is a classical tool in control theory, the same framework applies to broader classes of differential equations and parameter-dependent stability problems.
+
+Notation used in this section: $s in CC$ is the complex variable, $K in RR$ is the real, tunable parameter, and $Delta(s, K)$ is the characteristic equation.
+When needed, we write $Delta(s, K)=P(s)+K Q(s)$ and define $F(s)=Q(s)/P(s)$ (where $P(s) != 0$).
 The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #definition[Parameterized Characteristic Equation][
   Consider a one-parameter family of characteristic equations
-  $ Delta(s,K)=0, $
+  $ Delta(s, K)=0, $
   where $s in CC$ and $K in RR$ is a scalar parameter.
   In this section, $Delta$ is assumed to be polynomial (or rational) in $s$ and affine in $K$, typically written as
-  $ Delta(s,K)=P(s)+K Q(s), $
+  $ Delta(s, K)=P(s)+K Q(s), $
   with $P,Q$ polynomial (or rational) functions of $s$.
   The corresponding root trajectories are the curves traced by solutions $s=s(K)$ as $K$ varies.
 ]
 
 #definition[Root Locus][
   The root locus is the set
-  $ cal(R) = { s in CC : Delta(s,K)=0, K in I }, $
+  $ cal(R) = { s in CC : Delta(s, K)=0, K in I }, $
   where $I$ is a subset of $RR$ (often $I=[0,infinity)$).
 ]
 
@@ -84,7 +88,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #solved_problem[Characteristic Equation and Pole Locations][
   For
-  $ Delta(s,K)=s(s+2)+K, $
+  $ Delta(s, K)=s(s+2)+K, $
   derive the characteristic equation and the characteristic roots as functions of $K$.
 ]
 #solution[
@@ -115,7 +119,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #solved_problem[Breakaway Point Calculation][
   For
-  $ Delta(s,K)=1+K/(s(s+2)), $
+  $ Delta(s, K)=1+K/(s(s+2)), $
   compute the real-axis breakaway/break-in point.
 ]
 #solution[
@@ -164,7 +168,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #solved_problem[Design for Damping Ratio][
   For
-  $ Delta(s,K)=s^2+4s+K, quad zeta=0.5, $
+  $ Delta(s, K)=s^2+4s+K, quad zeta=0.5, $
   find gain $K$.
 ]
 #solution[
@@ -193,7 +197,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #supplementary[Normalized-Form Conversion][
   Rewrite
-  $ Delta(s,K)=s^3+5s^2+6s+K(s+2)=0 $
+  $ Delta(s, K)=s^3+5s^2+6s+K(s+2)=0 $
   in the form
   $ 1+K F(s)=0, $
   and identify $F(s)$.
@@ -201,7 +205,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #supplementary[Root Formula vs Parameter][
   For
-  $ Delta(s,K)=s^2+6s+(8+K)=0, $
+  $ Delta(s, K)=s^2+6s+(8+K)=0, $
   derive the two characteristic roots as explicit functions of $K$ and classify when they are real or complex.
 ]
 
@@ -245,7 +249,7 @@ The symbol $k in ZZ$ is an integer index in the phase condition.
 
 #supplementary[Damping-Ratio Design][
   For
-  $ Delta(s,K)=s^2+2s+K, quad zeta=0.707, $
+  $ Delta(s, K)=s^2+2s+K, quad zeta=0.707, $
   determine the parameter $K$ that matches the target damping ratio.
 ]
 
