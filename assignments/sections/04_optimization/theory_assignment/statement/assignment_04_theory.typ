@@ -7,7 +7,7 @@
 Develop deeper mastery of Section 4 by solving and documenting supplementary problems collaboratively.
 
 == Team Modality
-- Work in teams of 3 to 5 students.
+- Work in teams of exactly 3 students.
 - Submit one report per team.
 - Include a contribution statement identifying each member's role.
 

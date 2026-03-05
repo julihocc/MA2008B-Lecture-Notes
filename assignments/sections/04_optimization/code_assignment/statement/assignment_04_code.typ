@@ -18,6 +18,7 @@ You must combine analytical derivations with computational verification.
 == Detailed Instructions & Deliverables
 
 *General Guidelines:*
+- Work in teams of exactly 3 students.
 - Submit your final work as a combined PDF report.
 - Include all source code (scripts/functions/notebook cells) in an appendix or inline in the report.
 - All plots must have clearly labeled axes, titles, and legends where appropriate.
