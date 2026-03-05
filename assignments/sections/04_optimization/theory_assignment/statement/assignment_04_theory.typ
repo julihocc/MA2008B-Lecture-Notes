@@ -23,9 +23,9 @@ Select and solve supplementary problems from:
 3. At least 2 of the selected problems must include computational verification (Python, MATLAB, or Julia).
 
 == Deliverable Format (Required)
-- The final submission must be a *PDF document written in LaTeX*.
-- You may use Overleaf or a local TeX distribution.
-- Submit the compiled PDF and attach source `.tex` files as supplementary material (zip allowed).
+- The final submission must be a *PDF document written in Typst*.
+- You may use VS Code with TinyMist or any local Typst setup.
+- Submit the compiled PDF and attach the source `.typ` files as supplementary material (zip allowed).
 
 == Required Report Structure
 1. *Cover Page*
@@ -46,7 +46,7 @@ Select and solve supplementary problems from:
 - *Mathematical correctness (40 pts):* correctness, rigor, and completeness of derivations.
 - *Coverage and difficulty balance (20 pts):* proper subsection coverage and appropriate challenge level.
 - *Computational verification quality (20 pts):* correctness, reproducibility, and clarity of code-backed checks.
-- *LaTeX report quality (15 pts):* structure, readability, notation consistency, and presentation.
+- *Typst report quality (15 pts):* structure, readability, notation consistency, and presentation.
 - *Team contribution statement (5 pts):* clear and credible distribution of work.
 
 == Academic Integrity
