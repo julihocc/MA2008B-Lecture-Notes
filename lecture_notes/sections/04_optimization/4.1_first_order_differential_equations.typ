@@ -52,25 +52,54 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 
 === Solved Problems
 
-#solved_problem[Generalized Logistic Equation Form][
-  Write a generalized logistic differential equation and identify its parameters.
+#solved_problem[Classical Logistic IVP Solution][
+  Solve the initial value problem
+  $ x' = r x (1 - x/K), quad x(0)=x_0, $
+  with $r>0$, $K>0$, and $0 < x_0 < K$.
 ]
 #solution[
-  A generalized logistic model can be written as
-  $ x' = r x (1 - (x/K)^nu), $
-  where $r$ is the growth rate, $K$ is the carrying capacity, and $nu > 0$ is a shape parameter.
+  Rewrite as
+  $ x' = r x - (r/K) x^2, $
+  which is separable:
+  $ (K)/(x(K-x)) dif x = r dif t. $
+
+  Using partial fractions,
+  $ 1/x + 1/(K-x) $ integrates to
+  $ ln |x/(K-x)| = r t + C. $
+  Hence
+  $ x/(K-x) = C e^(r t). $
+
+  Solving for $x(t)$:
+  $ x(t) = K/(1 + C_1 e^(-r t)). $
+  From $x(0)=x_0$, $C_1 = (K-x_0)/x_0$.
+
+  Therefore,
+  $ x(t) = K/(1 + ((K-x_0)/x_0)e^(-r t)). $
 ]
 
-#solved_problem[Chapter 1 Coverage Checklist][
-  List the Chapter 1 topics included in this section.
+#solved_problem[Pitchfork Bifurcation Analysis][
+  Analyze equilibria and local stability of the autonomous system
+  $ x' = lambda x - x^3 $
+  as the parameter $lambda$ varies.
 ]
 #solution[
-  - 1.1 Basic Results
-  - 1.2 First-Order Linear Equations
-  - 1.3 Autonomous Equations
-  - 1.4 Generalized Logistic Equation
-  - 1.5 Bifurcation
-  - 1.6 Exercises
+  Equilibria satisfy
+  $ lambda x - x^3 = x (lambda - x^2) = 0. $
+  Hence:
+  - $x^* = 0$ for all $lambda$
+  - $x^* = +- sqrt(lambda)$ when $lambda > 0$
+
+  Using $f(x)=lambda x - x^3$, we get
+  $ f'(x)=lambda - 3x^2. $
+
+  At $x^*=0$: $f'(0)=lambda$,
+  so $x^*=0$ is stable for $lambda<0$ and unstable for $lambda>0$.
+
+  At $x^*=+-sqrt(lambda)$ (for $lambda>0$):
+  $ f'(+-sqrt(lambda)) = lambda - 3lambda = -2lambda < 0, $
+  so both nonzero equilibria are asymptotically stable.
+
+  Therefore, at $lambda=0$ the system undergoes a supercritical pitchfork bifurcation.
 ]
 
 #solved_problem[Linear IVP with Integrating Factor][

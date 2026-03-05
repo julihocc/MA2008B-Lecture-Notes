@@ -22,6 +22,20 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
   If $J$ is the Jacobian matrix at $x^*$ and has no eigenvalues with zero real part, then the local behavior of the nonlinear system is topologically equivalent to
   $ u' = J u. $
 ]
+#proof[
+  Let $x = x^* + u$ and define
+  $ g(u) = f(x^* + u). $
+  Since $f(x^*) = 0$, a first-order expansion gives
+  $ g(u) = J u + h(u), $
+  where $J$ is the Jacobian matrix at $x^*$ and $norm(h(u))/norm(u) -> 0$ as $u -> 0$.
+
+  Hence the nonlinear dynamics near the equilibrium can be written as
+  $ u' = J u + h(u). $
+  The linearized system is
+  $ v' = J v. $
+
+  If $J$ has no eigenvalues on the imaginary axis (hyperbolic equilibrium), the higher-order term $h(u)$ does not change the qualitative local phase portrait. Therefore, the nonlinear and linearized systems are locally topologically equivalent near $x^*$.
+]
 
 #definition[Periodic Solutions][
   A nonconstant trajectory is periodic if there exists $T>0$ such that
@@ -29,23 +43,25 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
   Existence/nonexistence criteria depend on system structure and dimension.
 ]
 
-#example[Three-Dimensional Dynamics][
+#definition[Three-Dimensional Dynamics][
   In $RR^3$, trajectories can exhibit spirals, saddles, and complex invariant sets not visible in two-dimensional phase planes.
 ]
 
-#example[Chapter 3 map][
-  - 3.1 Introduction
-  - 3.2 Phase Plane Diagrams
-  - 3.3 Phase Plane Diagrams for Linear Systems
-  - 3.4 Stability of Nonlinear Systems
-  - 3.5 Linearization of Nonlinear Systems
-  - 3.6 Existence and Nonexistence of Periodic Solutions
-  - 3.7 Three-Dimensional Systems
-  - 3.8 Differential Equations and Mathematica
-  - 3.9 Exercises
-]
-
 === Solved Problems
+
+#solved_problem[Nonexistence of Periodic Orbits (Bendixson Criterion)][
+  Consider the planar autonomous system
+  $ x' = x + y, quad y' = -x + 2y. $
+  Determine whether nontrivial periodic orbits can exist in a simply connected region of $RR^2$.
+]
+#solution[
+  Let
+  $ F(x,y) = (P(x,y), Q(x,y)) = (x+y, -x+2y). $
+  The divergence is
+  $ (partial P)/(partial x) + (partial Q)/(partial y) = 1 + 2 = 3. $
+
+  Since the divergence is strictly positive everywhere (and never changes sign), the Bendixson criterion implies that no nontrivial periodic orbit can lie entirely in a simply connected region of the plane.
+]
 
 #solved_problem[Phase-Plane Classification][
   Classify the origin for
@@ -53,7 +69,11 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
 ]
 #solution[
   The linear matrix is $A = mat(0, 1; -1, -0.2)$.
-  Its eigenvalues are complex with negative real part, so the origin is a stable focus (spiral sink).
+  The characteristic polynomial is
+  $ lambda^2 + 0.2lambda + 1 = 0, $
+  so
+  $ lambda_(1,2) = (-0.2 +- sqrt(0.04 - 4))/2 = -0.1 +- 0.995i. $
+  Since the real part is negative, the origin is a stable focus (spiral sink).
 ]
 
 #solved_problem[Linearization of a Nonlinear System][
@@ -63,7 +83,11 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
 #solution[
   Jacobian at $(0,0)$:
   $ J = mat(0, 1; -1, -1). $
-  Eigenvalues have negative real part, so the origin is locally asymptotically stable.
+  The characteristic polynomial is
+  $ lambda^2 + lambda + 1 = 0, $
+  giving
+  $ lambda_(1,2) = (-1 +- sqrt(-3))/2 = -1/2 +- (sqrt(3))/2 i. $
+  Both eigenvalues have negative real part, so the origin is locally asymptotically stable.
 ]
 
 === Supplementary Problems

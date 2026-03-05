@@ -51,33 +51,50 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
 
 === Solved Problems
 
-#solved_problem[Chapter 2 Coverage Checklist][
-  List the Chapter 2 topics included in this subsection.
+#solved_problem[Matrix Exponential for a Diagonal System][
+  Solve
+  $ x' = A x, quad x(0) = mat(2; -1), quad A = mat(3, 0; 0, -1). $
 ]
 #solution[
-  - 2.1 Introduction
-  - 2.2 The Vector Equation $x' = A(t) x$
-  - 2.3 The Matrix Exponential Function
-  - 2.4 Induced Matrix Norm
-  - 2.5 Floquet Theory
-  - 2.6 Exercises
+  Since $A$ is diagonal,
+  $ e^(A t) = mat(e^(3t), 0; 0, e^(-t)). $
+
+  Therefore,
+  $ x(t) = e^(A t) x(0) = mat(e^(3t), 0; 0, e^(-t)) mat(2; -1) = mat(2e^(3t); -e^(-t)). $
 ]
 
 #solved_problem[State Transition with Constant Matrix][
-  Solve $x' = A x$, $x(0)=x_0$, with $A = mat(0, 1; -2, -3)$.
+  Solve $x' = A x$, $x(0)=x_0$, with
+  $ A = mat(0, 1; -2, -3), quad x_0 = mat(x_(1,0); x_(2,0)). $
 ]
 #solution[
-  The state transition matrix is $e^(A t)$, so the complete solution is
-  $ x(t) = e^(A t) x_0 $. In practice, compute $e^(A t)$ from diagonalization or Jordan form.
+  The characteristic polynomial is
+  $ det(lambda I - A) = lambda^2 + 3lambda + 2 = (lambda+1)(lambda+2), $
+  so eigenvalues are $-1$ and $-2$.
+
+  The matrix exponential is
+  $ e^(A t) = mat(
+    2e^(-t)-e^(-2t), e^(-t)-e^(-2t);
+    -2e^(-t)+2e^(-2t), -e^(-t)+2e^(-2t)
+  ). $
+
+  Therefore,
+  $ x(t) = e^(A t) x_0. $
 ]
 
-#solved_problem[Induced Norm Bound][
-  Given $x' = A x$ and induced norm $norm(·)$, derive a growth bound.
+#solved_problem[Infinity-Norm Growth Estimate][
+  For $x' = A x$ with
+  $ A = mat(1, 2; 0, -1), $
+  use the induced infinity norm to derive an exponential bound for $norm(x(t))_infinity$.
 ]
 #solution[
-  If $norm(A) <= alpha$, then
-  $ norm(x(t)) <= e^(alpha t) norm(x(0)). $
-  This follows from Gronwall-type bounds applied to $(norm(x(t)))'$.
+  For the induced infinity norm,
+  $ norm(A)_infinity = max{ |1|+|2|, |0|+|-1| } = max{3,1} = 3. $
+
+  Standard norm bounds for linear systems give
+  $ norm(x(t))_infinity <= e^(norm(A)_infinity t) norm(x(0))_infinity. $
+  Hence
+  $ norm(x(t))_infinity <= e^(3t) norm(x(0))_infinity. $
 ]
 
 === Supplementary Problems
