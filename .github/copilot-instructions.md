@@ -45,3 +45,4 @@
 - Keep an English academic tone and control-systems terminology consistent with surrounding notes.
 - Treat `.typ` files as source of truth; do not edit `.bak` files unless explicitly requested.
 - Section 4 policy (starting at `4.1`): represent worked illustrations as `#solved_problem` + `#solution` blocks; avoid `#example` blocks in new or revised Section 4 content.
+- Quiz policy: in `quizzes/` files, write math in plain text / ASCII math (e.g., `x' = A x`, `e^(At)`, `||A||_inf`); avoid LaTeX delimiters like `$...$` and LaTeX commands.
