@@ -1,4 +1,4 @@
-#import "../../../utils.typ": *
+#import "../../../../../utils.typ": *
 
 = Assignment 4: Code Assignment (Differential Equations and Dynamical Systems)
 *Total Points:* 100
@@ -46,12 +46,12 @@ Use matrix methods and computational checks.
 
 1. *[10 pts]* For
   $ A = mat(3, 0; 0, -1), quad x(0)=mat(2; -1), $
-  compute $e^(At)$ and obtain $x(t)$ explicitly.
+    compute $e^(A t)$ and obtain $x(t)$ explicitly.
 
 2. *[15 pts]* For
   $ A = mat(0, 1; -2, -3), $
-  derive $e^(At)$ and write the full state-transition solution
-  $ x(t)=e^(At)x_0 $. Verify your expression symbolically (or by checking $Phi'(t)=A Phi(t)$ and $Phi(0)=I$).
+  derive $e^(A t)$ and write the full state-transition solution
+  $ x(t)=e^(A t)x_0 $. Verify your expression symbolically (or by checking $Phi'(t)=A Phi(t)$ and $Phi(0)=I$).
 
 3. *[10 pts]* For
   $ A = mat(1, 2; 0, -1), $
