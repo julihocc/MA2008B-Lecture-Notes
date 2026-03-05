@@ -28,7 +28,7 @@
   - `tinymist.exportPdf: "onSave"`
   - `tinymist.formatterMode: "typstfmt"`
 - CLI compile (if needed): `typst compile lecture_notes/lecture_notes.typ` from repo root.
-- `lecture_notes/lecture_notes.typ` currently includes `sections/04_optimization/04_main.typ`, but that file/directory is not present; account for this before compile-related tasks.
+- If `utils.typ` is imported from `lecture_notes/lecture_notes.typ`, compile with root set to repository root: `typst compile --root . lecture_notes/lecture_notes.typ`.
 
 ## Python companion scripts
 - `python_scripts/` is a manual mirror of `lecture_notes/sections/` (see `python_scripts/README.md`).
@@ -44,3 +44,4 @@
 - Prefer surgical edits to requested section files; do not rename folders/files without explicit request.
 - Keep an English academic tone and control-systems terminology consistent with surrounding notes.
 - Treat `.typ` files as source of truth; do not edit `.bak` files unless explicitly requested.
+- Section 4 policy (starting at `4.1`): represent worked illustrations as `#solved_problem` + `#solution` blocks; avoid `#example` blocks in new or revised Section 4 content.

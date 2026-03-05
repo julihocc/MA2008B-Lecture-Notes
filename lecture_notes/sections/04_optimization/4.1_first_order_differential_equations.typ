@@ -25,10 +25,13 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   Equilibrium points satisfy $f(x^*) = 0$ and are analyzed using phase-line methods.
 ]
 
-#example[Generalized Logistic Equation][
+#solved_problem[Generalized Logistic Equation Form][
+  Write a generalized logistic differential equation and identify its parameters.
+]
+#solution[
   A generalized logistic model can be written as
   $ x' = r x (1 - (x/K)^nu), $
-  with growth rate $r$, carrying capacity $K$, and shape parameter $nu > 0$.
+  where $r$ is the growth rate, $K$ is the carrying capacity, and $nu > 0$ is a shape parameter.
 ]
 
 #definition[Bifurcation (1D Autonomous)][
@@ -36,7 +39,10 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   $ x' = f(x, lambda). $
 ]
 
-#example[Chapter 1 map][
+#solved_problem[Chapter 1 Coverage Checklist][
+  List the Chapter 1 topics included in this section.
+]
+#solution[
   - 1.1 Basic Results
   - 1.2 First-Order Linear Equations
   - 1.3 Autonomous Equations
