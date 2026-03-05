@@ -1,44 +1,46 @@
 # Copilot Instructions for MA2008B-Lecture-Notes
 
-## Project purpose and boundaries
-- This repository is a Typst-based lecture-notes manuscript, not an application codebase.
-- Treat `lecture_notes/` as the production source; use `docs/` only for syllabus/context.
-- The real entrypoint is `lecture_notes/lecture_notes.typ` (not `main.typ`).
+## Purpose and source of truth
+- This repository is a Typst manuscript for lecture notes, not an app/service codebase.
+- Make content edits in `lecture_notes/`; use `docs/MA2008B-Analítico.md` only to align syllabus scope.
+- Main document entrypoint is `lecture_notes/lecture_notes.typ`.
 
 ## Architecture and content flow
-- `lecture_notes/lecture_notes.typ` defines document-level formatting, cover/outline, then includes modules in strict order (`01` through `10`).
-- Module boundary pattern:
-  - `lecture_notes/sections/XX_topic/XX_main.typ` starts with `= Module Title`, short intro paragraph, then ordered `#include` lines.
-  - Subtopics are `X.Y_slug.typ` and commonly follow `==` title + `=== Mathematical Review` + `=== Solved Problems` + `=== Supplementary Problems`.
-- Example chain: `lecture_notes/lecture_notes.typ` -> `lecture_notes/sections/04_optimization/04_main.typ` -> `lecture_notes/sections/04_optimization/4.1_time_invariant_solution.typ`.
+- `lecture_notes/lecture_notes.typ` sets page/text/theorem rendering, then includes modules in fixed order.
+- Each module follows: `lecture_notes/sections/XX_topic/XX_main.typ` with `= Module Title`, intro paragraph, ordered `#include` list.
+- Subtopic files are `X.Y_slug.typ`, typically structured as:
+  - `== <Topic>`
+  - `=== Mathematical Review`
+  - `=== Solved Problems`
+  - `=== Supplementary Problems`
+- Example pattern: `lecture_notes/sections/01_control_theory/01_main.typ` -> `1.1_conventional_methods.typ`.
+- Keep include ordering untouched unless the user asks to reorder (order defines final PDF sequence).
 
-## Required Typst patterns in this repo
-- Import shared macros in section files with `#import "../../utils.typ": *`.
-- Reuse existing blocks from `lecture_notes/utils.typ`: `#definition`, `#theorem`, `#proposition`, `#corollary`, `#example`, `#solved_problem`, `#supplementary`, `#proof`, `#solution`.
-- Keep heading depth and naming exactly aligned with existing files (`XX_main.typ`, `X.Y_slug.typ`; headings `=`, `==`, `===`).
-- Preserve include order in both `lecture_notes/lecture_notes.typ` and each `XX_main.typ`; ordering defines final PDF structure.
-- Match local math notation style from neighboring files (e.g., `mat(...)`, `cal(L){...}`, `integral_0^t`, `e^(A t)`).
+## Typst conventions used in this repo
+- Import shared theorem helpers from root `utils.typ` using `#import "../../../utils.typ": *` in section files.
+- Reuse existing blocks from `utils.typ`: `#definition`, `#theorem`, `#proposition`, `#corollary`, `#example`, `#solved_problem`, `#supplementary`, `#proof`, `#solution`.
+- Match existing notation/style in nearby files (e.g., `mat(...)`, `dot(x)`, `G(s) = C(s I - A)^(-1)B + D`).
+- Preserve filename and heading depth conventions (`XX_main.typ`, `X.Y_slug.typ`, with `=`, `==`, `===`).
 
-## Tooling and developer workflow
+## Developer workflow
 - Primary authoring workflow is VS Code + TinyMist.
-- Workspace settings in `.vscode/settings.json` enforce:
-  - `tinymist.exportPdf: "onSave"` (PDF export on save)
+- Workspace settings (`.vscode/settings.json`) enforce:
+  - `tinymist.exportPdf: "onSave"`
   - `tinymist.formatterMode: "typstfmt"`
-- If using CLI, compile from repo root against `lecture_notes/lecture_notes.typ`.
-- Python companion workflow is manual (not auto-generated): mirror Typst section paths in `python_scripts/sections/...` with identical filename stem.
-- Existing mirror example:
-  - Typst: `lecture_notes/sections/04_optimization/4.1_time_invariant_solution.typ`
-  - Python: `python_scripts/sections/04_optimization/4.1_compute_state_transition_matrix_laplace.py`
+- CLI compile (if needed): `typst compile lecture_notes/lecture_notes.typ` from repo root.
+- `lecture_notes/lecture_notes.typ` currently includes `sections/04_optimization/04_main.typ`, but that file/directory is not present; account for this before compile-related tasks.
+
+## Python companion scripts
+- `python_scripts/` is a manual mirror of `lecture_notes/sections/` (see `python_scripts/README.md`).
+- Keep mirrored relative paths and same file stem when creating companions (only extension changes to `.py`).
+- Current workspace has no `python_scripts/main.py`; avoid instructions that rely on a script runner unless it is added.
 
 ## Dependencies and integration points
-- Typst package dependency: `@preview/ctheorems:1.1.3` (imported in `lecture_notes/utils.typ`).
-- Python project dependency is `sympy` (see `pyproject.toml`), used by companion computational scripts.
-- PDF artifacts are tracked with Git LFS (`.gitattributes` has `*.pdf filter=lfs ...`), so avoid unnecessary regenerated PDF churn unless explicitly requested.
+- Typst theorem package is `@preview/ctheorems:1.1.3` (imported in root `utils.typ`).
+- Python dependencies are declared in `pyproject.toml` (`sympy`, `numpy`, `matplotlib`, `control`, Jupyter stack).
+- `.pdf` and `.ipynb` files are tracked with Git LFS (`.gitattributes`); avoid unnecessary binary churn unless requested.
 
-## Editing guidance for AI agents
-- Prefer targeted edits to the specific section file requested by the user.
-- When adding a new subtopic, update the corresponding `XX_main.typ` include list in the correct numeric order.
-- Do not rename existing section directories/files unless explicitly requested; cross-file include paths are tightly coupled.
-- Keep bilingual/academic tone and control-systems terminology aligned with existing sections.
-- Use `docs/MA2008B-Analítico.md` for syllabus alignment, but implement content changes in `lecture_notes/` files.
-- Do not modify `.bak` files (e.g., `6.6_canonical_forms.bak`) unless explicitly asked; treat `.typ` files as source of truth.
+## Editing guardrails
+- Prefer surgical edits to requested section files; do not rename folders/files without explicit request.
+- Keep bilingual academic tone and control-systems terminology consistent with surrounding notes.
+- Treat `.typ` files as source of truth; do not edit `.bak` files unless explicitly requested.
