@@ -1,6 +1,6 @@
 #import "../../../utils.typ": *
 
-= Assignment 4A: Code Assignment (Differential Equations and Dynamical Systems)
+= Assignment 4: Code Assignment (Differential Equations and Dynamical Systems)
 *Total Points:* 100
 
 == Objective

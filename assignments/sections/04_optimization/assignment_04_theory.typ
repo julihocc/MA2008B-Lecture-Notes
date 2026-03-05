@@ -1,6 +1,6 @@
 #import "../../../utils.typ": *
 
-= Assignment 4B: Team Supplementary Problems (LaTeX Report)
+= Assignment 4: Theory Assignment (Team Supplementary Problems)
 *Total Points:* 100
 
 == Objective
