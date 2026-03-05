@@ -1,32 +1,32 @@
 Comprehensive Quiz: Section 4 - Differential Equations and Dynamical Systems
 
-1. For the first-order linear equation $x' + p(t)x = q(t)$, what integrating factor is standard?
-a) $mu(t)=e^(integral q(t) dif t)$
-*b) $mu(t)=e^(integral p(t) dif t)$
-c) $mu(t)=p(t)q(t)$
-d) $mu(t)=1/p(t)$
+1. For the first-order linear equation x' + p(t)x = q(t), what integrating factor is standard?
+a) mu(t) = e^(int q(t) dt)
+*b) mu(t) = e^(int p(t) dt)
+c) mu(t) = p(t)q(t)
+d) mu(t) = 1/p(t)
 
-2. For an autonomous scalar equation $x' = f(x)$, equilibria are found by:
-a) Solving $x' = 1$
-*b) Solving $f(x)=0$
-c) Solving $f'(x)=0$
-d) Solving $x = f'(x)$
+2. For an autonomous scalar equation x' = f(x), equilibria are found by:
+a) Solving x' = 1
+*b) Solving f(x) = 0
+c) Solving f'(x) = 0
+d) Solving x = f'(x)
 
-3. In $x' = lambda x - x^3$, how many real equilibria exist when $lambda < 0$?
+3. In x' = lambda*x - x^3, how many real equilibria exist when lambda < 0?
 *a) One
 b) Two
 c) Three
 d) Infinitely many
 
-4. In $x' = lambda x - x^3$, how many real equilibria exist when $lambda > 0$?
+4. In x' = lambda*x - x^3, how many real equilibria exist when lambda > 0?
 a) One
 b) Two
 *c) Three
 d) None
 
-5. For $x' = x(1-x)$, which equilibrium is asymptotically stable?
-a) $x^*=0$
-*b) $x^*=1$
+5. For x' = x(1-x), which equilibrium is asymptotically stable?
+a) x* = 0
+*b) x* = 1
 c) Both are unstable
 d) Both are asymptotically stable
 
@@ -36,47 +36,47 @@ a) One stable branch becomes one unstable branch only
 c) Two unstable branches collapse into one stable branch
 d) No change in stability occurs
 
-7. For $x' = A x$ with constant matrix $A$, the solution is:
-a) $x(t)=A^t x_0$
-b) $x(t)=tA x_0$
-*c) $x(t)=e^(At)x_0$
-d) $x(t)=A^(-1)e^t x_0$
+7. For x' = A x with constant matrix A, the solution is:
+a) x(t) = A^t x0
+b) x(t) = tA x0
+*c) x(t) = e^(A t) x0
+d) x(t) = A^(-1)e^t x0
 
-8. If $A = V Lambda V^(-1)$ is diagonalizable, then:
-a) $e^(At)=V^(-1)e^(Lambda t)V$
-*b) $e^(At)=V e^(Lambda t) V^(-1)$
-c) $e^(At)=e^(Vt)e^(Lambda t)$
-d) $e^(At)=Lambda e^t$
+8. If A = V*Lambda*V^(-1) is diagonalizable, then:
+a) e^(A t) = V^(-1)e^(Lambda t)V
+*b) e^(A t) = V e^(Lambda t) V^(-1)
+c) e^(A t) = e^(V t)e^(Lambda t)
+d) e^(A t) = Lambda e^t
 
-9. A fundamental matrix $Phi(t)$ for $x'=A(t)x$ must satisfy:
-a) $Phi'(t)=Phi(t)A(t)$ only
-b) $Phi'(t)=0$
-*c) $Phi'(t)=A(t)Phi(t)$ and $det(Phi(t)) != 0$
-d) $Phi(t)=I$ for all $t$
+9. A fundamental matrix Phi(t) for x' = A(t)x must satisfy:
+a) Phi'(t) = Phi(t)A(t) only
+b) Phi'(t) = 0
+*c) Phi'(t) = A(t)Phi(t) and det(Phi(t)) != 0
+d) Phi(t) = I for all t
 
-10. For periodic systems $x'=A(t)x$ with period $T$, Floquet multipliers are:
-a) Eigenvalues of $A(t)$ at $t=0$
-*b) Eigenvalues of $Phi(T)$
-c) Diagonal entries of $P(t)$
-d) Coefficients of the characteristic polynomial of $R$
+10. For periodic systems x' = A(t)x with period T, Floquet multipliers are:
+a) Eigenvalues of A(t) at t = 0
+*b) Eigenvalues of Phi(T)
+c) Diagonal entries of P(t)
+d) Coefficients of the characteristic polynomial of R
 
-11. If all Floquet multipliers satisfy $|rho_i| < 1$, the periodic solution behavior is:
+11. If all Floquet multipliers satisfy |rho_i| < 1, the periodic solution behavior is:
 a) Unstable
 *b) Asymptotically stable
 c) Marginally stable by default
 d) Impossible to determine
 
-12. The induced matrix infinity norm $norm(A)_infinity$ equals:
+12. The induced matrix infinity norm ||A||_inf equals:
 a) Maximum column sum of absolute values
 *b) Maximum row sum of absolute values
-c) Spectral radius of $A$
+c) Spectral radius of A
 d) Sum of all entries
 
-13. A common norm bound for $x' = A x$ is:
-a) $norm(x(t)) >= e^(norm(A)t) norm(x(0))$
-*b) $norm(x(t)) <= e^(norm(A)t) norm(x(0))$
-c) $norm(x(t)) = norm(A)t + norm(x(0))$
-d) $norm(x(t)) = 0$ for stable $A$
+13. A common norm bound for x' = A x is:
+a) ||x(t)|| >= e^(||A|| t) ||x(0)||
+*b) ||x(t)|| <= e^(||A|| t) ||x(0)||
+c) ||x(t)|| = ||A|| t + ||x(0)||
+d) ||x(t)|| = 0 for stable A
 
 14. In a 2D autonomous system, a phase-plane diagram primarily shows:
 a) Frequency response magnitude
@@ -84,13 +84,13 @@ b) Transfer function poles only
 *c) Trajectories, nullclines, and qualitative flow geometry
 d) Discrete-time iteration maps only
 
-15. For linearization near an equilibrium $x^*$, the Jacobian is evaluated at:
+15. For linearization near an equilibrium x*, the Jacobian is evaluated at:
 a) Any random state
 b) Initial condition only
-*c) The equilibrium point $x^*$
+*c) The equilibrium point x*
 d) Infinity
 
-16. If Jacobian eigenvalues at an equilibrium are $-0.1 +- 0.995i$, the equilibrium is:
+16. If Jacobian eigenvalues at an equilibrium are -0.1 +- 0.995i, the equilibrium is:
 a) Unstable focus
 *b) Stable focus (spiral sink)
 c) Center
@@ -108,35 +108,35 @@ a) Divergence equals zero everywhere
 c) One eigenvalue is positive
 d) The system is linear
 
-19. In $x' = x + y, y' = -x + 2y$, the divergence is:
-a) $-1$
-b) $0$
-*c) $3$
-d) $x+y$
+19. In x' = x + y, y' = -x + 2y, the divergence is:
+a) -1
+b) 0
+*c) 3
+d) x+y
 
-20. A nonconstant periodic solution $x(t)$ with period $T$ satisfies:
-a) $x(t+T)=-x(t)$
-*b) $x(t+T)=x(t)$ for all $t$
-c) $x'(t+T)=0$
-d) $x''(t)=x(t)$
+20. A nonconstant periodic solution x(t) with period T satisfies:
+a) x(t+T) = -x(t)
+*b) x(t+T) = x(t) for all t
+c) x'(t+T) = 0
+d) x''(t) = x(t)
 
-21. For $x' = f(t,x)$, a standard local uniqueness condition in $x$ is:
-a) $f$ is odd in $x$
-b) $f$ is periodic in $t$
-*c) $f$ is locally Lipschitz in $x$
-d) $f$ is bounded away from zero
+21. For x' = f(t,x), a standard local uniqueness condition in x is:
+a) f is odd in x
+b) f is periodic in t
+*c) f is locally Lipschitz in x
+d) f is bounded away from zero
 
-22. In the logistic IVP $x' = r x(1 - x/K)$ with $0<x_0<K$ and $r>0$, the long-term limit is:
-a) $0$
-*b) $K$
-c) $infinity$
-d) $-K$
+22. In the logistic IVP x' = r*x*(1 - x/K) with 0 < x0 < K and r > 0, the long-term limit is:
+a) 0
+*b) K
+c) infinity
+d) -K
 
-23. For a diagonal matrix $A = diag(lambda_1, ..., lambda_n)$, $e^(At)$ is:
+23. For a diagonal matrix A = diag(lambda_1, ..., lambda_n), e^(A t) is:
 a) Full dense matrix with random coupling
-*b) $diag(e^(lambda_1 t), ..., e^(lambda_n t))$
-c) $A e^t$
-d) $diag(lambda_1 t, ..., lambda_n t)$
+*b) diag(e^(lambda_1 t), ..., e^(lambda_n t))
+c) A e^t
+d) diag(lambda_1 t, ..., lambda_n t)
 
 24. In nonlinear analysis, linearization conclusions are generally valid near hyperbolic equilibria because:
 a) Nonlinear terms dominate linear terms near equilibrium
@@ -147,5 +147,5 @@ d) Periodic orbits disappear automatically
 25. Which statement best contrasts linear systems and autonomous nonlinear systems in this module?
 a) Linear systems cannot be solved analytically
 b) Autonomous nonlinear systems never use Jacobians
-*c) Linear systems emphasize $e^(At)$ and norm bounds, while autonomous nonlinear systems emphasize phase-plane geometry, linearization, and periodic-orbit criteria
+*c) Linear systems emphasize e^(A t) and norm bounds, while autonomous nonlinear systems emphasize phase-plane geometry, linearization, and periodic-orbit criteria
 d) They are equivalent after Laplace transform in all cases
