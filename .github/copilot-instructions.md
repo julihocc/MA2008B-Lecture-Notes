@@ -42,5 +42,5 @@
 
 ## Editing guardrails
 - Prefer surgical edits to requested section files; do not rename folders/files without explicit request.
-- Keep bilingual academic tone and control-systems terminology consistent with surrounding notes.
+- Keep an English academic tone and control-systems terminology consistent with surrounding notes.
 - Treat `.typ` files as source of truth; do not edit `.bak` files unless explicitly requested.
