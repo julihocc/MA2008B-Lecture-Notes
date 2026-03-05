@@ -63,6 +63,21 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
   $ x(t) = e^(A t) x(0) = mat(e^(3t), 0; 0, e^(-t)) mat(2; -1) = mat(2e^(3t); -e^(-t)). $
 ]
 
+#solved_problem[Infinity-Norm Growth Estimate][
+  For $x' = A x$ with
+  $ A = mat(1, 2; 0, -1), $
+  use the induced infinity norm to derive an exponential bound for $norm(x(t))_infinity$.
+]
+#solution[
+  For the induced infinity norm,
+  $ norm(A)_infinity = max{ |1|+|2|, |0|+|-1| } = max{3,1} = 3. $
+
+  Standard norm bounds for linear systems give
+  $ norm(x(t))_infinity <= e^(norm(A)_infinity t) norm(x(0))_infinity. $
+  Hence
+  $ norm(x(t))_infinity <= e^(3t) norm(x(0))_infinity. $
+]
+
 #solved_problem[State Transition with Constant Matrix][
   Solve $x' = A x$, $x(0)=x_0$, with
   $ A = mat(0, 1; -2, -3), quad x_0 = mat(x_(1,0); x_(2,0)). $
@@ -80,21 +95,6 @@ This section covers Chapter 2 topics: introduction, vector equation $x' = A(t) x
 
   Therefore,
   $ x(t) = e^(A t) x_0. $
-]
-
-#solved_problem[Infinity-Norm Growth Estimate][
-  For $x' = A x$ with
-  $ A = mat(1, 2; 0, -1), $
-  use the induced infinity norm to derive an exponential bound for $norm(x(t))_infinity$.
-]
-#solution[
-  For the induced infinity norm,
-  $ norm(A)_infinity = max{ |1|+|2|, |0|+|-1| } = max{3,1} = 3. $
-
-  Standard norm bounds for linear systems give
-  $ norm(x(t))_infinity <= e^(norm(A)_infinity t) norm(x(0))_infinity. $
-  Hence
-  $ norm(x(t))_infinity <= e^(3t) norm(x(0))_infinity. $
 ]
 
 === Supplementary Problems

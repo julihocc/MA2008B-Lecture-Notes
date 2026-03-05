@@ -52,6 +52,28 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 
 === Solved Problems
 
+#solved_problem[Linear IVP with Integrating Factor][
+  Solve $x' + 2x = 4$, with $x(0)=1$.
+]
+#solution[
+  Integrating factor: $mu(t)=e^(2t)$.
+  Then
+  $ (e^(2t)x)' = 4e^(2t) $. Integrating:
+  $ e^(2t)x = 2 e^(2t) + C => x(t)=2 + C e^(-2t) $.
+  From $x(0)=1$, $C=-1$. Therefore
+  $ x(t)=2-e^(-2t). $
+]
+
+#solved_problem[Equilibria and Stability][
+  Analyze equilibria of $x' = x(1-x)$.
+]
+#solution[
+  Equilibria satisfy $x(1-x)=0$, so $x^*=0,1$.
+  Since $f'(x)=1-2x$:
+  - $f'(0)=1>0$ (unstable)
+  - $f'(1)=-1<0$ (asymptotically stable)
+]
+
 #solved_problem[Classical Logistic IVP Solution][
   Solve the initial value problem
   $ x' = r x (1 - x/K), quad x(0)=x_0, $
@@ -100,28 +122,6 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   so both nonzero equilibria are asymptotically stable.
 
   Therefore, at $lambda=0$ the system undergoes a supercritical pitchfork bifurcation.
-]
-
-#solved_problem[Linear IVP with Integrating Factor][
-  Solve $x' + 2x = 4$, with $x(0)=1$.
-]
-#solution[
-  Integrating factor: $mu(t)=e^(2t)$.
-  Then
-  $ (e^(2t)x)' = 4e^(2t) $. Integrating:
-  $ e^(2t)x = 2 e^(2t) + C => x(t)=2 + C e^(-2t) $.
-  From $x(0)=1$, $C=-1$. Therefore
-  $ x(t)=2-e^(-2t). $
-]
-
-#solved_problem[Equilibria and Stability][
-  Analyze equilibria of $x' = x(1-x)$.
-]
-#solution[
-  Equilibria satisfy $x(1-x)=0$, so $x^*=0,1$.
-  Since $f'(x)=1-2x$:
-  - $f'(0)=1>0$ (unstable)
-  - $f'(1)=-1<0$ (asymptotically stable)
 ]
 
 === Supplementary Problems

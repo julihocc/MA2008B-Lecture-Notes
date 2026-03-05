@@ -49,20 +49,6 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
 
 === Solved Problems
 
-#solved_problem[Nonexistence of Periodic Orbits (Bendixson Criterion)][
-  Consider the planar autonomous system
-  $ x' = x + y, quad y' = -x + 2y. $
-  Determine whether nontrivial periodic orbits can exist in a simply connected region of $RR^2$.
-]
-#solution[
-  Let
-  $ F(x,y) = (P(x,y), Q(x,y)) = (x+y, -x+2y). $
-  The divergence is
-  $ (partial P)/(partial x) + (partial Q)/(partial y) = 1 + 2 = 3. $
-
-  Since the divergence is strictly positive everywhere (and never changes sign), the Bendixson criterion implies that no nontrivial periodic orbit can lie entirely in a simply connected region of the plane.
-]
-
 #solved_problem[Phase-Plane Classification][
   Classify the origin for
   $ x' = y, quad y' = -x - 0.2y. $
@@ -88,6 +74,20 @@ This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear
   giving
   $ lambda_(1,2) = (-1 +- sqrt(-3))/2 = -1/2 +- (sqrt(3))/2 i. $
   Both eigenvalues have negative real part, so the origin is locally asymptotically stable.
+]
+
+#solved_problem[Nonexistence of Periodic Orbits (Bendixson Criterion)][
+  Consider the planar autonomous system
+  $ x' = x + y, quad y' = -x + 2y. $
+  Determine whether nontrivial periodic orbits can exist in a simply connected region of $RR^2$.
+]
+#solution[
+  Let
+  $ F(x,y) = (P(x,y), Q(x,y)) = (x+y, -x+2y). $
+  The divergence is
+  $ (partial P)/(partial x) + (partial Q)/(partial y) = 1 + 2 = 3. $
+
+  Since the divergence is strictly positive everywhere (and never changes sign), the Bendixson criterion implies that no nontrivial periodic orbit can lie entirely in a simply connected region of the plane.
 ]
 
 === Supplementary Problems
