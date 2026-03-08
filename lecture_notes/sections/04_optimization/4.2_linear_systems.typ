@@ -39,7 +39,7 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   - Two real negative eigenvalues: asymptotically stable node.
   - Two real positive eigenvalues: unstable node.
   - Real eigenvalues of opposite sign: saddle (unstable).
-  - Complex pair $alpha +- i beta$ with $beta != 0$:
+  - Complex pair $alpha plus.minus i beta$ with $beta != 0$:
     stable focus if $alpha<0$, unstable focus if $alpha>0$, center if $alpha=0$.
 ]
 
@@ -88,7 +88,7 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   The characteristic polynomial is
   $ lambda^2 + 2lambda + 5 = 0, $
   so
-  $ lambda_(1,2) = -1 +- 2i. $
+  $ lambda_(1,2) = -1 plus.minus 2i. $
   Since the real part is negative, trajectories spiral toward the origin.
   The critical point is a stable focus.
 ]
@@ -100,7 +100,7 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
 #solution[
   The characteristic polynomial is
   $ lambda^2 + 4 = 0, $
-  so eigenvalues are $+- 2i$ (purely imaginary).
+  so eigenvalues are $plus.minus 2i$ (purely imaginary).
   Therefore the origin is a center for this linear system.
 ]
 
@@ -149,7 +149,7 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
 ]
 
 #supplementary[Focus Type from Eigenvalues][
-  For eigenvalues $lambda_(1,2)=0.4 +- 3i$, classify the critical point at the origin.
+  For eigenvalues $lambda_(1,2)=0.4 plus.minus 3i$, classify the critical point at the origin.
 ]
 
 #supplementary[Matrix Exponential with Repeated Eigenvalue][
