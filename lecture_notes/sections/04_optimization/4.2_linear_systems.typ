@@ -106,6 +106,27 @@ The main analytical objective is to estimate solution size without solving each 
 
 === Solved Problems
 
+#solved_problem[Fundamental Matrix for a Time-Varying Diagonal System][
+  Consider
+  $ x' = A(t) x, quad A(t)=mat(2t,0;0,-1). $
+  Find a fundamental matrix and write the general solution.
+]
+#solution[
+  The equations are decoupled:
+  $ x_1' = 2t x_1, quad x_2' = -x_2. $
+  Hence
+  $ x_1(t)=C_1 e^(t^2), quad x_2(t)=C_2 e^(-t). $
+
+  A convenient fundamental matrix is
+  $ Phi(t)=mat(e^(t^2),0;0,e^(-t)). $
+  Since
+  $ det(Phi(t))=e^(t^2-t) != 0, $
+  it is invertible for all $t$ and therefore fundamental.
+
+  The general solution is
+  $ x(t)=Phi(t)c = mat(e^(t^2),0;0,e^(-t)) mat(c_1;c_2). $
+]
+
 #solved_problem[Matrix Exponential for a Diagonal System][
   Solve
   $ x' = A x, quad x(0) = mat(2; -1), quad A = mat(3, 0; 0, -1). $
@@ -158,6 +179,26 @@ The main analytical objective is to estimate solution size without solving each 
   $ norm(A)_2 = sqrt(3 + 2sqrt(2)) = 1 + sqrt(2). $
 ]
 
+#solved_problem[Numerical Check of Submultiplicativity][
+  Let
+  $ A = mat(1, -1; 2, 0), quad B = mat(2, 1; -3, 4). $
+  Verify with the infinity norm that
+  $ norm(A B)_infinity <= norm(A)_infinity norm(B)_infinity. $
+]
+#solution[
+  First,
+  $ norm(A)_infinity = max{ |1|+|-1|, |2|+|0| } = 2, $
+  $ norm(B)_infinity = max{ |2|+|1|, |-3|+|4| } = 7. $
+
+  Compute
+  $ A B = mat(5, -3; 4, 2). $
+  Then
+  $ norm(A B)_infinity = max{ |5|+|-3|, |4|+|2| } = max{8,6}=8. $
+
+  Therefore,
+  $ norm(A B)_infinity = 8 <= 14 = norm(A)_infinity norm(B)_infinity. $
+]
+
 #solved_problem[Spectral Radius Versus Induced Norm][
   For
   $ N = mat(0, 2; 0, 0), $
@@ -205,6 +246,33 @@ The main analytical objective is to estimate solution size without solving each 
   $ norm(z(t))_infinity <= 0.5 integral_0^t e^(3(t-s)) dif s = (1/6)(e^(3t)-1). $
 ]
 
+#solved_problem[Liouville Formula in Practice][
+  Assume a linear system has
+  $ tr(A(t)) = 3t. $
+  Compute
+  $ det(Phi(t))/det(Phi(0)). $
+]
+#solution[
+  By Liouville's formula,
+  $ det(Phi(t))/det(Phi(0)) = e^(integral_0^t tr(A(s)) dif s). $
+  Substituting $tr(A(s))=3s$,
+  $ integral_0^t 3s dif s = 3/2 t^2. $
+  Therefore,
+  $ det(Phi(t))/det(Phi(0)) = e^((3/2)t^2). $
+]
+
+#solved_problem[Floquet Multiplier Classification][
+  A periodic linear system has monodromy eigenvalues
+  $ rho_1 = 0.7, quad rho_2 = -1.1. $
+  Classify stability of the periodic solution.
+]
+#solution[
+  Floquet stability is determined by magnitudes $|rho_i|$.
+  Here
+  $ |rho_1|=0.7 < 1, quad |rho_2|=1.1 > 1. $
+  Since at least one multiplier has magnitude greater than $1$, the periodic solution is unstable.
+]
+
 #solved_problem[State Transition with Constant Matrix][
   Solve $x' = A x$, $x(0)=x_0$, with
   $ A = mat(0, 1; -2, -3), quad x_0 = mat(x_(1,0); x_(2,0)). $
@@ -226,23 +294,38 @@ The main analytical objective is to estimate solution size without solving each 
 
 === Supplementary Problems
 
-#supplementary[Time-Varying Fundamental Matrix][
-  For a given periodic matrix $A(t)$, construct a numerical approximation of $Phi(T)$ and estimate Floquet multipliers.
+#supplementary[Fundamental Matrix Construction Practice][
+  For $A(t)=mat(t,0;0,-2)$, construct a fundamental matrix and verify invertibility via its determinant.
 ]
 
-#supplementary[Norm Comparison][
+#supplementary[Norm Comparison Practice][
   Compute and compare $norm(A)_1$, $norm(A)_2$, and $norm(A)_infinity$ for
   $A = mat(1, -2; 3, 0)$.
 ]
 
-#supplementary[Matrix Exponential by Diagonalization][
+#supplementary[Matrix Exponential Practice][
   Compute $e^(A t)$ for $A = mat(4, 1; 0, 2)$ and write the explicit solution of $x' = A x$ with initial condition $x(0)=x_0$.
 ]
 
-#supplementary[Liouville Formula Application][
+#supplementary[Growth Bound Reinforcement][
+  For $x' = A x$ with
+  $ A = mat(2,-1;1,0), $
+  compute $norm(A)_infinity$ and derive an explicit bound for $norm(x(t))_infinity$.
+]
+
+#supplementary[Perturbation Bound Reinforcement][
+  For $z' = A z + r(t)$ with $z(0)=0$,
+  $ A = mat(0,1;-1,-2), quad norm(r(t))_infinity <= 0.2, $
+  derive a bound for $norm(z(t))_infinity$ using $norm(A)_infinity$.
+]
+
+#supplementary[Liouville Formula Reinforcement][
   For $x' = A(t)x$ with $tr(A(t)) = 3t$, use Liouville's formula to determine the determinant ratio $det(Phi(t))/det(Phi(0))$.
 ]
 
-#supplementary[Floquet Stability Classification][
-  A periodic system has monodromy matrix eigenvalues $rho_1 = 0.7$ and $rho_2 = -1.1$. Classify the stability of the periodic solution.
+#supplementary[Floquet Classification Reinforcement][
+  Classify stability in each case using multipliers:
+  (a) $rho_1=0.8$, $rho_2=-0.6$;
+  (b) $rho_1=1.05$, $rho_2=0.7$;
+  (c) $rho_1=-1$, $rho_2=0.4$.
 ]
