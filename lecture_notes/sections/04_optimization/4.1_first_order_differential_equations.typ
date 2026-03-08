@@ -110,13 +110,13 @@ and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz 
   so trajectories move away from $x^*$.
 ]
 
-#theorem[Classification by Sign of $(partial f)/(partial x)$ Along Equilibrium Branches][
+#theorem[Classification by Sign of $f'_(lambda)(x^*(lambda))$ Along Equilibrium Branches][
   Consider
-  $ x' = f(x, lambda) $
+  $ x' = f_(lambda)(x) $
   and an equilibrium branch $x = x^*(lambda)$ satisfying
-  $ f(x^*(lambda), lambda)=0. $
+  $ f_(lambda)(x^*(lambda))=0. $
   Define
-  $ a(lambda) = (partial f)/(partial x)(x^*(lambda), lambda). $
+  $ a(lambda) = f'_(lambda)(x^*(lambda)). $
 
   For each fixed $lambda$:
   - if $a(lambda)<0$, the branch is locally asymptotically stable;
@@ -126,20 +126,20 @@ and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz 
 ]
 
 When
-$ (partial f)/(partial x)(x^*, lambda)=0, $
+$ f'_(lambda)(x^*)=0, $
 the equilibrium is nonhyperbolic and the first-derivative test is inconclusive.
 In this case, stability must be determined through phase-line sign analysis or higher-order terms, which is typical at bifurcation values.
 
 #definition[Stability Change in Bifurcation][
   In
-  $ x' = f(x, lambda), $
+  $ x' = f_(lambda)(x), $
   a bifurcation is detected by tracking equilibrium branches $x^*(lambda)$ and their local stability through the sign of
-  $ (partial f)/(partial x)(x^*(lambda), lambda). $
+  $ f'_(lambda)(x^*(lambda)). $
 ]
 
 #definition[Bifurcation (1D Autonomous)][
   A bifurcation occurs when a small change in parameter $lambda$ changes the number or stability of equilibria in
-  $ x' = f(x, lambda). $
+  $ x' = f_(lambda)(x). $
 ]
 
 === Solved Problems
@@ -227,18 +227,18 @@ In this case, stability must be determined through phase-line sign analysis or h
   - if $lambda = 0$: one equilibrium at $x^*=0$;
   - if $lambda > 0$: two equilibria $x^*=plus.minus sqrt(lambda)$.
 
-  Using $f(x,lambda)=lambda-x^2$, we have
-  $ (partial f)/(partial x)(x,lambda) = -2x. $
+  Using $f_(lambda)(x)=lambda-x^2$, we have
+  $ f'_(lambda)(x) = -2x. $
 
   For $lambda>0$, evaluate on each branch $x^*(lambda)$:
   - at $x^*=sqrt(lambda)$,
-    $ (partial f)/(partial x)(sqrt(lambda),lambda)=-2sqrt(lambda)<0, $
+    $ f'_(lambda)(sqrt(lambda))=-2sqrt(lambda)<0, $
     so this branch is locally asymptotically stable;
   - at $x^*=-sqrt(lambda)$,
-    $ (partial f)/(partial x)(-sqrt(lambda),lambda)=2sqrt(lambda)>0, $
+    $ f'_(lambda)(-sqrt(lambda))=2sqrt(lambda)>0, $
     so this branch is unstable.
 
-  At $lambda=0$, $(partial f)/(partial x)(0,0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
+  At $lambda=0$, $f'_(0)(0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
 
   Therefore the critical value is $lambda=0$, where a saddle-node bifurcation occurs.
 ]
@@ -255,18 +255,18 @@ In this case, stability must be determined through phase-line sign analysis or h
   - $x^* = 0$ for all $lambda$
   - $x^* = plus.minus sqrt(lambda)$ when $lambda > 0$
 
-  Using $f(x,lambda)=lambda x - x^3$, we get
-  $ (partial f)/(partial x)(x,lambda)=lambda - 3x^2. $
+  Using $f_(lambda)(x)=lambda x - x^3$, we get
+  $ f'_(lambda)(x)=lambda - 3x^2. $
 
   For the branch $x^*=0$:
-  $ (partial f)/(partial x)(0,lambda)=lambda. $
+  $ f'_(lambda)(0)=lambda. $
   Hence $x^*=0$ is locally asymptotically stable for $lambda<0$ and unstable for $lambda>0$.
 
   For $lambda>0$, at $x^*=plus.minus sqrt(lambda)$:
-  $ (partial f)/(partial x)(plus.minus sqrt(lambda),lambda) = lambda - 3lambda = -2lambda < 0, $
+  $ f'_(lambda)(plus.minus sqrt(lambda)) = lambda - 3lambda = -2lambda < 0, $
   so both nonzero branches are locally asymptotically stable.
 
-  At $lambda=0$, $(partial f)/(partial x)(0,0)=0$, so the first-derivative test is inconclusive at the bifurcation point.
+  At $lambda=0$, $f'_(0)(0)=0$, so the first-derivative test is inconclusive at the bifurcation point.
 
   Therefore, at $lambda=0$ the system undergoes a supercritical pitchfork bifurcation.
 ]
@@ -286,7 +286,7 @@ In this case, stability must be determined through phase-line sign analysis or h
 ]
 
 #supplementary[Parameter-Driven Bifurcation][
-  Study $x' = lambda x - x^2$. Find equilibrium branches $x^*(lambda)$ and classify stability using the sign of $(partial f)/(partial x)$ along each branch.
+  Study $x' = lambda x - x^2$. Write the family as $x' = f_(lambda)(x)$, find equilibrium branches $x^*(lambda)$, and classify stability using the sign of $f'_(lambda)(x^*(lambda))$.
 ]
 
 #supplementary[Phase-Line Analysis][
