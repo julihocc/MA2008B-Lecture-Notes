@@ -203,13 +203,13 @@ In this case, stability must be determined through phase-line sign analysis or h
   - if $lambda > 0$: two equilibria $x^*=plus.minus sqrt(lambda)$.
 
   Using $f(x,lambda)=lambda-x^2$, we have
-  $ f_x(x,lambda) = -2x. $
+  $ (partial f)/(partial x)(x,lambda) = -2x. $
 
   For $lambda>0$:
-  - at $x^*=sqrt(lambda)$, $f_x=-2sqrt(lambda)<0$ (asymptotically stable),
-  - at $x^*=-sqrt(lambda)$, $f_x=2sqrt(lambda)>0$ (unstable).
+  - at $x^*=sqrt(lambda)$, $(partial f)/(partial x)=-2sqrt(lambda)<0$ (asymptotically stable),
+  - at $x^*=-sqrt(lambda)$, $(partial f)/(partial x)=2sqrt(lambda)>0$ (unstable).
 
-  At $lambda=0$, $f_x(0,0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
+  At $lambda=0$, $(partial f)/(partial x)(0,0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
 
   Therefore the critical value is $lambda=0$, where a saddle-node bifurcation occurs.
 ]
