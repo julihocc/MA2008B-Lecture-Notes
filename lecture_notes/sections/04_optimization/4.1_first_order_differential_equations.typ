@@ -76,7 +76,7 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   so trajectories move away from $x^*$.
 ]
 
-#theorem[Classification by Sign of $partial f/partial x$ Along Equilibrium Branches][
+#theorem[Classification by Sign of $(partial f)/(partial x)$ Along Equilibrium Branches][
   Consider
   $ x' = f(x, lambda) $
   and an equilibrium branch $x = x^*(lambda)$ satisfying
