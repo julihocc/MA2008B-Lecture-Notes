@@ -307,23 +307,23 @@ The main analytical objective is to estimate solution size without solving each 
   Compute $e^(A t)$ for $A = mat(4, 1; 0, 2)$ and write the explicit solution of $x' = A x$ with initial condition $x(0)=x_0$.
 ]
 
-#supplementary[Growth Bound Reinforcement][
+#supplementary[Growth Bound Exercise][
   For $x' = A x$ with
   $ A = mat(2,-1;1,0), $
   compute $norm(A)_infinity$ and derive an explicit bound for $norm(x(t))_infinity$.
 ]
 
-#supplementary[Perturbation Bound Reinforcement][
+#supplementary[Perturbation Bound Exercise][
   For $z' = A z + r(t)$ with $z(0)=0$,
   $ A = mat(0,1;-1,-2), quad norm(r(t))_infinity <= 0.2, $
   derive a bound for $norm(z(t))_infinity$ using $norm(A)_infinity$.
 ]
 
-#supplementary[Liouville Formula Reinforcement][
+#supplementary[Liouville Formula Exercise][
   For $x' = A(t)x$ with $tr(A(t)) = 3t$, use Liouville's formula to determine the determinant ratio $det(Phi(t))/det(Phi(0))$.
 ]
 
-#supplementary[Floquet Classification Reinforcement][
+#supplementary[Floquet Classification Exercise][
   Classify stability in each case using multipliers:
   (a) $rho_1=0.8$, $rho_2=-0.6$;
   (b) $rho_1=1.05$, $rho_2=0.7$;
