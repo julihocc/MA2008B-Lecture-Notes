@@ -58,6 +58,15 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   An equilibrium is asymptotically stable when arrows on both sides point toward it.
 ]
 
+#definition[Stability Notions for Equilibria][
+  Let $x^*$ be an equilibrium of $x' = f(x)$.
+
+  - Stable (Lyapunov stable): solutions that start sufficiently close to $x^*$ remain close to $x^*$ for all future time.
+  - Unstable: $x^*$ is not stable; arbitrarily small perturbations can move away from $x^*$.
+  - Locally asymptotically stable: $x^*$ is stable and, in addition, nearby solutions satisfy
+    $ x(t) -> x^* $ as $t -> infinity$.
+]
+
 #theorem[Derivative Test for Equilibrium Stability (1D)][
   For $x' = f(x)$ and an equilibrium $x^*$ with $f(x^*)=0$:
   - if $f'(x^*) < 0$, then $x^*$ is locally asymptotically stable;
