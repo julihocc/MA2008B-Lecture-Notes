@@ -109,7 +109,7 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   $ lambda x - x^3 = x (lambda - x^2) = 0. $
   Hence:
   - $x^* = 0$ for all $lambda$
-  - $x^* = +- sqrt(lambda)$ when $lambda > 0$
+  - $x^* = plus.minus sqrt(lambda)$ when $lambda > 0$
 
   Using $f(x)=lambda x - x^3$, we get
   $ f'(x)=lambda - 3x^2. $
@@ -117,8 +117,8 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   At $x^*=0$: $f'(0)=lambda$,
   so $x^*=0$ is stable for $lambda<0$ and unstable for $lambda>0$.
 
-  At $x^*=+-sqrt(lambda)$ (for $lambda>0$):
-  $ f'(+-sqrt(lambda)) = lambda - 3lambda = -2lambda < 0, $
+  At $x^*=plus.minus sqrt(lambda)$ (for $lambda>0$):
+  $ f'(plus.minus sqrt(lambda)) = lambda - 3lambda = -2lambda < 0, $
   so both nonzero equilibria are asymptotically stable.
 
   Therefore, at $lambda=0$ the system undergoes a supercritical pitchfork bifurcation.
