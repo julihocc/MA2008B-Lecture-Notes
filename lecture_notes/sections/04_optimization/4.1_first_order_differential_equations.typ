@@ -45,6 +45,19 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   Equilibrium points satisfy $f(x^*) = 0$ and are analyzed using phase-line methods.
 ]
 
+#definition[Phase-Line Method (1D Autonomous Systems)][
+  For
+  $ x' = f(x), $
+  the phase line is built by:
+  - finding equilibria from $f(x)=0$,
+  - splitting the real line into intervals between equilibria,
+  - assigning the sign of $f(x)$ on each interval.
+
+  If $f(x)>0$, arrows point to the right ($x$ increases).
+  If $f(x)<0$, arrows point to the left ($x$ decreases).
+  An equilibrium is asymptotically stable when arrows on both sides point toward it.
+]
+
 #definition[Bifurcation (1D Autonomous)][
   A bifurcation occurs when a small change in parameter $lambda$ changes the number or stability of equilibria in
   $ x' = f(x, lambda). $
@@ -72,6 +85,29 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   Since $f'(x)=1-2x$:
   - $f'(0)=1>0$ (unstable)
   - $f'(1)=-1<0$ (asymptotically stable)
+]
+
+#solved_problem[Phase-Line Construction][
+  Construct the phase line for
+  $ x' = x(x-2)(3-x), $
+  and classify each equilibrium.
+]
+#solution[
+  Equilibria are obtained from
+  $ x(x-2)(3-x)=0, $
+  so
+  $ x^* = 0, 2, 3. $
+
+  Sign test on intervals:
+  - If $x<0$, then $x<0$, $x-2<0$, $3-x>0$, so $f(x)>0$ (arrow right).
+  - If $0<x<2$, then $x>0$, $x-2<0$, $3-x>0$, so $f(x)<0$ (arrow left).
+  - If $2<x<3$, then $x>0$, $x-2>0$, $3-x>0$, so $f(x)>0$ (arrow right).
+  - If $x>3$, then $x>0$, $x-2>0$, $3-x<0$, so $f(x)<0$ (arrow left).
+
+  Therefore:
+  - At $x=0$, arrows point toward the equilibrium from both sides: asymptotically stable.
+  - At $x=2$, arrows point away on both sides: unstable.
+  - At $x=3$, arrows point toward the equilibrium from both sides: asymptotically stable.
 ]
 
 #solved_problem[Classical Logistic IVP Solution][
@@ -143,5 +179,5 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 ]
 
 #supplementary[Phase-Line Analysis][
-  For the autonomous equation $x' = x(x-2)(3-x)$, identify equilibria, determine their stability, and sketch the phase line.
+  For the autonomous equation $x' = x(x-1)(x-4)$, identify equilibria, determine their stability, and sketch the phase line.
 ]
