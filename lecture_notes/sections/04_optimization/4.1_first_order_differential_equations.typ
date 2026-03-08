@@ -100,13 +100,10 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   A change of sign of $a(lambda)$ indicates a stability switch on that branch.
 ]
 
-#definition[Nonhyperbolic Case in 1D][
-  If
-  $ (partial f)/(partial x)(x^*, lambda)=0, $
-  the first-derivative test is inconclusive.
-  One must use phase-line sign analysis or higher-order terms to classify stability
-  (typical at bifurcation points).
-]
+If
+$ (partial f)/(partial x)(x^*, lambda)=0, $
+the first-derivative test is inconclusive.
+In that nonhyperbolic case, one must use phase-line sign analysis or higher-order terms to classify stability (typical at bifurcation points).
 
 #definition[Stability Change in Bifurcation][
   In
