@@ -58,6 +58,54 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   An equilibrium is asymptotically stable when arrows on both sides point toward it.
 ]
 
+#theorem[Derivative Test for Equilibrium Stability (1D)][
+  For $x' = f(x)$ and an equilibrium $x^*$ with $f(x^*)=0$:
+  - if $f'(x^*) < 0$, then $x^*$ is locally asymptotically stable;
+  - if $f'(x^*) > 0$, then $x^*$ is unstable.
+]
+
+#proof[
+  Near $x^*$, first-order expansion gives
+  $ f(x) = f(x^*) + f'(x^*)(x-x^*) + o(x-x^*) = f'(x^*)(x-x^*) + o(x-x^*). $
+
+  If $f'(x^*)<0$, then for $x>x^*$ (small distance) we get $f(x)<0$ (arrow left),
+  and for $x<x^*$ we get $f(x)>0$ (arrow right).
+  Both directions point toward $x^*$, so trajectories approach the equilibrium.
+
+  If $f'(x^*)>0$, the signs reverse: right side arrows point right and left side arrows point left,
+  so trajectories move away from $x^*$.
+]
+
+#theorem[Classification by Sign of $partial f/partial x$ Along Equilibrium Branches][
+  Consider
+  $ x' = f(x, lambda) $
+  and an equilibrium branch $x = x^*(lambda)$ satisfying
+  $ f(x^*(lambda), lambda)=0. $
+  Define
+  $ a(lambda) = (partial f)/(partial x)(x^*(lambda), lambda). $
+
+  For each fixed $lambda$:
+  - if $a(lambda)<0$, the branch is locally asymptotically stable;
+  - if $a(lambda)>0$, the branch is unstable.
+
+  A change of sign of $a(lambda)$ indicates a stability switch on that branch.
+]
+
+#definition[Nonhyperbolic Case in 1D][
+  If
+  $ (partial f)/(partial x)(x^*, lambda)=0, $
+  the first-derivative test is inconclusive.
+  One must use phase-line sign analysis or higher-order terms to classify stability
+  (typical at bifurcation points).
+]
+
+#definition[Stability Change in Bifurcation][
+  In
+  $ x' = f(x, lambda), $
+  a bifurcation is detected by tracking equilibrium branches $x^*(lambda)$ and their local stability through the sign of
+  $ (partial f)/(partial x)(x^*(lambda), lambda). $
+]
+
 #definition[Bifurcation (1D Autonomous)][
   A bifurcation occurs when a small change in parameter $lambda$ changes the number or stability of equilibria in
   $ x' = f(x, lambda). $
@@ -135,6 +183,31 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   $ x(t) = K/(1 + ((K-x_0)/x_0)e^(-r t)). $
 ]
 
+#solved_problem[Saddle-Node Bifurcation and Stability][
+  Analyze the equilibria and their stability for
+  $ x' = lambda - x^2 $
+  as $lambda$ varies.
+]
+#solution[
+  Equilibria satisfy
+  $ lambda - x^2 = 0, $
+  so:
+  - if $lambda < 0$: no real equilibrium;
+  - if $lambda = 0$: one equilibrium at $x^*=0$;
+  - if $lambda > 0$: two equilibria $x^*=plus.minus sqrt(lambda)$.
+
+  Using $f(x,lambda)=lambda-x^2$, we have
+  $ f_x(x,lambda) = -2x. $
+
+  For $lambda>0$:
+  - at $x^*=sqrt(lambda)$, $f_x=-2sqrt(lambda)<0$ (asymptotically stable),
+  - at $x^*=-sqrt(lambda)$, $f_x=2sqrt(lambda)>0$ (unstable).
+
+  At $lambda=0$, $f_x(0,0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
+
+  Therefore the critical value is $lambda=0$, where a saddle-node bifurcation occurs.
+]
+
 #solved_problem[Pitchfork Bifurcation Analysis][
   Analyze equilibria and local stability of the autonomous system
   $ x' = lambda x - x^3 $
@@ -167,7 +240,7 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 ]
 
 #supplementary[Parameter-Driven Bifurcation][
-  Study $x' = lambda - x^2$. Find the critical value of $lambda$ where the phase portrait changes.
+  Study $x' = lambda x - x^2$. Find equilibria as functions of $lambda$ and classify their local stability.
 ]
 
 #supplementary[Existence and Uniqueness Check][
