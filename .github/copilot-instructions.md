@@ -4,6 +4,7 @@
 - This repository is a Typst manuscript for lecture notes, not an app/service codebase.
 - Make content edits in `lecture_notes/`; use `docs/MA2008B-Analítico.md` only to align syllabus scope.
 - Main document entrypoint is `lecture_notes/lecture_notes.typ`.
+- If docs and source files disagree, treat `lecture_notes/sections/` and `lecture_notes/lecture_notes.typ` as source of truth.
 
 ## Architecture and content flow
 - `lecture_notes/lecture_notes.typ` sets page/text/theorem rendering, then includes modules in fixed order.
@@ -34,6 +35,7 @@
 - `python_scripts/` is a manual mirror of `lecture_notes/sections/` (see `python_scripts/README.md`).
 - Keep mirrored relative paths and same file stem when creating companions (only extension changes to `.py`).
 - Current workspace has no `python_scripts/main.py`; avoid instructions that rely on a script runner unless it is added.
+- Root `main.py` is currently a stub and is not a project runner for mirror discovery/execution.
 
 ## Dependencies and integration points
 - Typst theorem package is `@preview/ctheorems:1.1.3` (imported in root `utils.typ`).
@@ -44,5 +46,6 @@
 - Prefer surgical edits to requested section files; do not rename folders/files without explicit request.
 - Keep an English academic tone and control-systems terminology consistent with surrounding notes.
 - Treat `.typ` files as source of truth; do not edit `.bak` files unless explicitly requested.
+- Section 4 in source files is currently organized as `4.1` to `4.3`; if syllabus docs list older Section 4 topics, follow the current source files unless asked to realign.
 - Section 4 policy (starting at `4.1`): represent worked illustrations as `#solved_problem` + `#solution` blocks; avoid `#example` blocks in new or revised Section 4 content.
 - Quiz policy: in `quizzes/` files, write math in plain text / ASCII math (e.g., `x' = A x`, `e^(At)`, `||A||_inf`); avoid LaTeX delimiters like `$...$` and LaTeX commands.
