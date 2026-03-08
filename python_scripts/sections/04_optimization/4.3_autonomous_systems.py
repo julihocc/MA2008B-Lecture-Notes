@@ -1,66 +1,115 @@
 # %% [markdown]
-# # 4.3 Autonomous Systems
-# Phase-plane classification, linearization, and Bendixson criterion.
+# # 4.3 Time-Dependent Linear Systems
+# Computational companion aligned with x' = A(t) x, transition matrices,
+# variation of constants, and norm-based growth bounds.
 
 # %%
 import sympy as sp
 
 
 def print_header(title: str) -> None:
-    print(f"\n{'=' * 72}\n{title}\n{'=' * 72}")
+    print(f"\n{'=' * 78}\n{title}\n{'=' * 78}")
 
 
 # %% [markdown]
-# ## Solved Problem: Phase-Plane Classification
+# ## Setup
 
 # %%
-x, y = sp.symbols("x y", real=True)
-A = sp.Matrix([[0, 1], [-1, -sp.Rational(1, 5)]])
-
-print_header("4.3 Solved Problem: Phase-Plane Classification")
-print(f"A =\n{A}")
-print(f"Eigenvalues: {A.eigenvals()}")
+t, s = sp.symbols("t s", real=True)
 
 
 # %% [markdown]
-# ## Solved Problem: Linearization of a Nonlinear System
+# ## Solved Problem: Fundamental Matrix for Diagonal A(t)
 
 # %%
-f1 = y - x**3
-f2 = -x - y
-J = sp.Matrix([[sp.diff(f1, x), sp.diff(f1, y)], [sp.diff(f2, x), sp.diff(f2, y)]])
-J0 = J.subs({x: 0, y: 0})
+Phi = sp.Matrix([[sp.exp(t**2 / 2), 0], [0, sp.exp(-2 * t)]])
 
-print_header("4.3 Solved Problem: Linearization of a Nonlinear System")
-print(f"Jacobian J(x,y) =\n{J}")
-print(f"J(0,0) =\n{J0}")
-print(f"Eigenvalues at origin: {J0.eigenvals()}")
+print_header("4.3 Solved: Fundamental Matrix for Diagonal A(t)")
+print("Phi(t) =")
+sp.pprint(Phi)
+print("det(Phi(t)) =", sp.simplify(Phi.det()))
 
 
 # %% [markdown]
-# ## Solved Problem: Bendixson Criterion
+# ## Solved Problem: Transition Matrix and IVP Solution
 
 # %%
-P = x + y
-Q = -x + 2 * y
-divergence = sp.Matrix([P, Q]).jacobian([x, y]).trace()
+x0 = sp.Matrix([2, -1])
+Phi0 = Phi.subs(t, 0)
+Phi_t0 = sp.simplify(Phi * Phi0.inv())
+x_t = sp.simplify(Phi_t0 * x0)
 
-print_header("4.3 Solved Problem: Bendixson Criterion")
-print(f"P(x,y) = {P}")
-print(f"Q(x,y) = {Q}")
-print(f"div F = {divergence}")
+print_header("4.3 Solved: Transition Matrix and IVP")
+print("Phi(t,0) =")
+sp.pprint(Phi_t0)
+print("x(t) =")
+sp.pprint(x_t)
 
 
 # %% [markdown]
-# ## Supplementary Template
+# ## Solved Problem: Variation of Constants with Input
 
 # %%
-f = x - y**2
-g = x**2 - y
-nullcline_x = sp.solve(sp.Eq(f, 0), y)
-nullcline_y = sp.solve(sp.Eq(g, 0), y)
+A = sp.Matrix([[0, 0], [0, -1]])
+Phi_h = sp.Matrix([[1, 0], [0, sp.exp(-t)]])
+Phi_ts = sp.Matrix([[1, 0], [0, sp.exp(-(t - s))]])
+r = sp.Matrix([1, sp.exp(-s)])
 
-print_header("4.3 Supplementary Template: Nullcline Computation")
-print(f"x' = {f}, y' = {g}")
-print(f"x'-nullclines (y as function of x): {nullcline_x}")
-print(f"y'-nullclines (y as function of x): {nullcline_y}")
+x1 = sp.integrate(1, (s, 0, t))
+x2 = sp.simplify(sp.integrate(sp.exp(-(t - s)) * sp.exp(-s), (s, 0, t)))
+x_voc = sp.Matrix([x1, x2])
+
+print_header("4.3 Solved: Variation of Constants")
+print("A(t) =")
+sp.pprint(A)
+print("Phi(t,s) =")
+sp.pprint(Phi_ts)
+print("x(t) =")
+sp.pprint(x_voc)
+
+
+# %% [markdown]
+# ## Solved Problem: Norm Bound with Bounded A(t)
+
+# %%
+M = sp.Integer(2)
+x0_norm = sp.Integer(3)
+bound = sp.simplify(x0_norm * sp.exp(M * t))
+
+print_header("4.3 Solved: Norm-Based Growth Bound")
+print("If ||A(t)||_inf <= 2 and ||x(0)||_inf = 3, then")
+print("||x(t)||_inf <=", bound)
+
+
+# %% [markdown]
+# ## Solved Problem: Transition from Nonzero Initial Time
+
+# %%
+t_pos = sp.symbols("t_pos", positive=True)
+Phi_pos = sp.Matrix([[t_pos, 0], [0, sp.exp(-t_pos)]])
+Phi_t1 = sp.simplify(Phi_pos * Phi_pos.subs(t_pos, 1).inv())
+x1_data = sp.Matrix([3, 2])
+x_from1 = sp.simplify(Phi_t1 * x1_data)
+
+print_header("4.3 Solved: Transition from t0 = 1")
+print("Phi(t,1) =")
+sp.pprint(Phi_t1)
+print("x(t) =")
+sp.pprint(x_from1)
+
+
+# %% [markdown]
+# ## Supplementary Template Runner
+
+# %%
+def run_supplementary_examples() -> None:
+    print_header("4.3 Supplementary: Fundamental Matrix Check")
+    Phi_sup = sp.Matrix([[sp.exp(t**2), 0], [0, sp.exp(-3 * t)]])
+    print("det(Phi_sup) =", sp.simplify(Phi_sup.det()))
+
+    print_header("4.3 Supplementary: Norm Bound Application")
+    bound_sup = sp.simplify(4 * sp.exp(sp.Rational(3, 5) * t))
+    print("If ||A(t)||_2 <= 0.6 and ||x(0)||_2 = 4, then ||x(t)||_2 <=", bound_sup)
+
+
+run_supplementary_examples()

@@ -1,27 +1,69 @@
 # %% [markdown]
 # # 4.1 First-Order Differential Equations
-# Symbolic companion for solved and supplementary problems.
+# Computational companion aligned with the current notes:
+# - IVP existence/uniqueness checks
+# - phase-line and equilibrium stability
+# - 1D bifurcation branch classification
 
 # %%
 import sympy as sp
 
 
 def print_header(title: str) -> None:
-    print(f"\n{'=' * 72}\n{title}\n{'=' * 72}")
+    print(f"\n{'=' * 78}\n{title}\n{'=' * 78}")
+
+
+# %% [markdown]
+# ## Setup
+
+# %%
+t = sp.symbols("t", real=True)
+x = sp.symbols("x", real=True)
+lam = sp.symbols("lam", real=True)
 
 
 # %% [markdown]
 # ## Solved Problem: Linear IVP with Integrating Factor
 
 # %%
-t = sp.Symbol("t", real=True)
-mu = sp.exp(2 * t)
 x_linear = 2 - sp.exp(-2 * t)
+residual_linear = sp.simplify(sp.diff(x_linear, t) + 2 * x_linear - 4)
 
-print_header("4.1 Solved Problem: Linear IVP with Integrating Factor")
-print(f"Integrating factor mu(t): {mu}")
-print(f"x(t): {x_linear}")
-print(f"Residual x' + 2x - 4: {sp.simplify(sp.diff(x_linear, t) + 2*x_linear - 4)}")
+print_header("4.1 Solved: Linear IVP with Integrating Factor")
+print("x(t) =", x_linear)
+print("Residual x' + 2x - 4 =", residual_linear)
+
+
+# %% [markdown]
+# ## Solved Problem: Equilibria and Stability for x' = x(1-x)
+
+# %%
+f_logistic = x * (1 - x)
+df_logistic = sp.diff(f_logistic, x)
+eq_logistic = sp.solve(sp.Eq(f_logistic, 0), x)
+
+print_header("4.1 Solved: Equilibria and Stability for x' = x(1-x)")
+print("Equilibria:", eq_logistic)
+for eq in eq_logistic:
+    val = sp.simplify(df_logistic.subs(x, eq))
+    status = "locally asymptotically stable" if val < 0 else "unstable" if val > 0 else "inconclusive"
+    print(f"x* = {eq}: f'(x*) = {val} -> {status}")
+
+
+# %% [markdown]
+# ## Solved Problem: Phase-Line Construction
+
+# %%
+f_phase = x * (x - 2) * (3 - x)
+eq_phase = sp.solve(sp.Eq(f_phase, 0), x)
+interval_points = [-1, 1, sp.Rational(5, 2), 4]
+
+print_header("4.1 Solved: Phase-Line Construction")
+print("Equilibria:", eq_phase)
+for p in interval_points:
+    sign = sp.sign(sp.simplify(f_phase.subs(x, p)))
+    direction = "right" if sign > 0 else "left" if sign < 0 else "equilibrium"
+    print(f"Sample x = {p}: f(x) sign = {sign} -> arrow {direction}")
 
 
 # %% [markdown]
@@ -29,36 +71,62 @@ print(f"Residual x' + 2x - 4: {sp.simplify(sp.diff(x_linear, t) + 2*x_linear - 4
 
 # %%
 r, K, x0 = sp.symbols("r K x0", positive=True, real=True)
-x_logistic = K / (1 + ((K - x0) / x0) * sp.exp(-r * t))
+x_logistic_ivp = K / (1 + ((K - x0) / x0) * sp.exp(-r * t))
 
-print_header("4.1 Solved Problem: Classical Logistic IVP")
-print(f"x(t) = {sp.simplify(x_logistic)}")
+print_header("4.1 Solved: Classical Logistic IVP")
+print("x(t) =", sp.simplify(x_logistic_ivp))
+
+
+# %% [markdown]
+# ## Solved Problem: Saddle-Node Bifurcation and Stability
+
+# %%
+f_sn = lam - x**2
+eq_sn = sp.solve(sp.Eq(f_sn, 0), x)
+df_sn = sp.diff(f_sn, x)
+
+print_header("4.1 Solved: Saddle-Node Bifurcation")
+print("f_lam(x) = lam - x^2")
+print("Equilibrium branches:", eq_sn)
+print("f'_lam(x) =", df_sn)
+print("f'_lam(+sqrt(lam)) =", sp.simplify(df_sn.subs(x, sp.sqrt(lam))))
+print("f'_lam(-sqrt(lam)) =", sp.simplify(df_sn.subs(x, -sp.sqrt(lam))))
+print("At lam = 0: f'_0(0) =", sp.simplify(df_sn.subs({lam: 0, x: 0})))
 
 
 # %% [markdown]
 # ## Solved Problem: Pitchfork Bifurcation Analysis
 
 # %%
-lam, x = sp.symbols("lam x", real=True)
-f = lam * x - x**3
-df = sp.diff(f, x)
-equilibria = sp.solve(sp.Eq(f, 0), x)
+f_pf = lam * x - x**3
+eq_pf = sp.solve(sp.Eq(f_pf, 0), x)
+df_pf = sp.diff(f_pf, x)
 
-print_header("4.1 Solved Problem: Pitchfork Bifurcation Analysis")
-print(f"f(x, lambda) = {f}")
-print(f"Equilibria: {equilibria}")
-print(f"f'(x) = {df}")
+print_header("4.1 Solved: Pitchfork Bifurcation")
+print("f_lam(x) = lam*x - x^3")
+print("Equilibrium branches:", eq_pf)
+print("f'_lam(x) =", df_pf)
+print("f'_lam(0) =", sp.simplify(df_pf.subs(x, 0)))
+print("f'_lam(+/-sqrt(lam)) =", sp.simplify(df_pf.subs(x, sp.sqrt(lam))))
+print("At lam = 0: f'_0(0) =", sp.simplify(df_pf.subs({lam: 0, x: 0})))
 
 
 # %% [markdown]
-# ## Supplementary Template
+# ## Supplementary Template Runner
 
 # %%
-t = sp.Symbol("t", positive=True, real=True)
-x_fun = sp.Function("x")
-ode = sp.Eq(sp.diff(x_fun(t), t) - x_fun(t) / t, t**2)
-candidate = sp.dsolve(ode, ics={x_fun(1): 0})
+def run_supplementary_examples() -> None:
+    print_header("4.1 Supplementary: Existence vs Uniqueness Check")
+    f = t**2 + x**2
+    dfdx = sp.diff(f, x)
+    print("f(t,x) =", f)
+    print("(partial f)/(partial x) =", dfdx)
+    print("Both are continuous on bounded rectangles -> local existence + uniqueness.")
 
-print_header("4.1 Supplementary Template: Variable-Coefficient Linear ODE")
-print(f"ODE: {ode}")
-print(f"Solution with x(1)=0: {candidate}")
+    print_header("4.1 Supplementary: Non-uniqueness Counterexample")
+    f_nonunique = sp.sqrt(sp.Abs(x))
+    print("f(x) = sqrt(abs(x)) is continuous at x=0 but not locally Lipschitz there.")
+    print("Therefore uniqueness may fail for x(0)=0.")
+
+
+run_supplementary_examples()
