@@ -136,9 +136,9 @@ In this case, stability must be determined through phase-line sign analysis or h
 ]
 #solution[
   Equilibria satisfy $x(1-x)=0$, so $x^*=0,1$.
-  Since $f'(x)=1-2x$:
-  - $f'(0)=1>0$ (unstable)
-  - $f'(1)=-1<0$ (asymptotically stable)
+  Since $f'(x)=1-2x$, the derivative test gives:
+  - $f'(0)=1>0$, so $x^*=0$ is unstable,
+  - $f'(1)=-1<0$, so $x^*=1$ is locally asymptotically stable.
 ]
 
 #solved_problem[Phase-Line Construction][
@@ -205,9 +205,13 @@ In this case, stability must be determined through phase-line sign analysis or h
   Using $f(x,lambda)=lambda-x^2$, we have
   $ (partial f)/(partial x)(x,lambda) = -2x. $
 
-  For $lambda>0$:
-  - at $x^*=sqrt(lambda)$, $(partial f)/(partial x)=-2sqrt(lambda)<0$ (asymptotically stable),
-  - at $x^*=-sqrt(lambda)$, $(partial f)/(partial x)=2sqrt(lambda)>0$ (unstable).
+  For $lambda>0$, evaluate on each branch $x^*(lambda)$:
+  - at $x^*=sqrt(lambda)$,
+    $ (partial f)/(partial x)(sqrt(lambda),lambda)=-2sqrt(lambda)<0, $
+    so this branch is locally asymptotically stable;
+  - at $x^*=-sqrt(lambda)$,
+    $ (partial f)/(partial x)(-sqrt(lambda),lambda)=2sqrt(lambda)>0, $
+    so this branch is unstable.
 
   At $lambda=0$, $(partial f)/(partial x)(0,0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
 
@@ -226,15 +230,18 @@ In this case, stability must be determined through phase-line sign analysis or h
   - $x^* = 0$ for all $lambda$
   - $x^* = plus.minus sqrt(lambda)$ when $lambda > 0$
 
-  Using $f(x)=lambda x - x^3$, we get
-  $ f'(x)=lambda - 3x^2. $
+  Using $f(x,lambda)=lambda x - x^3$, we get
+  $ (partial f)/(partial x)(x,lambda)=lambda - 3x^2. $
 
-  At $x^*=0$: $f'(0)=lambda$,
-  so $x^*=0$ is stable for $lambda<0$ and unstable for $lambda>0$.
+  For the branch $x^*=0$:
+  $ (partial f)/(partial x)(0,lambda)=lambda. $
+  Hence $x^*=0$ is locally asymptotically stable for $lambda<0$ and unstable for $lambda>0$.
 
-  At $x^*=plus.minus sqrt(lambda)$ (for $lambda>0$):
-  $ f'(plus.minus sqrt(lambda)) = lambda - 3lambda = -2lambda < 0, $
-  so both nonzero equilibria are asymptotically stable.
+  For $lambda>0$, at $x^*=plus.minus sqrt(lambda)$:
+  $ (partial f)/(partial x)(plus.minus sqrt(lambda),lambda) = lambda - 3lambda = -2lambda < 0, $
+  so both nonzero branches are locally asymptotically stable.
+
+  At $lambda=0$, $(partial f)/(partial x)(0,0)=0$, so the first-derivative test is inconclusive at the bifurcation point.
 
   Therefore, at $lambda=0$ the system undergoes a supercritical pitchfork bifurcation.
 ]
