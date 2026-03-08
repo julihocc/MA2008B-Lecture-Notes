@@ -1,113 +1,179 @@
 #import "../../../utils.typ": *
-== Autonomous Systems
+== Time-Dependent Linear Systems
 
 === Mathematical Review
 
-This section covers Chapter 3 topics: phase-plane diagrams, linear and nonlinear stability, linearization, periodic solutions, three-dimensional systems, and computational support.
+This section generalizes the previous one from constant matrices to
+$ x' = A(t) x, $
+where $A(t)$ depends on time.
+The main objects are the fundamental matrix and transition matrix, which provide explicit propagation formulas.
 
-#definition[Autonomous System in $RR^n$][
-  An autonomous nonlinear system is
-  $ x' = f(x), $
-  where time does not appear explicitly in $f$.
+#definition[Linear Time-Dependent System][
+  A linear time-dependent system is
+  $ x'(t) = A(t) x(t), $
+  where $A(t)$ is a continuous $n times n$ matrix-valued function.
 ]
 
-#definition[Phase Plane][
-  For $n=2$, the phase plane represents trajectories of
-  $ x' = f(x, y), quad y' = g(x, y) $
-  as geometric curves, revealing equilibria, invariant sets, and qualitative dynamics.
+#definition[Fundamental Matrix][
+  A matrix $Phi(t)$ is a fundamental matrix for $x' = A(t)x$ if
+  $ Phi'(t)=A(t)Phi(t) $
+  and $det(Phi(t_0)) != 0$ for some $t_0$.
+
+  Every solution can be written as $x(t)=Phi(t)c$.
 ]
 
-#theorem[Linearization Near Equilibrium][
-  Let $x^*$ be an equilibrium of $x'=f(x)$.
-  If $J$ is the Jacobian matrix at $x^*$ and has no eigenvalues with zero real part, then the local behavior of the nonlinear system is topologically equivalent to
-  $ u' = J u. $
+#definition[Transition Matrix][
+  The transition matrix from $s$ to $t$ is
+  $ Phi(t,s)=Phi(t)Phi(s)^(-1). $
+  It satisfies
+  $ x(t)=Phi(t,s)x(s), quad Phi(t,t)=I. $
+]
+
+#theorem[Existence and Representation][
+  If $A(t)$ is continuous on an interval, then for each initial condition
+  $ x(t_0)=x_0 $
+  there exists a unique solution, and it can be represented as
+  $ x(t)=Phi(t,t_0)x_0. $
+]
+
+#theorem[Variation of Constants][
+  For the nonhomogeneous system
+  $ x'(t)=A(t)x(t)+r(t), $
+  a solution with $x(t_0)=x_0$ is
+  $ x(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
 ]
 #proof[
-  Let $x = x^* + u$ and define
-  $ g(u) = f(x^* + u). $
-  Since $f(x^*) = 0$, a first-order expansion gives
-  $ g(u) = J u + h(u), $
-  where $J$ is the Jacobian matrix at $x^*$ and $norm(h(u))/norm(u) -> 0$ as $u -> 0$.
-
-  Hence the nonlinear dynamics near the equilibrium can be written as
-  $ u' = J u + h(u). $
-  The linearized system is
-  $ v' = J v. $
-
-  If $J$ has no eigenvalues on the imaginary axis (hyperbolic equilibrium), the higher-order term $h(u)$ does not change the qualitative local phase portrait. Therefore, the nonlinear and linearized systems are locally topologically equivalent near $x^*$.
+  Let
+  $ y(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
+  Differentiate using
+  $ (partial Phi(t,s))/(partial t)=A(t)Phi(t,s) $
+  and Leibniz rule:
+  $ y'(t)=A(t)y(t)+r(t). $
+  Also $y(t_0)=x_0$.
 ]
 
-#definition[Periodic Solutions][
-  A nonconstant trajectory is periodic if there exists $T>0$ such that
-  $ x(t+T)=x(t) $ for all $t$.
-  Existence/nonexistence criteria depend on system structure and dimension.
-]
-
-#definition[Three-Dimensional Dynamics][
-  In $RR^3$, trajectories can exhibit spirals, saddles, and complex invariant sets not visible in two-dimensional phase planes.
+#proposition[Norm-Based Growth Bound][
+  If
+  $ norm(A(t)) <= M $ on $[t_0,t]$, then every solution of
+  $ x' = A(t)x $
+  satisfies
+  $ norm(x(t)) <= e^(M(t-t_0)) norm(x_0). $
 ]
 
 === Solved Problems
 
-#solved_problem[Phase-Plane Classification][
-  Classify the origin for
-  $ x' = y, quad y' = -x - 0.2y. $
+#solved_problem[Fundamental Matrix for a Diagonal $A(t)$][
+  Solve
+  $ x' = A(t)x, quad A(t)=mat(t,0;0,-2), $
+  and construct a fundamental matrix.
 ]
 #solution[
-  The linear matrix is $A = mat(0, 1; -1, -0.2)$.
-  The characteristic polynomial is
-  $ lambda^2 + 0.2lambda + 1 = 0, $
-  so
-  $ lambda_(1,2) = (-0.2 +- sqrt(0.04 - 4))/2 = -0.1 +- 0.995i. $
-  Since the real part is negative, the origin is a stable focus (spiral sink).
+  The system is decoupled:
+  $ x_1' = t x_1, quad x_2' = -2 x_2. $
+  Hence
+  $ x_1(t)=c_1 e^(t^2/2), quad x_2(t)=c_2 e^(-2t). $
+
+  A fundamental matrix is
+  $ Phi(t)=mat(e^(t^2/2),0;0,e^(-2t)). $
+  Since
+  $ det(Phi(t))=e^(t^2/2-2t) != 0, $
+  it is invertible for all $t$.
 ]
 
-#solved_problem[Linearization of a Nonlinear System][
-  Analyze local stability at the origin for
-  $ x' = y - x^3, quad y' = -x - y. $
+#solved_problem[Transition Matrix and IVP Solution][
+  For the system above, solve the IVP
+  $ x(0)=mat(2;-1) $
+  using the transition matrix.
 ]
 #solution[
-  Jacobian at $(0,0)$:
-  $ J = mat(0, 1; -1, -1). $
-  The characteristic polynomial is
-  $ lambda^2 + lambda + 1 = 0, $
-  giving
-  $ lambda_(1,2) = (-1 +- sqrt(-3))/2 = -1/2 +- (sqrt(3))/2 i. $
-  Both eigenvalues have negative real part, so the origin is locally asymptotically stable.
+  From the first solved problem,
+  $ Phi(t)=mat(e^(t^2/2),0;0,e^(-2t)), quad Phi(0)=I. $
+  Thus
+  $ Phi(t,0)=Phi(t)Phi(0)^(-1)=Phi(t). $
+
+  Therefore,
+  $ x(t)=Phi(t,0)x(0)=mat(2e^(t^2/2);-e^(-2t)). $
 ]
 
-#solved_problem[Nonexistence of Periodic Orbits (Bendixson Criterion)][
-  Consider the planar autonomous system
-  $ x' = x + y, quad y' = -x + 2y. $
-  Determine whether nontrivial periodic orbits can exist in a simply connected region of $RR^2$.
+#solved_problem[Variation of Constants with Input][
+  Solve
+  $ x' = A(t)x + r(t), $
+  where
+  $ A(t)=mat(0,0;0,-1), quad r(t)=mat(1;e^(-t)), quad x(0)=mat(0;0). $
 ]
 #solution[
+  A fundamental matrix for the homogeneous part is
+  $ Phi(t)=mat(1,0;0,e^(-t)), quad Phi(t,s)=mat(1,0;0,e^(-(t-s))). $
+
+  With $x(0)=0$,
+  $ x(t)=integral_0^t Phi(t,s)r(s) dif s. $
+  Hence
+  $ x_1(t)=integral_0^t 1 dif s = t, $
+  $ x_2(t)=integral_0^t e^(-(t-s))e^(-s) dif s = t e^(-t). $
+
+  Therefore,
+  $ x(t)=mat(t; t e^(-t)). $
+]
+
+#solved_problem[Norm Bound with Bounded $A(t)$][
+  Suppose
+  $ norm(A(t))_infinity <= 2 $ on $[0,t]$ and $norm(x(0))_infinity = 3$.
+  Derive a bound for $norm(x(t))_infinity$.
+]
+#solution[
+  By the growth bound,
+  $ norm(x(t))_infinity <= e^(integral_0^t norm(A(s))_infinity dif s) norm(x(0))_infinity. $
+  Since $norm(A(s))_infinity <= 2$,
+  $ integral_0^t norm(A(s))_infinity dif s <= 2t. $
+  Therefore,
+  $ norm(x(t))_infinity <= 3 e^(2t). $
+]
+
+#solved_problem[Transition from a Nonzero Initial Time][
   Let
-  $ F(x,y) = (P(x,y), Q(x,y)) = (x+y, -x+2y). $
-  The divergence is
-  $ (partial P)/(partial x) + (partial Q)/(partial y) = 1 + 2 = 3. $
+  $ A(t)=mat(1/t,0;0,-1), quad t>0. $
+  Compute $Phi(t,1)$ and solve the IVP $x(1)=mat(3;2)$.
+]
+#solution[
+  The equations are decoupled:
+  $ x_1'=(1/t)x_1, quad x_2'=-x_2. $
+  A convenient fundamental matrix is
+  $ Phi(t)=mat(t,0;0,e^(-t)). $
 
-  Since the divergence is strictly positive everywhere (and never changes sign), the Bendixson criterion implies that no nontrivial periodic orbit can lie entirely in a simply connected region of the plane.
+  Then
+  $ Phi(t,1)=Phi(t)Phi(1)^(-1)=mat(t,0;0,e^(1-t)). $
+  Therefore
+  $ x(t)=Phi(t,1)x(1)=mat(3t;2e^(1-t)). $
 ]
 
 === Supplementary Problems
 
-#supplementary[Periodic Orbit Screening][
-  Use a planar criterion (e.g., divergence sign test in a simply connected region) to discuss possible closed orbits.
+#supplementary[Fundamental Matrix Computation][
+  For
+  $ A(t)=mat(2t,0;0,-3), $
+  compute a fundamental matrix and verify invertibility.
 ]
 
-#supplementary[3D System Exploration][
-  For a selected three-dimensional autonomous model, identify equilibria and classify them via Jacobian eigenvalues.
+#supplementary[Transition Matrix Practice][
+  For
+  $ A(t)=mat(0,0;0,t), $
+  construct $Phi(t,s)$ explicitly.
 ]
 
-#supplementary[Nullclines and Flow Regions][
-  For $x' = x - y^2$ and $y' = x^2 - y$, compute nullclines and determine the qualitative direction of the vector field in each region.
+#supplementary[IVP with Time-Dependent Coefficients][
+  Solve
+  $ x' = A(t)x, quad A(t)=mat(1,0;0,-t), quad x(0)=mat(1;1). $
 ]
 
-#supplementary[Linearization Limits][
-  Analyze the equilibrium at the origin for $x' = y, y' = -x^3$. Explain why linearization is inconclusive and suggest an alternative method.
+#supplementary[Variation of Constants Drill][
+  Solve
+  $ x' = A(t)x + r(t), $
+  with
+  $ A(t)=mat(0,0;0,-2), quad r(t)=mat(e^t;1), quad x(0)=0. $
 ]
 
-#supplementary[Periodic Solution Nonexistence Test][
-  Apply a planar nonexistence criterion to $x' = x + y, y' = -x + 2y$ on a simply connected domain and conclude whether periodic orbits can exist.
+#supplementary[Norm Bound Application][
+  Assume
+  $ norm(A(t))_2 <= 0.6 $ on $[0,t]$ and $norm(x(0))_2=4$.
+  Derive an explicit upper bound for $norm(x(t))_2$.
 ]

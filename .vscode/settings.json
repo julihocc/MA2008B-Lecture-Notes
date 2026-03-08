@@ -4,6 +4,7 @@
     "tinymist.formatterMode": "typstfmt",
     "iis.configDir": "",
     "chat.tools.terminal.autoApprove": {
-        "typst": true
+        "typst": true,
+        "Set-Content": true
     }
 }

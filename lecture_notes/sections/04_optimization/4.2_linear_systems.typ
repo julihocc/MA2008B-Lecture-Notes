@@ -1,331 +1,171 @@
 #import "../../../utils.typ": *
-== Linear Systems
+== Constant-Coefficient Linear Systems
 
 === Mathematical Review
 
-This section introduces linear state-space dynamics with emphasis on tools that can be computed and used directly in analysis. For constant and time-varying systems, the fundamental matrix and the matrix exponential describe solution propagation, while induced matrix norms provide quantitative bounds on trajectory growth and input-driven perturbations.
+This section studies autonomous linear systems with constant matrix
+$ x' = A x. $
+The origin is always an equilibrium, and its type is determined by the eigenstructure of $A$.
 
-The main analytical objective is to estimate solution size without solving each component explicitly. This viewpoint is central for later stability and optimization arguments, where reliable upper bounds are often more useful than closed-form trajectories.
-
-#definition[Linear Time-Varying System][
-  A homogeneous linear system is
-  $ x'(t) = A(t) x(t), $
-  where $x(t) in RR^n$ and $A(t)$ is an $n times n$ matrix-valued function.
+#definition[Equilibrium and Critical Point][
+  For $x' = A x$, an equilibrium $x^*$ satisfies
+  $ A x^* = 0. $
+  In this section, we classify the critical point at the origin using eigenvalues of $A$.
 ]
 
-#definition[Fundamental Matrix][
-  A matrix $Phi(t)$ is a fundamental matrix if
-  $ Phi'(t) = A(t) Phi(t) $
-  and $det(Phi(t_0)) != 0$ for some $t_0$.
-  Then $det(Phi(t)) != 0$ on the whole interval, and every solution can be written as
-  $ x(t) = Phi(t) c $ for a constant vector $c$.
+#definition[Characteristic Polynomial and Eigenvalues][
+  The characteristic polynomial of $A$ is
+  $ p(lambda) = det(lambda I - A). $
+  Its roots are the eigenvalues of $A$, and they determine local phase portrait type.
 ]
 
 #theorem[Matrix Exponential for Constant $A$][
   If $A$ is constant, then
-  $ x'(t) = A x(t), quad x(0) = x_0 $
+  $ x' = A x, quad x(0)=x_0 $
   has solution
-  $ x(t) = e^(A t) x_0, quad e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
+  $ x(t) = e^(A t) x_0, $
+  where
+  $ e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
 ]
 #proof[
-  Define
-  $ Phi(t) = e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
-  Since $A$ is constant, term-by-term differentiation gives
-  $ Phi'(t) = A Phi(t), quad Phi(0) = I. $
-
-  Let $x(t) = Phi(t) x_0$. Then
-  $ x'(t) = Phi'(t) x_0 = A Phi(t) x_0 = A x(t), $
-  and
-  $ x(0) = Phi(0) x_0 = I x_0 = x_0. $
-
-  Therefore, $x(t) = e^(A t) x_0$ satisfies the IVP.
+  Let $Phi(t)=e^(A t)$. Since $A$ is constant,
+  $ Phi'(t)=A Phi(t), quad Phi(0)=I. $
+  Setting $x(t)=Phi(t)x_0$ gives
+  $ x'(t)=A x(t) $ and $x(0)=x_0$.
 ]
 
-#definition[Induced Matrix Norm][
-  Given a vector norm $norm(·)$, the induced matrix norm is
-  $ norm(A) = max_(x != 0) norm(A x)/norm(x). $
-  It is used to bound growth of trajectories and perturbations.
+#theorem[Classification by Eigenvalues in $RR^2$][
+  For $x' = A x$ in $RR^2$:
+  - Two real negative eigenvalues: asymptotically stable node.
+  - Two real positive eigenvalues: unstable node.
+  - Real eigenvalues of opposite sign: saddle (unstable).
+  - Complex pair $alpha +- i beta$ with $beta != 0$:
+    stable focus if $alpha<0$, unstable focus if $alpha>0$, center if $alpha=0$.
 ]
 
-#proposition[Closed Forms for Common Induced Norms][
-  For $A = (a_(i j)) in RR^(n times n)$,
-  $ norm(A)_1 = max_j sum_i |a_(i j)|, $
-  $ norm(A)_infinity = max_i sum_j |a_(i j)|, $
-  and
-  $ norm(A)_2 = sqrt(lambda_(max)(A^T A)). $
-]
-
-#theorem[Compatibility and Submultiplicativity][
-  For an induced norm,
-  $ norm(A x) <= norm(A) norm(x), $
-  $ norm(A B) <= norm(A) norm(B), $
-  and $norm(I)=1$.
-]
-#proof[
-  From the definition,
-  $ norm(A x) <= norm(A) norm(x) $ for any vector $x$.
-  Apply this to $x = B y$:
-  $ norm(A B y) <= norm(A) norm(B y) <= norm(A) norm(B) norm(y). $
-  Taking the maximum ratio over $y != 0$ gives
-  $ norm(A B) <= norm(A) norm(B). $
-  Finally, $norm(I x)=norm(x)$ for all $x$, hence $norm(I)=1$.
-]
-
-#corollary[Exponential Bound for Constant Matrices][
-  For constant $A$,
-  $ norm(e^(A t)) <= e^(norm(A)t), quad t >= 0. $
-  Therefore, solutions of $x' = A x$ satisfy
-  $ norm(x(t)) <= e^(norm(A)t) norm(x(0)). $
-]
-
-#definition[Floquet Theory (Periodic Systems)][
-  For periodic systems $x' = A(t) x$ with $A(t + T) = A(t)$, Floquet theory writes
-  $ Phi(t) = P(t) e^(R t) $ with $P(t + T) = P(t)$.
-  Stability is characterized through Floquet multipliers (eigenvalues of $Phi(T)$).
-  In this module, we only state the result and focus computationally on constant-matrix methods and norm-based bounds.
-]
-
-#theorem[Liouville Formula][
-  If $Phi(t)$ is a fundamental matrix of $x' = A(t)x$, then
-  $ det(Phi(t)) = det(Phi(t_0)) e^(integral_(t_0)^t tr(A(s)) dif s). $
-]
-#proof[
-  Let $W(t)=det(Phi(t))$.
-  Jacobi's formula gives
-  $ W'(t) = tr(Phi(t)^(-1) Phi'(t)) W(t). $
-  Since $Phi' = A Phi$, we obtain
-  $ Phi^(-1) Phi' = Phi^(-1) A Phi, $
-  so by trace invariance under similarity
-  $ tr(Phi^(-1) A Phi) = tr(A). $
-  Hence
-  $ W'(t) = tr(A(t)) W(t). $
-  Solving this scalar linear equation yields
-  $ W(t)=W(t_0)e^(integral_(t_0)^t tr(A(s)) dif s), $
-  which is Liouville's formula.
+#proposition[Trace-Determinant Test in $RR^2$][
+  Let $tau = tr(A)$ and $Delta = det(A)$. The discriminant is
+  $ D = tau^2 - 4 Delta. $
+  Then:
+  - $Delta < 0$: saddle.
+  - $Delta > 0$, $D > 0$: node (stable if $tau<0$, unstable if $tau>0$).
+  - $Delta > 0$, $D < 0$: focus/center (stable if $tau<0$, unstable if $tau>0$, center if $tau=0$).
 ]
 
 === Solved Problems
 
-#solved_problem[Fundamental Matrix for a Time-Varying Diagonal System][
-  Consider
-  $ x' = A(t) x, quad A(t)=mat(2t,0;0,-1). $
-  Find a fundamental matrix and write the general solution.
-]
-#solution[
-  The equations are decoupled:
-  $ x_1' = 2t x_1, quad x_2' = -x_2. $
-  Hence
-  $ x_1(t)=C_1 e^(t^2), quad x_2(t)=C_2 e^(-t). $
-
-  A convenient fundamental matrix is
-  $ Phi(t)=mat(e^(t^2),0;0,e^(-t)). $
-  Since
-  $ det(Phi(t))=e^(t^2-t) != 0, $
-  it is invertible for all $t$ and therefore fundamental.
-
-  The general solution is
-  $ x(t)=Phi(t)c = mat(e^(t^2),0;0,e^(-t)) mat(c_1;c_2). $
-]
-
-#solved_problem[Matrix Exponential for a Diagonal System][
-  Solve
-  $ x' = A x, quad x(0) = mat(2; -1), quad A = mat(3, 0; 0, -1). $
+#solved_problem[Stable Node Classification][
+  Classify the origin for
+  $ x' = A x, quad A = mat(-1, 0; 0, -3), $
+  and solve the IVP with $x(0)=mat(1;2)$.
 ]
 #solution[
   Since $A$ is diagonal,
-  $ e^(A t) = mat(e^(3t), 0; 0, e^(-t)). $
-
+  $ e^(A t)=mat(e^(-t),0;0,e^(-3t)). $
   Therefore,
-  $ x(t) = e^(A t) x(0) = mat(e^(3t), 0; 0, e^(-t)) mat(2; -1) = mat(2e^(3t); -e^(-t)). $
+  $ x(t)=mat(e^(-t);2e^(-3t)). $
+
+  The eigenvalues are $lambda_1=-1$, $lambda_2=-3$, both negative and real.
+  Hence the origin is an asymptotically stable node.
 ]
 
-#solved_problem[Why Matrix Norms Are the Point][
-  Consider
-  $ x' = A x + r(t), quad A = mat(1,2;0,-1), quad norm(r(t))_infinity <= 0.5, quad norm(x(0))_infinity <= 2. $
-  Build an explicit bound for $norm(x(t))_infinity$ without solving the system component-by-component.
-]
-#solution[
-  Split the solution into homogeneous and forced parts:
-  $ x(t) = e^(A t) x(0) + integral_0^t e^(A (t-s)) r(s) dif s. $
-
-  Using induced infinity norms and $norm(e^(A tau))_infinity <= e^(norm(A)_infinity tau)$,
-  $ norm(x(t))_infinity <= e^(norm(A)_infinity t) norm(x(0))_infinity + integral_0^t e^(norm(A)_infinity (t-s)) norm(r(s))_infinity dif s. $
-
-  Here $norm(A)_infinity=3$, so
-  $ norm(x(t))_infinity <= 2e^(3t) + 0.5 integral_0^t e^(3(t-s)) dif s = 2e^(3t) + (1/6)(e^(3t)-1). $
-
-  This is the main payoff of the section: a computable worst-case bound derived in a few lines.
-]
-
-#solved_problem[Computing $norm(A)_1$, $norm(A)_2$, and $norm(A)_infinity$][
-  For
-  $ A = mat(1, 2; 0, -1), $
-  compute $norm(A)_1$, $norm(A)_2$, and $norm(A)_infinity$.
+#solved_problem[Saddle Classification][
+  Classify the origin for
+  $ x' = A x, quad A = mat(2,0;0,-1). $
 ]
 #solution[
-  Column sums give
-  $ norm(A)_1 = max{ |1|+|0|, |2|+|-1| } = max{1,3}=3. $
+  The eigenvalues are $lambda_1=2$ and $lambda_2=-1$.
+  Since they have opposite signs, the origin is a saddle.
 
-  Row sums give
-  $ norm(A)_infinity = max{ |1|+|2|, |0|+|-1| } = max{3,1}=3. $
-
-  For the Euclidean induced norm,
-  $ A^T A = mat(1,2;2,5). $
-  Its eigenvalues solve
-  $ lambda^2 - 6lambda + 1 = 0, $
-  so
-  $ lambda_(max) = 3 + 2sqrt(2). $
-  Hence
-  $ norm(A)_2 = sqrt(3 + 2sqrt(2)) = 1 + sqrt(2). $
+  Equivalently, with $tau = 1$ and $Delta = -2 < 0$, the trace-determinant test also gives saddle.
 ]
 
-#solved_problem[Numerical Check of Submultiplicativity][
-  Let
-  $ A = mat(1, -1; 2, 0), quad B = mat(2, 1; -3, 4). $
-  Verify with the infinity norm that
-  $ norm(A B)_infinity <= norm(A)_infinity norm(B)_infinity. $
-]
-#solution[
-  First,
-  $ norm(A)_infinity = max{ |1|+|-1|, |2|+|0| } = 2, $
-  $ norm(B)_infinity = max{ |2|+|1|, |-3|+|4| } = 7. $
-
-  Compute
-  $ A B = mat(5, -3; 4, 2). $
-  Then
-  $ norm(A B)_infinity = max{ |5|+|-3|, |4|+|2| } = max{8,6}=8. $
-
-  Therefore,
-  $ norm(A B)_infinity = 8 <= 14 = norm(A)_infinity norm(B)_infinity. $
-]
-
-#solved_problem[Spectral Radius Versus Induced Norm][
-  For
-  $ N = mat(0, 2; 0, 0), $
-  compare the spectral radius $rho(N)$ and the induced 2-norm $norm(N)_2$.
-]
-#solution[
-  Since $N$ is upper triangular with diagonal entries $0,0$, all eigenvalues are zero and
-  $ rho(N)=0. $
-
-  But
-  $ N^T N = mat(0,0;0,4), $
-  so
-  $ norm(N)_2 = sqrt(lambda_(max)(N^T N)) = sqrt(4)=2. $
-
-  Therefore $rho(N) < norm(N)_2$, showing that a non-normal matrix can have large induced norm even with zero eigenvalues.
-]
-
-#solved_problem[Infinity-Norm Growth Estimate][
-  For $x' = A x$ with
-  $ A = mat(1, 2; 0, -1), $
-  use the induced infinity norm to derive an exponential bound for $norm(x(t))_infinity$.
-]
-#solution[
-  For the induced infinity norm,
-  $ norm(A)_infinity = max{ |1|+|2|, |0|+|-1| } = max{3,1} = 3. $
-
-  Standard norm bounds for linear systems give
-  $ norm(x(t))_infinity <= e^(norm(A)_infinity t) norm(x(0))_infinity. $
-  Hence
-  $ norm(x(t))_infinity <= e^(3t) norm(x(0))_infinity. $
-]
-
-#solved_problem[Perturbation Bound with an Input Term][
-  Let $z' = A z + r(t)$ with $z(0)=0$ and
-  $ A = mat(1,2;0,-1), quad norm(r(t))_infinity <= 0.5. $
-  Derive an upper bound for $norm(z(t))_infinity$.
-]
-#solution[
-  Variation of constants gives
-  $ z(t) = integral_0^t e^(A (t-s)) r(s) dif s. $
-  Taking induced infinity norms and using $norm(e^(A tau))_infinity <= e^(norm(A)_infinity tau)$,
-  $ norm(z(t))_infinity <= integral_0^t e^(norm(A)_infinity (t-s)) norm(r(s))_infinity dif s. $
-
-  Since $norm(A)_infinity=3$ and $norm(r(s))_infinity <= 0.5$,
-  $ norm(z(t))_infinity <= 0.5 integral_0^t e^(3(t-s)) dif s = (1/6)(e^(3t)-1). $
-]
-
-#solved_problem[Liouville Formula in Practice][
-  Assume a linear system has
-  $ tr(A(t)) = 3t. $
-  Compute
-  $ det(Phi(t))/det(Phi(0)). $
-]
-#solution[
-  By Liouville's formula,
-  $ det(Phi(t))/det(Phi(0)) = e^(integral_0^t tr(A(s)) dif s). $
-  Substituting $tr(A(s))=3s$,
-  $ integral_0^t 3s dif s = 3/2 t^2. $
-  Therefore,
-  $ det(Phi(t))/det(Phi(0)) = e^((3/2)t^2). $
-]
-
-#solved_problem[Floquet Multiplier Classification][
-  A periodic linear system has monodromy eigenvalues
-  $ rho_1 = 0.7, quad rho_2 = -1.1. $
-  Classify stability of the periodic solution.
-]
-#solution[
-  Floquet stability is determined by magnitudes $|rho_i|$.
-  Here
-  $ |rho_1|=0.7 < 1, quad |rho_2|=1.1 > 1. $
-  Since at least one multiplier has magnitude greater than $1$, the periodic solution is unstable.
-]
-
-#solved_problem[State Transition with Constant Matrix][
-  Solve $x' = A x$, $x(0)=x_0$, with
-  $ A = mat(0, 1; -2, -3), quad x_0 = mat(x_(1,0); x_(2,0)). $
+#solved_problem[Stable Focus Classification][
+  Classify the origin for
+  $ x' = A x, quad A = mat(-1,-4;1,-1). $
 ]
 #solution[
   The characteristic polynomial is
-  $ det(lambda I - A) = lambda^2 + 3lambda + 2 = (lambda+1)(lambda+2), $
-  so eigenvalues are $-1$ and $-2$.
+  $ lambda^2 + 2lambda + 5 = 0, $
+  so
+  $ lambda_(1,2) = -1 +- 2i. $
+  Since the real part is negative, trajectories spiral toward the origin.
+  The critical point is a stable focus.
+]
 
-  The matrix exponential is
-  $ e^(A t) = mat(
-    2e^(-t)-e^(-2t), e^(-t)-e^(-2t);
-    -2e^(-t)+2e^(-2t), -e^(-t)+2e^(-2t)
-  ). $
+#solved_problem[Center Classification][
+  Classify the origin for
+  $ x' = A x, quad A = mat(0,-2;2,0). $
+]
+#solution[
+  The characteristic polynomial is
+  $ lambda^2 + 4 = 0, $
+  so eigenvalues are $+- 2i$ (purely imaginary).
+  Therefore the origin is a center for this linear system.
+]
 
-  Therefore,
-  $ x(t) = e^(A t) x_0. $
+#solved_problem[Defective Repeated Eigenvalue][
+  Consider
+  $ x' = A x, quad A = mat(-2,1;0,-2). $
+  Classify the origin and compute $e^(A t)$.
+]
+#solution[
+  The characteristic polynomial is
+  $ (lambda+2)^2=0, $
+  so there is a repeated eigenvalue $lambda=-2$.
+  Write
+  $ A = -2I + N, quad N = mat(0,1;0,0), quad N^2=0. $
+
+  Then
+  $ e^(A t)=e^(-2t)e^(N t)=e^(-2t)(I+t N)
+  = e^(-2t) mat(1,t;0,1). $
+
+  Since the eigenvalue is negative, the origin is asymptotically stable.
+  The phase portrait is an improper (degenerate) stable node.
+]
+
+#solved_problem[Trace-Determinant Classification][
+  Classify the origin for
+  $ A = mat(1,4;-1,-3) $
+  using $(tau, Delta, D)$, where $tau=tr(A)$, $Delta=det(A)$, and $D=tau^2-4Delta$.
+]
+#solution[
+  Compute
+  $ tau = 1 + (-3) = -2, $
+  $ Delta = 1(-3)-4(-1)=1, $
+  $ D = (-2)^2 - 4(1)=0. $
+
+  Since $Delta>0$ and $D=0$, there is a repeated real eigenvalue.
+  Because $tau<0$, the origin is stable (node-type boundary case).
+
+  Directly, $p(lambda)=lambda^2+2lambda+1=(lambda+1)^2$, confirming repeated eigenvalue $-1$.
 ]
 
 === Supplementary Problems
 
-#supplementary[Fundamental Matrix Construction Practice][
-  For $A(t)=mat(t,0;0,-2)$, construct a fundamental matrix and verify invertibility via its determinant.
+#supplementary[Unstable Node Classification][
+  Classify the origin for
+  $ A = mat(2,0;0,5). $
 ]
 
-#supplementary[Norm Comparison Practice][
-  Compute and compare $norm(A)_1$, $norm(A)_2$, and $norm(A)_infinity$ for
-  $A = mat(1, -2; 3, 0)$.
+#supplementary[Focus Type from Eigenvalues][
+  For eigenvalues $lambda_(1,2)=0.4 +- 3i$, classify the critical point at the origin.
 ]
 
-#supplementary[Matrix Exponential Practice][
-  Compute $e^(A t)$ for $A = mat(4, 1; 0, 2)$ and write the explicit solution of $x' = A x$ with initial condition $x(0)=x_0$.
+#supplementary[Matrix Exponential with Repeated Eigenvalue][
+  Compute $e^(A t)$ for
+  $ A = mat(-1,1;0,-1) $
+  and classify the origin.
 ]
 
-#supplementary[Growth Bound Exercise][
-  For $x' = A x$ with
-  $ A = mat(2,-1;1,0), $
-  compute $norm(A)_infinity$ and derive an explicit bound for $norm(x(t))_infinity$.
+#supplementary[Trace-Determinant Diagram Point][
+  For
+  $ A = mat(-2,3;-1,0), $
+  compute $(tau, Delta, D)$ and classify the origin.
 ]
 
-#supplementary[Perturbation Bound Exercise][
-  For $z' = A z + r(t)$ with $z(0)=0$,
-  $ A = mat(0,1;-1,-2), quad norm(r(t))_infinity <= 0.2, $
-  derive a bound for $norm(z(t))_infinity$ using $norm(A)_infinity$.
-]
-
-#supplementary[Liouville Formula Exercise][
-  For $x' = A(t)x$ with $tr(A(t)) = 3t$, use Liouville's formula to determine the determinant ratio $det(Phi(t))/det(Phi(0))$.
-]
-
-#supplementary[Floquet Classification Exercise][
-  Classify stability in each case using multipliers:
-  (a) $rho_1=0.8$, $rho_2=-0.6$;
-  (b) $rho_1=1.05$, $rho_2=0.7$;
-  (c) $rho_1=-1$, $rho_2=0.4$.
+#supplementary[Trajectory from Initial Data][
+  For
+  $ A = mat(-2,0;0,1), quad x(0)=mat(3;-2), $
+  compute $x(t)$ and describe long-term behavior.
 ]
