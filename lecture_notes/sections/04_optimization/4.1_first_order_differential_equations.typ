@@ -8,8 +8,23 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
 #definition[Initial Value Problem (IVP)][
   A first-order IVP has the form
   $ x'(t) = f(t, x(t)), quad x(t_0) = x_0. $
-  Under standard continuity and Lipschitz conditions, the IVP has a unique local solution.
+  Existence and uniqueness are separate questions and use different assumptions.
 ]
+
+For
+$ x' = f(t,x), quad x(t_0)=x_0, $
+the usual local conditions are read as follows.
+
+- Existence: if $f$ is continuous near $(t_0,x_0)$, then at least one local solution exists.
+- Uniqueness: if $f$ is locally Lipschitz in $x$ (uniformly in $t$ on a small rectangle), then the local solution is unique.
+
+The uniqueness condition is the stronger one. A common practical sufficient condition is:
+if $(partial f)/(partial x)$ exists and is continuous (or just bounded) on a neighborhood of $(t_0,x_0)$, then $f$ is locally Lipschitz in $x$, hence the IVP is locally well-posed (existence + uniqueness).
+
+So, in practice, a quick hierarchy is
+continuity of $f$ implies existence,
+local Lipschitz in $x$ implies uniqueness,
+and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz in $x$.
 
 #theorem[First-Order Linear Equation][
   For
