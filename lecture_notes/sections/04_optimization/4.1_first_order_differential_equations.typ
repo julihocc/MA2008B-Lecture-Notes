@@ -18,6 +18,16 @@ the usual local conditions are read as follows.
 - Existence: if $f$ is continuous near $(t_0,x_0)$, then at least one local solution exists.
 - Uniqueness: if $f$ is locally Lipschitz in $x$ (uniformly in $t$ on a small rectangle), then the local solution is unique.
 
+Here, "Lipschitz in $x$" means there is a constant $L>0$ such that
+$ |f(t,x_1)-f(t,x_2)| <= L |x_1-x_2| $
+for points in the region under consideration.
+The same $L$ controls how fast $f$ can change with respect to $x$.
+
+- Local Lipschitz: the inequality holds on a neighborhood of $(t_0,x_0)$.
+- Global Lipschitz: the inequality holds on the whole domain.
+
+For IVP uniqueness, local Lipschitz is enough.
+
 The uniqueness condition is the stronger one. A common practical sufficient condition is:
 if $(partial f)/(partial x)$ exists and is continuous (or just bounded) on a neighborhood of $(t_0,x_0)$, then $f$ is locally Lipschitz in $x$, hence the IVP is locally well-posed (existence + uniqueness).
 
@@ -267,16 +277,16 @@ In this case, stability must be determined through phase-line sign analysis or h
   For $x' = 0.8x(1-(x/5)^2)$, determine equilibria and classify their local stability.
 ]
 
+#supplementary[Existence vs Uniqueness Conditions][
+  For $x' = t^2 + x^2$, $x(0)=1$, identify a rectangle around $(0,1)$ where $f(t,x)$ is continuous and where $(partial f)/(partial x)$ is bounded, then state what each condition implies (existence and uniqueness).
+]
+
+#supplementary[When Continuity Does Not Guarantee Uniqueness][
+  Analyze $x' = sqrt(abs(x))$, $x(0)=0$. Check continuity and discuss why uniqueness fails at the initial point.
+]
+
 #supplementary[Parameter-Driven Bifurcation][
-  Study $x' = lambda x - x^2$. Find equilibria as functions of $lambda$ and classify their local stability.
-]
-
-#supplementary[Existence and Uniqueness Check][
-  For $x' = t^2 + x^2$, $x(0)=1$, verify on a bounded rectangle in the $(t,x)$-plane whether standard existence and uniqueness conditions are satisfied.
-]
-
-#supplementary[Linear Equation with Variable Coefficient][
-  Solve $x' - 1/t x = t^2$ for $t > 0$ using an integrating factor, and impose $x(1)=0$.
+  Study $x' = lambda x - x^2$. Find equilibrium branches $x^*(lambda)$ and classify stability using the sign of $(partial f)/(partial x)$ along each branch.
 ]
 
 #supplementary[Phase-Line Analysis][
