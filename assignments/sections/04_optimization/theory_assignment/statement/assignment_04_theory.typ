@@ -15,7 +15,7 @@ Develop deeper mastery of Section 4 by solving and documenting supplementary pro
 Solve all supplementary problems from:
 - 4.1 First-Order Differential Equations
 - 4.2 Linear Systems
-- 4.3 Autonomous Systems
+- 4.3 Time-Dependent Linear Systems
 
 *Required coverage:*
 1. Solve every supplementary problem in Sections 4.1, 4.2, and 4.3.

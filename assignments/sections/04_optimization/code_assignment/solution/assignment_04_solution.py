@@ -76,31 +76,32 @@ print("Bound: ||x(t)||_inf <= exp(||A||_inf * t) ||x(0)||_inf")
 
 
 # %% [markdown]
-# ## Part 3: Autonomous Systems
+# ## Part 3: Time-Dependent Linear Systems
 
 # %%
-x, y = sp.symbols("x y", real=True)
-section("Part 3.1: Classification for x' = y, y' = -x - 0.2y")
-A = sp.Matrix([[0, 1], [-1, -sp.Rational(1, 5)]])
-print(f"Jacobian matrix:\n{A}")
-print(f"Eigenvalues: {A.eigenvals()}")
+s = sp.Symbol("s", real=True)
+section("Part 3.1: Fundamental Matrix for A(t)=[[2t,0],[0,-3]]")
+Phi_fund = sp.Matrix([[sp.exp(t**2), 0], [0, sp.exp(-3*t)]])
+det_Phi = sp.simplify(Phi_fund.det())
+print(f"Phi(t) =\n{Phi_fund}")
+print(f"det(Phi(t)) = {det_Phi} (never zero)")
 
 # %%
-section("Part 3.2: Linearization for x' = y - x^3, y' = -x - y")
-f1 = y - x**3
-f2 = -x - y
-J = sp.Matrix([[sp.diff(f1, x), sp.diff(f1, y)], [sp.diff(f2, x), sp.diff(f2, y)]])
-J0 = J.subs({x: 0, y: 0})
-print(f"J(x,y)=\n{J}")
-print(f"J(0,0)=\n{J0}")
-print(f"Eigenvalues at origin: {J0.eigenvals()}")
+section("Part 3.2: Transition Matrix for A(t)=[[0,0],[0,t]]")
+Phi_s2 = sp.Matrix([[1, 0], [0, sp.exp(t**2 / 2)]])
+Phi_ts2 = sp.simplify(Phi_s2 * Phi_s2.subs(t, s).inv())
+x_s2 = sp.Matrix([1, -1])
+x_t2 = sp.simplify(Phi_ts2 * x_s2)
+print(f"Phi(t,s) =\n{Phi_ts2}")
+print(f"x(t) for x(s)=[1, -1]^T =\n{x_t2}")
 
 # %%
-section("Part 3.3: Bendixson criterion for x' = x + y, y' = -x + 2y")
-P = x + y
-Q = -x + 2 * y
-divergence = sp.Matrix([P, Q]).jacobian([x, y]).trace()
-print(f"P(x,y) = {P}")
-print(f"Q(x,y) = {Q}")
-print(f"div F = {divergence}")
-print("Conclusion: divergence has constant positive sign -> no nontrivial periodic orbits in simply connected regions.")
+section("Part 3.3: Growth Bound for ||A(t)||_2 <= 0.6")
+M = sp.Rational(3, 5)  # 0.6
+x0_norm2 = 4
+bound2 = sp.simplify(x0_norm2 * sp.exp(M * t))
+# Verify at t=5
+bound_t5 = bound2.subs(t, 5)
+print("Bound: ||x(t)||_2 <= exp(0.6 * t) * ||x(0)||_2")
+print(f"||x(t)||_2 <= {bound2}")
+print(f"At t=5, ||x(5)||_2 <= {bound_t5.evalf():.4f} (exact: {bound_t5})")
