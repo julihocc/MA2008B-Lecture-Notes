@@ -42,6 +42,20 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   - Complex pair $alpha plus.minus i beta$ with $beta != 0$:
     stable focus if $alpha<0$, unstable focus if $alpha>0$, center if $alpha=0$.
 ]
+#proof[
+  The behavior of the system is determined by the explicit form of the solution $x(t)$.
+  
+  For distinct real eigenvalues $lambda_1, lambda_2$ with eigenvectors $v_1, v_2$, the general solution is $x(t) = c_1 e^(lambda_1 t) v_1 + c_2 e^(lambda_2 t) v_2$. 
+  - If both $lambda_i < 0$, then $e^(lambda_i t) -> 0$ as $t -> infinity$ for any initial condition, so the origin is asymptotically stable.
+  - If both $lambda_i > 0$, the exponentials grow unboundedly, making the origin unstable.
+  - If they have opposite signs (e.g., $lambda_1 > 0, lambda_2 < 0$), solutions grow along $v_1$ and decay along $v_2$, creating a saddle point.
+
+  For a complex conjugate pair $lambda = alpha plus.minus i beta$, Euler's formula gives solutions involving $e^(alpha t)(c_1 cos(beta t) + c_2 sin(beta t))$.
+  The trigonometric terms cause the trajectory to rotate around the origin, while the $e^(alpha t)$ term scales the amplitude. 
+  - If $alpha < 0$, the amplitude decays to $0$, spiraling inward (stable focus).
+  - If $alpha > 0$, the amplitude grows over time, spiraling outward (unstable focus).
+  - If $alpha = 0$, the amplitude is constant, forming closed periodic orbits (center).
+]
 
 #proposition[Trace-Determinant Test in $RR^2$][
   Let $tau = tr(A)$ and $Delta = det(A)$. The discriminant is
@@ -50,6 +64,16 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   - $Delta < 0$: saddle.
   - $Delta > 0$, $D > 0$: node (stable if $tau<0$, unstable if $tau>0$).
   - $Delta > 0$, $D < 0$: focus/center (stable if $tau<0$, unstable if $tau>0$, center if $tau=0$).
+]
+#proof[
+  The characteristic polynomial for a $2 times 2$ matrix $A$ can be written as
+  $ p(lambda) = lambda^2 - tr(A)lambda + det(A) = lambda^2 - tau lambda + Delta. $
+  Its roots are given by the quadratic formula:
+  $ lambda_(1,2) = (tau plus.minus sqrt(tau^2 - 4Delta)) / 2 = (tau plus.minus sqrt(D)) / 2. $
+  
+  - If $Delta < 0$, then $D = tau^2 - 4Delta > 0$. The roots $lambda_1, lambda_2$ are real. Since their product is $Delta < 0$, they have opposite signs, yielding a saddle.
+  - If $Delta > 0$ and $D > 0$, the roots are real and have the same sign (since their product is $Delta > 0$). Their sum is $tau$. Thus, they are both negative if $tau < 0$ (stable node) and both positive if $tau > 0$ (unstable node).
+  - If $Delta > 0$ and $D < 0$, the roots are complex conjugates $lambda = (tau plus.minus i sqrt(-D)) / 2$. The real part is $tau / 2$, which dictates the stability: stable focus if $tau < 0$, unstable focus if $tau > 0$, and center if $tau = 0$.
 ]
 
 === Solved Problems
