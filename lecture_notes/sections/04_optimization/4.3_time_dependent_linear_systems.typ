@@ -54,6 +54,17 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   Also $x(t_0)=x_0$.
 ]
 
+#definition[Vector and Induced Matrix Norms][
+  A vector norm $norm(x)$ measures the "size" of a vector $x in RR^n$. Common norms include:
+  - *1-norm* (Sum of magnitudes): $norm(x)_1 = sum_(i=1)^n |x_i|$
+  - *2-norm* (Euclidean norm): $norm(x)_2 = sqrt(sum_(i=1)^n x_i^2)$
+  - *$infinity$-norm* (Maximum magnitude): $norm(x)_infinity = max_(i) |x_i|$
+
+  Any vector norm induces a corresponding *matrix norm* on an $n times n$ matrix $A$, defined as the maximum possible stretching of a vector:
+  $ norm(A) = max_(x != 0) (norm(A x)) / (norm(x)). $
+  By definition, an induced matrix norm always satisfies $norm(A x) <= norm(A) norm(x)$.
+]
+
 #proposition[Norm-Based Growth Bound][
   If
   $ norm(A(t)) <= M $ on $[t_0,t]$, then every solution of
