@@ -62,7 +62,11 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
 
   Any vector norm induces a corresponding *matrix norm* on an $n times n$ matrix $A$, defined as the maximum possible stretching of a vector:
   $ norm(A) = max_(x != 0) (norm(A x)) / (norm(x)). $
-  By definition, an induced matrix norm always satisfies $norm(A x) <= norm(A) norm(x)$.
+]
+
+#proposition[Induced Matrix Norm Property][
+  By definition, an induced matrix norm always satisfies the condition
+  $ norm(A x) <= norm(A) norm(x). $
 ]
 
 #proposition[Norm-Based Growth Bound][
