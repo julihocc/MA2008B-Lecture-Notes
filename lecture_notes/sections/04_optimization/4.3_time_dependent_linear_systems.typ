@@ -82,6 +82,16 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   $ norm(x(t)) <= e^(M(t-t_0)) norm(x_0), $
   where $norm(dots.c)$ denotes any vector norm and its corresponding induced matrix norm.
 ]
+#proof[
+  Integrating the differential equation from $t_0$ to $t$ gives
+  $ x(t) = x(t_0) + integral_(t_0)^t A(s)x(s) dif s. $
+  Taking the norm of both sides and applying the triangle inequality for integrals and the induced matrix norm property, we obtain
+  $ norm(x(t)) <= norm(x_0) + integral_(t_0)^t norm(A(s)) norm(x(s)) dif s. $
+  Since $norm(A(s)) <= M$, it follows that
+  $ norm(x(t)) <= norm(x_0) + integral_(t_0)^t M norm(x(s)) dif s. $
+  Applying Grönwall's inequality yields
+  $ norm(x(t)) <= norm(x_0) e^(integral_(t_0)^t M dif s) = norm(x_0) e^(M(t-t_0)). $
+]
 
 === Solved Problems
 
