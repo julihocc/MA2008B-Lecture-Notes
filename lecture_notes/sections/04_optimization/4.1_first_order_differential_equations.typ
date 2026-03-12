@@ -96,6 +96,10 @@ and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz 
     $ x(t) -> x^* $ as $t -> infinity$.
 ]
 
+#definition[Hyperbolic Equilibrium (1D)][
+  An equilibrium $x^*$ of $x' = f(x)$ is called hyperbolic if $f'(x^*) != 0$. At a hyperbolic equilibrium, the first-derivative test is conclusive for determining local stability.
+]
+
 #theorem[Derivative Test for Equilibrium Stability (1D)][
   For $x' = f(x)$ and an equilibrium $x^*$ with $f(x^*)=0$:
   - if $f'(x^*) < 0$, then $x^*$ is locally asymptotically stable;

@@ -19,8 +19,12 @@ Unlike linear systems, nonlinear systems can have multiple equilibria and comple
   $ J(x,y) = mat( (partial f) / (partial x), (partial f) / (partial y) ; (partial g) / (partial x), (partial g) / (partial y) ). $
 ]
 
+#definition[Hyperbolic Equilibrium (2D)][
+  An equilibrium $(x^*, y^*)$ is called hyperbolic if the Jacobian matrix $J(x^*, y^*)$ has no eigenvalues with zero real part.
+]
+
 #theorem[Hartman-Grobman Theorem (Linear Stability Theory)][
-  If the Jacobian $J(x^*,y^*)$ evaluated at the equilibrium has no eigenvalues with zero real part (i.e., the equilibrium is hyperbolic), then the qualitative behavior of the nonlinear system in a small neighborhood of $(x^*,y^*)$ is topologically the same as that of its linearization.
+  If the equilibrium $(x^*,y^*)$ is hyperbolic, then the qualitative behavior of the nonlinear system in a small neighborhood of $(x^*,y^*)$ is topologically the same as that of its linearization.
   
   In particular:
   - If all eigenvalues of $J$ have negative real parts, the equilibrium is locally asymptotically stable.
