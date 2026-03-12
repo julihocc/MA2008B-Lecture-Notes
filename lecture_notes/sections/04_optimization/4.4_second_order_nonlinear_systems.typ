@@ -38,7 +38,7 @@ Note that if the linearization yields a center (purely imaginary eigenvalues), t
   1. Find all equilibrium points $(x^*,y^*)$.
   2. Compute the Jacobian matrix $J(x,y)$.
   3. Evaluate $J$ at each equilibrium to find its eigenvalues and eigenvectors.
-  4. Classify each equilibrium (node, saddle, focus, etc.) and sketch the local trajectories using the eigenvectors (for nodes/saddles) or rotation direction (for foci).
+  4. Classify each equilibrium (node, saddle, focus, etc., as defined in @sec:linear_systems) and sketch the local trajectories using the eigenvectors (for nodes/saddles) or rotation direction (for foci).
   5. Combine the local portraits into a global picture, inferring the connecting trajectories.
 ]
 

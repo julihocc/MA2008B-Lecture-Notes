@@ -1,5 +1,5 @@
 #import "../../../utils.typ": *
-== Constant-Coefficient Linear Systems
+== Constant-Coefficient Linear Systems <sec:linear_systems>
 
 === Mathematical Review
 
