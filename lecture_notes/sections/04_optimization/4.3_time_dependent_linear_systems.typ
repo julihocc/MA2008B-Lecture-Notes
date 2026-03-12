@@ -68,6 +68,11 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   By definition, an induced matrix norm always satisfies the condition
   $ norm(A x) <= norm(A) norm(x). $
 ]
+#proof[
+  If $x=0$, both sides are 0 and the inequality holds trivially. If $x != 0$, by the definition of an induced norm, we have
+  $ (norm(A x)) / (norm(x)) <= max_(x != 0) (norm(A x)) / (norm(x)) = norm(A). $
+  Multiplying both sides by $norm(x)$ yields $norm(A x) <= norm(A) norm(x)$.
+]
 
 #proposition[Norm-Based Growth Bound][
   If
