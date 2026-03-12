@@ -16,9 +16,11 @@ Solve all supplementary problems from:
 - 4.1 First-Order Differential Equations
 - 4.2 Linear Systems
 - 4.3 Time-Dependent Linear Systems
+- 4.4 Second-Order Nonlinear Systems
+- 4.5 Additional Topics
 
 *Required coverage:*
-1. Solve every supplementary problem in Sections 4.1, 4.2, and 4.3.
+1. Solve every supplementary problem in Sections 4.1 through 4.5.
 2. Provide complete derivations, justifications, and final answers for each item.
 3. Do not include code unless a problem statement explicitly requires computational verification.
 
@@ -31,7 +33,7 @@ Solve all supplementary problems from:
 1. *Cover Page*
   - Course, section, team number, member names, student IDs, date.
 2. *Problem Coverage Table*
-  - List all supplementary problems from 4.1, 4.2, and 4.3, and reference where each full solution appears.
+  - List all supplementary problems from 4.1 to 4.5, and reference where each full solution appears.
 3. *Solutions Section*
   - Full derivations, intermediate steps, and final answers.
   - Clearly state assumptions and methods used.
@@ -42,7 +44,7 @@ Solve all supplementary problems from:
 
 == Evaluation Rubric
 - *Mathematical correctness (55 pts):* correctness, rigor, and completeness of derivations.
-- *Coverage completeness (20 pts):* all supplementary problems from 4.1, 4.2, and 4.3 are fully addressed.
+- *Coverage completeness (20 pts):* all supplementary problems from 4.1 through 4.5 are fully addressed.
 - *Typst report quality (20 pts):* structure, readability, notation consistency, and presentation.
 - *Team contribution statement (5 pts):* clear and credible distribution of work.
 
