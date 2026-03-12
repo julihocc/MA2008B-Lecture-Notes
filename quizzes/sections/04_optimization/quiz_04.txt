@@ -119,3 +119,51 @@ a) Asymptotically stable
 *b) Unstable
 c) Semistable
 d) A center
+
+21. Which differential equation exhibits a finite-time blow-up for positive initial conditions?
+a) x' = -x
+b) x' = x
+*c) x' = x^2
+d) x' = sin(x)
+
+22. In the normal form for a transcritical bifurcation x' = lambda x - x^2, what happens at lambda = 0?
+a) Two nonzero equilibria emerge
+b) The equilibrium disappears
+*c) Two equilibria collide and exchange stability
+d) The equation becomes linear
+
+23. By definition, an induced matrix norm satisfies which fundamental property for any vector x?
+a) norm(Ax) = norm(A) + norm(x)
+*b) norm(Ax) <= norm(A) * norm(x)
+c) norm(Ax) >= norm(A) * norm(x)
+d) norm(Ax) = norm(A) / norm(x)
+
+24. According to Grönwall's Inequality, if u(t) <= C + int_0^t v(s)u(s) ds for positive v, then u(t) is bounded by:
+a) C + int v(s) ds
+*b) C * exp(int_0^t v(s) ds)
+c) C * v(t)
+d) exp(C * t)
+
+25. The Hartman-Grobman theorem states that near a hyperbolic equilibrium point, a nonlinear system behaves qualitatively like its:
+*a) Linearization (Jacobian evaluated at the equilibrium)
+b) Highest-order nonlinear terms
+c) Inverse mapping
+d) First integral
+
+26. A first integral (or constant of motion) H(x,y) for a system x'=f, y'=g must satisfy:
+a) H = 0 everywhere
+*b) (dH/dx)*f + (dH/dy)*g = 0
+c) dH/dt > 0
+d) f = g
+
+27. The Poincaré-Bendixson theorem guarantees the existence of what structure in certain 2D bounded regions containing no equilibria?
+a) A saddle point
+b) A chaotic strange attractor
+*c) A closed periodic orbit (limit cycle)
+d) A finite-time blow-up
+
+28. Which numerical integration scheme computes a weighted average of four different slopes per time step to achieve O(h^4) accuracy?
+a) Forward Euler
+b) Backward Euler
+c) Picard iteration
+*d) Runge-Kutta 4 (RK4)
