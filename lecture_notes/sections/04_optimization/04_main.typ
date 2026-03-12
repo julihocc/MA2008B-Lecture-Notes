@@ -6,3 +6,5 @@ This redesigned module develops the mathematical foundations needed for optimiza
 #include "4.1_first_order_differential_equations.typ"
 #include "4.2_linear_systems.typ"
 #include "4.3_time_dependent_linear_systems.typ"
+#include "4.4_second_order_nonlinear_systems.typ"
+#include "4.5_advanced_topics.typ"

@@ -36,6 +36,21 @@ continuity of $f$ implies existence,
 local Lipschitz in $x$ implies uniqueness,
 and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz in $x$.
 
+#definition[Finite time blow-up][
+  Even when solutions exist and are unique locally, they may not exist for all time. If a solution $x(t)$ rapidly goes to infinity as $t$ approaches some finite time $T$, we say the solution exhibits finite time blow-up.
+]
+
+#solved_problem[Finite time blow-up][
+  Solve $x' = x^2$ with $x(0) = 1$. Does the solution exist for all $t > 0$?
+]
+#solution[
+  The equation separates as $x^(-2) dif x = dif t$.
+  Integrating gives $-x^(-1) = t + C$.
+  Applying $x(0)=1$, we find $-1 = C$, so
+  $ -1/x = t - 1 => x(t) = 1/(1-t). $
+  As $t -> 1^-$, $x(t) -> infinity$. The solution exhibits finite time blow-up at $T=1$.
+]
+
 #theorem[First-Order Linear Equation][
   For
   $ x' + p(t)x = q(t), $
@@ -241,6 +256,18 @@ In this case, stability must be determined through phase-line sign analysis or h
   At $lambda=0$, $f'_(0)(0)=0$, so the derivative test is inconclusive; phase-line inspection shows a semistable equilibrium.
 
   Therefore the critical value is $lambda=0$, where a saddle-node bifurcation occurs.
+]
+
+#solved_problem[Transcritical Bifurcation][
+  Analyze the equilibria and stability for $x' = lambda x - x^2$.
+]
+#solution[
+  Equilibria satisfy $x(lambda - x) = 0$, so the branches are $x^*=0$ and $x^*=lambda$.
+  Since $f'_(lambda)(x) = lambda - 2x$:
+  - On the branch $x^*=0$: $f'_(lambda)(0) = lambda$. It is stable for $lambda < 0$ and unstable for $lambda > 0$.
+  - On the branch $x^*=lambda$: $f'_(lambda)(lambda) = -lambda$. It is unstable for $lambda < 0$ and stable for $lambda > 0$.
+
+  At $lambda=0$, the two branches intersect and the derivative $f'_0(0)=0$ is inconclusive. The branches exchange stability at the bifurcation point, typical of a transcritical bifurcation.
 ]
 
 #solved_problem[Pitchfork Bifurcation Analysis][
