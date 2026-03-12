@@ -59,7 +59,8 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   $ norm(A(t)) <= M $ on $[t_0,t]$, then every solution of
   $ x' = A(t)x $
   satisfies
-  $ norm(x(t)) <= e^(M(t-t_0)) norm(x_0). $
+  $ norm(x(t)) <= e^(M(t-t_0)) norm(x_0), $
+  where $norm(dots.c)$ denotes any vector norm and its corresponding induced matrix norm.
 ]
 
 === Solved Problems
