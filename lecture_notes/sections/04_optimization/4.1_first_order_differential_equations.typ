@@ -40,17 +40,6 @@ and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz 
   Even when solutions exist and are unique locally, they may not exist for all time. If a solution $x(t)$ rapidly goes to infinity as $t$ approaches some finite time $T$, we say the solution exhibits finite time blow-up.
 ]
 
-#solved_problem[Finite time blow-up][
-  Solve $x' = x^2$ with $x(0) = 1$. Does the solution exist for all $t > 0$?
-]
-#solution[
-  The equation separates as $x^(-2) dif x = dif t$.
-  Integrating gives $-x^(-1) = t + C$.
-  Applying $x(0)=1$, we find $-1 = C$, so
-  $ -1/x = t - 1 => x(t) = 1/(1-t). $
-  As $t -> 1^-$, $x(t) -> infinity$. The solution exhibits finite time blow-up at $T=1$.
-]
-
 #theorem[First-Order Linear Equation][
   For
   $ x' + p(t)x = q(t), $
@@ -158,6 +147,17 @@ In this case, stability must be determined through phase-line sign analysis or h
 ]
 
 === Solved Problems
+
+#solved_problem[Finite time blow-up][
+  Solve $x' = x^2$ with $x(0) = 1$. Does the solution exist for all $t > 0$?
+]
+#solution[
+  The equation separates as $x^(-2) dif x = dif t$.
+  Integrating gives $-x^(-1) = t + C$.
+  Applying $x(0)=1$, we find $-1 = C$, so
+  $ -1/x = t - 1 => x(t) = 1/(1-t). $
+  As $t -> 1^-$, $x(t) -> infinity$. The solution exhibits finite time blow-up at $T=1$.
+]
 
 #solved_problem[Linear IVP with Integrating Factor][
   Solve $x' + 2x = 4$, with $x(0)=1$.

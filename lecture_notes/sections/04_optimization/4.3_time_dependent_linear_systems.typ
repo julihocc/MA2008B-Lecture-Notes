@@ -36,6 +36,8 @@ The main objects are the fundamental matrix and transition matrix, which provide
   $ x(t)=Phi(t,t_0)x_0. $
 ]
 
+_Remark:_ While the rigorous proof relies on concepts like Picard iterations or the Peano-Baker series and is generally beyond our scope here, the representation $x(t) = Phi(t, t_0)x_0$ follows naturally by verifying that it satisfies both the initial condition and the differential equation.
+
 #theorem[Variation of Constants][
   For the nonhomogeneous system
   $ x'(t)=A(t)x(t)+r(t), $
@@ -69,7 +71,7 @@ The main objects are the fundamental matrix and transition matrix, which provide
 ]
 #solution[
   The system is decoupled:
-  $ x_1' = t x_1, quad x_2' = -2 x_2. $
+  $ x'_1 = t x_1, quad x'_2 = -2 x_2. $
   Hence
   $ x_1(t)=c_1 e^(t^2/2), quad x_2(t)=c_2 e^(-2t). $
 
@@ -136,7 +138,7 @@ The main objects are the fundamental matrix and transition matrix, which provide
 ]
 #solution[
   The equations are decoupled:
-  $ x_1'=(1/t)x_1, quad x_2'=-x_2. $
+  $ x'_1=(1/t)x_1, quad x'_2=-x_2. $
   A convenient fundamental matrix is
   $ Phi(t)=mat(t,0;0,e^(-t)). $
 
