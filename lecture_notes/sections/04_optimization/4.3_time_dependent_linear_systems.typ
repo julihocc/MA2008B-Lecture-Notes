@@ -46,12 +46,12 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
 ]
 #proof[
   Let
-  $ y(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
+  $ x(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
   Differentiate using
   $ (partial Phi(t,s))/(partial t)=A(t)Phi(t,s) $
   and Leibniz rule:
-  $ y'(t)=A(t)y(t)+r(t). $
-  Also $y(t_0)=x_0$.
+  $ x'(t)=A(t)x(t)+r(t). $
+  Also $x(t_0)=x_0$.
 ]
 
 #proposition[Norm-Based Growth Bound][
