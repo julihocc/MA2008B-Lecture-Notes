@@ -4,6 +4,7 @@
 # variation of constants, and norm-based growth bounds.
 
 # %%
+import numpy as np
 import sympy as sp
 
 
@@ -96,6 +97,59 @@ print("Phi(t,1) =")
 sp.pprint(Phi_t1)
 print("x(t) =")
 sp.pprint(x_from1)
+
+
+# %% [markdown]
+# ## Solved Problem: Computing Vector and Matrix Norms
+
+# %%
+A_num = np.array([[1, 2], [0, -1]])
+x_num = np.array([3, -4])
+
+print_header("4.3 Solved: Computing Vector and Matrix Norms")
+print("A =\n", A_num)
+print("x =", x_num)
+
+# Vector norms
+print("\nVector Norms for x:")
+print("||x||_1 =", np.linalg.norm(x_num, 1))
+print("||x||_2 =", np.linalg.norm(x_num, 2))
+print("||x||_inf =", np.linalg.norm(x_num, np.inf))
+
+# Matrix norms (induced)
+print("\nInduced Matrix Norms for A:")
+print("||A||_1 =", np.linalg.norm(A_num, 1))
+print("||A||_2 =", np.linalg.norm(A_num, 2))
+print("||A||_inf =", np.linalg.norm(A_num, np.inf))
+
+# Verify induced property for infinity norm
+Ax = A_num @ x_num
+norm_Ax = np.linalg.norm(Ax, np.inf)
+norm_A_norm_x = np.linalg.norm(A_num, np.inf) * np.linalg.norm(x_num, np.inf)
+print("\nVerify ||Ax||_inf <= ||A||_inf * ||x||_inf:")
+print(f"{norm_Ax} <= {norm_A_norm_x}  ({norm_Ax <= norm_A_norm_x})")
+
+
+# %% [markdown]
+# ## Demonstration: Grönwall's Inequality
+
+# %%
+C = sp.symbols("C", positive=True, real=True)
+v = sp.Function("v")(s)
+
+bound_gronwall = C * sp.exp(sp.integrate(v, (s, 0, t)))
+
+print_header("4.3 Demo: Grönwall's Inequality Bound")
+print("If u(t) <= C + integral_0^t v(s)u(s) ds")
+print("Then u(t) <=")
+sp.pprint(bound_gronwall)
+
+# Example: constant v(s) = M
+M_val = sp.symbols("M", positive=True, real=True)
+bound_explicit = bound_gronwall.subs(v, M_val).doit()
+print("\nFor v(s) = M (constant):")
+print("u(t) <=")
+sp.pprint(bound_explicit)
 
 
 # %% [markdown]

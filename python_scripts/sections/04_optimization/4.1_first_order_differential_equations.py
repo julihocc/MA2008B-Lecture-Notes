@@ -112,6 +112,37 @@ print("At lam = 0: f'_0(0) =", sp.simplify(df_pf.subs({lam: 0, x: 0})))
 
 
 # %% [markdown]
+# ## Solved Problem: Transcritical Bifurcation Analysis
+
+# %%
+f_tc = lam * x - x**2
+eq_tc = sp.solve(sp.Eq(f_tc, 0), x)
+df_tc = sp.diff(f_tc, x)
+
+print_header("4.1 Solved: Transcritical Bifurcation")
+print("f_lam(x) = lam*x - x^2")
+print("Equilibrium branches:", eq_tc)
+print("f'_lam(x) =", df_tc)
+print("f'_lam(0) =", sp.simplify(df_tc.subs(x, 0)))
+print("f'_lam(lam) =", sp.simplify(df_tc.subs(x, lam)))
+print("At lam = 0: f'_0(0) =", sp.simplify(df_tc.subs({lam: 0, x: 0})))
+
+
+# %% [markdown]
+# ## Solved Problem: Finite-Time Blow-up
+
+# %%
+# Consider x' = x^2, x(0) = x0 > 0
+x0_val = sp.symbols("x0_val", positive=True, real=True)
+x_blowup = 1 / (1 / x0_val - t)
+
+print_header("4.1 Solved: Finite-Time Blow-up")
+print("IVP: x' = x^2, x(0) = x0 > 0")
+print("Solution x(t) =", x_blowup)
+print("Blow-up occurs at t_infinity =", 1 / x0_val)
+
+
+# %% [markdown]
 # ## Supplementary Template Runner
 
 # %%
@@ -125,7 +156,8 @@ def run_supplementary_examples() -> None:
 
     print_header("4.1 Supplementary: Non-uniqueness Counterexample")
     f_nonunique = sp.sqrt(sp.Abs(x))
-    print("f(x) = sqrt(abs(x)) is continuous at x=0 but not locally Lipschitz there.")
+    print("For f(x) = sqrt(abs(x)): f(0) =", f_nonunique.subs(x, 0))
+    print("f(x) is continuous at x=0 but not locally Lipschitz there.")
     print("Therefore uniqueness may fail for x(0)=0.")
 
 
