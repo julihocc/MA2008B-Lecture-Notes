@@ -74,6 +74,20 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   Multiplying both sides by $norm(x)$ yields $norm(A x) <= norm(A) norm(x)$.
 ]
 
+#theorem[Grönwall's Inequality][
+  Let $u(t)$ and $v(t)$ be non-negative continuous functions on $[t_0, t_1]$. If a constant $C >= 0$ satisfies
+  $ u(t) <= C + integral_(t_0)^t v(s)u(s) dif s $
+  for all $t in [t_0, t_1]$, then
+  $ u(t) <= C exp(integral_(t_0)^t v(s) dif s). $
+]
+#proof[
+  Let $R(t) = C + integral_(t_0)^t v(s)u(s) dif s$. Then $u(t) <= R(t)$, and by the Fundamental Theorem of Calculus, $R'(t) = v(t)u(t)$. Since $v(t) >= 0$, we have $R'(t) <= v(t)R(t)$. Therefore,
+  $ (R'(t))/R(t) <= v(t). $
+  (If $C=0$, we add $epsilon > 0$ to $C$ and take $epsilon -> 0$ at the end to avoid division by zero). Integrating from $t_0$ to $t$ gives:
+  $ ln(R(t)) - ln(R(t_0)) <= integral_(t_0)^t v(s) dif s. $
+  Exponientiating both sides and using $R(t_0) = C$, we get $R(t) <= C exp(integral_(t_0)^t v(s) dif s)$. Since $u(t) <= R(t)$, the result follows.
+]
+
 #proposition[Norm-Based Growth Bound][
   If
   $ norm(A(t)) <= M $ on $[t_0,t]$, then every solution of
