@@ -6,7 +6,7 @@
 #let tecDarkBlue = rgb("#002D72")
 
 #show: book.with(
-  title: "Numerical Analysis for Non-Linear Optimization",
+  title: "Numerical Analysis",
   author: "Dr. Juliho Castillo Colmenares, Ph.D.",
   book-config: (
     theme: "modern",
@@ -22,6 +22,9 @@
       math: "New Computer Modern Math",
     ),
     title-page: book-title-page(
+      subtitle: "For Non-Linear Optimization",
+      edition: "v0.2.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
+      year: str(datetime.today().year()),
       institution: "Tecnológico de Monterrey",
       series: "IDM19 - Lecture Notes",
       logo: none,
