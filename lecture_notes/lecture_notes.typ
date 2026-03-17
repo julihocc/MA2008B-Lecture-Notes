@@ -23,7 +23,7 @@
     ),
     title-page: book-title-page(
       institution: "Tecnológico de Monterrey",
-      series: "MA2008B - Lecture Notes",
+      series: "IDM19 - Lecture Notes",
       logo: none,
       cover: none,
     ),
