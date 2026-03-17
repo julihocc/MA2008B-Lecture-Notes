@@ -23,7 +23,7 @@
     ),
     title-page: book-title-page(
       subtitle: "For Non-Linear Optimization",
-      edition: "v0.3.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
+      edition: "v0.4.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
       year: str(datetime.today().year()),
       institution: "Tecnológico de Monterrey",
       series: "IDM19 - Lecture Notes",
