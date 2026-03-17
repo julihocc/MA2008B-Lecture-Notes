@@ -35,6 +35,7 @@
   page-size: (width: 8.5in, height: 11in),
   page-margin: (inside: 1in, rest: 1in),
   page-binding: left,
+  page-fill: white,
   text-font: ("New Computer Modern", "Libertinus Serif"),
   text-size: TEXT-SIZE,
   lang-name: "en",
