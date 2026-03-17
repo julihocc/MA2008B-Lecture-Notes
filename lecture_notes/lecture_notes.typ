@@ -1,18 +1,32 @@
 #import "@preview/bookly:0.1.0": *
 #import "../utils.typ": *
 
+#let tecBlue = rgb("#0039A6")
+#let tecLightBlue = rgb("#00B1EB")
+#let tecDarkBlue = rgb("#002D72")
+
 #show: book.with(
+  title: "Numerical Analysis for Non-Linear Optimization",
   author: "Dr. Juliho Castillo Colmenares, Ph.D.",
   book-config: (
     theme: "modern",
     lang: "en",
+    colors: (
+      primary: tecBlue,
+      secondary: tecLightBlue,
+      boxeq: rgb("#f0f0f0"),
+      header: tecDarkBlue,
+    ),
+    fonts: (
+      body: "New Computer Modern",
+      math: "New Computer Modern Math",
+    ),
     title-page: book-title-page(
       institution: "Tecnológico de Monterrey",
+      series: "MA2008B - Lecture Notes",
       logo: none,
       cover: none,
     ),
-    title: "MA2008B",
-    subtitle: "Numerical Analysis for Non-Linear Optimization",
   )
 )
 
