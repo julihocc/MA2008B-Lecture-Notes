@@ -50,7 +50,7 @@
 
 #part("Part II: Dynamical Systems")
 
-#include "sections/optimization/main.typ"
+#include "sections/nonlinear_differential_equations/main.typ"
 
 #part("Part III: Selected Topics")
 
