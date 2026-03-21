@@ -1,7 +1,7 @@
 #import "../../../utils.typ": *
 = Design, Compensation, and Control Laws
 
-This chapter covers comprehensive design and compensation techniques, including PID controller tuning and state-space design approaches. It extends to bio-medical device applications such as artificial pancreas control and stress-disturbance (Epinephrine) rejection.
+This chapter covers comprehensive design and compensation techniques, including PID tuning and state-space design for biomedical devices, and the uniquely biological challenges of human-in-the-loop control with Epinephrine disturbances and patient-specific parameter identification.
 
 #include "preliminary_concepts.typ"
 #include "compensation_techniques.typ"
