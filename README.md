@@ -42,9 +42,9 @@ The files are organized into the following main directories:
 - **`docs/`**: General course and administrative documents.
   - `MA2008B-Analítico.md`: Detailed course syllabus, objectives, requirements, content, and evaluation criteria.
 - **`lecture_notes/`**: The core instructional material for the course, written in [Typst](https://typst.app/).
-  - Contains subdirectories for each section/topic in the syllabus.
+  - Contains subdirectories for each chapter/topic in the syllabus.
   - Generates the main `lecture_notes.pdf` document.
-- **`quizzes/`**: Self-evaluation quizzes for the corresponding sections in the lecture notes.
+- **`quizzes/`**: Self-evaluation quizzes for the corresponding chapters in the lecture notes.
 - **`my_lyceum_book/`**: Additional compilation or project-related Typst files (like a structured book format for the notes).
 
 ## Technologies Used

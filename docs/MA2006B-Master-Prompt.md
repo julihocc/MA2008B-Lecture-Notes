@@ -12,7 +12,7 @@ repo_root/
 ├── lecture_notes/          # Main Typst project root
 │   ├── lecture_notes.typ   # Entry point file
 │   ├── utils.typ           # Custom definitions (theorems, proofs, etc.)
-│   └── sections/           # Modular content directory
+│   └── chapters/           # Modular content directory
 │       ├── 01_topic_name/  # Directory for Module 1
 │       │   ├── 01_main.typ # Entry point for Module 1
 │       │   ├── 1.1_subtopic.typ
@@ -92,8 +92,8 @@ Use this template for the main entry point. Update the Title, Course ID, and Sch
 #pagebreak()
 
 // Include modules here. Order matters.
-#include "sections/01_topic_slug/01_main.typ"
-#include "sections/02_topic_slug/02_main.typ"
+#include "chapters/01_topic_slug/01_main.typ"
+#include "chapters/02_topic_slug/02_main.typ"
 // ... add more modules
 ```
 
@@ -101,12 +101,12 @@ Use this template for the main entry point. Update the Title, Course ID, and Sch
 
 ### Module Directories and Files
 
-1. **Directory Name**: `sections/XX_topic_slug/` where `XX` is the 2-digit module number (e.g., `01`, `02`) and `topic_slug` is a snake_case version of the topic name.
-2. **Module Entry File**: `sections/XX_topic_slug/XX_main.typ`.
+1. **Directory Name**: `chapters/XX_topic_slug/` where `XX` is the 2-digit module number (e.g., `01`, `02`) and `topic_slug` is a snake_case version of the topic name.
+2. **Module Entry File**: `chapters/XX_topic_slug/XX_main.typ`.
     - Must start with a Level 1 heading: `= Module Title`.
     - Must include a brief introduction/summary text.
     - Must `#include` all subtopic files in order (e.g., `#include "1.1_subtopic.typ"`).
-3. **Subtopic Files**: `sections/XX_topic_slug/Y.Z_subtopic_slug.typ`.
+3. **Subtopic Files**: `chapters/XX_topic_slug/Y.Z_subtopic_slug.typ`.
     - `Y` corresponds to the Module number.
     - `Z` corresponds to the subtopic order.
     - `subtopic_slug` is snake_case.
@@ -118,7 +118,7 @@ Use this template for the main entry point. Update the Title, Course ID, and Sch
 When given a syllabus or list of topics:
 
 1. **Analyze** the input to determine the modules and their subtopics.
-2. **Generate** the directory structure under `lecture_notes/sections/`.
+2. **Generate** the directory structure under `lecture_notes/chapters/`.
 3. **Create** the `00_main.typ` file for each module.
 4. **Create** individual `.typ` files for each subtopic using the naming convention.
 5. **Populate** `lecture_notes/lecture_notes.typ` to include all the new module entry files.
