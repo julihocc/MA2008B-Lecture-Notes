@@ -17,12 +17,7 @@ The *frequency response* of a system is obtained by evaluating the transfer func
   2. *Phase plot*: $angle(G(j omega))$ (in degrees) vs $log_(10)(omega)$
 ]
 
-#example[First-Order System][
-  For $G(s) = K/(tau s + 1)$, the frequency response is:
-  $ G(j omega) = K/(j omega tau + 1) $
-  Magnitude: $abs(G(j omega)) = K/sqrt(1 + (omega tau)^2)$
-  Phase: $angle(G(j omega)) = -tan^(-1)(omega tau)$
-]
+
 
 === Construction Rules
 
@@ -73,8 +68,20 @@ The *frequency response* of a system is obtained by evaluating the transfer func
   The gain $K$ is determined from the low-frequency magnitude.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[First-Order System][
+  Analyze the first-order system.
+]
+#solution[
+  For $G(s) = K/(tau s + 1)$, the frequency response is:
+  $ G(j omega) = K/(j omega tau + 1) $
+  Magnitude: $abs(G(j omega)) = K/sqrt(1 + (omega tau)^2)$
+  Phase: $angle(G(j omega)) = -tan^(-1)(omega tau)$
+]
+
+=== Supplementary Problems
 #supplementary[Second-Order System][
   Construct the Bode plot for $G(s) = 25/(s^2 + 4s + 25)$. Identify the natural frequency and damping ratio.
 ]

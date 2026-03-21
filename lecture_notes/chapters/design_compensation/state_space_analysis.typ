@@ -26,9 +26,7 @@ State-space analysis provides insights into system structure and facilitates mul
   Rank condition: $r a n k(P_o) = n$ (full state observability)
 ]
 
-#example[Controllability Analysis][
-  Analyze controllability of $dot(x) = mat(1, 2;3, 4)x + vec(1, 0)u$.
-]
+
 #solution[
   Step 1: Form controllability matrix
   $P_c = mat(B, A B) = mat(1, 2;3, 8)$
@@ -40,9 +38,7 @@ State-space analysis provides insights into system structure and facilitates mul
   Since $n = 2$ and $r a n k(P_c) = 2$, system is controllable ✓
 ]
 
-#example[Transfer Function Conversion][
-  Convert $A = mat(0, 1;-2, -3)$, $B = vec(0, 1)$, $C = mat(1, 0)$, $D = 0$ to transfer function.
-]
+
 #solution[
   Step 1: Calculate $s I - A$
   $ s I - A = mat(s, -1;2, s+3)$
@@ -67,9 +63,7 @@ State-space analysis provides insights into system structure and facilitates mul
   - *Symmetric*: $G^T(s) = G(s)$ for symmetric physical systems
 ]
 
-#example[2×2 System Analysis][
-  Analyze $dot(x) = mat(0, 1;-2, -3)x + mat(1, 0;0, 1)u$, $y = mat(1, 0;0, 1)x$.
-]
+
 #solution[
   Step 1: Transfer matrix calculation
   $G(s) = mat(1/(s^2+3s+2), (s+3)/(s^2+3s+2);1/(s^2+3s+2), 1/(s+3))$
@@ -102,9 +96,7 @@ State-space analysis provides insights into system structure and facilitates mul
   - Represents minimal state-space dimension
 ]
 
-#example[Minimal Realization][
-  Find minimal realization of $G(s) = mat((s+1)/(s(s+2)), 1/(s+1);1/(s+2), 1/(s+2))$.
-]
+
 #solution[
   Step 1: Transfer matrix structure
   $G(s) = mat((s+1)/(s(s+2)), 1/(s+1);1/(s+2), 1/(s+2))$
@@ -154,8 +146,38 @@ State-space analysis provides insights into system structure and facilitates mul
   At $s = -0.44$ and $s = -4.56$, system loses one rank direction
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Controllability Analysis][
+  Analyze the controllability analysis.
+]
+#solution[
+  Analyze controllability of $dot(x) = mat(1, 2;3, 4)x + vec(1, 0)u$.
+]
+
+#solved_problem[Transfer Function Conversion][
+  Analyze the transfer function conversion.
+]
+#solution[
+  Convert $A = mat(0, 1;-2, -3)$, $B = vec(0, 1)$, $C = mat(1, 0)$, $D = 0$ to transfer function.
+]
+
+#solved_problem[2×2 System Analysis][
+  Analyze the 2×2 system analysis.
+]
+#solution[
+  Analyze $dot(x) = mat(0, 1;-2, -3)x + mat(1, 0;0, 1)u$, $y = mat(1, 0;0, 1)x$.
+]
+
+#solved_problem[Minimal Realization][
+  Analyze the minimal realization.
+]
+#solution[
+  Find minimal realization of $G(s) = mat((s+1)/(s(s+2)), 1/(s+1);1/(s+2), 1/(s+2))$.
+]
+
+=== Supplementary Problems
 #supplementary[Controllability Test][
   Determine controllability conditions for Jordan form system matrix with repeated eigenvalues.
 ]

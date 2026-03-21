@@ -22,13 +22,7 @@ Control system design involves systematically selecting controller structures an
   4. *Sensitivity vs Noise Rejection:* Trade-off between disturbance rejection and noise sensitivity
 ]
 
-#example[Design Specification Example][
-  For a unity feedback system:
-  - Settling time: $t_s < 2s$
-  - Percent overshoot: $M_p < 10%$
-  - Steady-state error for step: $e_(s s) = 0$
-  - Phase margin: $P_M > 45°$
-]
+
 
 === Classical vs Modern Design Approaches
 
@@ -84,8 +78,21 @@ Control system design involves systematically selecting controller structures an
   Optimal compromise: $zeta ≈ 0.7$ balances speed and overshoot
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Design Specification Example][
+  Analyze the design specification example.
+]
+#solution[
+  For a unity feedback system:
+  - Settling time: $t_s < 2s$
+  - Percent overshoot: $M_p < 10%$
+  - Steady-state error for step: $e_(s s) = 0$
+  - Phase margin: $P_M > 45°$
+]
+
+=== Supplementary Problems
 #supplementary[Performance Specification][
   Derive the relationship between damping ratio, natural frequency, and 2% settling time for a second-order system.
 ]

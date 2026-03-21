@@ -9,9 +9,7 @@ Control theory serves as the foundation for analyzing and designing systems that
   A frequency-domain approach using *Transfer Functions* ($G(s)$). It is primarily used for Single-Input Single-Output (SISO), Linear, Time-Invariant (LTI) systems. Key metrics include overshoot, settling time, and steady-state error.
 ]
 
-#example[Simple Transfer Function][
-  A cruise control system might be modeled as $G(s) = K / (m s + b)$, relating force input to velocity output.
-]
+
 
 #definition[State-Space Methods (Modern)][
   A time-domain approach using *differential equations*. It models systems via state variables:
@@ -20,11 +18,7 @@ Control theory serves as the foundation for analyzing and designing systems that
   This method handles Multiple-Input Multiple-Output (MIMO), non-linear, and time-varying systems.
 ]
 
-#example[Simple State-Space][
-  For the same cruise control system, let $v$ be the state $x$. Then $m dot(v) + b v = u$ becomes:
-  $ dot(v) = -b/m v + 1/m u $
-  Here $A = [-b/m]$, $B=[1/m]$.
-]
+
 
 The relationship between the two representations for LTI systems is given by:
 $ G(s) = C(s I - A)^(-1) B + D $
@@ -53,8 +47,26 @@ $ G(s) = C(s I - A)^(-1) B + D $
   $ G(s) = mat(1, 1) mat(1/(s+1); 1/(s+2)) = 1/(s+1) + 1/(s+2) = (2s + 3) / ((s+1)(s+2)) $
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Simple Transfer Function][
+  Analyze the simple transfer function.
+]
+#solution[
+  A cruise control system might be modeled as $G(s) = K / (m s + b)$, relating force input to velocity output.
+]
+
+#solved_problem[Simple State-Space][
+  Analyze the simple state-space.
+]
+#solution[
+  For the same cruise control system, let $v$ be the state $x$. Then $m dot(v) + b v = u$ becomes:
+  $ dot(v) = -b/m v + 1/m u $
+  Here $A = [-b/m]$, $B=[1/m]$.
+]
+
+=== Supplementary Problems
 #supplementary[System Classification][
   Classify the system $dot(x) = -x + x^3$ as linear or non-linear, and time-invariant or time-varying.
 ]

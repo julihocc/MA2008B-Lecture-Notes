@@ -9,9 +9,7 @@ Industrial controllers are devices that automatically regulate process variables
   A controller measures the error $e(t) = r(t) - y(t)$ between reference $r$ and output $y$, then generates control signal $u(t)$ to minimize error.
 ]
 
-#example[Thermostat][
-  Simple on-off controller: $u = cases(u_("max") quad &"if" e > 0, 0 quad &"if" e <= 0)$
-]
+
 
 #definition[Controller Types][
   Common industrial controllers:
@@ -22,18 +20,13 @@ Industrial controllers are devices that automatically regulate process variables
   - *PID:* Combination of all three
 ]
 
-#example[Proportional Controller][
-  For $K_p = 5$, if $e = 0.2$, then $u = 5 times 0.2 = 1.0$
-]
+
 
 #theorem[Steady-State Error with P Control][
   Pure proportional control always leaves steady-state error for step inputs in Type 0 systems.
 ]
 
-#example[P Control Limitation][
-  For plant $G(s) = 1/(s+1)$ with $K_p = 10$:
-  $ e_("ss") = 1/(1 + K_p G(0)) = 1/(1 + 10) = 0.091 $
-]
+
 
 === Solved Problems
 
@@ -62,8 +55,32 @@ Industrial controllers are devices that automatically regulate process variables
   Oscillation amplitude depends on system inertia and switching hysteresis.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Thermostat][
+  Analyze the thermostat.
+]
+#solution[
+  Simple on-off controller: $u = cases(u_("max") quad &"if" e > 0, 0 quad &"if" e <= 0)$
+]
+
+#solved_problem[Proportional Controller][
+  Analyze the proportional controller.
+]
+#solution[
+  For $K_p = 5$, if $e = 0.2$, then $u = 5 times 0.2 = 1.0$
+]
+
+#solved_problem[P Control Limitation][
+  Analyze the p control limitation.
+]
+#solution[
+  For plant $G(s) = 1/(s+1)$ with $K_p = 10$:
+  $ e_("ss") = 1/(1 + K_p G(0)) = 1/(1 + 10) = 0.091 $
+]
+
+=== Supplementary Problems
 #supplementary[Level Control][
   Design a controller for liquid level in a tank.
 ]

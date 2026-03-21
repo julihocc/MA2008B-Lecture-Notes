@@ -13,9 +13,7 @@ Control system design involves selecting components and parameters to satisfy pe
   - *Phase Margin / Gain Margin:* Measures of relative stability.
 ]
 
-#example[Fast vs Stable][
-  A requirement of $t_s < 1s$ requires fast decay, while $M_p < 5\%$ limits oscillation.
-]
+
 
 #theorem[PID Control][
   A Proportional-Integral-Derivative controller has the law:
@@ -25,9 +23,7 @@ Control system design involves selecting components and parameters to satisfy pe
   - *D:* Improves damping (reduces overshoot).
 ]
 
-#example[PI Controller][
-  Ideally used when D is sensitive to noise. Law: $u(t) = K_p e(t) + K_i integral e(tau) d tau$.
-]
+
 
 === Solved Problems
 
@@ -52,8 +48,24 @@ Control system design involves selecting components and parameters to satisfy pe
   Steady state error $e_("ss") = 1 / (1 + K_p) = 1 / 11$.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Fast vs Stable][
+  Analyze the fast vs stable.
+]
+#solution[
+  A requirement of $t_s < 1s$ requires fast decay, while $M_p < 5\%$ limits oscillation.
+]
+
+#solved_problem[PI Controller][
+  Analyze the pi controller.
+]
+#solution[
+  Ideally used when D is sensitive to noise. Law: $u(t) = K_p e(t) + K_i integral e(tau) d tau$.
+]
+
+=== Supplementary Problems
 #supplementary[PID Tuning][
   Describe the Ziegler-Nichols tuning method for a PID controller.
 ]

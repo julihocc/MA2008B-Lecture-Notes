@@ -10,11 +10,7 @@ Feedback control reduces the sensitivity of system performance to parameter vari
   $ S_p^T = (partial T)/(partial p) dot p/T $
 ]
 
-#example[Sensitivity to Gain][
-  For $T = (K G)/(1 + K G)$:
-  $ S_K^T = (partial T)/(partial K) dot K/T = 1/(1 + K G) $
-  As $K -> infinity$, $S_K^T -> 0$ (low sensitivity).
-]
+
 
 #theorem[Feedback Reduces Sensitivity][
   With high loop gain $K G >> 1$:
@@ -22,10 +18,7 @@ Feedback control reduces the sensitivity of system performance to parameter vari
   where $H$ is feedback transfer function.
 ]
 
-#example[Parameter Insensitivity][
-  Open-loop: $y = G u$ (fully dependent on $G$)
-  Closed-loop: $y = G/(1 + G H) r approx 1/H r$ (independent of $G$ for high gain)
-]
+
 
 #definition[Disturbance Rejection][
   For disturbance $d$ entering at plant output:
@@ -33,11 +26,7 @@ Feedback control reduces the sensitivity of system performance to parameter vari
   High $G H$ reduces disturbance effect.
 ]
 
-#example[Disturbance Attenuation][
-  With $G H = 100$:
-  $ Y(s) = (100/101)R(s) + (1/101)D(s) $
-  Disturbance is attenuated by factor of 101.
-]
+
 
 === Solved Problems
 
@@ -75,8 +64,36 @@ Feedback control reduces the sensitivity of system performance to parameter vari
   Use PI controller with $K_i$ large enough.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Sensitivity to Gain][
+  Analyze the sensitivity to gain.
+]
+#solution[
+  For $T = (K G)/(1 + K G)$:
+  $ S_K^T = (partial T)/(partial K) dot K/T = 1/(1 + K G) $
+  As $K -> infinity$, $S_K^T -> 0$ (low sensitivity).
+]
+
+#solved_problem[Parameter Insensitivity][
+  Analyze the parameter insensitivity.
+]
+#solution[
+  Open-loop: $y = G u$ (fully dependent on $G$)
+  Closed-loop: $y = G/(1 + G H) r approx 1/H r$ (independent of $G$ for high gain)
+]
+
+#solved_problem[Disturbance Attenuation][
+  Analyze the disturbance attenuation.
+]
+#solution[
+  With $G H = 100$:
+  $ Y(s) = (100/101)R(s) + (1/101)D(s) $
+  Disturbance is attenuated by factor of 101.
+]
+
+=== Supplementary Problems
 #supplementary[Robustness Analysis][
   Analyze robustness to 20% variation in plant gain.
 ]

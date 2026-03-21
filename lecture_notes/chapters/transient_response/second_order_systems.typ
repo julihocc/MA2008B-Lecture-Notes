@@ -12,10 +12,7 @@ Second-order systems exhibit rich dynamic behavior including oscillations and ov
   - $zeta$: damping ratio (dimensionless)
 ]
 
-#example[Mass-Spring-Damper][
-  For $M diaer(x) + B dot(x) + K x = F$:
-  $ omega_n = sqrt(K/M), quad zeta = B/(2 sqrt(K M)) $
-]
+
 
 #definition[Damping Cases][
   - *Underdamped ($zeta < 1$):* Oscillatory response
@@ -23,11 +20,7 @@ Second-order systems exhibit rich dynamic behavior including oscillations and ov
   - *Overdamped ($zeta > 1$):* Slow, non-oscillatory
 ]
 
-#example[Pole Locations][
-  Poles: $s = -zeta omega_n plus.minus omega_n sqrt(zeta^2 - 1)$
 
-  For $zeta < 1$: $s = -zeta omega_n plus.minus j omega_n sqrt(1 - zeta^2)$
-]
 
 #theorem[Step Response (Underdamped)][
   For $zeta < 1$:
@@ -35,11 +28,7 @@ Second-order systems exhibit rich dynamic behavior including oscillations and ov
   where $omega_d = omega_n sqrt(1 - zeta^2)$ is damped frequency.
 ]
 
-#example[Performance Specs][
-  - *Peak time:* $t_p = pi/omega_d$
-  - *Percent overshoot:* $M_p = e^((-pi zeta)/sqrt(1-zeta^2)) times 100\%$
-  - *Settling time:* $t_s approx 4/(zeta omega_n)$ (2% criterion)
-]
+
 
 === Solved Problems
 
@@ -74,8 +63,36 @@ Second-order systems exhibit rich dynamic behavior including oscillations and ov
   $ zeta = 2/3.606 = 0.555 $
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Mass-Spring-Damper][
+  Analyze the mass-spring-damper.
+]
+#solution[
+  For $M diaer(x) + B dot(x) + K x = F$:
+  $ omega_n = sqrt(K/M), quad zeta = B/(2 sqrt(K M)) $
+]
+
+#solved_problem[Pole Locations][
+  Analyze the pole locations.
+]
+#solution[
+  Poles: $s = -zeta omega_n plus.minus omega_n sqrt(zeta^2 - 1)$
+
+  For $zeta < 1$: $s = -zeta omega_n plus.minus j omega_n sqrt(1 - zeta^2)$
+]
+
+#solved_problem[Performance Specs][
+  Analyze the performance specs.
+]
+#solution[
+  - *Peak time:* $t_p = pi/omega_d$
+  - *Percent overshoot:* $M_p = e^((-pi zeta)/sqrt(1-zeta^2)) times 100\%$
+  - *Settling time:* $t_s approx 4/(zeta omega_n)$ (2% criterion)
+]
+
+=== Supplementary Problems
 #supplementary[Critically Damped Design][
   Design system for fastest response without overshoot.
 ]

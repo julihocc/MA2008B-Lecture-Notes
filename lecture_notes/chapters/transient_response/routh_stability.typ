@@ -11,43 +11,20 @@ The Routh-Hurwitz criterion determines stability without finding roots explicitl
   For characteristic equation $a_n s^n + a_(n-1) s^(n-1) + ... + a_1 s + a_0 = 0$, construct Routh array.
 ]
 
-#example[Routh Array Construction][
-  For $s^3 + 6s^2 + 11s + 6 = 0$:
 
-  $
-    s^3: quad & 1 quad 11 \
-    s^2: quad & 6 quad 6 \
-    s^1: quad & (6 times 11 - 1 times 6)/6 = 10 quad 0 \
-    s^0: quad & 6
-  $
-
-  All first column positive → stable.
-]
 
 #theorem[Necessary Condition][
   For stability, all coefficients $a_i$ must be present and have the same sign.
 ]
 
-#example[Unstable by Inspection][
-  $s^3 + 2s^2 - 3s + 1 = 0$ is unstable (negative coefficient).
-]
+
 
 #definition[Special Cases][
   - *Zero in first column:* Replace with small $epsilon$, take limit
   - *Entire row zero:* Auxiliary equation indicates imaginary axis poles
 ]
 
-#example[Zero in First Column][
-  For $s^3 + 2s^2 + s + 2 = 0$:
 
-  $
-    s^3: quad & 1 quad 1 \
-    s^2: quad & 2 quad 2 \
-    s^1: quad & (2 times 1 - 1 times 2)/2 = 0 -> epsilon
-  $
-
-  Replace 0 with $epsilon > 0$, continue analysis.
-]
 
 === Solved Problems
 
@@ -87,8 +64,48 @@ The Routh-Hurwitz criterion determines stability without finding roots explicitl
   Stable range: $0 < K < 6$
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Routh Array Construction][
+  Analyze the routh array construction.
+]
+#solution[
+  For $s^3 + 6s^2 + 11s + 6 = 0$:
+
+  $
+    s^3: quad & 1 quad 11 \
+    s^2: quad & 6 quad 6 \
+    s^1: quad & (6 times 11 - 1 times 6)/6 = 10 quad 0 \
+    s^0: quad & 6
+  $
+
+  All first column positive → stable.
+]
+
+#solved_problem[Unstable by Inspection][
+  Analyze the unstable by inspection.
+]
+#solution[
+  $s^3 + 2s^2 - 3s + 1 = 0$ is unstable (negative coefficient).
+]
+
+#solved_problem[Zero in First Column][
+  Analyze the zero in first column.
+]
+#solution[
+  For $s^3 + 2s^2 + s + 2 = 0$:
+
+  $
+    s^3: quad & 1 quad 1 \
+    s^2: quad & 2 quad 2 \
+    s^1: quad & (2 times 1 - 1 times 2)/2 = 0 -> epsilon
+  $
+
+  Replace 0 with $epsilon > 0$, continue analysis.
+]
+
+=== Supplementary Problems
 #supplementary[Marginal Stability][
   Find $K$ for marginal stability (poles on imaginary axis).
 ]

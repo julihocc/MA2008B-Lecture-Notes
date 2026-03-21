@@ -11,9 +11,7 @@ State-space analysis uses the vector-matrix representation of systems.
   The system is fully controllable if $op("rank")(cal(C)) = n$.
 ]
 
-#example[Uncontrollable System][
-  A system with states decoupled from input $u$: $dot(x)_1 = -x_1, dot(x)_2 = -x_2 + u$, is not fully controllable (cannot influence $x_1$).
-]
+
 
 #definition[State Observability][
   A system is *observable* if the initial state can be determined from the output history. The Observability Matrix is:
@@ -21,9 +19,7 @@ State-space analysis uses the vector-matrix representation of systems.
   The system is fully observable if $op("rank")(cal(O)) = n$.
 ]
 
-#example[Unobservable System][
-  If $y = x_2$ but $dot(x)_1 = -x_1$ (independent of $x_2$), we cannot deduce $x_1$ from $y$.
-]
+
 
 === Solved Problems
 
@@ -49,8 +45,24 @@ State-space analysis uses the vector-matrix representation of systems.
   Therefore, the system is *observable*.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Uncontrollable System][
+  Analyze the uncontrollable system.
+]
+#solution[
+  A system with states decoupled from input $u$: $dot(x)_1 = -x_1, dot(x)_2 = -x_2 + u$, is not fully controllable (cannot influence $x_1$).
+]
+
+#solved_problem[Unobservable System][
+  Analyze the unobservable system.
+]
+#solution[
+  If $y = x_2$ but $dot(x)_1 = -x_1$ (independent of $x_2$), we cannot deduce $x_1$ from $y$.
+]
+
+=== Supplementary Problems
 #supplementary[Uncontrollable Mode][
   Identify the uncontrollable mode in a system with diagonal $A = mat(-1, 0; 0, -2)$ and $B = mat(0; 1)$.
 ]

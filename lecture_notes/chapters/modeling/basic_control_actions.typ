@@ -12,9 +12,7 @@ Control actions define how the controller responds to error signals.
   - *Disadvantage:* Steady-state error
 ]
 
-#example[P Action Response][
-  For $e = 0.5$ and $K_p = 10$: $u = 5$
-]
+
 
 #definition[Integral Action (I)][
   Output is proportional to accumulated error:
@@ -23,10 +21,7 @@ Control actions define how the controller responds to error signals.
   - *Disadvantage:* Can cause overshoot and oscillation
 ]
 
-#example[I Action Response][
-  For constant $e = 0.1$ over $t = 5"s"$ with $K_i = 2$:
-  $ u = 2 times 0.1 times 5 = 1.0 $
-]
+
 
 #definition[Derivative Action (D)][
   Output is proportional to rate of error change:
@@ -35,10 +30,7 @@ Control actions define how the controller responds to error signals.
   - *Disadvantage:* Amplifies noise
 ]
 
-#example[D Action Response][
-  For $e(t) = 0.5 t$ (ramp), $dot(e) = 0.5$, $K_d = 4$:
-  $ u = 4 times 0.5 = 2.0 $
-]
+
 
 === Solved Problems
 
@@ -70,8 +62,33 @@ Control actions define how the controller responds to error signals.
   Increasing $K_d$ increases $zeta$, improving damping.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[P Action Response][
+  Analyze the p action response.
+]
+#solution[
+  For $e = 0.5$ and $K_p = 10$: $u = 5$
+]
+
+#solved_problem[I Action Response][
+  Analyze the i action response.
+]
+#solution[
+  For constant $e = 0.1$ over $t = 5"s"$ with $K_i = 2$:
+  $ u = 2 times 0.1 times 5 = 1.0 $
+]
+
+#solved_problem[D Action Response][
+  Analyze the d action response.
+]
+#solution[
+  For $e(t) = 0.5 t$ (ramp), $dot(e) = 0.5$, $K_d = 4$:
+  $ u = 4 times 0.5 = 2.0 $
+]
+
+=== Supplementary Problems
 #supplementary[PI Tuning][
   Tune $K_p$ and $K_i$ for critically damped response.
 ]

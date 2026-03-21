@@ -35,11 +35,7 @@ The *Nyquist stability criterion* provides a powerful graphical method for deter
   3. The direction depends on whether the contour goes above or below the pole
 ]
 
-#example[Poles at Origin][
-  For $G(s)H(s) = K/s(s+1)$, the pole at $s = 0$ requires a detour:
-  - As $s$ circles the origin clockwise, $G(s)H(s)$ traces a $180°$ arc at infinity
-  - This arc connects the positive and negative imaginary axes
-]
+
 
 === Solved Problems
 
@@ -84,8 +80,19 @@ The *Nyquist stability criterion* provides a powerful graphical method for deter
   The system is stable only in a specific range of $K$ values.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Poles at Origin][
+  Analyze the poles at origin.
+]
+#solution[
+  For $G(s)H(s) = K/s(s+1)$, the pole at $s = 0$ requires a detour:
+  - As $s$ circles the origin clockwise, $G(s)H(s)$ traces a $180°$ arc at infinity
+  - This arc connects the positive and negative imaginary axes
+]
+
+=== Supplementary Problems
 #supplementary[Pole at Origin][
   Apply Nyquist criterion to $G(s) = K/(s(s+3))$ and determine the range of $K$ for stability.
 ]

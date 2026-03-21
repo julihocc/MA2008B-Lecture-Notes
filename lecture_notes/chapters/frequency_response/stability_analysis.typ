@@ -18,12 +18,7 @@
   where $omega_(g c)$ is the *gain crossover frequency* where $abs(G(j omega_(g c))) = 1$ (0 dB).
 ]
 
-#example[First-Order System][
-  For $G(s) = K/(tau s + 1)$:
-  Phase never reaches $-180°$, so G_M = $infinity$.
-  At gain crossover: $abs(G(j omega)) = 1 => omega_(g c) = sqrt(K^2 - 1)/tau$
-  $P_M = 180° - tan^(-1)(omega_(g c) tau)$
-]
+
 
 === Relative Stability Measures
 
@@ -92,8 +87,20 @@
   This improves $P_M$ to approximately $55°$ while maintaining $G_M > infinity$.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[First-Order System][
+  Analyze the first-order system.
+]
+#solution[
+  For $G(s) = K/(tau s + 1)$:
+  Phase never reaches $-180°$, so G_M = $infinity$.
+  At gain crossover: $abs(G(j omega)) = 1 => omega_(g c) = sqrt(K^2 - 1)/tau$
+  $P_M = 180° - tan^(-1)(omega_(g c) tau)$
+]
+
+=== Supplementary Problems
 #supplementary[Delay Margin][
   For $G(s) = 5e^(-0.2s)/(s+1)(s+2)$, calculate the delay margin if the phase margin is $30°$ at $omega = 2$ rad/s.
 ]

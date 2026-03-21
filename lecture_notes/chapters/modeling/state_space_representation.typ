@@ -12,11 +12,7 @@ State-space representation provides a unified framework for modeling dynamic sys
   where $x in RR^n$ is the state vector, $u in RR^m$ is the input, and $y in RR^p$ is the output.
 ]
 
-#example[Mass-Spring-Damper System][
-  For $M diaer(x) + B dot(x) + K x = F$, let $x_1 = x, x_2 = dot(x)$:
-  $ dot(x)_1 = x_2 $
-  $ dot(x)_2 = -K/M x_1 - B/M x_2 + 1/M F $
-]
+
 
 #definition[Linear Time-Invariant (LTI) Systems][
   For LTI systems:
@@ -25,10 +21,7 @@ State-space representation provides a unified framework for modeling dynamic sys
   where $A, B, C, D$ are constant matrices.
 ]
 
-#example[RC Circuit State-Space][
-  For an RC circuit with $dot(v)_C = -1/(R C) v_C + 1/(R C) v_("in")$:
-  $ A = [-1/(R C)], quad B = [1/(R C)], quad C = [1], quad D = [0] $
-]
+
 
 === Solved Problems
 
@@ -62,8 +55,27 @@ State-space representation provides a unified framework for modeling dynamic sys
   Verify: $C(s I - A)^(-1)B = (s+2)/(s^2+3s+2)$ ✓
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Mass-Spring-Damper System][
+  Analyze the mass-spring-damper system.
+]
+#solution[
+  For $M diaer(x) + B dot(x) + K x = F$, let $x_1 = x, x_2 = dot(x)$:
+  $ dot(x)_1 = x_2 $
+  $ dot(x)_2 = -K/M x_1 - B/M x_2 + 1/M F $
+]
+
+#solved_problem[RC Circuit State-Space][
+  Analyze the rc circuit state-space.
+]
+#solution[
+  For an RC circuit with $dot(v)_C = -1/(R C) v_C + 1/(R C) v_("in")$:
+  $ A = [-1/(R C)], quad B = [1/(R C)], quad C = [1], quad D = [0] $
+]
+
+=== Supplementary Problems
 #supplementary[Mechanical System][
   Derive state-space equations for a cart-pendulum system.
 ]

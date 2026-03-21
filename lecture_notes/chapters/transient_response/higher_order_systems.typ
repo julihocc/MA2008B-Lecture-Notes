@@ -11,28 +11,20 @@ Higher-order systems (order $n >= 3$) can often be approximated by dominant pole
   where $n > 2$.
 ]
 
-#example[Third-Order System][
-  $ G(s) = K/((s+p_1)(s^2 + 2 zeta omega_n s + omega_n^2)) $
-]
+
 
 #theorem[Dominant Pole Approximation][
   If some poles are much closer to imaginary axis than others, the system behavior is dominated by the closest poles. Poles with $|"Re"{s}| < 1/10 |"Re"{s_("far")}|$ are dominant.
 ]
 
-#example[Dominant Poles][
-  For poles at $s = -1, -2 plus.minus 3j, -20$:
-  - Dominant: $-1, -2 plus.minus 3j$
-  - Non-dominant: $-20$ (fast decay)
-]
+
 
 #definition[Pole-Zero Cancellation][
   If a zero is very close to a pole, they approximately cancel:
   $ G(s) = ((s+z))/((s+p)(s+z)) approx 1/(s+p) quad "if" z approx p $
 ]
 
-#example[Approximate Cancellation][
-  $ G(s) = (s+2.1)/((s+2)(s+5)) approx 1/(s+5) $
-]
+
 
 === Solved Problems
 
@@ -66,8 +58,33 @@ Higher-order systems (order $n >= 3$) can often be approximated by dominant pole
   $ t_s approx 4/|"Re"{s}| = 4/2 = 2"s" $
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Third-Order System][
+  Analyze the third-order system.
+]
+#solution[
+  $ G(s) = K/((s+p_1)(s^2 + 2 zeta omega_n s + omega_n^2)) $
+]
+
+#solved_problem[Dominant Poles][
+  Analyze the dominant poles.
+]
+#solution[
+  For poles at $s = -1, -2 plus.minus 3j, -20$:
+  - Dominant: $-1, -2 plus.minus 3j$
+  - Non-dominant: $-20$ (fast decay)
+]
+
+#solved_problem[Approximate Cancellation][
+  Analyze the approximate cancellation.
+]
+#solution[
+  $ G(s) = (s+2.1)/((s+2)(s+5)) approx 1/(s+5) $
+]
+
+=== Supplementary Problems
 #supplementary[Fourth-Order System][
   Analyze stability and response of $G(s) = 1/(s^4 + 5s^3 + 10s^2 + 10s + 4)$.
 ]

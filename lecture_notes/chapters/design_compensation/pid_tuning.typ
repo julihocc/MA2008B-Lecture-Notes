@@ -28,9 +28,7 @@
   *PID Control*: $K_p = 0.6 K_u$, $T_i = 0.5 T_u$, $T_d = 0.125 T_u$
 ]
 
-#example[Ziegler-Nichols Tuning][
-  Apply Z-N method to system with $K_u = 10$ and $T_u = 2s$.
-]
+
 #solution[
   Step 1: System oscillates at $K_u = 10$ with period $T_u = 2s$
   
@@ -68,9 +66,7 @@
   5. *Fine-tuning*: Small adjustments (10-20%) after initial settings
 ]
 
-#example[Sequential Tuning][
-  Demonstrate sequential tuning for a second-order process.
-]
+
 #solution[
   Step 1: P-only tuning
   Set $K_i = K_d = 0$, increase $K_p$ until oscillations start
@@ -137,8 +133,24 @@
   Step 3: Performance: IAE reduced by 35% compared to Z-N tuning
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Ziegler-Nichols Tuning][
+  Analyze the ziegler-nichols tuning.
+]
+#solution[
+  Apply Z-N method to system with $K_u = 10$ and $T_u = 2s$.
+]
+
+#solved_problem[Sequential Tuning][
+  Analyze the sequential tuning.
+]
+#solution[
+  Demonstrate sequential tuning for a second-order process.
+]
+
+=== Supplementary Problems
 #supplementary[Practical Tuning][
   Develop a tuning procedure for a system with transport delay and varying process gain.
 ]

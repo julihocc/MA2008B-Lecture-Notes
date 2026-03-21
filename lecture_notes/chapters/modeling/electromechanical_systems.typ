@@ -12,22 +12,14 @@ Electromechanical systems couple electrical and mechanical domains through energ
   where $K_b$ is back-EMF constant, $K_t$ is torque constant.
 ]
 
-#example[Armature-Controlled DC Motor][
-  For $L approx 0$:
-  $ R i + K_b omega = v $
-  $ J dot(omega) + B omega = K_t i $
-]
+
 
 #definition[Electromechanical Coupling][
   The coupling constants relate electrical and mechanical quantities:
   $ K_t = K_b quad "(for ideal motors)" $
 ]
 
-#example[Motor Power Balance][
-  Electrical power in: $P_("in") = v i$
-  Mechanical power out: $P_("out") = tau omega = K_t i omega$
-  Back-EMF power: $P_("back") = K_b omega i$
-]
+
 
 === Solved Problems
 
@@ -59,8 +51,28 @@ Electromechanical systems couple electrical and mechanical domains through energ
   $ Omega(s)/V(s) = 0.5 / (0.005 s^2 + 0.06 s + 0.35) $
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Armature-Controlled DC Motor][
+  Analyze the armature-controlled dc motor.
+]
+#solution[
+  For $L approx 0$:
+  $ R i + K_b omega = v $
+  $ J dot(omega) + B omega = K_t i $
+]
+
+#solved_problem[Motor Power Balance][
+  Analyze the motor power balance.
+]
+#solution[
+  Electrical power in: $P_("in") = v i$
+  Mechanical power out: $P_("out") = tau omega = K_t i omega$
+  Back-EMF power: $P_("back") = K_b omega i$
+]
+
+=== Supplementary Problems
 #supplementary[Generator Model][
   Derive equations for a DC generator operating in reverse mode.
 ]

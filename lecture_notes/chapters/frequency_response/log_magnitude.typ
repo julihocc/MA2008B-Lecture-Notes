@@ -16,11 +16,7 @@
   $ phi = angle(G(j omega)) = tan^(-1)(text(Im)[G(j omega)]/text(Re)[G(j omega)]) $
 ]
 
-#example[First-Order System][
-  For $G(s) = 1/(tau s + 1)$:
-  At $omega = 1/tau$: $abs(G(j omega)) = 1/sqrt(2) = -3$ dB, $angle = -45°$
-  This point appears at $(-3, -45°)$ on the Nichols chart.
-]
+
 
 === Frequency Response Data
 
@@ -74,8 +70,19 @@
   Both specifications are satisfied.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[First-Order System][
+  Analyze the first-order system.
+]
+#solution[
+  For $G(s) = 1/(tau s + 1)$:
+  At $omega = 1/tau$: $abs(G(j omega)) = 1/sqrt(2) = -3$ dB, $angle = -45°$
+  This point appears at $(-3, -45°)$ on the Nichols chart.
+]
+
+=== Supplementary Problems
 #supplementary[System Identification][
   Given Nichols chart data points: (0 dB, $-90°$), (-3 dB, $-135°$), (-20 dB, $-170°$), identify the system type and approximate transfer function.
 ]

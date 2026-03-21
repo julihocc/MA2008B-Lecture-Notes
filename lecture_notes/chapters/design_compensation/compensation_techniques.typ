@@ -35,9 +35,7 @@
   5. Adjust gain for desired crossover frequency
 ]
 
-#example[Lead Design Example][
-  For system with $G(s) = 10/(s(s+2))$, design lead compensator for $P_M = 45°$.
-]
+
 #solution[
   Step 1: Current phase margin is $15°$ at $omega = 2$ rad/s
   Step 2: Additional phase needed: $phi = 45° - 15° + 5° = 35°$
@@ -56,9 +54,7 @@
   4. Verify stability margins after compensation
 ]
 
-#example[Lag Design Example][
-  Improve steady-state error for $G(s) = K/(s+1)(s+5)$ from 10% to 2%.
-]
+
 #solution[
   Step 1: Required gain increase: factor of 5
   Step 2: Place pole at $omega_p = 0.2$ rad/s (1/10 of current crossover)
@@ -98,8 +94,24 @@
   - Both issues → Lead-lag compensation
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Lead Design Example][
+  Analyze the lead design example.
+]
+#solution[
+  For system with $G(s) = 10/(s(s+2))$, design lead compensator for $P_M = 45°$.
+]
+
+#solved_problem[Lag Design Example][
+  Analyze the lag design example.
+]
+#solution[
+  Improve steady-state error for $G(s) = K/(s+1)(s+5)$ from 10% to 2%.
+]
+
+=== Supplementary Problems
 #supplementary[Network Synthesis][
   Design a passive RC lead network with maximum phase lead of $45°$ at $omega = 10$ rad/s.
 ]

@@ -12,9 +12,7 @@ Traditional systems include mechanical, electrical, and thermal systems, each go
   - *Damper ($B$):* $F = B dot(x)$
 ]
 
-#example[Simple Pendulum][
-  For small angles: $M L^2 diaer(theta) + B dot(theta) + M g L theta = tau$
-]
+
 
 #definition[Electrical Systems][
   Governed by Kirchhoff's laws. Key elements:
@@ -23,9 +21,7 @@ Traditional systems include mechanical, electrical, and thermal systems, each go
   - *Inductor ($L$):* $v = L dot(i)$
 ]
 
-#example[RL Circuit][
-  Series RL: $L dot(i) + R i = v_("in")$
-]
+
 
 #definition[Thermal Systems][
   Governed by heat transfer laws:
@@ -33,9 +29,7 @@ Traditional systems include mechanical, electrical, and thermal systems, each go
   - *Thermal Resistance ($R$):* $q = (T_1 - T_2)/R$
 ]
 
-#example[Heated Room][
-  $C dot(T) = q_("in") - (T - T_("amb"))/R$
-]
+
 
 === Solved Problems
 
@@ -57,8 +51,31 @@ Traditional systems include mechanical, electrical, and thermal systems, each go
   Time constant: $tau = R C = 1000 times 10 times 10^(-6) = 0.01 "s" = 10 "ms"$
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Simple Pendulum][
+  Analyze the simple pendulum.
+]
+#solution[
+  For small angles: $M L^2 diaer(theta) + B dot(theta) + M g L theta = tau$
+]
+
+#solved_problem[RL Circuit][
+  Analyze the rl circuit.
+]
+#solution[
+  Series RL: $L dot(i) + R i = v_("in")$
+]
+
+#solved_problem[Heated Room][
+  Analyze the heated room.
+]
+#solution[
+  $C dot(T) = q_("in") - (T - T_("amb"))/R$
+]
+
+=== Supplementary Problems
 #supplementary[Coupled Masses][
   Derive equations for two masses connected by springs.
 ]

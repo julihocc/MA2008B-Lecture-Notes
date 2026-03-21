@@ -10,9 +10,7 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
   where $n >= m$ for physical realizability. The roots of the denominator are the *poles*, and the roots of the numerator are the *zeros*.
 ]
 
-#example[Zero-Pole Example][
-  $G(s) = (s+2)/(s(s+3))$. Zero at $s=-2$. Poles at $s=0, s=-3$.
-]
+
 
 *Impulse Response:* The system output when the input is a Dirac delta function $delta(t)$. Its Laplace transform is $G(s)$.
 
@@ -43,8 +41,17 @@ The *Transfer Function* $G(s)$ of a Linear Time-Invariant (LTI) system is define
   Since the real part ($-1$) is negative, the system is *stable*.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Zero-Pole Example][
+  Analyze the zero-pole example.
+]
+#solution[
+  $G(s) = (s+2)/(s(s+3))$. Zero at $s=-2$. Poles at $s=0, s=-3$.
+]
+
+=== Supplementary Problems
 #supplementary[Mechanical System][
   Find transfer function $X(s)/F(s)$ for a mass-spring-damper system: $M diaer(x) + B dot(x) + K x = f(t)$.
 ]

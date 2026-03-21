@@ -12,9 +12,7 @@
     $ T(s) = G(s) / (1 + G(s)H(s)) $
 ]
 
-#example[System in Series][
-  Two blocks $G_1(s) = s$ and $G_2(s) = 1/s$ in series give $G_{eq}(s) = s dot (1/s) = 1$.
-]
+
 
 *Signal Flow Graphs (SFG)* are directed graphs where nodes represent variables and branches represent gains. *Mason's Gain Formula* computes the transfer function of an SFG.
 
@@ -41,8 +39,17 @@
   - Result: $T = (P_1 Delta_1) / Delta = G / (1 + G H)$.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[System in Series][
+  Analyze the system in series.
+]
+#solution[
+  Two blocks $G_1(s) = s$ and $G_2(s) = 1/s$ in series give $G_{eq}(s) = s dot (1/s) = 1$.
+]
+
+=== Supplementary Problems
 #supplementary[Multiple Loops][
   Simplify a block diagram with two nested feedback loops.
 ]

@@ -26,9 +26,7 @@
   where $P_c(A)$ is the controllability matrix and $C = mat(a_0, a_1, ..., a_(n-1))$
 ]
 
-#example[Pole Placement for Second-Order System][
-  Design state feedback for $dot(x) = mat(0, 1;0, -2)x + vec(0, 1)u$ with poles at $-3 ± j 4$.
-]
+
 #solution[
   Step 1: Desired characteristic polynomial
   $ d e s(s) = (s + 3 + j 4)(s + 3 - j 4) = s^2 + 6s + 25$
@@ -65,9 +63,7 @@
   Overall closed-loop poles = system poles ∪ observer poles
 ]
 
-#example[Observer Design][
-  Design observer for $dot(x) = mat(0, 1;-2, -3)x + vec(0, 1)u$, $y = mat(1, 0)x$.
-]
+
 #solution[
   Step 1: Observability check
   $P_o = mat(C;C A) = mat(1, 0;0, 1)$, rank$(P_o) = 2$ (observable)
@@ -95,9 +91,7 @@
   $ A^T P + P A - P B R^(-1) B^T P + Q = 0$
 ]
 
-#example[LQR Design][
-  Design LQR for $dot(x) = mat(0, 1;0, 0)x + vec(0, 1)u$ with $Q = I$, $R = 1$.
-]
+
 #solution[
   Step 1: Solve ARE
   $ mat(0, 0;1, 0)P + P mat(0, 1;0, 0) - P vec(0, 1) mat(0, 1) P + mat(1, 0;0, 1) = 0$
@@ -148,8 +142,31 @@
   Combined system poles: $-2, -5, -10, -20, -50, -100$
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Pole Placement for Second-Order System][
+  Analyze the pole placement for second-order system.
+]
+#solution[
+  Design state feedback for $dot(x) = mat(0, 1;0, -2)x + vec(0, 1)u$ with poles at $-3 ± j 4$.
+]
+
+#solved_problem[Observer Design][
+  Analyze the observer design.
+]
+#solution[
+  Design observer for $dot(x) = mat(0, 1;-2, -3)x + vec(0, 1)u$, $y = mat(1, 0)x$.
+]
+
+#solved_problem[LQR Design][
+  Analyze the lqr design.
+]
+#solution[
+  Design LQR for $dot(x) = mat(0, 1;0, 0)x + vec(0, 1)u$ with $Q = I$, $R = 1$.
+]
+
+=== Supplementary Problems
 #supplementary[Partial Pole Placement][
   Design state feedback for uncontrollable system using minimum-norm pseudo-inverse solution.
 ]

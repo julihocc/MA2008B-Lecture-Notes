@@ -47,9 +47,7 @@ Reveals eigenvalue structure and system dynamics.
   Decoupled dynamics: $dot(z)_i = lambda_i z_i + (T^(-1) B)_i u$
 ]
 
-#example[Controllable Form Conversion][
-  Convert $dot(x) = mat(-2, -3;1, 0)x + vec(0, 1)u$ to controllable canonical form.
-]
+
 #solution[
   Step 1: Characteristic polynomial
   $det(s I - A) = det(mat(s+2, -3;1, s)) = s^2 + 5s + 6$
@@ -67,9 +65,7 @@ Reveals eigenvalue structure and system dynamics.
   Verify: $A = T A_"cc" T^(-1)$, $B = T B_"cc"$ ✓
 ]
 
-#example[Observable Form Conversion][
-  Transform to observable canonical form for $G(s) = (3s + 2)/(s^3 + 4s^2 + 5s + 6)$.
-]
+
 #solution[
   Step 1: Identify coefficients
   $a_2 = 4$, $a_1 = 5$, $a_0 = 6$
@@ -84,9 +80,7 @@ Reveals eigenvalue structure and system dynamics.
   Characteristic polynomial matches: $s^3 + 4s^2 + 5s + 6$ ✓
 ]
 
-#example[Jordan Form Analysis][
-  Analyze system $A = mat(0, 1, 0;0, 0, 1;0, 0, 0)$ (triple eigenvalue at origin).
-]
+
 #solution[
   Step 1: Eigenvalue structure
   $lambda = 0$ with algebraic multiplicity 3
@@ -110,9 +104,7 @@ Reveals eigenvalue structure and system dynamics.
 - *Jordan form*: Natural frequencies and mode coupling
 - *Diagonal form*: Independent system modes
 
-#example[Physical System Analysis][
-  Analyze coupled mass-spring system using modal decomposition.
-]
+
 #solution[
   Physical model: $M diaer(x) + K x = F(t)$
   State-space: $dot(x) = mat(0, I;-M^(-1)K, 0)x + vec(0, M^(-1))F(t)$
@@ -160,8 +152,38 @@ Reveals eigenvalue structure and system dynamics.
   Marginal stability with polynomial growth
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Controllable Form Conversion][
+  Analyze the controllable form conversion.
+]
+#solution[
+  Convert $dot(x) = mat(-2, -3;1, 0)x + vec(0, 1)u$ to controllable canonical form.
+]
+
+#solved_problem[Observable Form Conversion][
+  Analyze the observable form conversion.
+]
+#solution[
+  Transform to observable canonical form for $G(s) = (3s + 2)/(s^3 + 4s^2 + 5s + 6)$.
+]
+
+#solved_problem[Jordan Form Analysis][
+  Analyze the jordan form analysis.
+]
+#solution[
+  Analyze system $A = mat(0, 1, 0;0, 0, 1;0, 0, 0)$ (triple eigenvalue at origin).
+]
+
+#solved_problem[Physical System Analysis][
+  Analyze the physical system analysis.
+]
+#solution[
+  Analyze coupled mass-spring system using modal decomposition.
+]
+
+=== Supplementary Problems
 #supplementary[Transform Properties][
   Prove that trace and determinant are invariant under similarity transformations.
 ]

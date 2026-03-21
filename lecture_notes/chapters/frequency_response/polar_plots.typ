@@ -11,12 +11,7 @@
   where the horizontal axis represents the real part and the vertical axis represents the imaginary part.
 ]
 
-#example[First-Order System][
-  For $G(s) = 1/(tau s + 1)$:
-  $ G(j omega) = 1/(j omega tau + 1) = (1 - j omega tau)/(1 + (omega tau)^2) $
-  Real part: $text(Re)[G(j omega)] = 1/(1 + (omega tau)^2)$
-  Imaginary part: $text(Im)[G(j omega)] = -omega tau/(1 + (omega tau)^2)$
-]
+
 
 === Construction Techniques
 
@@ -69,8 +64,20 @@
   - The curve is convex and approaches the origin at an angle of $-270°$
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[First-Order System][
+  Analyze the first-order system.
+]
+#solution[
+  For $G(s) = 1/(tau s + 1)$:
+  $ G(j omega) = 1/(j omega tau + 1) = (1 - j omega tau)/(1 + (omega tau)^2) $
+  Real part: $text(Re)[G(j omega)] = 1/(1 + (omega tau)^2)$
+  Imaginary part: $text(Im)[G(j omega)] = -omega tau/(1 + (omega tau)^2)$
+]
+
+=== Supplementary Problems
 #supplementary[Second-Order System][
   Construct the polar plot for $G(s) = omega_n^2/(s^2 + 2 zeta omega_n s + omega_n^2)$ with $zeta = 0.5$ and $omega_n = 2$.
 ]

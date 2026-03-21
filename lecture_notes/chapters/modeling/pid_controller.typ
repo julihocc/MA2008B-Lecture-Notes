@@ -13,10 +13,7 @@ The PID controller combines proportional, integral, and derivative actions for o
   $ C(s) = K_p + K_i/s + K_d s = (K_p s + K_i + K_d s^2)/s $
 ]
 
-#example[PID Parameters][
-  For $K_p = 5$, $K_i = 2$, $K_d = 1$:
-  $ C(s) = 5 + 2/s + s = (s^2 + 5s + 2)/s $
-]
+
 
 #definition[Parallel vs Series Form][
   *Parallel (ideal):* $C(s) = K_p(1 + 1/(T_i s) + T_d s)$
@@ -24,18 +21,13 @@ The PID controller combines proportional, integral, and derivative actions for o
   *Series (interacting):* $C(s) = K_c(1 + 1/(T_i s))(1 + T_d s)$
 ]
 
-#example[Series Form Expansion][
-  $ C(s) = K_c(1 + 1/(T_i s))(1 + T_d s) = K_c(1 + T_d s + 1/(T_i s) + T_d/(T_i)) $
-]
+
 
 #theorem[PID Effect on System Type][
   Adding PID increases system type by 1 due to integral action, eliminating steady-state error for step inputs.
 ]
 
-#example[Type Enhancement][
-  Type 0 plant $G(s) = 1/(s+1)$ with PI becomes Type 1:
-  $ G_c(s) = (K_p + K_i/s) dot 1/(s+1) = (K_p s + K_i)/(s(s+1)) $
-]
+
 
 === Solved Problems
 
@@ -71,8 +63,33 @@ The PID controller combines proportional, integral, and derivative actions for o
   This limits derivative gain at high frequencies while maintaining performance at lower frequencies.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[PID Parameters][
+  Analyze the pid parameters.
+]
+#solution[
+  For $K_p = 5$, $K_i = 2$, $K_d = 1$:
+  $ C(s) = 5 + 2/s + s = (s^2 + 5s + 2)/s $
+]
+
+#solved_problem[Series Form Expansion][
+  Analyze the series form expansion.
+]
+#solution[
+  $ C(s) = K_c(1 + 1/(T_i s))(1 + T_d s) = K_c(1 + T_d s + 1/(T_i s) + T_d/(T_i)) $
+]
+
+#solved_problem[Type Enhancement][
+  Analyze the type enhancement.
+]
+#solution[
+  Type 0 plant $G(s) = 1/(s+1)$ with PI becomes Type 1:
+  $ G_c(s) = (K_p + K_i/s) dot 1/(s+1) = (K_p s + K_i)/(s(s+1)) $
+]
+
+=== Supplementary Problems
 #supplementary[Ziegler-Nichols Tuning][
   Apply Ziegler-Nichols method to tune PID for a given plant.
 ]

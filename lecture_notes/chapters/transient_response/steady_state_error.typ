@@ -10,10 +10,7 @@ Steady-state error quantifies the difference between desired and actual output a
   where $E(s) = R(s) - Y(s)$ for unity feedback.
 ]
 
-#example[Step Input Error][
-  For $R(s) = 1/s$ (unit step):
-  $ e_("ss") = lim_(s -> 0) s dot 1/s dot 1/(1+G(s)) = 1/(1+G(0)) $
-]
+
 
 #definition[System Type][
   System type $N$ is the number of integrators ($1/s$ terms) in open-loop transfer function $G(s)H(s)$.
@@ -21,11 +18,7 @@ Steady-state error quantifies the difference between desired and actual output a
   $ G(s)H(s) = K s^N (1 + T_1 s)(1 + T_2 s).../(1 + T_a s)(1 + T_b s)... $
 ]
 
-#example[Type Classification][
-  - $G(s) = K/(s+1)$: Type 0
-  - $G(s) = K/(s(s+1))$: Type 1
-  - $G(s) = K/(s^2(s+1))$: Type 2
-]
+
 
 #theorem[Error Constants][
   - *Position error constant:* $K_p = lim_(s -> 0) G(s)$
@@ -33,12 +26,7 @@ Steady-state error quantifies the difference between desired and actual output a
   - *Acceleration error constant:* $K_a = lim_(s -> 0) s^2 G(s)$
 ]
 
-#example[Error Constant Calculation][
-  For $G(s) = 10/(s(s+2))$:
-  - $K_p = lim_(s -> 0) 10/(s(s+2)) = infinity$ (Type 1)
-  - $K_v = lim_(s -> 0) s dot 10/(s(s+2)) = 5$
-  - $K_a = lim_(s -> 0) s^2 dot 10/(s(s+2)) = 0$
-]
+
 
 #definition[Steady-State Error Table][
   | Input | Type 0 | Type 1 | Type 2 |
@@ -48,10 +36,7 @@ Steady-state error quantifies the difference between desired and actual output a
   | Parabola | $infinity$ | $infinity$ | $1/K_a$ |
 ]
 
-#example[Error for Ramp][
-  Type 1 system with $K_v = 5$ tracking ramp $r(t) = t$:
-  $ e_("ss") = 1/K_v = 1/5 = 0.2 $
-]
+
 
 === Solved Problems
 
@@ -88,8 +73,45 @@ Steady-state error quantifies the difference between desired and actual output a
   This is the steady-state error due to disturbance.
 ]
 
-=== Supplementary Problems
 
+
+
+#solved_problem[Step Input Error][
+  Analyze the step input error.
+]
+#solution[
+  For $R(s) = 1/s$ (unit step):
+  $ e_("ss") = lim_(s -> 0) s dot 1/s dot 1/(1+G(s)) = 1/(1+G(0)) $
+]
+
+#solved_problem[Type Classification][
+  Analyze the type classification.
+]
+#solution[
+  - $G(s) = K/(s+1)$: Type 0
+  - $G(s) = K/(s(s+1))$: Type 1
+  - $G(s) = K/(s^2(s+1))$: Type 2
+]
+
+#solved_problem[Error Constant Calculation][
+  Analyze the error constant calculation.
+]
+#solution[
+  For $G(s) = 10/(s(s+2))$:
+  - $K_p = lim_(s -> 0) 10/(s(s+2)) = infinity$ (Type 1)
+  - $K_v = lim_(s -> 0) s dot 10/(s(s+2)) = 5$
+  - $K_a = lim_(s -> 0) s^2 dot 10/(s(s+2)) = 0$
+]
+
+#solved_problem[Error for Ramp][
+  Analyze the error for ramp.
+]
+#solution[
+  Type 1 system with $K_v = 5$ tracking ramp $r(t) = t$:
+  $ e_("ss") = 1/K_v = 1/5 = 0.2 $
+]
+
+=== Supplementary Problems
 #supplementary[Non-Unity Feedback][
   Derive error formula for $H(s) != 1$.
 ]
