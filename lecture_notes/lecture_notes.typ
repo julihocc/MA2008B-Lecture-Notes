@@ -12,7 +12,7 @@
   fonts: (body: "New Computer Modern", math: "New Computer Modern Math"),
   title-page: book-title-page(
     subtitle: "For Non-Linear Optimization",
-    edition: "v0.5.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
+    edition: "v0.6.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
     year: str(datetime.today().year()),
     institution: "Tecnológico de Monterrey",
     series: "IDM19 - Lecture Notes",
