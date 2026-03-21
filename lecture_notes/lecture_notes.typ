@@ -30,7 +30,6 @@
 
 #part("Part I: Control Theory & Bio-System Modeling")
 
-#include "chapters/control_theory/main.typ"
 #include "chapters/fundamentals_systems_modeling/main.typ"
 #include "chapters/transient_response_physiology/main.typ"
 #include "chapters/frequency_response_oscillations/main.typ"
