@@ -97,13 +97,4 @@ Note that if the linearization yields a center (purely imaginary eigenvalues), t
     Eigenvalues are $plus.minus 1$. These correspond to unstable saddle points.
 ]
 
-=== Supplementary Problems
 
-#supplementary[Equilibria Classification][
-  Find and classify the equilibria for $x' = y, \ y' = x - x^3$.
-]
-
-#supplementary[Competing Species Model][
-  Analyze the equilibria and draw the local phase portraits near them for:
-  $ x' = x(2-x-y) \ y' = y(3-2x-y). $
-]
