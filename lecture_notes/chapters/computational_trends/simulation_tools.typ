@@ -16,7 +16,7 @@
 === Solved Problems
 
 #solved_problem[Verifying the Analytical $G_"max"$ Bound Numerically][
-  Describe the numerical experiment used to validate the analytically derived LCIS bound $G_"max" = (P_G + P_{G,e}(E^*)) / k_1$ for the stressed model.
+  Describe the numerical experiment used to validate the analytically derived LCIS bound $G_"max" = (P_G + P_(G,e)(E^*)) / k_1$ for the stressed model.
 ]
 #solution[
   1. Set model parameters and extreme initial condition: $G(0) = G_"max" - epsilon$, $I(0) = 0$, $E(0) = E^*$.

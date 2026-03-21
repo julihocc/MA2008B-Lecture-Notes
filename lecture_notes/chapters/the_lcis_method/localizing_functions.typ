@@ -14,7 +14,7 @@
 ]
 
 #theorem[Theorem 2 (Iterative Tightening)][
-  Given two localizing functions $h_1$ and $h_2$, the refined localizing set is $K = K_{h_1} inter K_{h_2}$. Applying multiple localizing functions successively yields tighter and tighter bounds.
+  Given two localizing functions $h_1$ and $h_2$, the refined localizing set is $K = K_(h_1) inter K_(h_2)$. Applying multiple localizing functions successively yields tighter and tighter bounds.
 ]
 
 === Solved Problems

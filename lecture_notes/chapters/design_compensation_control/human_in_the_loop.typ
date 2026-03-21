@@ -7,7 +7,7 @@ Designing control for bio-medical devices requires accounting for human physiolo
 
 #definition[Epinephrine as a Disturbance Input][
   Psychological or physiological stress triggers Epinephrine release, acting as a large disturbance $D(t)$ on the glucose-insulin loop:
-  1. Hepatic glucose production increases: $P_G -> P_G + P_{G,e}(E)$.
+  1. Hepatic glucose production increases: $P_G -> P_G + P_(G,e)(E)$.
   2. Beta-cell insulin secretion is suppressed: $beta -> beta(1 - alpha E)$.
   3. Peripheral insulin sensitivity decreases: $S_I -> S_I - rho E$.
 ]

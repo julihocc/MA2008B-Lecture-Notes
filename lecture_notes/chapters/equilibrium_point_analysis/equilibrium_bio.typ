@@ -8,7 +8,7 @@
 ]
 
 #definition[Pathological Equilibrium][
-  A stable equilibrium $P_3 = (G^{**}, I^{**}, beta^{**})$ where $G^{**} >> 90$ mg/dL and $beta^{**} approx 0$ represents severe hyperglycemia (Type 2 Diabetes). Trajectories trapped in the basin of attraction of $P_3$ cannot return to health without external intervention.
+  A stable equilibrium $P_3 = (G^(**)  , I^(**), beta^(**))$ where $G^(**) >> 90$ mg/dL and $beta^(**) approx 0$ represents severe hyperglycemia (Type 2 Diabetes). Trajectories trapped in the basin of attraction of $P_3$ cannot return to health without external intervention.
 ]
 
 #definition[The Topp / Mohammed Model][

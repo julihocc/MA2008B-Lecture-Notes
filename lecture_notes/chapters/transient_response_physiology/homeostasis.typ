@@ -4,7 +4,7 @@
 === Mathematical Review
 
 #definition[Homeostasis][
-  The self-regulatory process by which a biological system maintains its internal state near a reference set-point despite external disturbances. Formally, a system is homeostatic if its equilibrium $x^*$ is stable: $lim_{t -> infinity} x(t) = x^*$ for all initial conditions in a neighborhood.
+  The self-regulatory process by which a biological system maintains its internal state near a reference set-point despite external disturbances. Formally, a system is homeostatic if its equilibrium $x^*$ is stable: $lim_(t -> infinity) x(t) = x^*$ for all initial conditions in a neighborhood.
 ]
 
 #definition[Type 1 Biological Regulation][
