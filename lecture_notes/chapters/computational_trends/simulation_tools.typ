@@ -3,14 +3,23 @@
 
 === Mathematical Review
 
-#definition[ODE45 / Adaptive Runge-Kutta][
-  The numerical solver ODE45 uses a 4th/5th-order Runge-Kutta pair with adaptive step size to solve stiff initial value problems. For the glucose-insulin-epinephrine system:
-  $ x' = f(x, t), quad x(0) = x_0 $
-  The solver adaptively controls the local truncation error, making it ideal for capturing the abrupt dynamics during an epinephrine stress event followed by slow recovery.
+#definition[Numerical Integration: Runge-Kutta Methods][
+  Advanced solvers like ODE45 use adaptive step sizes based on the Runge-Kutta framework to solve stiff initial value problems:
+  $ x' = f(x, t), quad x(t_0) = x_0 $
+  The standard 4th-order Runge-Kutta (RK4) step to approximate $x(t_{n+1})$ from $x(t_n)$ with step-size $h$ is defined by intermediate slopes:
+  $
+  k_1 &= f(t_n, x_n) \
+  k_2 &= f(t_n + h/2, x_n + h k_1 / 2) \
+  k_3 &= f(t_n + h/2, x_n + h k_2 / 2) \
+  k_4 &= f(t_n + h, x_n + h k_3)
+  $
+  The state is then updated via the weighted average:
+  $ x_{n+1} = x_n + h / 6 (k_1 + 2 k_2 + 2 k_3 + k_4) $
+  For stressed biological systems (like epinephrine bolus kinetics), adaptive solvers continually resize $h$ to bound the local truncation error, ensuring stability across both fast and slow timescales.
 ]
 
-#definition[UVA/Padova Type 1 Diabetes Simulator][
-  The FDA-accepted UVA/Padova simulator is the industry standard for "in silico" clinical trials of closed-loop insulin delivery (artificial pancreas). Control algorithms (MPC, PID, reinforcement learning) can be validated against a cohort of $n = 100$ virtual patients spanning pediatric, adolescent, and adult physiology — with no human risk.
+#definition[In Silico Clinical Trials (UVA/Padova Simulator)][
+  The FDA-accepted UVA/Padova simulator is the industry standard for "in silico" clinical trials of closed-loop insulin delivery (e.g. Artificial Pancreas). Control algorithms (MPC, PID, LQR) can be rigorously validated continuously against a cohort of $n = 100$ mathematical differential models representing virtual patients—spanning pediatric, adolescent, and adult physiology—with zero human risk.
 ]
 
 === Solved Problems
