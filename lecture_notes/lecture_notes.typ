@@ -28,28 +28,28 @@
 
 #show: main-matter
 
-#part("Part I: Control Theory & Bio-System Modeling")
+#part("Control Theory & Bio-System Modeling")
 
 #include "chapters/fundamentals_systems_modeling/main.typ"
 #include "chapters/transient_response_physiology/main.typ"
 #include "chapters/frequency_response_oscillations/main.typ"
 #include "chapters/design_compensation_control/main.typ"
 
-#part("Part II: Nonlinear Systems & Stability Analysis")
+#part("Nonlinear Systems & Stability Analysis")
 
 #include "chapters/nonlinear_differential_equations/main.typ"
 #include "chapters/equilibrium_point_analysis/main.typ"
 #include "chapters/stability_theory/main.typ"
 #include "chapters/bifurcation_theory/main.typ"
 
-#part("Part III: Advanced Analytical Tools for Bio-Systems")
+#part("Advanced Analytical Tools for Bio-Systems")
 
 #include "chapters/positivity_invariant_sets/main.typ"
 #include "chapters/the_lcis_method/main.typ"
 #include "chapters/metabolic_case_study/main.typ"
 #include "chapters/computational_implementation/main.typ"
 
-#part("Part IV: Physics-Informed Neural Networks")
+#part("Physics-Informed Neural Networks")
 
 #include "chapters/scientific_ml_intro/main.typ"
 #include "chapters/pinns_forward_problem/main.typ"
