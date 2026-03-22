@@ -35,7 +35,7 @@ The automation scripts (`generate_canvas_quizzes.py` and `generate_single_canvas
 | Ch. | Topic / Directory Name | Text Seed File | Exported Canvas QTI Package |
 | :-- | :--- | :--- | :--- |
 | **9.** | `positivity_invariant_sets` | `quizzes/positivity_invariant_sets/quiz.txt` | `positivity_invariant_sets_canvas.zip` |
-| **10.** | `the_lcis_method` | `quizzes/the_lcis_method/quiz.txt` | `the_lcis_method_canvas.zip` |
+| **10.** | `the_lcis_method` | `quizzes/the_lcis_method/quiz.txt" | `the_lcis_method_canvas.zip` |
 | **11.** | `metabolic_case_study` | `quizzes/metabolic_case_study/quiz.txt` | `metabolic_case_study_canvas.zip` |
 | **12.** | `computational_implementation` | `quizzes/computational_implementation/quiz.txt` | `computational_implementation_canvas.zip` |
 
