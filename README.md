@@ -14,26 +14,33 @@ Students will learn to:
 - Understand the theoretical foundations of non-linear optimization processes.
 - Implement efficient algorithms for the simulation of dynamic systems.
 
-## Course Topics
+## Course Topics (Reorganized 2024)
 
-The course is divided into three main parts:
+The course is divided into four main pedagogical blocks, comprising 16 specialized chapters:
 
-### Part I: Control Theory
-1. Control Theory (Methods and Principles)
-2. Modeling and Simulation of Dynamic Systems
-3. Transient Response and Steady-State Error Analysis
-4. System Optimization (Root Locus)
-5. Analysis and Design via Frequency Response
-6. Design Techniques and Control System Compensation
+### Part I: Control Theory & Bio-System Modeling
+1. Fundamentals of Bio-Systems Modeling
+2. Transient Response in Physiology
+3. Frequency Response & Biological Oscillations
+4. Control Strategy Design & Compensation
 
-### Part II: Dynamical Systems
-7. Non-linear Differential Equations
+### Part II: Nonlinear Systems & Stability Analysis
+5. Nonlinear Differential Equations in Biology
+6. Equilibrium Point & Phase Plane Analysis
+7. Stability Theory & Lyapunov Functions
+8. Bifurcation Theory & Hopf Dynamics
 
-### Part III: Selected Topics
-8. Lyapunov Stability (Time-varying systems, Fractals, and Chaos)
-9. Finite Element Method (Rigid method, Dynamic problem formulation)
-10. Non-linear Analysis with Finite Elements
-11. Topics and Trends in Numerical Analysis for Optimization
+### Part III: Advanced Analytical Tools for Bio-Systems
+9. Positivity & Invariant Sets
+10. The LCIS Method for State-Space Analysis
+11. Metabolic Networks: Case Study
+12. Computational Implementation (FEM & ODE45)
+
+### Part IV: Physics-Informed Neural Networks (PINNs)
+13. Introduction to Scientific Machine Learning
+14. Forward Problem: Solving ODEs with PINNs
+15. Inverse Problem: Parameter Discovery
+16. Hybrid Modeling & Safety Under Constraints
 
 ## Repository Structure
 
