@@ -29,3 +29,33 @@ a) Constant coefficients in a linear model
 *b) Parametric uncertainty requiring robust control design
 c) A perfectly isolated system with no external inputs
 d) Zero initial conditions
+
+6. The Derivative (D) term heavily penalizes:
+*a) The rapid rate of change of the error signal, providing "anticipatory" control to prevent overshoot (e.g., preventing severe hypoglycemia)
+b) The steady-state error remaining after a long duration
+c) The amplitude of the baseline setpoint
+d) High-frequency sensor noise exclusively
+
+7. A major limitation of using the Derivative (D) term in clinical devices is:
+a) It causes immediate failure of the Integral term
+b) It cannot be programmed in modern microchips
+*c) It violently amplifies measurement noise (like noisy subcutaneous glucose readings)
+d) It forces the system to run slower
+
+8. Adding a "Lead Compensator" in the frequency domain is conceptually similar to adjusting which PID parameter?
+*a) Derivative (D) control
+b) Integral (I) control
+c) Proportional (P) control
+d) None of the above
+
+9. A typical engineering "Lag Compensator" is used primarily to:
+a) Speed up the transient response significantly
+*b) Improve steady-state accuracy without drastically affecting the transient stability profile
+c) Ensure the system oscillates indefinitely
+d) Predict biological disturbances
+
+10. What does the "Root Locus" method allow a biomedical engineer to visualize?
+*a) The exact paths the closed-loop poles travel through the complex plane as a single controller parameter (like Proportional Gain) is varied from 0 to $\infty$
+b) The frequency response curve of the patient
+c) The exact patient metabolic parameters
+d) The time it takes for a meal to be absorbed

@@ -29,3 +29,33 @@ d) They occur purely when the trace of the Jacobian is strictly negative
 b) Infinite stable nodes
 c) Purely linear, un-damped harmonic oscillators (centers)
 d) Transcritical pitchfork branches
+
+6. Mathematically, a Hopf bifurcation occurs at a parameter value $\mu$ when the Jacobian's eigenvalues:
+a) Collide exactly at the origin ($\lambda=0$)
+*b) Form a complex conjugate pair that crosses the imaginary axis ($\text{Re}(\lambda)$ goes from negative to positive)
+c) Both become real and strictly positive
+d) Both become identically $-1$
+
+7. What does a "Bifurcation Diagram" plot?
+a) The biological mass exactly over time $t$
+*b) The steady-state equilibrium values against an altering system parameter $\mu$, showing topological changes
+c) The exact layout of a patient's veins
+d) The integral of the patient's heart rate
+
+8. The Transcritical Bifurcation is defined by:
+a) The complete extinction of an equilibrium point permanently
+*b) Two equilibrium branches crossing and exchanging their stability without annihilating each other
+c) A single point exploding into a limit cycle
+d) The birth of three stable nodes
+
+9. A Pitchfork Bifurcation (Supercritical) describes:
+*a) A single stable equilibrium destabilizing while giving birth to two new, symmetric stable equilibria alongside it
+b) A node hitting a saddle and both disappearing
+c) The onset of an exact 24-hour cycle
+d) An equilibrium migrating infinitely far away
+
+10. In biological control, mapping mathematical bifurcations allows researchers to accurately find:
+a) The speed of blood flow in arteries
+*b) The critical safe parameter thresholds (e.g., maximum insulin resistance $S_I$) before a patient's homeostatic system topologically crashes
+c) The exact volume of insulin stored
+d) The chemical composition of the pancreas

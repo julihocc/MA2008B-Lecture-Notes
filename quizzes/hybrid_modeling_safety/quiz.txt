@@ -29,3 +29,33 @@ d) A backup file of the patient's clinical records
 b) Permanently replace the need for physical insulin
 c) Avoid the need for any mathematical theory or biology knowledge
 d) Function efficiently without needing any continuous glucose monitor data
+
+6. "Hard" constraints in advanced PINN architectures are implemented by:
+a) Deleting data outside a specific range
+*b) Mathematically forcing the network output to satisfy bounds intrinsically (e.g., passing the output through a bounded function like a Sigmoid scaled by the LCIS limits)
+c) Only using a single layer in the neural network
+d) Using purely empirical clinical data without any physics
+
+7. Why is safety bounded AI critical in real-time closed-loop physiological control (like an artificial pancreas)?
+*a) Because an unconstrained AI might hallucinate a massive glucose spike during an anomaly, causing the controller to inject a massive, fatal dose of insulin
+b) Because bounded AI runs faster on mobile devices
+c) Because it guarantees the patient will never eat carbohydrates
+d) Because the PID controller otherwise requires manual tuning
+
+8. What role does analytical stability theory (like Lyapunov methods) play in the future of AI-driven medicine?
+a) It replaces the AI entirely
+*b) It provides theoretical guarantees that an AI-driven feedback loop will not accidentally destabilize the human biology into a chaotic or divergent state
+c) It determines the exact price of the medical device
+d) It creates random mutations in the model
+
+9. A Hybrid PINN integrating an epidemiological model (like SIR for diseases) might use LCIS to prove:
+a) That everyone will eventually get completely cured simultaneously
+*b) That the total infected population can never physically exceed the total size of the human population, penalizing the AI if it breaches this limit
+c) That the exact day of infection can be derived algebraically
+d) That Neural networks are biologically alive
+
+10. The ultimate synergy of classical Control Theory, Nonlinear Analysis (Part II), Analytical Bounds (Part III), and Scientific ML (Part IV) results in:
+a) A purely abstract mathematical theorem with no clinical relevance
+b) A system perfectly identical to a simple linear 1D spring
+*c) A physically rigorous, data-adaptive, parameter-discovering computational framework capable of revolutionizing safety-critical physiological interventions
+d) The complete elimination of differential equations in modern biology

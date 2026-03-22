@@ -29,3 +29,33 @@ a) The amount of time until the system runs out of energy
 b) The physical distance between the sensor and effector organs
 *c) The amount of additional phase lag required to make the system unstable
 d) The steady-state error to a unit step input
+
+6. Evaluating $G(j\omega)$ involves analyzing the system's steady-state response to:
+*a) Continuous sinusoidal inputs of varying frequencies $\omega$
+b) Random biological noise
+c) Pure step inputs
+d) Only high-amplitude bolus injections
+
+7. A system acts as a "Low-Pass Filter" if its Bode magnitude plot:
+a) Remains flat constantly across all frequencies
+b) Attenuates low frequencies and amplifies high frequencies
+*c) Maintains high gain at low frequencies but attenuates frequencies above a certain cut-off $\omega_c$
+d) Has a phase of exactly zero everywhere
+
+8. Biological organs (like the liver clearing hormones) naturally behave as which type of filter in the frequency domain?
+*a) Low-pass filters, naturally smoothing out high-frequency physiological noise
+b) Perfect band-pass filters
+c) High-pass filters, transmitting only instantaneous changes
+d) Pure delay lines with zero attenuation
+
+9. What does the Gain Margin measure?
+a) The total weight of a biological compartment
+*b) The factor by which loop gain can increase before the closed-loop system reaches the edge of instability
+c) The difference between basal and peak glucose levels
+d) The amount of time taken to reach steady state
+
+10. Sustained biological oscillations (e.g., heartbeats) require the closed-loop poles to lay exactly:
+a) Deep in the left half of the complex plane
+b) Deep in the right half of the complex plane
+*c) On the imaginary axis (zero real part)
+d) At the mathematical origin $(0,0)$

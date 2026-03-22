@@ -29,3 +29,33 @@ a) Mathematically identical, just written in Python
 b) Dependent on extremely dense data points sampled every millisecond
 *c) Computationally more seamless, jointly optimizing the network prediction and the parameter values simultaneously via one backpropagation pass
 d) Unable to discover parameters for nonlinear systems
+
+6. What is the difference between "observable" and "hidden" state variables in an Inverse PINN?
+a) Observable variables are positive; hidden variables are negative
+*b) Observable variables have corresponding clinical data in $L_{data}$, whereas hidden variables must be inferred entirely through their physics coupling in $L_{physics}$
+c) Hidden variables are physically located inside the neural network exclusively
+d) Observable variables are deleted before training begins
+
+7. In a three-variable system (Glucose, Insulin, Beta-cell), if you only measure Glucose clinically, can the Inverse PINN estimate the other two trajectories?
+*a) Yes, provided the system is mathematically observable, the physical coupling in the ODEs uniquely restricts the hidden trajectories to fit the glucose curve
+b) No, it is mathematically impossible to predict any variable without direct data
+c) Yes, but only if all equation parameters are completely random
+d) No, because Beta-cells are independent of Glucose
+
+8. How does gradient descent locate the true patient parameters in an Inverse PINN?
+a) By randomly guessing until $L_{data} = 0$
+b) By isolating the parameters and solving a simple quadratic equation
+*c) By backpropagating the total loss error to calculate the gradients $\partial L / \partial S_I$, allowing the optimizer to shift the parameter toward the physical minimum
+d) By integrating the ODE backward in time
+
+9. When identifying physiological constants across a patient cohort using PINNs, one major clinical benefit is:
+a) The network can prescribe medicine automatically
+*b) The discovered patient-specific parameters (like distinct insulin resistance profiles) enable fully personalized, targeted dynamic therapies
+c) The algorithm eliminates the need for doctors entirely
+d) The models completely bypass regulatory agencies
+
+10. A limitation of Inverse PINNs when inferring a large number of parameters simultaneously is:
+*a) The optimization landscape becomes highly non-convex, often causing the network to get stuck in incorrect local minima, yielding inaccurate pseudo-parameters
+b) The neural network's memory size explodes to infinity
+c) The Autodiff engine cannot process more than three parameters
+d) The resulting system always becomes perfectly linear

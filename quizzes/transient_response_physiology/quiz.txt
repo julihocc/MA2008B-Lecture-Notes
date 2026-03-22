@@ -29,3 +29,33 @@ d) 99%
 b) It increases, meaning insulin persists longer
 c) It remains exactly the same
 d) The system becomes unstable and oscillatory
+
+6. A heavily damped (overdamped) physiological response to a disturbance is characterized by:
+a) Violent oscillations that grow uncontrollably
+*b) A slow, sluggish return to homeostasis without any overshoot
+c) A rapid return to homeostasis with massive oscillations
+d) Instantaneous stabilization
+
+7. The concept of "Settling Time" ($T_s$) in the glucose-insulin loop represents:
+a) The exact time insulin levels hit zero
+*b) The time required for blood glucose to return to and stay within a tight band (e.g., 2%) around the healthy physiological baseline after a meal
+c) The time it takes for a meal to be fully eaten
+d) The total duration a patient sleeps
+
+8. In a second-order biological system, what happens if the damping ratio $\zeta$ is zero?
+*a) The system experiences sustained, undamped harmonic oscillations forever
+b) The system instantly settles to the baseline
+c) The roots become perfectly real and positive
+d) The steady-state error diverges to infinity
+
+9. Mathematically, the impulse response of a linear system is equivalent to:
+a) The integral of the step response
+*b) The inverse Laplace transform of the system's transfer function
+c) The system's steady state error
+d) The derivative of the input signal
+
+10. "Steady-State Error" in a medical device (like an artificial pancreas) means:
+a) The frequency of the sensor readings
+*b) The permanent mathematical difference between the desired healthy setpoint and the actual stabilized biological value
+c) A malfunction in the pump hardware
+d) The time delay between drug injection and absorption

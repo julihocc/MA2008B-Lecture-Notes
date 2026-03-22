@@ -29,3 +29,33 @@ a) Biological systems do not obey the laws of physics
 b) Numerical solvers cannot process functions labeled as $V(x)$
 *c) There is no universal constructive method to find $V(x)$ for highly nonlinear, asymmetric biological systems
 d) The determinant of the Jacobian is always zero
+
+6. If a candidate Lyapunov function shows $\dot{V}(x) \leq 0$ (negative semi-definite rather than strictly negative), what advanced mathematical theorem is often required to prove asymptotic stability?
+*a) LaSalle's Invariance Principle
+b) Peano-Baker Series
+c) Hartman-Grobman Theorem
+d) Nyquist Criterion
+
+7. If the linearization of an equilibrium yields two eigenvalues, $\lambda_1 = -2$ and $\lambda_2 = +3$, the equilibrium is fundamentally:
+a) A stable node
+b) A stable focus
+c) An unstable focus
+*d) An unstable saddle point
+
+8. What can the Indirect Method (Linearization) conclude if all eigenvalues have exactly $\text{Re}(\lambda) = 0$?
+*a) The test is inconclusive; the local true stability relies entirely on higher-order nonlinear terms
+b) The point is globally stable
+c) The point is guaranteed to be a saddle
+d) The biological state is dead
+
+9. When utilizing a quadratic Lyapunov function $V(x) = x^T P x$ for a linearized system $x'=Ax$, what mathematical object must $P$ be to prove stability?
+a) The Identity Matrix exclusively
+*b) A symmetric Positive Definite matrix satisfying the Lyapunov equation $A^T P + P A = -Q$
+c) A strictly singular matrix
+d) The Jacobian evaluated at infinity
+
+10. A globally asymptotically stable biological equlibrium essentially means:
+a) The patient must start strictly very close to the state to recover
+*b) No matter what severe initial state or perturbation occurs, the system's physiological state will eventually be driven completely back to the single healthy resting point
+c) The patient is in imminent danger of oscillatory collapse
+d) A limit cycle encloses the state

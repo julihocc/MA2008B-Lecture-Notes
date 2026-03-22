@@ -29,3 +29,33 @@ d) Increasing insulin production identically to a meal
 b) The clearance rate of insulin
 c) The mechanical friction within the bloodstream
 d) The insulin-independent glucose utilization
+
+6. In the extended metabolic model, $\beta$-cell replication handles which biological timescale?
+a) Seconds
+b) Minutes
+*c) Extremely slow scales (days to months), adjusting long-term metabolic capacity to sustained stress
+d) Nanoseconds
+
+7. The "Insulin Resistance" parameter mathematically acts by:
+*a) Diminishing the effectiveness of insulin to transport glucose into cells, often shrinking the stability basin of the physiological point
+b) Directly breaking down physical insulin molecules in the pancreas
+c) Speeding up the heartbeat significantly
+d) Altering the physical volume of blood
+
+8. What structural term allows the baseline Beta cell mass equation to be naturally bounded?
+a) A single exponential decay multiplier
+*b) A nonlinear saturating/logistic capacity term limiting total cellular mass
+c) A pure sine wave disturbance
+d) No term exists; Beta cells always hit infinity
+
+9. Why is the combination of Epinephrine and a large exogenous meal highly destabilizing in this model?
+a) Because Epinephrine binds with food to create a toxic chemical
+*b) Because Epinephrine simultaneously induces hepatic glucose production, suppresses insulin secretion, and causes severe insulin resistance, overwhelming the homeostatic clearance mechanisms
+c) Because meals always cure diabetes
+d) Because Epinephrine accelerates insulin clearance by 1000%
+
+10. What does the shift of the equilibrium from $P_1$ to $P_3$ in phase space formally capture?
+*a) The clinical progression from a reversible, healthy pre-diabetic state to a chronic, largely irreversible Type 2 Diabetic steady-state
+b) The immediate digestion process of carbohydrates
+c) A patient standing up rapidly
+d) The exact moment medication is ingested

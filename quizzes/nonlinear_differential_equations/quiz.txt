@@ -29,3 +29,33 @@ d) The length of the line corresponds to the duration of the experiment
 b) Intrinsic growth rate
 c) The rate of predation
 d) Infinite exponential growth boundary
+
+6. In a 1D autonomous system $x' = f(x)$, if $x^*$ is an equilibrium, it is locally stable if:
+*a) $f'(x^*) < 0$
+b) $f'(x^*) > 0$
+c) $f'(x^*) = 0$
+d) $x^* = 0$
+
+7. The "Allee effect" in population biology introduces an extinction threshold. Mathematically, this corresponds to:
+a) A single stable equilibrium at $x=0$
+*b) An unstable equilibrium point $x=A > 0$ below which the population declines to zero
+c) A saddle node bifurcation at infinity
+d) A pure limit cycle
+
+8. Why are non-autonomous systems (e.g., $x' = f(x, t)$) often used in pharmacology?
+a) To remove the dependence on time
+*b) To model an external driving force that varies explicitly with time, such as periodic drug doses or circadian hormones
+c) To force the Jacobian to be identically zero
+d) To prove positive invariance
+
+9. What does it mean for a 1D differential equation to be "separable"?
+*a) The equation $x' = f(x,t)$ can be factored into $x' = g(x)h(t)$, allowing exact analytical integration
+b) The system can be split into multiple infinite equilibrium chunks
+c) The equation naturally produces separate stable and unstable nodes
+d) The function $f(x,t)$ is purely a polynomial
+
+10. A model describes the decay of a biological mass as $x' = -k x^2$. The solution to this equation demonstrates what behavior compared to standard exponential decay ($x' = -k x$)?
+a) It blows up to infinity in finite time
+*b) It decays to zero much slower than the exponential over long times, following a $1/t$ polynomial law
+c) It enters a sustained oscillation directly
+d) It rapidly hits absolute zero and bounces back into the negatives

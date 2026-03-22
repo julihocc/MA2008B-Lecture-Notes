@@ -29,3 +29,33 @@ d) $G(s) = 1 / (s^2 + k)$
 b) Addition of their transfer functions
 c) Convolution of their transfer functions
 d) Division of their transfer functions
+
+6. Which variable in the basic diabetes model represents the target setpoint for homeostasis?
+a) External meal disturbances
+b) The clearance rate of insulin
+c) The rate of exogenous glucagon
+*d) The basal (basline) glucose concentration $G_b$
+
+7. The "Minimal Model" by Bergman characterizes which key metabolic parameter using a two-compartment insulin structure?
+a) Basal metabolic rate
+*b) Insulin Sensitivity ($S_I$)
+c) Total blood volume
+d) Glomerular filtration rate
+
+8. What is the difference between an open-loop and a closed-loop biological system?
+*a) Closed-loop systems utilize feedback (like insulin responding to glucose) to regulate output, while open-loop systems do not.
+b) Open-loop systems never reach steady state
+c) Closed-loop systems have no external disturbances
+d) Open-loop systems only contain nonlinear components
+
+9. If a compartmental model states $dV/dt = Q_{in} - Q_{out}$, what does $V$ measure?
+a) Total pressure
+*b) Total volume or mass accumulating within the biological boundary
+c) Absolute steady-state error
+d) The mathematical derivative of the boundary size
+
+10. A transfer function describes:
+a) Only the nonlinear behaviors of the system
+b) The specific physical location of the organ in the body
+*c) The ratio of the Laplace transform of the output to the input, assuming zero initial conditions
+d) The sum of all state variables at $t=0$

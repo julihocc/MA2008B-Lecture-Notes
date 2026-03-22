@@ -29,3 +29,33 @@ a) They allow physicians to skip analyzing patient data
 *b) They provide absolute, mathematically guaranteed worst-case scenarios for systemic values, critical for validating model safely
 c) They replace the need to measure glucose entirely
 d) They determine exactly when a meal is metabolised
+
+6. The set $S_h$ in the LCIS methodology is formally defined as:
+a) The set of all possible initial condition vectors
+*b) The geometrical surface where the Lie derivative of the localizing function, $L_f h(x)$, evaluates to exactly zero
+c) The point where the system achieves infinite mass
+d) The minimum boundary exclusively
+
+7. Why does LCIS avoid local linearization?
+a) Linearization calculates the wrong derivatives
+b) Linear algebra is too computationally expensive
+*c) LCIS seeks to find strict *global* properties and absolute boundary sets rather than just testing local asymptotic behavior near an equilibrium
+d) It only applies to 1-dimensional biological systems
+
+8. If a chosen localizing function $h_1(x) = x$ yields $L_f h_1(x) > 0$ strictly everywhere, what does this mathematically imply?
+*a) The system has no compact invariant sets, because it grows unbounded toward infinity without ever settling
+b) The system is perfectly globally stable
+c) The origin is a saddle point
+d) The system is a perfect simple harmonic oscillator
+
+9. The concept of "Intersecting bounding sets" in LCIS means:
+a) Creating multiple disconnected trajectories
+*b) Using multiple different localizing functions ($h_1, h_2$) to create overlapping regions; the true bounding invariant set must lie entirely inside their geometric intersection
+c) Randomly crossing phase paths
+d) Creating a matrix intersection array
+
+10. What makes LCIS particularly valuable compared to numerical ODE integration for Medical AI safety?
+a) It runs faster on older GPUs
+*b) Numerical integration might miss extreme case outliers depending on initial conditions, whereas LCIS provides a mathematically rigorous formal proof covering *all* possible valid conditions simultaneously
+c) LCIS uses no mathematics, relying entirely on clinical intuition
+d) ODE integration cannot plot limits

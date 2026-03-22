@@ -29,3 +29,33 @@ a) Equations that are mathematically unsolvable
 *b) Multiple interacting variables with vastly different timescales (e.g., extremely rapid insulin clearance vs slow beta-cell dynamics), complicating numerical and neural training
 c) Tissues that are physically hardened in a patient
 d) Variables that remain completely unchanging over time
+
+6. In the context of a Forward PINN, what does the $L_{data}$ term predominantly consist of?
+*a) Only the initial conditions (e.g., $G(0), I(0), \beta(0)$) since no other target data exists for a pure forward solver
+b) Thousands of dense, perfectly sampled clinical readouts
+c) The difference between the Jacobian and the true trajectory
+d) The inverse of the weights matrix
+
+7. Why might a standard PINN struggle to solve the forward problem for chaotic biological systems over extremely long time horizons?
+a) Because chaotic systems have no mathematical equations
+*b) Standard PINNs often converge to local minima that average out the high-frequency variations, failing to capture complex, long-term sequential dependencies
+c) Because time $t$ cannot exceed $1.0$ in neural networks
+d) Because autograd fails on continuous systems
+
+8. As training progresses, the physics loss $L_{physics} \to 0$. What does this physically guarantee?
+*a) That the neural network's output function perfectly satisfies the governing nonlinear differential equations at all sampled collocation points
+b) That the patient is clinically cured
+c) That the system has reached a stable equilibrium $P_1$
+d) That all neural weights have shrunk to exactly zero
+
+9. What is a "Soft Boundary Condition" in standard PINN training?
+a) Utilizing a physical sponge to absorb errors
+*b) Enforcing the initial condition via a penalty term in the loss function, meaning the condition is only approximately satisfied rather than strictly hardcoded
+c) Restricting the network to only predict positive integers
+d) Modifying the ODE itself to be less strict
+
+10. A widely used optimizer for fine-tuning PINNs after standard Adam descent is:
+a) Monte Carlo simulation
+b) Random walk
+*c) L-BFGS (a quasi-Newton method that utilizes second-order Hessian approximations for high-precision convergence)
+d) Forward Euler

@@ -29,3 +29,33 @@ a) The model is perfectly valid but difficult to simulate
 *b) The model is physically unsound, as it permits biologically absurd negative concentrations
 c) The model only applies to children, not adults
 d) The eigenvalues of the system flip signs
+
+6. The concept of "Attracting Sets" differs from invariant sets because:
+a) Invariant sets are purely theoretical
+*b) Attracting sets actively pull neighboring trajectories into themselves over time, whereas invariant sets simply trap trajectories that are already inside
+c) Attracting sets only apply to linear systems
+d) Attracting sets are always single points
+
+7. How does a structurally sound biological model mathematically enforce that glucose $G(t)$ never drops below 0?
+*a) By ensuring that the derivative $G' = f(G)$ is strictly positive whenever $G = 0$, often because external feeding or hepatic production acts as a non-negative source
+b) By manually programming the computer to stop simulating at zero
+c) By allowing insulin to become negative instead
+d) By using a purely mechanical physics equation
+
+8. What does "Global" positivity imply vs "Local" positivity?
+a) Global positivity depends on the weather
+*b) Global positivity guarantees that the system remains biologically bounded starting from *any* biologically valid initial condition, rather than just a tiny zone
+c) Local positivity requires a supercomputer to calculate
+d) Global positivity means the system reaches infinity
+
+9. In the context of mathematical biology, an "Isocline" is best described as:
+*a) A curve along which the derivative of one state variable has a constant vector slope
+b) The exact trajectory of the patient's glucose
+c) A mathematical boundary separating negative from complex numbers
+d) A perfectly linear equation
+
+10. The biological requirement for compactness in an invariant region ensures that:
+a) The population will always extinct
+*b) The biological state variables (like glucose and insulin) are not only non-negative but also bounded from above by absolute finite maximums
+c) The equations can be written compactly on paper
+d) The patient possesses no body fat

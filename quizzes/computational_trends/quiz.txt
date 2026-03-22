@@ -29,3 +29,33 @@ a) Model simple zero-dimensional mass balance compartments
 *b) Shift from ODEs to PDEs, resolving the *spatial* distribution and physical mechanics of cellular tissues and organs during dynamic loading or diffusion
 c) Identify parameters from patient heart-rate monitors
 d) Compute steady state equilibrium nodes algebraically
+
+6. In numerical integration, the "Truncation Error" corresponds to:
+*a) The mathematical error introduced by approximating continuous calculus (like Taylor series) with discrete algorithmic steps
+b) The doctor truncating the medical record arbitrarily
+c) A hardware failure in the CPU
+d) Missing parameters in the equations
+
+7. What makes implicit computational solvers incredibly valuable for biological models?
+a) They never use any calculus
+b) They run in backwards temporal direction
+*c) They offer superior numerical stability unconditionally for stiff systems, allowing larger time steps without divergent oscillations
+d) They are simpler to program than Euler methods
+
+8. How does a numerical Jacobian matrix conceptually help implicit solver algorithms?
+a) It replaces the biological model
+*b) It guides the iterative root-finding algorithms (like Newton-Raphson) hidden inside the implicit step solver
+c) It determines the physical volume of the patient
+d) It stops the simulation when the patient dies
+
+9. The concept of "Spatial discretization" is vital for:
+a) Simple compartmental ODE tracing
+b) Frequency domain Bode plotting
+*c) Spatially distributed PDEs (like Finite Element modeling soft tissue mechanics or drug diffusion across organs)
+d) Analytical calculus operations
+
+10. A Monte Carlo approximation differs fundamentally from a traditional Runge-Kutta simulation by:
+*a) Introducing random stochastic sampling to evaluate probability distributions and parameter variations across populations
+b) Replacing the differential equations entirely with pure geometric algebra
+c) Exclusively tracking the exact deterministic path perfectly
+d) Being restricted solely to linear models
