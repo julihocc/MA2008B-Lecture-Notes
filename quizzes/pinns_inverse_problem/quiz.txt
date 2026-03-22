@@ -1,10 +1,10 @@
 Quiz: Chapter 15 - PINNs Inverse Problem
 
 1. What defines the "Inverse Problem" in mathematical biology?
-*a) Using limited clinical output observations (like sparse glucose readings) to deduce the unknown internal physiological parameters (like Insulin Sensitivity $S_I$)
+a) Finding the inverse of the system's Jacobian matrix
 b) Simulating future glucose trajectories based on perfectly known initial parameters
 c) Reversing the algebraic sign of the differential equations
-d) Finding the inverse of the system's Jacobian matrix
+*d) Using limited clinical output observations (like sparse glucose readings) to deduce the unknown internal physiological parameters (like Insulin Sensitivity $S_I$)
 
 2. In an Inverse PINN architecture, how are the unknown physiological parameters (like $S_I$ and $\rho$) handled mathematically?
 a) They are set to random constants and left untouched
@@ -14,20 +14,20 @@ d) They are derived purely from the patient's age and weight
 
 3. Why do Inverse PINNs excel at parameter discovery even with highly noisy, sparse clinical data?
 a) The neural network filters noise by simply ignoring the data points entirely
-*b) The physics-loss constraints act as a powerful regularizer, forcing the predictions and discovered parameters to strictly obey smooth biological laws, naturally rejecting random noise
+b) They replace the data with a simulated healthy patient
 c) They use 100% of the data points and do not require physics equations
-d) They replace the data with a simulated healthy patient
+*d) The physics-loss constraints act as a powerful regularizer, forcing the predictions and discovered parameters to strictly obey smooth biological laws, naturally rejecting random noise
 
 4. If a system is mathematically "unidentifiable", what does this mean for the Inverse PINN?
 a) The PINN will crash and refuse to compile the loss function
-*b) Multiple combinations of different physiological parameters will yield the exact same clinical observation curve, preventing the discovery of a unique true parameter set
-c) The network will identify the parameters instantaneously with zero error
+b) The network will identify the parameters instantaneously with zero error
+*c) Multiple combinations of different physiological parameters will yield the exact same clinical observation curve, preventing the discovery of a unique true parameter set
 d) The system matrices are singular and cannot be inverted
 
 5. Compared to standard least-squares parameter regression (which requires numerically integrating the ODE every time a parameter is guessed), the Inverse PINN approach is:
 a) Mathematically identical, just written in Python
-b) Dependent on extremely dense data points sampled every millisecond
-*c) Computationally more seamless, jointly optimizing the network prediction and the parameter values simultaneously via one backpropagation pass
+*b) Computationally more seamless, jointly optimizing the network prediction and the parameter values simultaneously via one backpropagation pass
+c) Dependent on extremely dense data points sampled every millisecond
 d) Unable to discover parameters for nonlinear systems
 
 6. What is the difference between "observable" and "hidden" state variables in an Inverse PINN?
@@ -37,20 +37,20 @@ c) Hidden variables are physically located inside the neural network exclusively
 d) Observable variables are deleted before training begins
 
 7. In a three-variable system (Glucose, Insulin, Beta-cell), if you only measure Glucose clinically, can the Inverse PINN estimate the other two trajectories?
-*a) Yes, provided the system is mathematically observable, the physical coupling in the ODEs uniquely restricts the hidden trajectories to fit the glucose curve
-b) No, it is mathematically impossible to predict any variable without direct data
+a) No, it is mathematically impossible to predict any variable without direct data
+*b) Yes, provided the system is mathematically observable, the physical coupling in the ODEs uniquely restricts the hidden trajectories to fit the glucose curve
 c) Yes, but only if all equation parameters are completely random
 d) No, because Beta-cells are independent of Glucose
 
 8. How does gradient descent locate the true patient parameters in an Inverse PINN?
-a) By randomly guessing until $L_{data} = 0$
+*a) By backpropagating the total loss error to calculate the gradients $\partial L / \partial S_I$, allowing the optimizer to shift the parameter toward the physical minimum
 b) By isolating the parameters and solving a simple quadratic equation
-*c) By backpropagating the total loss error to calculate the gradients $\partial L / \partial S_I$, allowing the optimizer to shift the parameter toward the physical minimum
+c) By randomly guessing until $L_{data} = 0$
 d) By integrating the ODE backward in time
 
 9. When identifying physiological constants across a patient cohort using PINNs, one major clinical benefit is:
-a) The network can prescribe medicine automatically
-*b) The discovered patient-specific parameters (like distinct insulin resistance profiles) enable fully personalized, targeted dynamic therapies
+*a) The discovered patient-specific parameters (like distinct insulin resistance profiles) enable fully personalized, targeted dynamic therapies
+b) The network can prescribe medicine automatically
 c) The algorithm eliminates the need for doctors entirely
 d) The models completely bypass regulatory agencies
 

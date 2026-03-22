@@ -1,61 +1,61 @@
 Quiz: Chapter 10 - The LCIS Method
 
 1. What does the acronym LCIS stand for?
-*a) Localization of Compact Invariant Sets
-b) Linearization of Complex Insulin Systems
+a) Linearization of Complex Insulin Systems
+*b) Localization of Compact Invariant Sets
 c) Limit Cycles in Systems
 d) Largest Computable Inner Set
 
 2. In the LCIS framework, what is the purpose of a "localizing function" $h(x)$?
-a) To compute the exact trajectory of $x(t)$
+*a) To build boundaries (minimum and maximum limits) confining all possible compact invariant invariant behavior of the system
 b) To count the number of eigenvalues
-*c) To build boundaries (minimum and maximum limits) confining all possible compact invariant invariant behavior of the system
+c) To compute the exact trajectory of $x(t)$
 d) To convert a nonlinear model into a linear one
 
 3. What is the fundamental principle of Theorem 1 (Localization of Compact Invariant Sets)?
-*a) Based on the Lie derivative $L_f h(x) = 0$, every compact invariant set must be contained within the bounding surfaces defined by the extremes of $h$ on the set $S_h$
+a) Limit cycles do not exist if $h>0$
 b) If a system is stable, its maximum value is infinity
 c) All systems have exactly three compact invariant sets
-d) Limit cycles do not exist if $h>0$
+*d) Based on the Lie derivative $L_f h(x) = 0$, every compact invariant set must be contained within the bounding surfaces defined by the extremes of $h$ on the set $S_h$
 
 4. The iterative refinement process from Theorem 2 is particularly useful because it:
-a) Solves the ODE explicitly for time $t$
+*a) Uses sequential bounds on one variable to constrain and tighten the absolute mathematical limits of the other variables in the system without needing numerical integration
 b) Identifies the exact numerical value of the parameters
 c) Employs purely random Monte Carlo approximations
-*d) Uses sequential bounds on one variable to constrain and tighten the absolute mathematical limits of the other variables in the system without needing numerical integration
+d) Solves the ODE explicitly for time $t$
 
 5. When analytical bounds like $G_{max}$, $I_{max}$, and $B_{max}$ are successfully calculated using LCIS, what is their primary use?
 a) They allow physicians to skip analyzing patient data
-*b) They provide absolute, mathematically guaranteed worst-case scenarios for systemic values, critical for validating model safely
+b) They determine exactly when a meal is metabolised
 c) They replace the need to measure glucose entirely
-d) They determine exactly when a meal is metabolised
+*d) They provide absolute, mathematically guaranteed worst-case scenarios for systemic values, critical for validating model safely
 
 6. The set $S_h$ in the LCIS methodology is formally defined as:
 a) The set of all possible initial condition vectors
-*b) The geometrical surface where the Lie derivative of the localizing function, $L_f h(x)$, evaluates to exactly zero
-c) The point where the system achieves infinite mass
+b) The point where the system achieves infinite mass
+*c) The geometrical surface where the Lie derivative of the localizing function, $L_f h(x)$, evaluates to exactly zero
 d) The minimum boundary exclusively
 
 7. Why does LCIS avoid local linearization?
-a) Linearization calculates the wrong derivatives
+*a) LCIS seeks to find strict *global* properties and absolute boundary sets rather than just testing local asymptotic behavior near an equilibrium
 b) Linear algebra is too computationally expensive
-*c) LCIS seeks to find strict *global* properties and absolute boundary sets rather than just testing local asymptotic behavior near an equilibrium
+c) Linearization calculates the wrong derivatives
 d) It only applies to 1-dimensional biological systems
 
 8. If a chosen localizing function $h_1(x) = x$ yields $L_f h_1(x) > 0$ strictly everywhere, what does this mathematically imply?
-*a) The system has no compact invariant sets, because it grows unbounded toward infinity without ever settling
-b) The system is perfectly globally stable
+a) The system is perfectly globally stable
+*b) The system has no compact invariant sets, because it grows unbounded toward infinity without ever settling
 c) The origin is a saddle point
 d) The system is a perfect simple harmonic oscillator
 
 9. The concept of "Intersecting bounding sets" in LCIS means:
 a) Creating multiple disconnected trajectories
-*b) Using multiple different localizing functions ($h_1, h_2$) to create overlapping regions; the true bounding invariant set must lie entirely inside their geometric intersection
-c) Randomly crossing phase paths
+b) Randomly crossing phase paths
+*c) Using multiple different localizing functions ($h_1, h_2$) to create overlapping regions; the true bounding invariant set must lie entirely inside their geometric intersection
 d) Creating a matrix intersection array
 
 10. What makes LCIS particularly valuable compared to numerical ODE integration for Medical AI safety?
-a) It runs faster on older GPUs
-*b) Numerical integration might miss extreme case outliers depending on initial conditions, whereas LCIS provides a mathematically rigorous formal proof covering *all* possible valid conditions simultaneously
+*a) Numerical integration might miss extreme case outliers depending on initial conditions, whereas LCIS provides a mathematically rigorous formal proof covering *all* possible valid conditions simultaneously
+b) It runs faster on older GPUs
 c) LCIS uses no mathematics, relying entirely on clinical intuition
 d) ODE integration cannot plot limits

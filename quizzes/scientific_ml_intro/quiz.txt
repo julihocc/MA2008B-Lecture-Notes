@@ -2,14 +2,14 @@ Quiz: Chapter 13 - Scientific ML Intro (SciML)
 
 1. What is the fundamental disadvantage of using purely data-driven "black-box" Machine Learning models in clinical biomedicine?
 a) They take up too much physical memory
-*b) They require massive datasets and often predict physically impossible states (like negative glucose) when extrapolating outside their training distribution
+b) They always output identical predictions for all patients
 c) They cannot be programmed in modern languages
-d) They always output identical predictions for all patients
+*d) They require massive datasets and often predict physically impossible states (like negative glucose) when extrapolating outside their training distribution
 
 2. What uniquely defines the PINN (Physics-Informed Neural Network) paradigm?
-a) The network is trained solely by biologists, minimizing engineering input
+*a) The known differential equations (physics/biology) are embedded directly into the network's loss function to regularize training
 b) The network uses purely synthetic data with no real-world observations
-*c) The known differential equations (physics/biology) are embedded directly into the network's loss function to regularize training
+c) The network is trained solely by biologists, minimizing engineering input
 d) It replaces traditional neural networks with analog electrical circuits
 
 3. In the PINN loss function $L_{total} = L_{data} + \lambda L_{physics}$, what role do the arbitrary "collocation points" $\tau_j$ serve?
@@ -19,43 +19,43 @@ b) They are the weights inside the neural network's hidden layers
 d) They represent the steady-state equilibrium nodes
 
 4. What is the mathematical meaning of the physics loss term $L_{physics}$ for a simple model $x' = f(x)$?
-*a) The mean squared error between the network's derivative $\hat{x}'(t)$ and the theoretical derivative $f(\hat{x}(t))$
-b) The absolute maximum error over the entire patient history
+a) The absolute maximum error over the entire patient history
+*b) The mean squared error between the network's derivative $\hat{x}'(t)$ and the theoretical derivative $f(\hat{x}(t))$
 c) The integral of the patient's data curve
 d) The determinant of the Jacobian Matrix
 
 5. If the hyperparameter $\lambda$ in the PINN loss is set extremely high ($\lambda \to \infty$):
 a) The network will perfectly memorize the noisy clinical data and ignore the physics
 b) The network will crash and fail to compile
-*c) The network will strictly enforce the differential equations, potentially ignoring true clinical data if it conflicts with the physical model
-d) The network transforms into an unsupervised clustering algorithm
+c) The network transforms into an unsupervised clustering algorithm
+*d) The network will strictly enforce the differential equations, potentially ignoring true clinical data if it conflicts with the physical model
 
 6. Traditional neural networks struggle to extrapolate beyond their training data because:
-*a) They blindly fit polynomials or piece-wise linear functions (like ReLU) that easily diverge uncontrollably outside the trained bounds
-b) They actively delete their own memory over time
+a) They actively delete their own memory over time
+*b) They blindly fit polynomials or piece-wise linear functions (like ReLU) that easily diverge uncontrollably outside the trained bounds
 c) The physics equations force them to crash
 d) They only accept negative inputs
 
 7. Scientific Machine Learning (SciML) bridges the gap between:
 a) Surgeons and pharmacists
-*b) Mechanistic, theory-driven differential models (high bias) and empirical, data-driven machine learning (high variance)
+b) Discrete statistics and continuous geometry
 c) Hardware engineering and quantum physics
-d) Discrete statistics and continuous geometry
+*d) Mechanistic, theory-driven differential models (high bias) and empirical, data-driven machine learning (high variance)
 
 8. A standard Multi-Layer Perceptron (MLP) used in a PINN takes what parameter as its input for a transient biological system?
-a) The total dose of insulin $U(t)$
-*b) The continuous time variable $t$
+*a) The continuous time variable $t$
+b) The total dose of insulin $U(t)$
 c) The exact weights of the hidden layer
 d) The inverse sine of the clinical error
 
 9. What is required to compute the physics residual inside a PINN elegantly and accurately?
-*a) Automatic Differentiation (Autodiff), an algorithmic tool that calculates exact derivatives of the neural network's output with respect to its inputs
+a) A human manually solving the derivatives on paper
 b) A numerical finite difference grid with size $h \to 0$
-c) A human manually solving the derivatives on paper
+*c) Automatic Differentiation (Autodiff), an algorithmic tool that calculates exact derivatives of the neural network's output with respect to its inputs
 d) A Monte Carlo stochastic estimator
 
 10. Sparse patient data in classical machine learning leads to "overfitting". How does a PINN mitigate this?
 a) By randomly deleting equations
-*b) By forcing the network to obey the physical equations at thousands of data-free collocation points, acting as a powerful physical constraint (regularizer) against overfitting
-c) By ignoring the patient data entirely
+b) By ignoring the patient data entirely
+*c) By forcing the network to obey the physical equations at thousands of data-free collocation points, acting as a powerful physical constraint (regularizer) against overfitting
 d) By asking the user to manually guess the missing data

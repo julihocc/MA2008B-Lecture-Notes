@@ -7,10 +7,10 @@ c) They require exactly equal mass parameters
 d) They natively calculate Lyapunov functions automatically
 
 2. Which standard computational algorithm is typically used (e.g., as `ode45`) for highly accurate forward simulation of continuous biological systems?
-*a) Runge-Kutta 4th/5th order
+a) Cramer's Rule
 b) Newton-Raphson
 c) Standard Gradient Descent
-d) Cramer's Rule
+*d) Runge-Kutta 4th/5th order
 
 3. In scientific computing, handling "stiffness" in biological models (e.g., tracking both fast insulin decay and slow beta-cell replication) often requires:
 a) A single enormous time-step, $h$, to skip the slow dynamics
@@ -19,43 +19,43 @@ c) Plotting the data by hand
 *d) Adaptive step-size solvers or implicit numerical integration methods like `ode15s`
 
 4. When simulating the LCIS bounding volume $K$ computationally over time:
-*a) The simulated trajectories plotted via `ode45` must strictly remain inside the limits mathematically predetermined by Theorem 2
+a) The bounds $G_{max}$ mathematically dictate the speed of integration
 b) The simulation frequently exceeds the LCIS bounds due to software memory errors
-c) The bounds $G_{max}$ mathematically dictate the speed of integration
+*c) The simulated trajectories plotted via `ode45` must strictly remain inside the limits mathematically predetermined by Theorem 2
 d) Computation replaces the need for analytical bounds entirely
 
 5. Non-Linear Finite Element Methods (FEM) in modern biomedicine are primarily utilized to:
 a) Model simple zero-dimensional mass balance compartments
-*b) Shift from ODEs to PDEs, resolving the *spatial* distribution and physical mechanics of cellular tissues and organs during dynamic loading or diffusion
-c) Identify parameters from patient heart-rate monitors
+b) Identify parameters from patient heart-rate monitors
+*c) Shift from ODEs to PDEs, resolving the *spatial* distribution and physical mechanics of cellular tissues and organs during dynamic loading or diffusion
 d) Compute steady state equilibrium nodes algebraically
 
 6. In numerical integration, the "Truncation Error" corresponds to:
-*a) The mathematical error introduced by approximating continuous calculus (like Taylor series) with discrete algorithmic steps
-b) The doctor truncating the medical record arbitrarily
+a) The doctor truncating the medical record arbitrarily
+*b) The mathematical error introduced by approximating continuous calculus (like Taylor series) with discrete algorithmic steps
 c) A hardware failure in the CPU
 d) Missing parameters in the equations
 
 7. What makes implicit computational solvers incredibly valuable for biological models?
-a) They never use any calculus
+*a) They offer superior numerical stability unconditionally for stiff systems, allowing larger time steps without divergent oscillations
 b) They run in backwards temporal direction
-*c) They offer superior numerical stability unconditionally for stiff systems, allowing larger time steps without divergent oscillations
+c) They never use any calculus
 d) They are simpler to program than Euler methods
 
 8. How does a numerical Jacobian matrix conceptually help implicit solver algorithms?
-a) It replaces the biological model
-*b) It guides the iterative root-finding algorithms (like Newton-Raphson) hidden inside the implicit step solver
+*a) It guides the iterative root-finding algorithms (like Newton-Raphson) hidden inside the implicit step solver
+b) It replaces the biological model
 c) It determines the physical volume of the patient
 d) It stops the simulation when the patient dies
 
 9. The concept of "Spatial discretization" is vital for:
 a) Simple compartmental ODE tracing
-b) Frequency domain Bode plotting
-*c) Spatially distributed PDEs (like Finite Element modeling soft tissue mechanics or drug diffusion across organs)
+*b) Spatially distributed PDEs (like Finite Element modeling soft tissue mechanics or drug diffusion across organs)
+c) Frequency domain Bode plotting
 d) Analytical calculus operations
 
 10. A Monte Carlo approximation differs fundamentally from a traditional Runge-Kutta simulation by:
-*a) Introducing random stochastic sampling to evaluate probability distributions and parameter variations across populations
+a) Being restricted solely to linear models
 b) Replacing the differential equations entirely with pure geometric algebra
 c) Exclusively tracking the exact deterministic path perfectly
-d) Being restricted solely to linear models
+*d) Introducing random stochastic sampling to evaluate probability distributions and parameter variations across populations

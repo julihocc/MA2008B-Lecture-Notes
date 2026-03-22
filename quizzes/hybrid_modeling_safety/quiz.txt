@@ -1,8 +1,8 @@
 Quiz: Chapter 16 - Hybrid Modeling & Safety Bounds
 
 1. What does the "Safe AI" paradigm mean in the context of predictive metabolic modeling?
-*a) The AI architecture is mathematically guaranteed by construction—through embedded analytical bounds—to never output biologically absurd or dangerous predictions when extrapolating
-b) The AI is disconnected from the internet to prevent hacking
+a) The AI is disconnected from the internet to prevent hacking
+*b) The AI architecture is mathematically guaranteed by construction—through embedded analytical bounds—to never output biologically absurd or dangerous predictions when extrapolating
 c) The neural network only predicts linear behavior for maximum safety
 d) The model is restricted to only predicting glucose values exactly at the clinical observation points
 
@@ -14,15 +14,15 @@ d) They replace the clinical data entirely in the loss function
 
 3. The Positivity Penalty term ensures that the neural network learns to:
 a) Output positive emotions for the patient
-*b) Never predict physically impossible negative mass or concentrations (e.g., penalizing $\hat{G} < 0$)
-c) Force the eigenvalues of the system to become strictly positive
+b) Force the eigenvalues of the system to become strictly positive
+*c) Never predict physically impossible negative mass or concentrations (e.g., penalizing $\hat{G} < 0$)
 d) Keep the trace of the Jacobian greater than zero
 
 4. What is the concept of a Medical "Digital Twin"?
 a) Matching patients with identical biological siblings
 b) A physical hardware replica of the patient's pancreas
-*c) A real-time, highly personalized computational surrogate (like a trained patient-specific PINN) that continuously predicts the patient's future biological state to guide therapies
-d) A backup file of the patient's clinical records
+c) A backup file of the patient's clinical records
+*d) A real-time, highly personalized computational surrogate (like a trained patient-specific PINN) that continuously predicts the patient's future biological state to guide therapies
 
 5. By combining Inverse PINN parameter discovery (learning $S_I$ continuously) with explicit LCIS physical constraints, a Digital Twin inside an Artificial Pancreas could:
 *a) Safely provide precise, personalized feed-forward predictions to a PID controller to dose insulin without risking dangerous mathematical extrapolation errors
@@ -31,16 +31,16 @@ c) Avoid the need for any mathematical theory or biology knowledge
 d) Function efficiently without needing any continuous glucose monitor data
 
 6. "Hard" constraints in advanced PINN architectures are implemented by:
-a) Deleting data outside a specific range
-*b) Mathematically forcing the network output to satisfy bounds intrinsically (e.g., passing the output through a bounded function like a Sigmoid scaled by the LCIS limits)
+*a) Mathematically forcing the network output to satisfy bounds intrinsically (e.g., passing the output through a bounded function like a Sigmoid scaled by the LCIS limits)
+b) Deleting data outside a specific range
 c) Only using a single layer in the neural network
 d) Using purely empirical clinical data without any physics
 
 7. Why is safety bounded AI critical in real-time closed-loop physiological control (like an artificial pancreas)?
-*a) Because an unconstrained AI might hallucinate a massive glucose spike during an anomaly, causing the controller to inject a massive, fatal dose of insulin
+a) Because the PID controller otherwise requires manual tuning
 b) Because bounded AI runs faster on mobile devices
 c) Because it guarantees the patient will never eat carbohydrates
-d) Because the PID controller otherwise requires manual tuning
+*d) Because an unconstrained AI might hallucinate a massive glucose spike during an anomaly, causing the controller to inject a massive, fatal dose of insulin
 
 8. What role does analytical stability theory (like Lyapunov methods) play in the future of AI-driven medicine?
 a) It replaces the AI entirely
@@ -55,7 +55,7 @@ c) That the exact day of infection can be derived algebraically
 d) That Neural networks are biologically alive
 
 10. The ultimate synergy of classical Control Theory, Nonlinear Analysis (Part II), Analytical Bounds (Part III), and Scientific ML (Part IV) results in:
-a) A purely abstract mathematical theorem with no clinical relevance
+*a) A physically rigorous, data-adaptive, parameter-discovering computational framework capable of revolutionizing safety-critical physiological interventions
 b) A system perfectly identical to a simple linear 1D spring
-*c) A physically rigorous, data-adaptive, parameter-discovering computational framework capable of revolutionizing safety-critical physiological interventions
+c) A purely abstract mathematical theorem with no clinical relevance
 d) The complete elimination of differential equations in modern biology

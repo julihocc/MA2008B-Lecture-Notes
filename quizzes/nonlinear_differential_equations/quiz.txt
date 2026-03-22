@@ -2,21 +2,21 @@ Quiz: Chapter 5 - Nonlinear Differential Equations
 
 1. What is the fundamental difference between linear and nonlinear dynamical systems?
 a) Linear systems only exist in physical engineering; nonlinear systems only in biology
-*b) Nonlinear systems can possess multiple isolated equilibrium points and exhibit complex behaviors like limit cycles, whereas linear systems cannot
-c) Linear systems cannot be solved computationally, unlike nonlinear systems
+b) Linear systems cannot be solved computationally, unlike nonlinear systems
+*c) Nonlinear systems can possess multiple isolated equilibrium points and exhibit complex behaviors like limit cycles, whereas linear systems cannot
 d) Nonlinear systems always have exactly one equilibrium point
 
 2. In mathematical biology, what does the "Finite time blow-up" of a solution usually indicate?
-*a) A failure of the model's validity, as biological quantities (like population or mass) cannot physically reach infinity
+a) The effect of a perfect PID controller
 b) An accurate representation of normal cellular growth
 c) The onset of a stable, healthy steady state
-d) The effect of a perfect PID controller
+*d) A failure of the model's validity, as biological quantities (like population or mass) cannot physically reach infinity
 
 3. What is meant by a "Hyperbolic Equilibrium point" in a 1D system?
-*a) The system's derivative at the equilibrium, $f'(x^*)$, is strictly non-zero
+a) The system is entirely insensitive to initial conditions
 b) The system's derivative at the equilibrium is exactly zero
 c) The equilibrium acts as a saddle node
-d) The system is entirely insensitive to initial conditions
+*d) The system's derivative at the equilibrium, $f'(x^*)$, is strictly non-zero
 
 4. When interpreting a Phase-Line for a 1D autonomous biological model:
 a) The origin is always stable
@@ -31,15 +31,15 @@ c) The rate of predation
 d) Infinite exponential growth boundary
 
 6. In a 1D autonomous system $x' = f(x)$, if $x^*$ is an equilibrium, it is locally stable if:
-*a) $f'(x^*) < 0$
+a) $f'(x^*) = 0$
 b) $f'(x^*) > 0$
-c) $f'(x^*) = 0$
+*c) $f'(x^*) < 0$
 d) $x^* = 0$
 
 7. The "Allee effect" in population biology introduces an extinction threshold. Mathematically, this corresponds to:
 a) A single stable equilibrium at $x=0$
-*b) An unstable equilibrium point $x=A > 0$ below which the population declines to zero
-c) A saddle node bifurcation at infinity
+b) A saddle node bifurcation at infinity
+*c) An unstable equilibrium point $x=A > 0$ below which the population declines to zero
 d) A pure limit cycle
 
 8. Why are non-autonomous systems (e.g., $x' = f(x, t)$) often used in pharmacology?
@@ -49,13 +49,13 @@ c) To force the Jacobian to be identically zero
 d) To prove positive invariance
 
 9. What does it mean for a 1D differential equation to be "separable"?
-*a) The equation $x' = f(x,t)$ can be factored into $x' = g(x)h(t)$, allowing exact analytical integration
-b) The system can be split into multiple infinite equilibrium chunks
+a) The system can be split into multiple infinite equilibrium chunks
+*b) The equation $x' = f(x,t)$ can be factored into $x' = g(x)h(t)$, allowing exact analytical integration
 c) The equation naturally produces separate stable and unstable nodes
 d) The function $f(x,t)$ is purely a polynomial
 
 10. A model describes the decay of a biological mass as $x' = -k x^2$. The solution to this equation demonstrates what behavior compared to standard exponential decay ($x' = -k x$)?
-a) It blows up to infinity in finite time
-*b) It decays to zero much slower than the exponential over long times, following a $1/t$ polynomial law
+*a) It decays to zero much slower than the exponential over long times, following a $1/t$ polynomial law
+b) It blows up to infinity in finite time
 c) It enters a sustained oscillation directly
 d) It rapidly hits absolute zero and bounces back into the negatives

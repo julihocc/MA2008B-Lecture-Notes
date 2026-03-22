@@ -1,16 +1,16 @@
 Quiz: Chapter 11 - Metabolic Case Study
 
 1. Exogenous Epinephrine is incorporated into the metabolic model to simulate which clinical scenario?
-a) A state of deep rest, mimicking sleep
-*b) A high-stress response or pharmacological intervention causing insulin resistance and enhanced hepatic glucose production
+*a) A high-stress response or pharmacological intervention causing insulin resistance and enhanced hepatic glucose production
+b) A state of deep rest, mimicking sleep
 c) The natural breakdown of insulin in healthy subjects
 d) The surgical removal of the pancreas
 
 2. What is the definition of the critical Epi threshold $E_c = S_I / \rho$?
-*a) The exact concentration of epinephrine where insulin sensitivity $S_I$ is entirely neutralized by the resistance factor $\rho$
+a) The point at which $G_{max}$ equals zero
 b) The time at which all glucose is depleted
 c) The maximum natural concentration of epinephrine the body can store
-d) The point at which $G_{max}$ equals zero
+*d) The exact concentration of epinephrine where insulin sensitivity $S_I$ is entirely neutralized by the resistance factor $\rho$
 
 3. Applying LCIS Theorem 2 to a model under severe Epinephrine stress ($E > E_c$) proves that:
 a) The system remains highly stable with no variations
@@ -22,13 +22,13 @@ d) The system enters a stable limit cycle
 a) Instantly destroying all beta cells
 *b) Describing the suppression of insulin secretion when $E > 0$
 c) Reversing the natural death rate of beta cells
-d) Increasing insulin production identically to a meal 
+d) Increasing insulin production identically to a meal
 
 5. What does the term $P_{G,e}(E)$ generally model?
-*a) The stress-induced enhancement of hepatic (liver) glucose release stimulated directly by Epinephrine
+a) The insulin-independent glucose utilization
 b) The clearance rate of insulin
 c) The mechanical friction within the bloodstream
-d) The insulin-independent glucose utilization
+*d) The stress-induced enhancement of hepatic (liver) glucose release stimulated directly by Epinephrine
 
 6. In the extended metabolic model, $\beta$-cell replication handles which biological timescale?
 a) Seconds
@@ -44,18 +44,18 @@ d) Altering the physical volume of blood
 
 8. What structural term allows the baseline Beta cell mass equation to be naturally bounded?
 a) A single exponential decay multiplier
-*b) A nonlinear saturating/logistic capacity term limiting total cellular mass
-c) A pure sine wave disturbance
+b) A pure sine wave disturbance
+*c) A nonlinear saturating/logistic capacity term limiting total cellular mass
 d) No term exists; Beta cells always hit infinity
 
 9. Why is the combination of Epinephrine and a large exogenous meal highly destabilizing in this model?
 a) Because Epinephrine binds with food to create a toxic chemical
-*b) Because Epinephrine simultaneously induces hepatic glucose production, suppresses insulin secretion, and causes severe insulin resistance, overwhelming the homeostatic clearance mechanisms
-c) Because meals always cure diabetes
+b) Because meals always cure diabetes
+*c) Because Epinephrine simultaneously induces hepatic glucose production, suppresses insulin secretion, and causes severe insulin resistance, overwhelming the homeostatic clearance mechanisms
 d) Because Epinephrine accelerates insulin clearance by 1000%
 
 10. What does the shift of the equilibrium from $P_1$ to $P_3$ in phase space formally capture?
-*a) The clinical progression from a reversible, healthy pre-diabetic state to a chronic, largely irreversible Type 2 Diabetic steady-state
-b) The immediate digestion process of carbohydrates
+a) The immediate digestion process of carbohydrates
+*b) The clinical progression from a reversible, healthy pre-diabetic state to a chronic, largely irreversible Type 2 Diabetic steady-state
 c) A patient standing up rapidly
 d) The exact moment medication is ingested

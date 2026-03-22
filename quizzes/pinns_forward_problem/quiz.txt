@@ -1,40 +1,40 @@
 Quiz: Chapter 14 - PINNs Forward Problem
 
 1. When solving the "Forward Problem" using a neural network, what are we attempting to calculate?
-a) Unknown patient parameters like Insulin Sensitivity
+*a) Simulating the continuous state trajectories (like Glucose over time) given perfectly known differential equations and initial conditions
 b) Reversing the arrow of time to calculate past meals
-*c) Simulating the continuous state trajectories (like Glucose over time) given perfectly known differential equations and initial conditions
+c) Unknown patient parameters like Insulin Sensitivity
 d) Designing a PID controller for an underlying process
 
 2. How does a Forward PINN differ from traditional numerical integration solvers, such as `ode45` (Runge-Kutta 4/5)?
-*a) The PINN acts as a mesh-free, infinite-resolution solver that yields a direct analytical function, whereas `ode45` requires step-by-step sequential integration
+a) The PINN can only compute steady-states, not transient behavior
 b) The PINN runs thousands of times slower for 1D problems
-c) The PINN can only compute steady-states, not transient behavior
+*c) The PINN acts as a mesh-free, infinite-resolution solver that yields a direct analytical function, whereas `ode45` requires step-by-step sequential integration
 d) `ode45` uses neural networks intrinsically, while PINNs use rigid polynomials
 
 3. In a Forward PINN, how are the precise time derivatives like $\hat{G}'(t)$ computed during training?
 a) By simple finite differences $(G_2 - G_1)/(t_2 - t_1)$
-b) By manually solving the integral with calculus
-*c) By Automatic Differentiation (Autodiff), leveraging the neural network's exact computational graph
+*b) By Automatic Differentiation (Autodiff), leveraging the neural network's exact computational graph
+c) By manually solving the integral with calculus
 d) By asking an external numerical solver for the derivative
 
 4. If a Neural Network is trained as an ODE solver for the Glucose-Insulin system, what parameters is the optimizer updating?
-*a) The internal weights and biases $\theta$ of the neural network
-b) The patient's actual insulin sensitivity $S_I$
+a) The patient's actual insulin sensitivity $S_I$
+*b) The internal weights and biases $\theta$ of the neural network
 c) The step-sizes $h$ of the internal Runge-Kutta loop
 d) The initial clinical conditions provided by the doctor
 
 5. A "Stiff" ODE system is characterized by:
 a) Equations that are mathematically unsolvable
-*b) Multiple interacting variables with vastly different timescales (e.g., extremely rapid insulin clearance vs slow beta-cell dynamics), complicating numerical and neural training
-c) Tissues that are physically hardened in a patient
+b) Tissues that are physically hardened in a patient
+*c) Multiple interacting variables with vastly different timescales (e.g., extremely rapid insulin clearance vs slow beta-cell dynamics), complicating numerical and neural training
 d) Variables that remain completely unchanging over time
 
 6. In the context of a Forward PINN, what does the $L_{data}$ term predominantly consist of?
-*a) Only the initial conditions (e.g., $G(0), I(0), \beta(0)$) since no other target data exists for a pure forward solver
+a) The inverse of the weights matrix
 b) Thousands of dense, perfectly sampled clinical readouts
 c) The difference between the Jacobian and the true trajectory
-d) The inverse of the weights matrix
+*d) Only the initial conditions (e.g., $G(0), I(0), \beta(0)$) since no other target data exists for a pure forward solver
 
 7. Why might a standard PINN struggle to solve the forward problem for chaotic biological systems over extremely long time horizons?
 a) Because chaotic systems have no mathematical equations
@@ -50,12 +50,12 @@ d) That all neural weights have shrunk to exactly zero
 
 9. What is a "Soft Boundary Condition" in standard PINN training?
 a) Utilizing a physical sponge to absorb errors
-*b) Enforcing the initial condition via a penalty term in the loss function, meaning the condition is only approximately satisfied rather than strictly hardcoded
+b) Modifying the ODE itself to be less strict
 c) Restricting the network to only predict positive integers
-d) Modifying the ODE itself to be less strict
+*d) Enforcing the initial condition via a penalty term in the loss function, meaning the condition is only approximately satisfied rather than strictly hardcoded
 
 10. A widely used optimizer for fine-tuning PINNs after standard Adam descent is:
 a) Monte Carlo simulation
-b) Random walk
-*c) L-BFGS (a quasi-Newton method that utilizes second-order Hessian approximations for high-precision convergence)
+*b) L-BFGS (a quasi-Newton method that utilizes second-order Hessian approximations for high-precision convergence)
+c) Random walk
 d) Forward Euler

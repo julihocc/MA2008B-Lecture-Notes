@@ -2,14 +2,14 @@ Quiz: Chapter 7 - Stability Theory
 
 1. Lyapunov's Indirect Method determines stability by:
 a) Constructing an arbitrary scalar energy function
-*b) Evaluating the eigenvalues of the system's Jacobian matrix evaluated at the equilibrium
-c) Calculating the limit of the system as time approaches infinity explicitly
+b) Calculating the limit of the system as time approaches infinity explicitly
+*c) Evaluating the eigenvalues of the system's Jacobian matrix evaluated at the equilibrium
 d) Proving that biological rhythms exist
 
 2. For an equilibrium point to be locally asymptotically stable according to Linearization (Indirect Method), all eigenvalues of the Jacobian must:
 a) Have strictly positive real parts
-b) Have strictly imaginary parts
-*c) Have strictly negative real parts
+*b) Have strictly negative real parts
+c) Have strictly imaginary parts
 d) Be exactly zero
 
 3. Lyapunov's Direct Method proves global stability by:
@@ -19,43 +19,43 @@ c) Showing that the system has only one variable
 d) Demonstrating a saddle-node bifurcation exists
 
 4. In the context of the metabolic glucose-insulin model, if a Lyapunov-like function $V(G, I)$ represents the "metabolic energy distance" from the healthy state, what does $\dot{V} < 0$ clinically mean?
-*a) That despite perturbations, the patient's metabolism will naturally recover back to the healthy state globally across all conditions
-b) That the patient requires immediate intervention to survive
+a) That the patient requires immediate intervention to survive
+*b) That despite perturbations, the patient's metabolism will naturally recover back to the healthy state globally across all conditions
 c) That the system is highly sensitive to external noise
 d) That the clearance rate of insulin varies directly with time
 
 5. Why is finding a suitable Lyapunov function $V(x)$ for biological models often difficult?
 a) Biological systems do not obey the laws of physics
 b) Numerical solvers cannot process functions labeled as $V(x)$
-*c) There is no universal constructive method to find $V(x)$ for highly nonlinear, asymmetric biological systems
-d) The determinant of the Jacobian is always zero
+c) The determinant of the Jacobian is always zero
+*d) There is no universal constructive method to find $V(x)$ for highly nonlinear, asymmetric biological systems
 
 6. If a candidate Lyapunov function shows $\dot{V}(x) \leq 0$ (negative semi-definite rather than strictly negative), what advanced mathematical theorem is often required to prove asymptotic stability?
-*a) LaSalle's Invariance Principle
+a) Hartman-Grobman Theorem
 b) Peano-Baker Series
-c) Hartman-Grobman Theorem
+*c) LaSalle's Invariance Principle
 d) Nyquist Criterion
 
 7. If the linearization of an equilibrium yields two eigenvalues, $\lambda_1 = -2$ and $\lambda_2 = +3$, the equilibrium is fundamentally:
 a) A stable node
-b) A stable focus
+*b) An unstable saddle point
 c) An unstable focus
-*d) An unstable saddle point
+d) A stable focus
 
 8. What can the Indirect Method (Linearization) conclude if all eigenvalues have exactly $\text{Re}(\lambda) = 0$?
-*a) The test is inconclusive; the local true stability relies entirely on higher-order nonlinear terms
-b) The point is globally stable
+a) The point is globally stable
+*b) The test is inconclusive; the local true stability relies entirely on higher-order nonlinear terms
 c) The point is guaranteed to be a saddle
 d) The biological state is dead
 
 9. When utilizing a quadratic Lyapunov function $V(x) = x^T P x$ for a linearized system $x'=Ax$, what mathematical object must $P$ be to prove stability?
-a) The Identity Matrix exclusively
-*b) A symmetric Positive Definite matrix satisfying the Lyapunov equation $A^T P + P A = -Q$
+*a) A symmetric Positive Definite matrix satisfying the Lyapunov equation $A^T P + P A = -Q$
+b) The Identity Matrix exclusively
 c) A strictly singular matrix
 d) The Jacobian evaluated at infinity
 
 10. A globally asymptotically stable biological equlibrium essentially means:
 a) The patient must start strictly very close to the state to recover
-*b) No matter what severe initial state or perturbation occurs, the system's physiological state will eventually be driven completely back to the single healthy resting point
+b) A limit cycle encloses the state
 c) The patient is in imminent danger of oscillatory collapse
-d) A limit cycle encloses the state
+*d) No matter what severe initial state or perturbation occurs, the system's physiological state will eventually be driven completely back to the single healthy resting point

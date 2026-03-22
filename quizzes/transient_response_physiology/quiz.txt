@@ -2,9 +2,9 @@ Quiz: Chapter 2 - Transient Response in Physiology
 
 1. In pharmacokinetics, a continuous intravenous infusion is mathematically modeled as which type of input?
 a) Dirac delta (impulse) function
-*b) Heaviside step function
+b) Ramp function
 c) Sinusoidal bounded function
-d) Ramp function
+*d) Heaviside step function
 
 2. A rapid intravenous injection (bolus) is best approximated mathematically by:
 *a) A Dirac delta (impulse) function
@@ -13,21 +13,21 @@ c) A parabolic function
 d) An exponentially growing function
 
 3. The biological concept of homeostasis corresponds mathematically to which concept in control theory?
-a) Transient response
+*a) Asymptotically stable steady state (equilibrium)
 b) Limit cycle oscillation
-*c) Asymptotically stable steady state (equilibrium)
+c) Transient response
 d) Initial condition zero
 
 4. For a first-order system with time constant $\tau$, approximately what percentage of the final steady-state value is reached after one time constant following a step input?
 a) 50%
-*b) 63.2%
-c) 95%
+b) 95%
+*c) 63.2%
 d) 99%
 
 5. If a patient clears insulin according to $I' = -\gamma I$, and $\gamma$ increases due to a physiological change, what happens to the half-life of insulin in the blood?
-*a) It decreases, meaning insulin is cleared faster
+a) It remains exactly the same
 b) It increases, meaning insulin persists longer
-c) It remains exactly the same
+*c) It decreases, meaning insulin is cleared faster
 d) The system becomes unstable and oscillatory
 
 6. A heavily damped (overdamped) physiological response to a disturbance is characterized by:
@@ -38,9 +38,9 @@ d) Instantaneous stabilization
 
 7. The concept of "Settling Time" ($T_s$) in the glucose-insulin loop represents:
 a) The exact time insulin levels hit zero
-*b) The time required for blood glucose to return to and stay within a tight band (e.g., 2%) around the healthy physiological baseline after a meal
+b) The total duration a patient sleeps
 c) The time it takes for a meal to be fully eaten
-d) The total duration a patient sleeps
+*d) The time required for blood glucose to return to and stay within a tight band (e.g., 2%) around the healthy physiological baseline after a meal
 
 8. In a second-order biological system, what happens if the damping ratio $\zeta$ is zero?
 *a) The system experiences sustained, undamped harmonic oscillations forever
@@ -56,6 +56,6 @@ d) The derivative of the input signal
 
 10. "Steady-State Error" in a medical device (like an artificial pancreas) means:
 a) The frequency of the sensor readings
-*b) The permanent mathematical difference between the desired healthy setpoint and the actual stabilized biological value
+b) The time delay between drug injection and absorption
 c) A malfunction in the pump hardware
-d) The time delay between drug injection and absorption
+*d) The permanent mathematical difference between the desired healthy setpoint and the actual stabilized biological value

@@ -3,14 +3,14 @@ Quiz: Chapter 4 - Design, Compensation & Control
 1. In a PID controller used for an Artificial Pancreas, what is the primary role of the Integral (I) term?
 a) To predict future drops in glucose and prevent hypoglycemia
 b) To react instantly to a sudden meal spike
-*c) To eliminate accumulated steady-state error over time
-d) To increase the overall frequency of insulin pulses
+c) To increase the overall frequency of insulin pulses
+*d) To eliminate accumulated steady-state error over time
 
 2. Exogenous epinephrine acts as a disturbance in the glucose-insulin loop. In control theory, how is rejection of such a measurable disturbance best handled in addition to regular feedback?
 a) By increasing the plant's time constant
 b) By adding a high-pass filter to the sensor
-c) By removing the derivative term of the PID
-*d) By implementing feedforward compensation
+*c) By implementing feedforward compensation
+d) By removing the derivative term of the PID
 
 3. What does "Parameter Identification" refer to in the context of clinical medicine?
 *a) Using output data (like continuous glucose readings) to estimate unknown internal model parameters (like insulin sensitivity)
@@ -19,43 +19,43 @@ c) Prescribing the exact same insulin dose to all patients
 d) Identifying the optimal time for a patient to wake up
 
 4. When designing a State-Feedback controller, full state feedback requires knowledge of:
-a) Only the final measured output
-*b) The entire vector of state variables at any given time
+*a) The entire vector of state variables at any given time
+b) Only the final measured output
 c) The integral of the error signal exclusively
 d) The disturbance signals only
 
 5. In Human-in-the-loop (HITL) control design, "patient variability" mathematically translates to:
-a) Constant coefficients in a linear model
-*b) Parametric uncertainty requiring robust control design
+*a) Parametric uncertainty requiring robust control design
+b) Constant coefficients in a linear model
 c) A perfectly isolated system with no external inputs
 d) Zero initial conditions
 
 6. The Derivative (D) term heavily penalizes:
-*a) The rapid rate of change of the error signal, providing "anticipatory" control to prevent overshoot (e.g., preventing severe hypoglycemia)
-b) The steady-state error remaining after a long duration
+a) The steady-state error remaining after a long duration
+*b) The rapid rate of change of the error signal, providing "anticipatory" control to prevent overshoot (e.g., preventing severe hypoglycemia)
 c) The amplitude of the baseline setpoint
 d) High-frequency sensor noise exclusively
 
 7. A major limitation of using the Derivative (D) term in clinical devices is:
 a) It causes immediate failure of the Integral term
 b) It cannot be programmed in modern microchips
-*c) It violently amplifies measurement noise (like noisy subcutaneous glucose readings)
-d) It forces the system to run slower
+c) It forces the system to run slower
+*d) It violently amplifies measurement noise (like noisy subcutaneous glucose readings)
 
 8. Adding a "Lead Compensator" in the frequency domain is conceptually similar to adjusting which PID parameter?
-*a) Derivative (D) control
+a) Proportional (P) control
 b) Integral (I) control
-c) Proportional (P) control
+*c) Derivative (D) control
 d) None of the above
 
 9. A typical engineering "Lag Compensator" is used primarily to:
 a) Speed up the transient response significantly
-*b) Improve steady-state accuracy without drastically affecting the transient stability profile
-c) Ensure the system oscillates indefinitely
+b) Ensure the system oscillates indefinitely
+*c) Improve steady-state accuracy without drastically affecting the transient stability profile
 d) Predict biological disturbances
 
 10. What does the "Root Locus" method allow a biomedical engineer to visualize?
-*a) The exact paths the closed-loop poles travel through the complex plane as a single controller parameter (like Proportional Gain) is varied from 0 to $\infty$
-b) The frequency response curve of the patient
+a) The frequency response curve of the patient
+*b) The exact paths the closed-loop poles travel through the complex plane as a single controller parameter (like Proportional Gain) is varied from 0 to $\infty$
 c) The exact patient metabolic parameters
 d) The time it takes for a meal to be absorbed

@@ -1,14 +1,14 @@
 Quiz: Chapter 6 - Equilibrium Point Analysis
 
 1. In a multi-stable nonlinear system, what is the clinical distinction between two stable equilibria $P_1$ and $P_3$?
-a) They are mathematically identical
-*b) $P_1$ might represent a healthy physiological state, while $P_3$ represents a pathological (disease) state like diabetes
+*a) $P_1$ might represent a healthy physiological state, while $P_3$ represents a pathological (disease) state like diabetes
+b) They are mathematically identical
 c) $P_1$ is only reachable via surgery
 d) $P_3$ corresponds to zero concentration of all variables
 
 2. In the Topp/Mohammed model of Glucose-Insulin dynamics, what does the parameter $P_G$ signify?
-*a) Total rate of hepatic (liver) glucose production
-b) Rate of peripheral glucose clearance independent of insulin
+a) Rate of peripheral glucose clearance independent of insulin
+*b) Total rate of hepatic (liver) glucose production
 c) The half-life of insulin
 d) The baseline beta cell mass
 
@@ -20,20 +20,20 @@ d) The total mass balance of the compartments
 
 4. In a phase portrait of a 2D biological system involving two species / variables:
 a) Trajectories can freely cross the negative axes and exist in the third quadrant
-*b) Trajectories represent the combined dynamics, naturally bound to the first quadrant ($x \geq 0, y \geq 0$)
+b) Localizing functions are primarily used to measure distance
 c) The vector field only contains straight, parallel arrows
-d) Localizing functions are primarily used to measure distance
+*d) Trajectories represent the combined dynamics, naturally bound to the first quadrant ($x \geq 0, y \geq 0$)
 
 5. According to the Hartman-Grobman Theorem, when is the qualitative behavior of a nonlinear system precisely identical to its linearization?
-*a) In a small neighborhood around a hyperbolic equilibrium point
+a) When the equilibrium point is a non-hyperbolic center
 b) Over the entire global state space
 c) Only in exactly linear biological systems
-d) When the equilibrium point is a non-hyperbolic center
+*d) In a small neighborhood around a hyperbolic equilibrium point
 
 6. Nullclines of a 2D system ($x', y'$) are curves in the phase plane where:
 a) The state achieves maximum growth
-*b) One of the derivatives is strictly zero, causing the vector field to cross either purely horizontally or purely vertically
-c) The two populations go extinct simultaneously
+b) The two populations go extinct simultaneously
+*c) One of the derivatives is strictly zero, causing the vector field to cross either purely horizontally or purely vertically
 d) The Jacobian Trace becomes zero
 
 7. Where do the true equilibrium points of a 2D system lie on a phase portrait?
@@ -43,19 +43,19 @@ b) At the point of maximum derivative $f(x)$
 d) At the point where the eigenvalues are zero
 
 8. In the classic Lotka-Volterra predator-prey system, what does the cyclic trajectory around the center point signify biologically?
-*a) Perpetual, out-of-phase oscillations where populations of predator and prey endlessly chase each other without reaching a stable point
-b) A rapid extinction of both species
+a) A rapid extinction of both species
+*b) Perpetual, out-of-phase oscillations where populations of predator and prey endlessly chase each other without reaching a stable point
 c) A stable healthy resting point for both species
 d) A catastrophic saddle-node destruction
 
 9. A point is classified as a "stable Focus" (spiral sink) if the Jacobian eigenvalues evaluated there are:
-a) Purely real and positive
+*a) Complex conjugates with strictly negative real parts
 b) Purely real and negative
-*c) Complex conjugates with strictly negative real parts
+c) Purely real and positive
 d) Complex conjugates with strictly positive real parts
 
 10. A Saddle Point possesses eigenvalues that are:
 a) Both purely real and negative
-*b) Purely real with opposite signs (one positive, one negative)
+b) Identical positive roots
 c) Complex conjugates with zero real parts
-d) Identical positive roots
+*d) Purely real with opposite signs (one positive, one negative)

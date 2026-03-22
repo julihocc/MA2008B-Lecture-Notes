@@ -3,36 +3,36 @@ Quiz: Chapter 9 - Positivity and Invariant Sets
 1. What fundamentally defines a "Positively Invariant Set" in a dynamical system?
 a) A region that only contains positive integers
 b) A region where local linearizations perfectly represent the global field
-*c) A region $\Omega$ such that any trajectory starting inside $\Omega$ will never leave $\Omega$ for all future time $t > 0$
-d) A state space where parameters are constantly increasing
+c) A state space where parameters are constantly increasing
+*d) A region $\Omega$ such that any trajectory starting inside $\Omega$ will never leave $\Omega$ for all future time $t > 0$
 
 2. According to Lema 1 (the Positivity Lemma), what biological impossibility is mathematically prevented?
 a) Insulin exceeding glucose levels
-*b) Biological masses or concentrations (like Glucose, Insulin, or $\beta$ cells) dropping below strictly zero (becoming negative)
-c) The system producing multiple equilibrium points
+b) The system producing multiple equilibrium points
+*c) Biological masses or concentrations (like Glucose, Insulin, or $\beta$ cells) dropping below strictly zero (becoming negative)
 d) Parameters varying with time
 
 3. To prove that the first orthant $\mathbb{R}^n_+$ is positively invariant using the Nagumo condition, what must be true about the vector field on the boundaries?
-*a) The vector field must point inward or be tangent to the boundary whenever a state variable equals zero
+a) The system must have exactly three stable equilibrium points
 b) The rate of change must always be negative at the origin
 c) The Jacobian matrix must equal the Identity matrix on the boundary
-d) The system must have exactly three stable equilibrium points
+*d) The vector field must point inward or be tangent to the boundary whenever a state variable equals zero
 
 4. In the $\beta$-cell mass model, setting $\beta = 0$ results in an "absorbing boundary". Clinically, what does this mathematically predict?
 a) That beta cells will regenerate over a 24-hour period
-*b) That once beta-cell mass reaches absolute zero (e.g., severe Type 1 Diabetes), the system cannot naturally recover because the trajectory is trapped at zero
+b) That the system enters a sustained limit-cycle oscillation
 c) That glucose drops to zero
-d) That the system enters a sustained limit-cycle oscillation
+*d) That once beta-cell mass reaches absolute zero (e.g., severe Type 1 Diabetes), the system cannot naturally recover because the trajectory is trapped at zero
 
 5. What happens if a biological model fails the Positivity Lemma?
-a) The model is perfectly valid but difficult to simulate
-*b) The model is physically unsound, as it permits biologically absurd negative concentrations
+*a) The model is physically unsound, as it permits biologically absurd negative concentrations
+b) The model is perfectly valid but difficult to simulate
 c) The model only applies to children, not adults
 d) The eigenvalues of the system flip signs
 
 6. The concept of "Attracting Sets" differs from invariant sets because:
-a) Invariant sets are purely theoretical
-*b) Attracting sets actively pull neighboring trajectories into themselves over time, whereas invariant sets simply trap trajectories that are already inside
+*a) Attracting sets actively pull neighboring trajectories into themselves over time, whereas invariant sets simply trap trajectories that are already inside
+b) Invariant sets are purely theoretical
 c) Attracting sets only apply to linear systems
 d) Attracting sets are always single points
 
@@ -49,13 +49,13 @@ c) Local positivity requires a supercomputer to calculate
 d) Global positivity means the system reaches infinity
 
 9. In the context of mathematical biology, an "Isocline" is best described as:
-*a) A curve along which the derivative of one state variable has a constant vector slope
-b) The exact trajectory of the patient's glucose
+a) The exact trajectory of the patient's glucose
+*b) A curve along which the derivative of one state variable has a constant vector slope
 c) A mathematical boundary separating negative from complex numbers
 d) A perfectly linear equation
 
 10. The biological requirement for compactness in an invariant region ensures that:
 a) The population will always extinct
-*b) The biological state variables (like glucose and insulin) are not only non-negative but also bounded from above by absolute finite maximums
-c) The equations can be written compactly on paper
+b) The equations can be written compactly on paper
+*c) The biological state variables (like glucose and insulin) are not only non-negative but also bounded from above by absolute finite maximums
 d) The patient possesses no body fat
