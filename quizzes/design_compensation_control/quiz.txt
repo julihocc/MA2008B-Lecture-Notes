@@ -56,6 +56,6 @@ d) Predict biological disturbances
 
 10. What does the "Root Locus" method allow a biomedical engineer to visualize?
 a) The frequency response curve of the patient
-*b) The exact paths the closed-loop poles travel through the complex plane as a single controller parameter (like Proportional Gain) is varied from 0 to $\infty$
+*b) The exact paths the closed-loop poles travel through the complex plane as a single controller parameter (like Proportional Gain) is varied from 0 to infinity
 c) The exact patient metabolic parameters
 d) The time it takes for a meal to be absorbed

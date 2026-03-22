@@ -30,17 +30,17 @@ a) The amount of time until the system runs out of energy
 c) The physical distance between the sensor and effector organs
 d) The steady-state error to a unit step input
 
-6. Evaluating $G(j\omega)$ involves analyzing the system's steady-state response to:
+6. Evaluating G(jomega) involves analyzing the system's steady-state response to:
 a) Pure step inputs
 b) Random biological noise
-*c) Continuous sinusoidal inputs of varying frequencies $\omega$
+*c) Continuous sinusoidal inputs of varying frequencies omega
 d) Only high-amplitude bolus injections
 
 7. A system acts as a "Low-Pass Filter" if its Bode magnitude plot:
 a) Remains flat constantly across all frequencies
 b) Attenuates low frequencies and amplifies high frequencies
 c) Has a phase of exactly zero everywhere
-*d) Maintains high gain at low frequencies but attenuates frequencies above a certain cut-off $\omega_c$
+*d) Maintains high gain at low frequencies but attenuates frequencies above a certain cut-off omega_c
 
 8. Biological organs (like the liver clearing hormones) naturally behave as which type of filter in the frequency domain?
 a) Pure delay lines with zero attenuation
@@ -58,4 +58,4 @@ d) The amount of time taken to reach steady state
 a) Deep in the left half of the complex plane
 b) Deep in the right half of the complex plane
 *c) On the imaginary axis (zero real part)
-d) At the mathematical origin $(0,0)$
+d) At the mathematical origin (0,0)

@@ -6,16 +6,16 @@ a) The AI is disconnected from the internet to prevent hacking
 c) The neural network only predicts linear behavior for maximum safety
 d) The model is restricted to only predicting glucose values exactly at the clinical observation points
 
-2. How are the theoretical LCIS bounds (e.g., $G_{max}$) from Chapter 10 uniquely utilized in the Hybrid PINN approach?
+2. How are the theoretical LCIS bounds (e.g., G_max) from Chapter 10 uniquely utilized in the Hybrid PINN approach?
 a) They are used to grade the final AI model after training
 b) They are supplied to a doctor to manually adjust the AI's settings
-*c) They are encoded as hard penalty constraints within the loss function $L_{safety}$, severely penalizing the network during training if it predicts values exceeding the proven global bounds
+*c) They are encoded as hard penalty constraints within the loss function L_safety, severely penalizing the network during training if it predicts values exceeding the proven global bounds
 d) They replace the clinical data entirely in the loss function
 
 3. The Positivity Penalty term ensures that the neural network learns to:
 a) Output positive emotions for the patient
 b) Force the eigenvalues of the system to become strictly positive
-*c) Never predict physically impossible negative mass or concentrations (e.g., penalizing $\hat{G} < 0$)
+*c) Never predict physically impossible negative mass or concentrations (e.g., penalizing G_hat < 0)
 d) Keep the trace of the Jacobian greater than zero
 
 4. What is the concept of a Medical "Digital Twin"?
@@ -24,7 +24,7 @@ b) A physical hardware replica of the patient's pancreas
 c) A backup file of the patient's clinical records
 *d) A real-time, highly personalized computational surrogate (like a trained patient-specific PINN) that continuously predicts the patient's future biological state to guide therapies
 
-5. By combining Inverse PINN parameter discovery (learning $S_I$ continuously) with explicit LCIS physical constraints, a Digital Twin inside an Artificial Pancreas could:
+5. By combining Inverse PINN parameter discovery (learning S_I continuously) with explicit LCIS physical constraints, a Digital Twin inside an Artificial Pancreas could:
 *a) Safely provide precise, personalized feed-forward predictions to a PID controller to dose insulin without risking dangerous mathematical extrapolation errors
 b) Permanently replace the need for physical insulin
 c) Avoid the need for any mathematical theory or biology knowledge

@@ -4,9 +4,9 @@ Quiz: Chapter 15 - PINNs Inverse Problem
 a) Finding the inverse of the system's Jacobian matrix
 b) Simulating future glucose trajectories based on perfectly known initial parameters
 c) Reversing the algebraic sign of the differential equations
-*d) Using limited clinical output observations (like sparse glucose readings) to deduce the unknown internal physiological parameters (like Insulin Sensitivity $S_I$)
+*d) Using limited clinical output observations (like sparse glucose readings) to deduce the unknown internal physiological parameters (like Insulin Sensitivity S_I)
 
-2. In an Inverse PINN architecture, how are the unknown physiological parameters (like $S_I$ and $\rho$) handled mathematically?
+2. In an Inverse PINN architecture, how are the unknown physiological parameters (like S_I and rho) handled mathematically?
 a) They are set to random constants and left untouched
 b) They are calculated algebraically in a preprocessing step before the network runs
 *c) They are treated as trainable optimization variables (just like the network's internal weights) and discovered jointly during training
@@ -32,7 +32,7 @@ d) Unable to discover parameters for nonlinear systems
 
 6. What is the difference between "observable" and "hidden" state variables in an Inverse PINN?
 a) Observable variables are positive; hidden variables are negative
-*b) Observable variables have corresponding clinical data in $L_{data}$, whereas hidden variables must be inferred entirely through their physics coupling in $L_{physics}$
+*b) Observable variables have corresponding clinical data in L_data, whereas hidden variables must be inferred entirely through their physics coupling in L_physics
 c) Hidden variables are physically located inside the neural network exclusively
 d) Observable variables are deleted before training begins
 
@@ -43,9 +43,9 @@ c) Yes, but only if all equation parameters are completely random
 d) No, because Beta-cells are independent of Glucose
 
 8. How does gradient descent locate the true patient parameters in an Inverse PINN?
-*a) By backpropagating the total loss error to calculate the gradients $\partial L / \partial S_I$, allowing the optimizer to shift the parameter toward the physical minimum
+*a) By backpropagating the total loss error to calculate the gradients d L / d S_I, allowing the optimizer to shift the parameter toward the physical minimum
 b) By isolating the parameters and solving a simple quadratic equation
-c) By randomly guessing until $L_{data} = 0$
+c) By randomly guessing until L_data = 0
 d) By integrating the ODE backward in time
 
 9. When identifying physiological constants across a patient cohort using PINNs, one major clinical benefit is:

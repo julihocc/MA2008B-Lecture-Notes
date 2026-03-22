@@ -13,13 +13,13 @@ c) Standard Gradient Descent
 *d) Runge-Kutta 4th/5th order
 
 3. In scientific computing, handling "stiffness" in biological models (e.g., tracking both fast insulin decay and slow beta-cell replication) often requires:
-a) A single enormous time-step, $h$, to skip the slow dynamics
+a) A single enormous time-step, h, to skip the slow dynamics
 b) A network that completely ignores physical laws
 c) Plotting the data by hand
 *d) Adaptive step-size solvers or implicit numerical integration methods like `ode15s`
 
-4. When simulating the LCIS bounding volume $K$ computationally over time:
-a) The bounds $G_{max}$ mathematically dictate the speed of integration
+4. When simulating the LCIS bounding volume K computationally over time:
+a) The bounds G_max mathematically dictate the speed of integration
 b) The simulation frequently exceeds the LCIS bounds due to software memory errors
 *c) The simulated trajectories plotted via `ode45` must strictly remain inside the limits mathematically predetermined by Theorem 2
 d) Computation replaces the need for analytical bounds entirely

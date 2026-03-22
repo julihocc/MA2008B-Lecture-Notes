@@ -3,12 +3,12 @@ Quiz: Chapter 8 - Bifurcation Theory
 1. What is a Saddle-Node Bifurcation in the context of the glucose-insulin model?
 a) The onset of smooth sustained oscillations
 b) The creation of two stable nodes and one saddle from a single stable point
-*c) The collision and mutual annihilation of a stable healthy node ($P_1$) and an unstable saddle ($P_2$), leaving only the diseased state ($P_3$)
+*c) The collision and mutual annihilation of a stable healthy node (P_1) and an unstable saddle (P_2), leaving only the diseased state (P_3)
 d) The mathematical condition where insulin equals glucose
 
 2. Why is the onset of Type 2 Diabetes often mathematically considered "irreversible" due to hysteresis?
 a) Because the patient quickly runs out of physical insulin entirely
-*b) Because reversing the insulin resistance $R$ slightly below the critical bifurcation point $R_c$ does not immediately restore the extinct physiological equilibrium
+*b) Because reversing the insulin resistance R slightly below the critical bifurcation point R_c does not immediately restore the extinct physiological equilibrium
 c) Because the numerical solver cannot integrate past a specific threshold
 d) Because beta cells are entirely governed by linear dynamics
 
@@ -30,17 +30,17 @@ b) Infinite stable nodes
 c) Purely linear, un-damped harmonic oscillators (centers)
 d) Transcritical pitchfork branches
 
-6. Mathematically, a Hopf bifurcation occurs at a parameter value $\mu$ when the Jacobian's eigenvalues:
-*a) Form a complex conjugate pair that crosses the imaginary axis ($\text{Re}(\lambda)$ goes from negative to positive)
-b) Collide exactly at the origin ($\lambda=0$)
+6. Mathematically, a Hopf bifurcation occurs at a parameter value mu when the Jacobian's eigenvalues:
+*a) Form a complex conjugate pair that crosses the imaginary axis (Re(lambda) goes from negative to positive)
+b) Collide exactly at the origin (lambda=0)
 c) Both become real and strictly positive
-d) Both become identically $-1$
+d) Both become identically -1
 
 7. What does a "Bifurcation Diagram" plot?
-a) The biological mass exactly over time $t$
+a) The biological mass exactly over time t
 b) The integral of the patient's heart rate
 c) The exact layout of a patient's veins
-*d) The steady-state equilibrium values against an altering system parameter $\mu$, showing topological changes
+*d) The steady-state equilibrium values against an altering system parameter mu, showing topological changes
 
 8. The Transcritical Bifurcation is defined by:
 a) The complete extinction of an equilibrium point permanently
@@ -57,5 +57,5 @@ c) The onset of an exact 24-hour cycle
 10. In biological control, mapping mathematical bifurcations allows researchers to accurately find:
 a) The speed of blood flow in arteries
 b) The exact volume of insulin stored
-*c) The critical safe parameter thresholds (e.g., maximum insulin resistance $S_I$) before a patient's homeostatic system topologically crashes
+*c) The critical safe parameter thresholds (e.g., maximum insulin resistance S_I) before a patient's homeostatic system topologically crashes
 d) The chemical composition of the pancreas

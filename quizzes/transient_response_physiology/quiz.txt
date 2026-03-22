@@ -18,13 +18,13 @@ b) Limit cycle oscillation
 c) Transient response
 d) Initial condition zero
 
-4. For a first-order system with time constant $\tau$, approximately what percentage of the final steady-state value is reached after one time constant following a step input?
+4. For a first-order system with time constant tau, approximately what percentage of the final steady-state value is reached after one time constant following a step input?
 a) 50%
 b) 95%
 *c) 63.2%
 d) 99%
 
-5. If a patient clears insulin according to $I' = -\gamma I$, and $\gamma$ increases due to a physiological change, what happens to the half-life of insulin in the blood?
+5. If a patient clears insulin according to I' = -gamma I, and gamma increases due to a physiological change, what happens to the half-life of insulin in the blood?
 a) It remains exactly the same
 b) It increases, meaning insulin persists longer
 *c) It decreases, meaning insulin is cleared faster
@@ -36,13 +36,13 @@ a) Violent oscillations that grow uncontrollably
 c) A rapid return to homeostasis with massive oscillations
 d) Instantaneous stabilization
 
-7. The concept of "Settling Time" ($T_s$) in the glucose-insulin loop represents:
+7. The concept of "Settling Time" (T_s) in the glucose-insulin loop represents:
 a) The exact time insulin levels hit zero
 b) The total duration a patient sleeps
 c) The time it takes for a meal to be fully eaten
 *d) The time required for blood glucose to return to and stay within a tight band (e.g., 2%) around the healthy physiological baseline after a meal
 
-8. In a second-order biological system, what happens if the damping ratio $\zeta$ is zero?
+8. In a second-order biological system, what happens if the damping ratio zeta is zero?
 *a) The system experiences sustained, undamped harmonic oscillations forever
 b) The system instantly settles to the baseline
 c) The roots become perfectly real and positive

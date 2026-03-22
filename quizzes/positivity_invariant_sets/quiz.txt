@@ -4,21 +4,21 @@ Quiz: Chapter 9 - Positivity and Invariant Sets
 a) A region that only contains positive integers
 b) A region where local linearizations perfectly represent the global field
 c) A state space where parameters are constantly increasing
-*d) A region $\Omega$ such that any trajectory starting inside $\Omega$ will never leave $\Omega$ for all future time $t > 0$
+*d) A region Omega such that any trajectory starting inside Omega will never leave Omega for all future time t > 0
 
 2. According to Lema 1 (the Positivity Lemma), what biological impossibility is mathematically prevented?
 a) Insulin exceeding glucose levels
 b) The system producing multiple equilibrium points
-*c) Biological masses or concentrations (like Glucose, Insulin, or $\beta$ cells) dropping below strictly zero (becoming negative)
+*c) Biological masses or concentrations (like Glucose, Insulin, or beta cells) dropping below strictly zero (becoming negative)
 d) Parameters varying with time
 
-3. To prove that the first orthant $\mathbb{R}^n_+$ is positively invariant using the Nagumo condition, what must be true about the vector field on the boundaries?
+3. To prove that the first orthant R^n_+ is positively invariant using the Nagumo condition, what must be true about the vector field on the boundaries?
 a) The system must have exactly three stable equilibrium points
 b) The rate of change must always be negative at the origin
 c) The Jacobian matrix must equal the Identity matrix on the boundary
 *d) The vector field must point inward or be tangent to the boundary whenever a state variable equals zero
 
-4. In the $\beta$-cell mass model, setting $\beta = 0$ results in an "absorbing boundary". Clinically, what does this mathematically predict?
+4. In the beta-cell mass model, setting beta = 0 results in an "absorbing boundary". Clinically, what does this mathematically predict?
 a) That beta cells will regenerate over a 24-hour period
 b) That the system enters a sustained limit-cycle oscillation
 c) That glucose drops to zero
@@ -36,8 +36,8 @@ b) Invariant sets are purely theoretical
 c) Attracting sets only apply to linear systems
 d) Attracting sets are always single points
 
-7. How does a structurally sound biological model mathematically enforce that glucose $G(t)$ never drops below 0?
-*a) By ensuring that the derivative $G' = f(G)$ is strictly positive whenever $G = 0$, often because external feeding or hepatic production acts as a non-negative source
+7. How does a structurally sound biological model mathematically enforce that glucose G(t) never drops below 0?
+*a) By ensuring that the derivative G' = f(G) is strictly positive whenever G = 0, often because external feeding or hepatic production acts as a non-negative source
 b) By manually programming the computer to stop simulating at zero
 c) By allowing insulin to become negative instead
 d) By using a purely mechanical physics equation

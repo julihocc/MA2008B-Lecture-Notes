@@ -6,31 +6,31 @@ b) A state of deep rest, mimicking sleep
 c) The natural breakdown of insulin in healthy subjects
 d) The surgical removal of the pancreas
 
-2. What is the definition of the critical Epi threshold $E_c = S_I / \rho$?
-a) The point at which $G_{max}$ equals zero
+2. What is the definition of the critical Epi threshold E_c = S_I / rho?
+a) The point at which G_max equals zero
 b) The time at which all glucose is depleted
 c) The maximum natural concentration of epinephrine the body can store
-*d) The exact concentration of epinephrine where insulin sensitivity $S_I$ is entirely neutralized by the resistance factor $\rho$
+*d) The exact concentration of epinephrine where insulin sensitivity S_I is entirely neutralized by the resistance factor rho
 
-3. Applying LCIS Theorem 2 to a model under severe Epinephrine stress ($E > E_c$) proves that:
+3. Applying LCIS Theorem 2 to a model under severe Epinephrine stress (E > E_c) proves that:
 a) The system remains highly stable with no variations
 b) Beta cells multiply infinitely
-*c) The upper bound for glucose $G_{max}$ diverges to infinity, mathematically predicting an unbounded hyperglycemic coma
+*c) The upper bound for glucose G_max diverges to infinity, mathematically predicting an unbounded hyperglycemic coma
 d) The system enters a stable limit cycle
 
-4. The parameter $\alpha$ in the model modifies the behavior of Beta cells under stress by:
+4. The parameter alpha in the model modifies the behavior of Beta cells under stress by:
 a) Instantly destroying all beta cells
-*b) Describing the suppression of insulin secretion when $E > 0$
+*b) Describing the suppression of insulin secretion when E > 0
 c) Reversing the natural death rate of beta cells
 d) Increasing insulin production identically to a meal
 
-5. What does the term $P_{G,e}(E)$ generally model?
+5. What does the term P_G,e(E) generally model?
 a) The insulin-independent glucose utilization
 b) The clearance rate of insulin
 c) The mechanical friction within the bloodstream
 *d) The stress-induced enhancement of hepatic (liver) glucose release stimulated directly by Epinephrine
 
-6. In the extended metabolic model, $\beta$-cell replication handles which biological timescale?
+6. In the extended metabolic model, beta-cell replication handles which biological timescale?
 a) Seconds
 b) Minutes
 *c) Extremely slow scales (days to months), adjusting long-term metabolic capacity to sustained stress
@@ -54,7 +54,7 @@ b) Because meals always cure diabetes
 *c) Because Epinephrine simultaneously induces hepatic glucose production, suppresses insulin secretion, and causes severe insulin resistance, overwhelming the homeostatic clearance mechanisms
 d) Because Epinephrine accelerates insulin clearance by 1000%
 
-10. What does the shift of the equilibrium from $P_1$ to $P_3$ in phase space formally capture?
+10. What does the shift of the equilibrium from P_1 to P_3 in phase space formally capture?
 a) The immediate digestion process of carbohydrates
 *b) The clinical progression from a reversible, healthy pre-diabetic state to a chronic, largely irreversible Type 2 Diabetic steady-state
 c) A patient standing up rapidly

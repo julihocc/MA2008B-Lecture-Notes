@@ -18,11 +18,11 @@ b) The rate of glucose absorption by peripheral tissues
 *c) The constant rate of hepatic glucose production
 d) The rate of insulin clearance from the blood
 
-4. Which of the following transfer functions $G(s)$ correctly identifies a system with a single pole, typical of a simple chemical clearance process $C' = -k C + u(t)$?
-a) $G(s) = s + k$
-b) $G(s) = 1 / (s^2 + k)$
-c) $G(s) = k / s$
-*d) $G(s) = 1 / (s + k)$
+4. Which of the following transfer functions G(s) correctly identifies a system with a single pole, typical of a simple chemical clearance process C' = -k C + u(t)?
+a) G(s) = s + k
+b) G(s) = 1 / (s^2 + k)
+c) G(s) = k / s
+*d) G(s) = 1 / (s + k)
 
 5. When building a block diagram for a feedback loop, what mathematical operation connects the forward path blocks placed in series?
 *a) Multiplication of their transfer functions
@@ -31,7 +31,7 @@ c) Convolution of their transfer functions
 d) Division of their transfer functions
 
 6. Which variable in the basic diabetes model represents the target setpoint for homeostasis?
-*a) The basal (basline) glucose concentration $G_b$
+*a) The basal (basline) glucose concentration G_b
 b) The clearance rate of insulin
 c) The rate of exogenous glucagon
 d) External meal disturbances
@@ -40,7 +40,7 @@ d) External meal disturbances
 a) Basal metabolic rate
 b) Glomerular filtration rate
 c) Total blood volume
-*d) Insulin Sensitivity ($S_I$)
+*d) Insulin Sensitivity (S_I)
 
 8. What is the difference between an open-loop and a closed-loop biological system?
 a) Closed-loop systems have no external disturbances
@@ -48,7 +48,7 @@ b) Open-loop systems never reach steady state
 *c) Closed-loop systems utilize feedback (like insulin responding to glucose) to regulate output, while open-loop systems do not.
 d) Open-loop systems only contain nonlinear components
 
-9. If a compartmental model states $dV/dt = Q_{in} - Q_{out}$, what does $V$ measure?
+9. If a compartmental model states dV/dt = Q_in - Q_out, what does V measure?
 a) Total pressure
 *b) Total volume or mass accumulating within the biological boundary
 c) Absolute steady-state error
@@ -57,5 +57,5 @@ d) The mathematical derivative of the boundary size
 10. A transfer function describes:
 a) Only the nonlinear behaviors of the system
 b) The specific physical location of the organ in the body
-c) The sum of all state variables at $t=0$
+c) The sum of all state variables at t=0
 *d) The ratio of the Laplace transform of the output to the input, assuming zero initial conditions

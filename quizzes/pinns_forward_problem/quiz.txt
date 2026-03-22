@@ -12,16 +12,16 @@ b) The PINN runs thousands of times slower for 1D problems
 *c) The PINN acts as a mesh-free, infinite-resolution solver that yields a direct analytical function, whereas `ode45` requires step-by-step sequential integration
 d) `ode45` uses neural networks intrinsically, while PINNs use rigid polynomials
 
-3. In a Forward PINN, how are the precise time derivatives like $\hat{G}'(t)$ computed during training?
-a) By simple finite differences $(G_2 - G_1)/(t_2 - t_1)$
+3. In a Forward PINN, how are the precise time derivatives like G_hat'(t) computed during training?
+a) By simple finite differences (G_2 - G_1)/(t_2 - t_1)
 *b) By Automatic Differentiation (Autodiff), leveraging the neural network's exact computational graph
 c) By manually solving the integral with calculus
 d) By asking an external numerical solver for the derivative
 
 4. If a Neural Network is trained as an ODE solver for the Glucose-Insulin system, what parameters is the optimizer updating?
-a) The patient's actual insulin sensitivity $S_I$
-*b) The internal weights and biases $\theta$ of the neural network
-c) The step-sizes $h$ of the internal Runge-Kutta loop
+a) The patient's actual insulin sensitivity S_I
+*b) The internal weights and biases theta of the neural network
+c) The step-sizes h of the internal Runge-Kutta loop
 d) The initial clinical conditions provided by the doctor
 
 5. A "Stiff" ODE system is characterized by:
@@ -30,22 +30,22 @@ b) Tissues that are physically hardened in a patient
 *c) Multiple interacting variables with vastly different timescales (e.g., extremely rapid insulin clearance vs slow beta-cell dynamics), complicating numerical and neural training
 d) Variables that remain completely unchanging over time
 
-6. In the context of a Forward PINN, what does the $L_{data}$ term predominantly consist of?
+6. In the context of a Forward PINN, what does the L_data term predominantly consist of?
 a) The inverse of the weights matrix
 b) Thousands of dense, perfectly sampled clinical readouts
 c) The difference between the Jacobian and the true trajectory
-*d) Only the initial conditions (e.g., $G(0), I(0), \beta(0)$) since no other target data exists for a pure forward solver
+*d) Only the initial conditions (e.g., G(0), I(0), beta(0)) since no other target data exists for a pure forward solver
 
 7. Why might a standard PINN struggle to solve the forward problem for chaotic biological systems over extremely long time horizons?
 a) Because chaotic systems have no mathematical equations
 *b) Standard PINNs often converge to local minima that average out the high-frequency variations, failing to capture complex, long-term sequential dependencies
-c) Because time $t$ cannot exceed $1.0$ in neural networks
+c) Because time t cannot exceed 1.0 in neural networks
 d) Because autograd fails on continuous systems
 
-8. As training progresses, the physics loss $L_{physics} \to 0$. What does this physically guarantee?
+8. As training progresses, the physics loss L_physics -> 0. What does this physically guarantee?
 *a) That the neural network's output function perfectly satisfies the governing nonlinear differential equations at all sampled collocation points
 b) That the patient is clinically cured
-c) That the system has reached a stable equilibrium $P_1$
+c) That the system has reached a stable equilibrium P_1
 d) That all neural weights have shrunk to exactly zero
 
 9. What is a "Soft Boundary Condition" in standard PINN training?
