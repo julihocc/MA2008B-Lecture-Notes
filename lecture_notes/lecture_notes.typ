@@ -47,7 +47,7 @@
 #include "chapters/positivity_invariant_sets/main.typ"
 #include "chapters/the_lcis_method/main.typ"
 #include "chapters/metabolic_case_study/main.typ"
-#include "chapters/computational_trends/main.typ"
+#include "chapters/computational_implementation/main.typ"
 
 #part("Part IV: Physics-Informed Neural Networks")
 
