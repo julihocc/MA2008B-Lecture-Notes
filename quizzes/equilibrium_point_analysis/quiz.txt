@@ -1,0 +1,31 @@
+Quiz: Chapter 6 - Equilibrium Point Analysis
+
+1. In a multi-stable nonlinear system, what is the clinical distinction between two stable equilibria $P_1$ and $P_3$?
+a) They are mathematically identical
+*b) $P_1$ might represent a healthy physiological state, while $P_3$ represents a pathological (disease) state like diabetes
+c) $P_1$ is only reachable via surgery
+d) $P_3$ corresponds to zero concentration of all variables
+
+2. In the Topp/Mohammed model of Glucose-Insulin dynamics, what does the parameter $P_G$ signify?
+*a) Total rate of hepatic (liver) glucose production
+b) Rate of peripheral glucose clearance independent of insulin
+c) The half-life of insulin
+d) The baseline beta cell mass
+
+3. What does the Jacobian Matrix evaluate for a multidimensional nonlinear system?
+a) The global domain over which the system is bounded
+b) The exact analytical solution of the ODE
+*c) The local linear approximation (vector field flow) around a specific point, used to determine stability via eigenvalues
+d) The total mass balance of the compartments
+
+4. In a phase portrait of a 2D biological system involving two species / variables:
+a) Trajectories can freely cross the negative axes and exist in the third quadrant
+*b) Trajectories represent the combined dynamics, naturally bound to the first quadrant ($x \geq 0, y \geq 0$)
+c) The vector field only contains straight, parallel arrows
+d) Localizing functions are primarily used to measure distance
+
+5. According to the Hartman-Grobman Theorem, when is the qualitative behavior of a nonlinear system precisely identical to its linearization?
+*a) In a small neighborhood around a hyperbolic equilibrium point
+b) Over the entire global state space
+c) Only in exactly linear biological systems
+d) When the equilibrium point is a non-hyperbolic center

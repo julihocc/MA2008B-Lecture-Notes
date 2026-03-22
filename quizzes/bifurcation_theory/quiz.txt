@@ -1,0 +1,31 @@
+Quiz: Chapter 8 - Bifurcation Theory
+
+1. What is a Saddle-Node Bifurcation in the context of the glucose-insulin model?
+*a) The collision and mutual annihilation of a stable healthy node ($P_1$) and an unstable saddle ($P_2$), leaving only the diseased state ($P_3$)
+b) The creation of two stable nodes and one saddle from a single stable point
+c) The onset of smooth sustained oscillations
+d) The mathematical condition where insulin equals glucose
+
+2. Why is the onset of Type 2 Diabetes often mathematically considered "irreversible" due to hysteresis?
+a) Because the patient quickly runs out of physical insulin entirely
+b) Because the numerical solver cannot integrate past a specific threshold
+*c) Because reversing the insulin resistance $R$ slightly below the critical bifurcation point $R_c$ does not immediately restore the extinct physiological equilibrium
+d) Because beta cells are entirely governed by linear dynamics
+
+3. A Hopf Bifurcation describes:
+*a) The birth or destruction of a Limit Cycle (a periodic orbit) as a parameter crosses a critical value
+b) The system going to infinite values (finite-time blowup)
+c) Two nodes permanently sliding along the x-axis
+d) The transformation of a linear system into a nonlinear system
+
+4. Why are Subcritical Hopf bifurcations often considered dangerous in physiology?
+*a) They introduce 'hard' catastrophic jumps to entirely different, often distant attractors, rather than the smooth onset of small oscillations
+b) They solely occur in mechanical systems, not biology
+c) They ensure that the state never exceeds a positive boundary
+d) They occur purely when the trace of the Jacobian is strictly negative
+
+5. In Chronobiology, what mathematical feature guarantees resilient, self-sustaining 24-hour biological rhythms even under physiological noise?
+*a) Limit Cycles (born via supercritical Hopf bifurcations)
+b) Infinite stable nodes
+c) Purely linear, un-damped harmonic oscillators (centers)
+d) Transcritical pitchfork branches

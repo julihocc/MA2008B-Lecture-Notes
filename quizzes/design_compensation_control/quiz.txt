@@ -1,0 +1,31 @@
+Quiz: Chapter 4 - Design, Compensation & Control
+
+1. In a PID controller used for an Artificial Pancreas, what is the primary role of the Integral (I) term?
+a) To predict future drops in glucose and prevent hypoglycemia
+b) To react instantly to a sudden meal spike
+*c) To eliminate accumulated steady-state error over time
+d) To increase the overall frequency of insulin pulses
+
+2. Exogenous epinephrine acts as a disturbance in the glucose-insulin loop. In control theory, how is rejection of such a measurable disturbance best handled in addition to regular feedback?
+a) By increasing the plant's time constant
+b) By adding a high-pass filter to the sensor
+c) By removing the derivative term of the PID
+*d) By implementing feedforward compensation
+
+3. What does "Parameter Identification" refer to in the context of clinical medicine?
+*a) Using output data (like continuous glucose readings) to estimate unknown internal model parameters (like insulin sensitivity)
+b) The process of giving a medical device its unique serial number
+c) Prescribing the exact same insulin dose to all patients
+d) Identifying the optimal time for a patient to wake up
+
+4. When designing a State-Feedback controller, full state feedback requires knowledge of:
+a) Only the final measured output
+*b) The entire vector of state variables at any given time
+c) The integral of the error signal exclusively
+d) The disturbance signals only
+
+5. In Human-in-the-loop (HITL) control design, "patient variability" mathematically translates to:
+a) Constant coefficients in a linear model
+*b) Parametric uncertainty requiring robust control design
+c) A perfectly isolated system with no external inputs
+d) Zero initial conditions

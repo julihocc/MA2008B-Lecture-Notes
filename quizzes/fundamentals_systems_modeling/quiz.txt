@@ -1,0 +1,31 @@
+Quiz: Chapter 1 - Fundamentals of Systems Modeling
+
+1. In the context of compartmental modeling, what do the state variables typically represent?
+a) Velocities and accelerations of physical masses
+*b) Biological masses or concentrations within distinct volumes
+c) Electrical currents and voltages in a circuit
+d) The eigenvalues of the system matrix
+
+2. What is the fundamental principle of Mass Balance applied to a single compartment?
+*a) Rate of change of mass = Rate in - Rate out + Production - Consumption
+b) The total mass in the compartment must remain strictly constant over time
+c) The rate of production is always equal to the rate of consumption
+d) The derivative of mass is proportional to its second derivative
+
+3. In the Glucose-Insulin minimal model, what does the term "P_G" typically represent?
+a) The rate of insulin secretion by beta cells
+b) The rate of glucose absorption by peripheral tissues
+c) The rate of insulin clearance from the blood
+*d) The constant rate of hepatic glucose production
+
+4. Which of the following transfer functions $G(s)$ correctly identifies a system with a single pole, typical of a simple chemical clearance process $C' = -k C + u(t)$?
+a) $G(s) = s + k$
+*b) $G(s) = 1 / (s + k)$
+c) $G(s) = k / s$
+d) $G(s) = 1 / (s^2 + k)$
+
+5. When building a block diagram for a feedback loop, what mathematical operation connects the forward path blocks placed in series?
+*a) Multiplication of their transfer functions
+b) Addition of their transfer functions
+c) Convolution of their transfer functions
+d) Division of their transfer functions

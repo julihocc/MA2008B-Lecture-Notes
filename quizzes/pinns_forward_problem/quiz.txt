@@ -1,0 +1,31 @@
+Quiz: Chapter 14 - PINNs Forward Problem
+
+1. When solving the "Forward Problem" using a neural network, what are we attempting to calculate?
+a) Unknown patient parameters like Insulin Sensitivity
+b) Reversing the arrow of time to calculate past meals
+*c) Simulating the continuous state trajectories (like Glucose over time) given perfectly known differential equations and initial conditions
+d) Designing a PID controller for an underlying process
+
+2. How does a Forward PINN differ from traditional numerical integration solvers, such as `ode45` (Runge-Kutta 4/5)?
+*a) The PINN acts as a mesh-free, infinite-resolution solver that yields a direct analytical function, whereas `ode45` requires step-by-step sequential integration
+b) The PINN runs thousands of times slower for 1D problems
+c) The PINN can only compute steady-states, not transient behavior
+d) `ode45` uses neural networks intrinsically, while PINNs use rigid polynomials
+
+3. In a Forward PINN, how are the precise time derivatives like $\hat{G}'(t)$ computed during training?
+a) By simple finite differences $(G_2 - G_1)/(t_2 - t_1)$
+b) By manually solving the integral with calculus
+*c) By Automatic Differentiation (Autodiff), leveraging the neural network's exact computational graph
+d) By asking an external numerical solver for the derivative
+
+4. If a Neural Network is trained as an ODE solver for the Glucose-Insulin system, what parameters is the optimizer updating?
+*a) The internal weights and biases $\theta$ of the neural network
+b) The patient's actual insulin sensitivity $S_I$
+c) The step-sizes $h$ of the internal Runge-Kutta loop
+d) The initial clinical conditions provided by the doctor
+
+5. A "Stiff" ODE system is characterized by:
+a) Equations that are mathematically unsolvable
+*b) Multiple interacting variables with vastly different timescales (e.g., extremely rapid insulin clearance vs slow beta-cell dynamics), complicating numerical and neural training
+c) Tissues that are physically hardened in a patient
+d) Variables that remain completely unchanging over time

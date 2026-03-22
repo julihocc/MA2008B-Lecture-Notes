@@ -1,0 +1,31 @@
+Quiz: Chapter 9 - Positivity and Invariant Sets
+
+1. What fundamentally defines a "Positively Invariant Set" in a dynamical system?
+a) A region that only contains positive integers
+b) A region where local linearizations perfectly represent the global field
+*c) A region $\Omega$ such that any trajectory starting inside $\Omega$ will never leave $\Omega$ for all future time $t > 0$
+d) A state space where parameters are constantly increasing
+
+2. According to Lema 1 (the Positivity Lemma), what biological impossibility is mathematically prevented?
+a) Insulin exceeding glucose levels
+*b) Biological masses or concentrations (like Glucose, Insulin, or $\beta$ cells) dropping below strictly zero (becoming negative)
+c) The system producing multiple equilibrium points
+d) Parameters varying with time
+
+3. To prove that the first orthant $\mathbb{R}^n_+$ is positively invariant using the Nagumo condition, what must be true about the vector field on the boundaries?
+*a) The vector field must point inward or be tangent to the boundary whenever a state variable equals zero
+b) The rate of change must always be negative at the origin
+c) The Jacobian matrix must equal the Identity matrix on the boundary
+d) The system must have exactly three stable equilibrium points
+
+4. In the $\beta$-cell mass model, setting $\beta = 0$ results in an "absorbing boundary". Clinically, what does this mathematically predict?
+a) That beta cells will regenerate over a 24-hour period
+*b) That once beta-cell mass reaches absolute zero (e.g., severe Type 1 Diabetes), the system cannot naturally recover because the trajectory is trapped at zero
+c) That glucose drops to zero
+d) That the system enters a sustained limit-cycle oscillation
+
+5. What happens if a biological model fails the Positivity Lemma?
+a) The model is perfectly valid but difficult to simulate
+*b) The model is physically unsound, as it permits biologically absurd negative concentrations
+c) The model only applies to children, not adults
+d) The eigenvalues of the system flip signs

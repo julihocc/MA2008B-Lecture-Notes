@@ -1,0 +1,31 @@
+Quiz: Chapter 3 - Frequency Response & Oscillations
+
+1. What distinguishes an ultradian rhythm from a circadian rhythm?
+a) Ultradian rhythms have a period of exactly 24 hours
+b) Ultradian rhythms are driven by external light, whereas circadian are internal
+*c) Ultradian rhythms have a period shorter than 24 hours (e.g., minutes to hours)
+d) Ultradian rhythms only occur in plants, not mammals
+
+2. The pulsatile secretion of insulin by beta cells (every 5-15 minutes) is an example of what type of biological phenomenon?
+a) Circadian rhythm
+*b) Ultradian rhythm
+c) Homeostatic decay
+d) Seasonal variation
+
+3. In frequency-domain analysis of biological signals, what does the Nyquist criterion fundamentally assess?
+a) The speed at which a drug is absorbed
+*b) The stability of closed-loop feedback systems using open-loop frequency response
+c) The total volume of distribution of a hormone
+d) The exact time of day a circadian peak occurs
+
+4. The "Dawn Phenomenon" in diabetes, characterized by a morning rise in blood glucose, is primarily driven by:
+a) The lack of carbohydrate intake during sleep
+b) The exponential decay of rapid-acting insulin
+c) Constant external noise affecting the pancreas
+*d) Circadian peaks of counter-regulatory hormones like cortisol and growth hormone
+
+5. In a Bode plot analysis of a biological feedback loop, the "Phase Margin" indicates:
+a) The amount of time until the system runs out of energy
+b) The physical distance between the sensor and effector organs
+*c) The amount of additional phase lag required to make the system unstable
+d) The steady-state error to a unit step input

@@ -1,0 +1,31 @@
+Quiz: Chapter 5 - Nonlinear Differential Equations
+
+1. What is the fundamental difference between linear and nonlinear dynamical systems?
+a) Linear systems only exist in physical engineering; nonlinear systems only in biology
+*b) Nonlinear systems can possess multiple isolated equilibrium points and exhibit complex behaviors like limit cycles, whereas linear systems cannot
+c) Linear systems cannot be solved computationally, unlike nonlinear systems
+d) Nonlinear systems always have exactly one equilibrium point
+
+2. In mathematical biology, what does the "Finite time blow-up" of a solution usually indicate?
+*a) A failure of the model's validity, as biological quantities (like population or mass) cannot physically reach infinity
+b) An accurate representation of normal cellular growth
+c) The onset of a stable, healthy steady state
+d) The effect of a perfect PID controller
+
+3. What is meant by a "Hyperbolic Equilibrium point" in a 1D system?
+*a) The system's derivative at the equilibrium, $f'(x^*)$, is strictly non-zero
+b) The system's derivative at the equilibrium is exactly zero
+c) The equilibrium acts as a saddle node
+d) The system is entirely insensitive to initial conditions
+
+4. When interpreting a Phase-Line for a 1D autonomous biological model:
+a) The origin is always stable
+b) The direction of the arrows depends entirely on the initial time $t_0$
+*c) Arrows point right where $f(x)>0$ and left where $f(x)<0$, showing which equilibria are attractors
+d) The length of the line corresponds to the duration of the experiment
+
+5. In the classic logistic growth equation $x' = r x(1 - x/K)$, what biological parameter does $K$ represent?
+*a) Carrying capacity, the maximum population the environment can support
+b) Intrinsic growth rate
+c) The rate of predation
+d) Infinite exponential growth boundary

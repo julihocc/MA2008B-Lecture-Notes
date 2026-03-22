@@ -1,0 +1,31 @@
+Quiz: Chapter 12 - Computational Trends
+
+1. Why are explicit Euler methods generally disfavored for complex physiological ODEs?
+a) They are too fast for modern hardware
+*b) They suffer from severe numerical instability when integrating "stiff" systems with multiple biological timescales
+c) They require exactly equal mass parameters
+d) They natively calculate Lyapunov functions automatically
+
+2. Which standard computational algorithm is typically used (e.g., as `ode45`) for highly accurate forward simulation of continuous biological systems?
+*a) Runge-Kutta 4th/5th order
+b) Newton-Raphson
+c) Standard Gradient Descent
+d) Cramer's Rule
+
+3. In scientific computing, handling "stiffness" in biological models (e.g., tracking both fast insulin decay and slow beta-cell replication) often requires:
+a) A single enormous time-step, $h$, to skip the slow dynamics
+b) A network that completely ignores physical laws
+c) Plotting the data by hand
+*d) Adaptive step-size solvers or implicit numerical integration methods like `ode15s`
+
+4. When simulating the LCIS bounding volume $K$ computationally over time:
+*a) The simulated trajectories plotted via `ode45` must strictly remain inside the limits mathematically predetermined by Theorem 2
+b) The simulation frequently exceeds the LCIS bounds due to software memory errors
+c) The bounds $G_{max}$ mathematically dictate the speed of integration
+d) Computation replaces the need for analytical bounds entirely
+
+5. Non-Linear Finite Element Methods (FEM) in modern biomedicine are primarily utilized to:
+a) Model simple zero-dimensional mass balance compartments
+*b) Shift from ODEs to PDEs, resolving the *spatial* distribution and physical mechanics of cellular tissues and organs during dynamic loading or diffusion
+c) Identify parameters from patient heart-rate monitors
+d) Compute steady state equilibrium nodes algebraically

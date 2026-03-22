@@ -1,0 +1,31 @@
+Quiz: Chapter 2 - Transient Response in Physiology
+
+1. In pharmacokinetics, a continuous intravenous infusion is mathematically modeled as which type of input?
+a) Dirac delta (impulse) function
+*b) Heaviside step function
+c) Sinusoidal bounded function
+d) Ramp function
+
+2. A rapid intravenous injection (bolus) is best approximated mathematically by:
+*a) A Dirac delta (impulse) function
+b) A Heaviside step function
+c) A parabolic function
+d) An exponentially growing function
+
+3. The biological concept of homeostasis corresponds mathematically to which concept in control theory?
+a) Transient response
+b) Limit cycle oscillation
+*c) Asymptotically stable steady state (equilibrium)
+d) Initial condition zero
+
+4. For a first-order system with time constant $\tau$, approximately what percentage of the final steady-state value is reached after one time constant following a step input?
+a) 50%
+*b) 63.2%
+c) 95%
+d) 99%
+
+5. If a patient clears insulin according to $I' = -\gamma I$, and $\gamma$ increases due to a physiological change, what happens to the half-life of insulin in the blood?
+*a) It decreases, meaning insulin is cleared faster
+b) It increases, meaning insulin persists longer
+c) It remains exactly the same
+d) The system becomes unstable and oscillatory
