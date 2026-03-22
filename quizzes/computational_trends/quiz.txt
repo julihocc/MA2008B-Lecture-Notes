@@ -1,61 +1,61 @@
-Quiz: Chapter 12 - Computational Trends
+Quiz: Chapter 12 - Computational Implementation and Trends
 
-1. Why are explicit Euler methods generally disfavored for complex physiological ODEs?
-a) They are too fast for modern hardware
-*b) They suffer from severe numerical instability when integrating "stiff" systems with multiple biological timescales
-c) They require exactly equal mass parameters
-d) They natively calculate Lyapunov functions automatically
+1. Why is the ODE45 (Adaptive Runge-Kutta) solver ideal for the glucose-insulin-epinephrine system?
+*a) It adaptively changes its step size to capture abrupt dynamics (like an epinephrine stress event) while managing local truncation error
+b) It explicitly computes the inverse Jacobian algebraically without any numerical approximation
+c) It is the only solver capable of handling pure linear constants
+d) It converts all nonlinear differential equations instantly into frequency domain polynomials
 
-2. Which standard computational algorithm is typically used (e.g., as `ode45`) for highly accurate forward simulation of continuous biological systems?
-a) Cramer's Rule
-b) Newton-Raphson
-c) Standard Gradient Descent
-*d) Runge-Kutta 4th/5th order
+2. In the context of the UVA/Padova Type 1 Diabetes Simulator, what is a primary advantage?
+a) It replaces the physical insulin pump hardware entirely
+*b) It enables safe, "in silico" clinical trials on virtual patients spanning different physiologies before human testing
+c) It completely avoids the use of mathematical equations
+d) It strictly uses only linear static physiological models
 
-3. In scientific computing, handling "stiffness" in biological models (e.g., tracking both fast insulin decay and slow beta-cell replication) often requires:
-a) A single enormous time-step, h, to skip the slow dynamics
-b) A network that completely ignores physical laws
-c) Plotting the data by hand
-*d) Adaptive step-size solvers or implicit numerical integration methods like `ode15s`
+3. Comparing Linear Quadratic Regulator (LQR) to Reinforcement Learning (RL), which statement is true regarding LQR?
+a) LQR is a model-free approach that learns entirely from data experience
+b) LQR can naturally and easily handle massive unknown nonlinearities
+*c) LQR requires an explicit mathematical model (A and B matrices) and guarantees stability for linear systems
+d) LQR is computationally too complex for any embedded medical device
 
-4. When simulating the LCIS bounding volume K computationally over time:
-a) The bounds G_max mathematically dictate the speed of integration
-b) The simulation frequently exceeds the LCIS bounds due to software memory errors
-*c) The simulated trajectories plotted via `ode45` must strictly remain inside the limits mathematically predetermined by Theorem 2
-d) Computation replaces the need for analytical bounds entirely
+4. In biological control applications, what is a fundamental characteristic of Reinforcement Learning (RL)?
+a) It requires an explicit perfect Jacobian matrix to begin operating
+b) It always guarantees analytical stability bounds during the initial training phase
+c) It is limited exclusively to continuous linear systems
+*d) It is model-free, learning policies through direct interaction with the environment to maximize a cumulative reward
 
-5. Non-Linear Finite Element Methods (FEM) in modern biomedicine are primarily utilized to:
-a) Model simple zero-dimensional mass balance compartments
-b) Identify parameters from patient heart-rate monitors
-*c) Shift from ODEs to PDEs, resolving the *spatial* distribution and physical mechanics of cellular tissues and organs during dynamic loading or diffusion
-d) Compute steady state equilibrium nodes algebraically
+5. A Medical "Digital Twin" is best described as:
+*a) A virtual representation of a physical system that updates in real-time, allowing optimization of parameters before physical application
+b) A secondary physical pancreas organ printed from stem cells
+c) An exact identical mathematical equilibrium point located in the right half-plane
+d) An obsolete numerical method for static calculations
 
-6. In numerical integration, the "Truncation Error" corresponds to:
-a) The doctor truncating the medical record arbitrarily
-*b) The mathematical error introduced by approximating continuous calculus (like Taylor series) with discrete algorithmic steps
-c) A hardware failure in the CPU
-d) Missing parameters in the equations
+6. In computational optimization of biological systems, "Stochastic Optimization" primarily addresses:
+a) Finding global optima in a perfectly smooth landscape
+*b) Handling uncertainty and noise inherently found in biological measurements
+c) Coordinating multiple distributed agents without a central controller
+d) Guaranteeing exact analytical limits
 
-7. What makes implicit computational solvers incredibly valuable for biological models?
-*a) They offer superior numerical stability unconditionally for stiff systems, allowing larger time steps without divergent oscillations
-b) They run in backwards temporal direction
-c) They never use any calculus
-d) They are simpler to program than Euler methods
+7. What is a major current research challenge regarding "Non-convex Optimization" in mathematical models?
+a) The inability of computers to process absolute values
+b) Guaranteeing that an optimization loop takes exactly one iteration
+*c) Finding global optima across complex, rugged landscapes filled with multiple deceptive local minima
+d) The complete absence of noise in the data
 
-8. How does a numerical Jacobian matrix conceptually help implicit solver algorithms?
-*a) It guides the iterative root-finding algorithms (like Newton-Raphson) hidden inside the implicit step solver
-b) It replaces the biological model
-c) It determines the physical volume of the patient
-d) It stops the simulation when the patient dies
+8. When validating the analytically derived LCIS bound G_max computationally, the numerical trajectory G(t) must:
+a) Cross the boundary precisely at time t=0 and grow indefinitely
+b) Form perfect un-damped oscillations permanently along the boundary
+c) Immediately drop to negative infinity
+*d) Never exceed G_max at any point in time, remaining bounded inside the predetermined set
 
-9. The concept of "Spatial discretization" is vital for:
-a) Simple compartmental ODE tracing
-*b) Spatially distributed PDEs (like Finite Element modeling soft tissue mechanics or drug diffusion across organs)
-c) Frequency domain Bode plotting
-d) Analytical calculus operations
+9. Why would fixed-step Euler integration fail drastically when simulating a sharp epinephrine bolus?
+a) Euler integration is too mathematically complex for modern CPUs
+*b) The model's "stiffness" requires very small step sizes during the sharp transient; a large fixed-step cannot adapt and becomes unstable
+c) Euler methods only work for algebraic equations with no time dependency
+d) The bolus completely removes all variables from the system
 
-10. A Monte Carlo approximation differs fundamentally from a traditional Runge-Kutta simulation by:
-a) Being restricted solely to linear models
-b) Replacing the differential equations entirely with pure geometric algebra
-c) Exclusively tracking the exact deterministic path perfectly
-*d) Introducing random stochastic sampling to evaluate probability distributions and parameter variations across populations
+10. In optimizing a complex system using a Digital Twin, which sequence characterizes the typical workflow?
+a) Control, followed by optimization, and discarding the data
+b) Optimization, followed by removing the physical asset
+c) Guessing the model completely without incoming data
+*d) Data collection from sensors, real-time calibration of the physics model, optimization, and sending control settings back to the physical asset
