@@ -1,61 +1,61 @@
-Quiz: Chapter 12 - Computational Implementation and Trends
+Quiz: Chapter 12 - Computational Implementation
 
-1. In the classical 4th-order Runge-Kutta (RK4) method, the intermediate slope k_3 is calculated at which relative time step?
-*a) t_n + h/2
-b) t_n + h
-c) t_n
-d) t_n - h
+1. Why is the ODE45 (Adaptive Runge-Kutta) solver ideal for the glucose-insulin-epinephrine system?
+*a) It adaptively changes its step size to capture abrupt dynamics (like an epinephrine stress event) while managing local truncation error
+b) It explicitly computes the inverse Jacobian algebraically without any numerical approximation
+c) It is the only solver capable of handling pure linear constants
+d) It converts all nonlinear differential equations instantly into frequency domain polynomials
 
-2. What is the fundamental goal of the continuous Algebraic Riccati Equation (ARE) in Linear Quadratic Regulator (LQR) control?
-a) To completely eliminate all differential equations
-*b) To solve for the positive definite matrix P, which defines the optimal feedback gain K = R^(-1) B^T P
-c) To randomly guess physical patient parameters without data
-d) To prove that the biological system is fundamentally chaotic
+2. In the context of the UVA/Padova Type 1 Diabetes Simulator, what is a primary advantage?
+a) It replaces the physical insulin pump hardware entirely
+*b) It enables safe, "in silico" clinical trials on virtual patients spanning different physiologies before human testing
+c) It completely avoids the use of mathematical equations
+d) It strictly uses only linear static physiological models
 
-3. In the Reinforcement Learning (RL) framework, what does the Bellman Equation primarily calculate?
-a) The instantaneous numerical derivative of the glucose trajectory
-b) The explicit matrix A in a linearized state-space model
-*c) The optimal action-value function Q*(s, a), maximizing the expected cumulative discounted reward 
-d) The exact time at which an epinephrine bolus is injected
+3. In spatial biological modeling, how does a standard Reaction-Diffusion equation characterize a concentration C(x,t)?
+a) By assuming the entire organ is a perfectly mixed homogeneous volume
+b) By eliminating all time derivatives using the inverse Laplace transform
+*c) As a partial differential equation (PDE) balancing concentration diffusion (nabla^2 C) against nonlinear metabolic reaction kinetics f(C)
+d) By strictly bounding the parameter C to be negative
 
-4. How does LQR theoretically differ from Model-Free Reinforcement Learning in a clinical artificial pancreas?
-a) LQR requires no mathematical equations whatsoever
-b) RL guarantees absolute Lyapunov stability from day one of training
-c) LQR operates strictly on stochastic neural network updates
-*d) LQR requires explicit known physical matrices (A, B) to guarantee stability analytically, while RL learns purely from data interactions
+4. The fundamental purpose of the Galerkin Weak Formulation in FEM is to:
+a) Increase the necessary polynomial order of the biological equations
+b) Convert arbitrary complex numbers into pure real roots
+c) Verify identical stability across all linear points instantly
+*d) Relax the strict mathematical continuity requirements of the PDE by multiplying by test functions and employing integration by parts
 
-5. What mathematical role does the matrix R play in the infinite-horizon discrete LQR cost function J?
-*a) It strictly penalizes the magnitude of the control effort (e.g., restricting excessive insulin pumping)
-b) It represents the completely random noise in a sensor
-c) It is the identity matrix that scales time to infinity
-d) It dictates the absolute bounds of the LCIS set
+5. When the spatial concentration C(x,t) is expanded into a finite polynomial basis sum c_i(t) phi_i(x) in FEM, what happens to the continuous PDE?
+*a) It effectively transforms into a massive system of coupled nonlinear Ordinary Differential Equations (ODEs) representing the dynamic nodes
+b) It instantly collapses the tissue model into a 1D straight line
+c) It transforms the biological system into an unpredictable chaotic oscillator
+d) It perfectly separates the glucose dynamics from external insulin
 
-6. The FDA-accepted UVA/Padova Simulator mathematically accelerates artificial pancreas research by:
-a) Eliminating the need for any control theories whatsoever
-*b) Facilitating rigorous "in silico" clinical trials using thousands of deterministic virtual mathematical patients, eliminating initial human risk
-c) Transforming continuous ODEs into exact algebraic polynomials instantly
-d) Ensuring all biological systems are purely linear
+6. At perfect biological spatial homeostasis (steady state), the time derivative vector c'(t) = 0. What does the FEM system mathematically reduce to?
+a) Exactly the continuous Algebraic Riccati Equation
+*b) A system of purely nonlinear algebraic equations K c - F(c) = 0 
+c) A strictly linear system matching exactly the identity matrix
+d) The initial continuous Parabolic PDE with inverted signs
 
-7. In adaptive numerical solvers simulating complex biomedical interactions, why is the step size "h" continuously resized?
-a) Because fixed numbers crash python
-b) Because the computer's internal clock runs irregularly
-*c) To bound local truncation errors and ensure stability across both fast (bolus) and slow (recovery) biological timescales
-d) To strictly guarantee the matrix P remains positive definite
+7. How is the resulting nonlinear FEM spatial equilibrium K c - F(c) = 0 typically solved computationally?
+a) By simple fraction reduction
+b) By running the ODE45 simulator for infinite time manually
+*c) By utilizing an iterative multivariate root-finding algorithm, such as the Newton-Raphson method
+d) By mapping all values directly to zero
 
-8. What parameter handles the trade-off of long-term vs short-term progression in the RL action-value function Q(s,a)?
-a) The step size h
-b) The State Space matrix A
-c) The optimal cost J
-*d) The discount factor gamma, where gamma is strictly between 0 and 1
-
-9. When validating the analytically derived LCIS bound G_max computationally across 500 minutes, what condition confirms the mathematical proof?
+8. When validating the analytically derived LCIS bound G_max computationally across 500 minutes, what condition confirms the mathematical proof?
 a) G(t) forms perfect non-decaying sine-waves exactly on the surface of G_max
-*b) G(t) never exceeds the theoretically derived numerical limit G_max at any t, proving the system stays within the bounded invariant set
+b) G(t) diverges slowly towards infinity
 c) The numerical Jacobian converges exactly to zero 
-d) G(t) diverges slowly towards infinity
+*d) G(t) never exceeds the theoretically derived numerical limit G_max at any t, proving the system stays within the bounded invariant set
 
-10. A defining characteristic of the continuous Algebraic Riccati Equation (ARE) is that it solves for:
-a) A singular, non-invertible negative matrix
-b) The inverse Laplace transform of the glucose dynamics
-c) The exact discrete step-size "h" for the Runge-Kutta array
-*d) A unique positive definite matrix P used directly in constructing the optimal closed-loop feedback vector
+9. Why would fixed-step Euler integration fail drastically when simulating a sharp epinephrine bolus?
+a) Euler integration is too mathematically complex for modern CPUs
+*b) The model's "stiffness" requires very small step sizes during the sharp transient; a large fixed-step cannot adapt and becomes unstable
+c) Euler methods only work for algebraic equations with no time dependency
+d) The bolus completely removes all variables from the system
+
+10. In the resulting ODE system generated by the Nonlinear Finite Element Method M c'(t) + K c(t) = F(c), what do the mathematical matrices M and K represent respectively?
+a) Momentum and Kinetics
+b) Magnetic and Kinematic forces
+c) Measurement and Kalibraton
+*d) The Mass Matrix and the Stiffness Matrix, derived from taking integrals over the basis functions
