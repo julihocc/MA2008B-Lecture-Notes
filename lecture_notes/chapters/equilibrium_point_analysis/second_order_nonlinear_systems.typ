@@ -1,100 +1,60 @@
 #import "../../../utils.typ": *
-== Second-Order Nonlinear Systems
+== Biological Vector Fields & Phase Portraits
 
 === Mathematical Review
 
-This section studies two-dimensional autonomous nonlinear systems of the form
-$ x' = f(x,y) \ y' = g(x,y). $
-Unlike linear systems, nonlinear systems can have multiple equilibria and complex behaviors such as limit cycles. We begin by analyzing the local behavior near each equilibrium using linearization.
+This section visualizes the global behavior of 2D biological systems using phase portraits and vector fields. Unlike classical mechanics (e.g., the pendulum), biological variables (like populations, cell counts, or hormone concentrations) must remain non-negative.
 
-#definition[Equilibrium Solutions][
-  An equilibrium (or critical point) $(x^*, y^*)$ satisfies the system of algebraic equations:
-  $ f(x^*, y^*) = 0, quad g(x^*, y^*) = 0. $
+#definition[Vector Fields in Biology][
+  The system
+  $ x' = f(x,y) \ y' = g(x,y) $
+  assigns a vector $(f(x,y), g(x,y))$ to every point $(x,y)$ in the first quadrant $x >= 0, y >= 0$. 
+  The collection of all these vectors forms the *vector field*. A solution curve $(x(t), y(t))$ plotted in the $x y$-plane is always tangent to the vector field.
 ]
 
-#definition[Jacobian Matrix and Linearization][
-  To understand the flow near an equilibrium $(x^*, y^*)$, we linearize the system by considering small perturbations $u = x - x^*$ and $v = y - y^*$. The linearized system is
-  $ mat(u'; v') = J(x^*, y^*) mat(u; v), $
-  where the Jacobian matrix is
-  $ J(x,y) = mat( (partial f) / (partial x), (partial f) / (partial y) ; (partial g) / (partial x), (partial g) / (partial y) ). $
-]
-
-#definition[Hyperbolic Equilibrium (2D)][
-  An equilibrium $(x^*, y^*)$ is called hyperbolic if the Jacobian matrix $J(x^*, y^*)$ has no eigenvalues with zero real part.
-]
-
-#theorem[Hartman-Grobman Theorem (Linear Stability Theory)][
-  If the equilibrium $(x^*,y^*)$ is hyperbolic, then the qualitative behavior of the nonlinear system in a small neighborhood of $(x^*,y^*)$ is topologically the same as that of its linearization.
+#definition[Nullclines][
+  Nullclines are the curves where the vector field is purely horizontal or purely verbal.
+  - The $x$-nullcline is the set of points where $f(x,y) = 0$. Here, vectors point strictly up or down.
+  - The $y$-nullcline is the set of points where $g(x,y) = 0$. Here, vectors point strictly left or right.
   
-  In particular:
-  - If all eigenvalues of $J$ have negative real parts, the equilibrium is locally asymptotically stable.
-  - If at least one eigenvalue has a positive real part, the equilibrium is unstable.
+  Equilibrium points structurally only occur at the intersections of the $x$-nullcline and $y$-nullcline.
 ]
 
-Note that if the linearization yields a center (purely imaginary eigenvalues), the Hartman-Grobman theorem does not apply, and higher-order terms determine whether the true nonlinear equilibrium is a stable focus, unstable focus, or a true center.
-
-#definition[Phase Portraits for Nonlinear Systems][
-  To draw the global phase portrait of a 2D nonlinear system:
-  1. Find all equilibrium points $(x^*,y^*)$.
-  2. Compute the Jacobian matrix $J(x,y)$.
-  3. Evaluate $J$ at each equilibrium to find its eigenvalues and eigenvectors.
-  4. Classify each equilibrium (node, saddle, focus, etc., as defined in @sec:linear_systems) and sketch the local trajectories using the eigenvectors (for nodes/saddles) or rotation direction (for foci).
-  5. Combine the local portraits into a global picture, inferring the connecting trajectories.
+#definition[The FitzHugh-Nagumo Model][
+  A classic simplification of the Hodgkin-Huxley neuron model. It describes the voltage $v$ (fast) and a recovery variable $w$ (slow):
+  $ v' = v - v^3 / 3 - w + I_"ext" \ w' = epsilon (v + a - b w) $
+  By analyzing the cubic $v$-nullcline and the linear $w$-nullcline, we can visually predict whether a neuron will rest, fire a single action potential, or burst continuously.
 ]
 
 === Solved Problems
 
-#solved_problem[Linearizing a Nonlinear System][
-  Find all equilibria and classify their local stability for the system:
-  $ x' = x(1 - x - y) \ y' = y(1 - 2x - y / 2). $
+#solved_problem[Lotka-Volterra Predator-Prey Phase Portrait][
+  Consider the Lotka-Volterra equations for prey $x(t)$ and predators $y(t)$:
+  $ x' = x(a - b y) \ y' = y(-c + d x) $
+  where $a,b,c,d > 0$. Find the nullclines, locate the equilibria, and describe the vector field in each region of the first quadrant.
 ]
 #solution[
-  *1. Equilibria:*
-  Set $x' = 0$ and $y' = 0$:
-  $ x(1 - x - y) = 0 \ y(1 - 2x - y/2) = 0 $
+  *1. Nullclines:*
+  Set $x' = 0$: $x=0$ or $y = a/b$. These are the $x$-nullclines.
+  Set $y' = 0$: $y=0$ or $x = c/d$. These are the $y$-nullclines.
 
-  Case A: $x=0$. Then $y(1-y/2)=0 => y=0$ or $y=2$. Points: $(0,0), (0,2)$.
-  Case B: $x != 0$. Then $1-x-y=0 => y=1-x$.
-  Substitute into the second equation: $y=0$ or $1-2x-(1-x)/2=0$.
-  If $y=0$, then $x=1$, giving $(1,0)$.
-  If $y != 0$, then $1 - 2x - 1/2 + x/2 = 0 => 1/2 - 3/2 x = 0 => x=1/3$.
-  Then $y = 1 - 1/3 = 2/3$. Point: $(1/3, 2/3)$.
+  *2. Equilibria:*
+  Intersection of nullclines gives two equilibria: $(0,0)$ and $(c/d, a/b)$.
 
-  The equilibria are $(0,0), (0,2), (1,0)$, and $(1/3, 2/3)$.
+  *3. Regional Vector Field Analysis:*
+  The horizontal and vertical nullclines $x = c/d$ and $y = a/b$ divide the interior of the first quadrant into four distinct regions:
+  - *Bottom-Left ($x < c/d, y < a/b$):* $x'>0$ and $y'<0$. Vectors point Right & Down.
+  - *Bottom-Right ($x > c/d, y < a/b$):* $x'>0$ and $y'>0$. Vectors point Right & Up.
+  - *Top-Right ($x > c/d, y > a/b$):* $x'<0$ and $y'>0$. Vectors point Left & Up.
+  - *Top-Left ($x < c/d, y > a/b$):* $x'<0$ and $y'<0$. Vectors point Left & Down.
 
-  *2. Jacobian Matrix:*
-  $ f(x,y) = x - x^2 - x y \ g(x,y) = y - 2x y - y^2 / 2 $
-  $ J(x,y) = mat(1 - 2x - y, -x; -2y, 1 - 2x - y). $
-
-  *3. Classification:*
-  - At $(0,0)$: $J(0,0) = mat(1, 0; 0, 1)$. Eigenvalues $lambda=1,1$. Unstable node.
-  - At $(0,2)$: $J(0,2) = mat(-1, 0; -4, -1)$. Eigenvalues $lambda=-1,-1$. Stable node.
-  - At $(1,0)$: $J(1,0) = mat(-1, -1; 0, -1)$. Eigenvalues $lambda=-1,-1$. Stable node.
-  - At $(1/3, 2/3)$: $J(1/3, 2/3) = mat(-1/3, -1/3; -4/3, -1/3)$. 
-    $ tau = -2/3, quad Delta = 1/9 - 4/9 = -1/3 < 0. $
-    Since $Delta < 0$, it is a saddle point (unstable).
+  Following the arrows continuously, the vector field forces trajectories to rotate counter-clockwise around the equilibrium $(c/d, a/b)$. Linearization shows this equilibrium is a true center in the nonlinear system, proving the existence of continuous population cycles.
 ]
 
-#solved_problem[The Nonlinear Pendulum][
-  Analyze the undamped nonlinear pendulum equation $theta'' + sin theta = 0$.
+=== Supplementary Problems
+
+#supplementary[Competitive Exclusion Principle][
+  Two species competing for the same limited resource can be modeled by:
+  $ x' = r_1 x(1 - x - alpha y) \ y' = r_2 y(1 - y - beta x) $
+  Sketch the nullclines for the case where $alpha > 1$ and $beta > 1$ (strong inter-species competition). Show visually that the interior equilibrium is a saddle point, leading to the clinical fact that one species will inevitably drive the other to extinction.
 ]
-#solution[
-  Let $x = theta$ and $y = theta'$. We rewrite it as a first-order system:
-  $ x' = y \ y' = -sin x $
-  
-  Equilibria: $y=0$ and $sin x = 0 => x = n pi$ for integer $n$.
-  The points are $(n pi, 0)$.
-
-  Jacobian:
-  $ J(x,y) = mat(0, 1; -cos x, 0) $
-
-  - At $x = 2k pi$ (downward positions):
-    $ J(2k pi, 0) = mat(0, 1; -1, 0). $
-    Eigenvalues are $plus.minus i$. Linearization yields a center. By incorporating the energy function (see next section), we can prove these are true nonlinear centers.
-
-  - At $x = (2k+1)pi$ (upward positions):
-    $ J((2k+1)pi, 0) = mat(0, 1; 1, 0). $
-    Eigenvalues are $plus.minus 1$. These correspond to unstable saddle points.
-]
-
-
