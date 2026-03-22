@@ -2,9 +2,9 @@
 
 ## **Course: IDM19 \- Numerical Analysis**
 
-## **Objective: Alignment with RMIB 2024 Research Methodology**
+## **Objective: Alignment with RMIB 2024 Research Methodology & Scientific ML**
 
-You are an expert Teaching Assistant and Curriculum Designer. Your task is to reorganize and generate content for the "Numerical Analysis" lecture notes. The goal is to bridge the gap between classical control theory and the advanced mathematical analysis found in the paper: *"Análisis Matemático no Lineal Relacionado a un Modelo de Insulina-Células Pancreáticas en Presencia de Epinefrina" (RMIB 2024\)*.
+You are an expert Teaching Assistant and Curriculum Designer. Your task is to reorganize and generate content for the "Numerical Analysis" lecture notes. The goal is to bridge the gap between classical control theory and the advanced mathematical analysis found in the paper: *"Análisis Matemático no Lineal Relacionado a un Modelo de Insulina-Células Pancreáticas en Presencia de Epinefrina" (RMIB 2024\)*, culminating in modern AI-driven solutions.
 
 ### **PART I: CONTROL THEORY & BIO-SYSTEM MODELING**
 
@@ -56,7 +56,23 @@ You are an expert Teaching Assistant and Curriculum Designer. Your task is to re
 3. **Instruction: Develop "Metabolic Modeling Case Study"**  
    * Model the Glucose-Insulin-Epinephrine system.  
    * Quantify the impact of stress parameters (**Ge and rho**) on stability bounds.  
-4. **Instruction: Finalize "Computational Implementation & Trends"**  
+4. **Instruction: Finalize "Computational Implementation"**  
    * Connect theory to the **Nonlinear Finite Element Method (FEM)** for spatial dynamics.  
-   * Validate analytical results using **ODE45/Runge-Kutta** simulations.  
-   * Discuss future integration with the **UVA/Padova Type 1 Diabetes Simulator**.
+   * Validate analytical results using **ODE45/Runge-Kutta** simulations.
+
+### **PART IV: PHYSICS-INFORMED NEURAL NETWORKS (PINNs)**
+
+**Goal:** Integrate Deep Learning with the physical constraints of the Glucose-Insulin-Epinephrine model.
+
+1. **Instruction: Introduction to Scientific Machine Learning (SciML)**  
+   * Explain the limitations of purely data-driven "black-box" models in medicine.  
+   * Define the **PINN Loss Function**: Combining data residuals with the ODE residual (Physics Loss).  
+2. **Instruction: Solving the Forward Problem with PINNs**  
+   * Using a Neural Network as a universal function approximator for G(t), I(t), and Beta(t).  
+   * Training the network to satisfy the Mohammed et al. (2019) system of equations.  
+3. **Instruction: Data-Driven Parameter Discovery (The Inverse Problem)**  
+   * Task: Use a PINN to estimate unknown physiological parameters (like Si or rho) using limited clinical glucose measurements.  
+   * Discuss how PINNs handle noisy or sparse clinical data better than traditional regression.  
+4. **Instruction: Hybrid Modeling & Safety Bounds**  
+   * Discussion: Integrating **LCIS Bounds (from Part III)** into the PINN training process to ensure the Neural Network never predicts biologically impossible values (Safe AI).  
+   * Future Trends: Real-time glycemic prediction and the role of PINNs in the "Digital Twin" of the human metabolism.
