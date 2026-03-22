@@ -48,3 +48,10 @@
 #include "chapters/the_lcis_method/main.typ"
 #include "chapters/metabolic_case_study/main.typ"
 #include "chapters/computational_trends/main.typ"
+
+#part("Part IV: Physics-Informed Neural Networks")
+
+#include "chapters/scientific_ml_intro/main.typ"
+#include "chapters/pinns_forward_problem/main.typ"
+#include "chapters/pinns_inverse_problem/main.typ"
+#include "chapters/hybrid_modeling_safety/main.typ"
