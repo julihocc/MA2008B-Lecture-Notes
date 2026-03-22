@@ -1,9 +1,9 @@
 #import "@preview/bookly:0.1.0": *
 #import "../utils.typ": *
 
-#let tecBlue = rgb("#0039A6")
-#let tecLightBlue = rgb("#00B1EB")
-#let tecDarkBlue = rgb("#002D72")
+#let tecBlue = rgb("#0039A6") // Official Tec Cobalt
+#let tecLightBlue = rgb("#3B82F6") // Vibrant Modern Azure for fresh gradients
+#let tecDarkBlue = rgb("#0F172A") // Premium Deep Slate for headers
 
 #show: book.with(title: "Numerical Analysis", author: "Dr. Juliho Castillo Colmenares, Ph.D.", book-config: (
   theme: "modern",

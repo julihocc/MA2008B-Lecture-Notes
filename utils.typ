@@ -14,10 +14,10 @@
 #let definition = thmbox(
 	"definition",
 	"Definition",
-	fill: rgb("fff3e0"),
-	stroke: rgb("e65100") + 0.6pt,
+	fill: rgb("#F8FAFC"),
+	stroke: rgb("#0039A6") + 0.6pt,
 	radius: 0pt,
-	inset: 8pt,
+	inset: 10pt,
 	base: "heading",
 	breakable: true,
 )
@@ -26,10 +26,10 @@
 #let theorem = thmbox(
 	"theorem",
 	"Theorem",
-	fill: rgb("e8eaf6"),
-	stroke: rgb("283593") + 0.6pt,
+	fill: rgb("#EFF6FF"),
+	stroke: rgb("#3B82F6") + 0.6pt,
 	radius: 0pt,
-	inset: 8pt,
+	inset: 10pt,
 	base: "heading",
 	breakable: true,
 )
@@ -72,38 +72,38 @@
 	)
 }
 
-// Solved Problems (Schaum's Style)
+// Solved Problems (Schaum's Style Refined)
 #let solved_problem = thmbox(
 	"solved_problem",
 	"Solved Problem",
-	fill: rgb("e6f3ff"),
-	stroke: rgb("0074d9") + 0.6pt,
+	fill: rgb("#F0FDF4"),
+	stroke: rgb("#10B981") + 0.6pt,
 	radius: 0pt,
-	inset: 8pt,
+	inset: 10pt,
 	base: "heading",
 	breakable: true,
 )
 
-// Supplementary Problems (Schaum's Style)
+// Supplementary Problems (Schaum's Style Refined)
 #let supplementary = thmbox(
 	"supplementary",
 	"Supplementary Problem",
-	fill: rgb("fffde7"),
-	stroke: rgb("fbc02d") + 0.6pt,
+	fill: rgb("#FFFBEB"),
+	stroke: rgb("#F59E0B") + 0.6pt,
 	radius: 0pt,
-	inset: 8pt,
+	inset: 10pt,
 	base: "heading",
 	breakable: true,
 )
 
-// Exercises (Keeping for backward compatibility or generic use)
+// Exercises (Schaum's Style Refined)
 #let exercise = thmbox(
 	"exercise",
 	"Exercise",
-	fill: rgb("f3e5f5"),
-	stroke: rgb("6a1b9a") + 0.6pt,
+	fill: rgb("#F1F5F9"),
+	stroke: rgb("#64748B") + 0.6pt,
 	radius: 0pt,
-	inset: 8pt,
+	inset: 10pt,
 	base: "heading",
 	breakable: true,
 )
