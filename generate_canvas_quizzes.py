@@ -131,16 +131,31 @@ def parse_txt_file(filepath):
     return quiz_title, questions
 
 # ==========================================
-# RUN EXPORT FOR ALL 16 QUIZZES
+# RUN EXPORT 
 # ==========================================
 if __name__ == "__main__":
-    files = glob.glob('quizzes/*/quiz.txt')
+    import sys
+    
+    # Check if a specific file was provided as a command line argument
+    if len(sys.argv) > 1:
+        # User specified specific files/paths
+        files = sys.argv[1:]
+    else:
+        # Default fallback: process all known quizzes if none specified
+        print("No specific file provided. Defaulting to batch export of all quizzes...")
+        files = glob.glob('quizzes/*/quiz.txt')
+        
     files.sort()
     
     if not files:
-        print("No quiz.txt files found!")
+        print("No quiz.txt files found or specified!")
+        sys.exit(1)
         
     for filepath in files:
+        if not os.path.exists(filepath):
+            print(f"Error: File '{filepath}' does not exist. Skipping.")
+            continue
+            
         quiz_title, questions = parse_txt_file(filepath)
         if questions:
             # Output zip directly inside the respective quiz chapter folder
@@ -152,4 +167,4 @@ if __name__ == "__main__":
             
             create_canvas_zip(quiz_title, questions, output_zip)
         else:
-            print(f"Could not parse any questions in {filepath}.")
+            print(f"Could not parse any questions in '{filepath}'.")
