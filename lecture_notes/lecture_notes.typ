@@ -2,13 +2,13 @@
 #import "../utils.typ": *
 
 #let tecBlue = rgb("#0039A6") // Official Tec Cobalt
-#let tecLightBlue = rgb("#3B82F6") // Vibrant Modern Azure for fresh gradients
-#let tecDarkBlue = rgb("#0F172A") // Premium Deep Slate for headers
+#let tecLightBlue = rgb("#6366F1") // Vibrant Electric Indigo for 'WOW' gradients
+#let tecDarkBlue = rgb("#020617") // Premium Nocturnal Navy for high-contrast headers
 
 #show: book.with(title: "Numerical Analysis", author: "Dr. Juliho Castillo Colmenares, Ph.D.", book-config: (
   theme: "modern",
   lang: "en",
-  colors: (primary: tecBlue, secondary: tecLightBlue, boxeq: rgb("#f0f0f0"), header: tecDarkBlue),
+  colors: (primary: tecBlue, secondary: tecLightBlue, boxeq: rgb("#F8FAFC"), header: tecDarkBlue),
   fonts: (body: "New Computer Modern", math: "New Computer Modern Math"),
   title-page: book-title-page(
     subtitle: "For Non-Linear Optimization",

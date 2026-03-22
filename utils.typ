@@ -15,9 +15,9 @@
 	"definition",
 	"Definition",
 	fill: rgb("#F8FAFC"),
-	stroke: rgb("#0039A6") + 0.6pt,
-	radius: 0pt,
-	inset: 10pt,
+	stroke: (left: rgb("#0039A6") + 3pt, rest: rgb("#E2E8F0") + 0.5pt),
+	radius: 2pt,
+	inset: 12pt,
 	base: "heading",
 	breakable: true,
 )
@@ -26,10 +26,10 @@
 #let theorem = thmbox(
 	"theorem",
 	"Theorem",
-	fill: rgb("#EFF6FF"),
-	stroke: rgb("#3B82F6") + 0.6pt,
-	radius: 0pt,
-	inset: 10pt,
+	fill: rgb("#F8FAFC"),
+	stroke: (left: rgb("#6366F1") + 3pt, rest: rgb("#E2E8F0") + 0.5pt),
+	radius: 2pt,
+	inset: 12pt,
 	base: "heading",
 	breakable: true,
 )
@@ -72,14 +72,14 @@
 	)
 }
 
-// Solved Problems (Schaum's Style Refined)
+// Solved Problems (Modern Refinement)
 #let solved_problem = thmbox(
 	"solved_problem",
 	"Solved Problem",
-	fill: rgb("#F0FDF4"),
-	stroke: rgb("#10B981") + 0.6pt,
-	radius: 0pt,
-	inset: 10pt,
+	fill: rgb("#F8FAFC"),
+	stroke: (left: rgb("#10B981") + 3pt, rest: rgb("#E2E8F0") + 0.5pt),
+	radius: 2pt,
+	inset: 12pt,
 	base: "heading",
 	breakable: true,
 )
