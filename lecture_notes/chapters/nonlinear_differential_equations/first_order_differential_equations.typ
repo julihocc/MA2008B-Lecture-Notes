@@ -18,13 +18,17 @@ the usual local conditions are read as follows.
 - Existence: if $f$ is continuous near $(t_0,x_0)$, then at least one local solution exists.
 - Uniqueness: if $f$ is locally Lipschitz in $x$ (uniformly in $t$ on a small rectangle), then the local solution is unique.
 
-Here, "Lipschitz in $x$" means there is a constant $L>0$ such that
-$ |f(t,x_1)-f(t,x_2)| <= L |x_1-x_2| $
-for points in the region under consideration.
-The same $L$ controls how fast $f$ can change with respect to $x$.
+#definition[Lipschitz Continuity in $x$][
+  Let $D$ be a domain in the $(t,x)$-plane, and let $f$ map $D$ into the real numbers.
+  We say that $f$ is Lipschitz continuous with respect to $x$ on $D$ if there exists a constant $L>0$ such that
+  $ |f(t,x_1)-f(t,x_2)| <= L |x_1-x_2| $
+  for all $(t,x_1),(t,x_2) in D$ with the same $t$.
 
-- Local Lipschitz: the inequality holds on a neighborhood of $(t_0,x_0)$.
-- Global Lipschitz: the inequality holds on the whole domain.
+  Any such constant $L$ is called a Lipschitz constant (in $x$) for $f$ on $D$.
+
+  - Local Lipschitz in $x$: for each $(t_0,x_0)$ in the domain, there exists a neighborhood $U$ of $(t_0,x_0)$ and $L_U>0$ such that the inequality holds on $U$.
+  - Global Lipschitz in $x$: there exists a single constant $L>0$ such that the inequality holds on the entire domain.
+]
 
 For IVP uniqueness, local Lipschitz is enough.
 
