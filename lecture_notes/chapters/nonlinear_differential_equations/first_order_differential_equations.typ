@@ -11,13 +11,6 @@ This section covers Chapter 1 topics: basic results, first-order linear equation
   Existence and uniqueness are separate questions and use different assumptions.
 ]
 
-For
-$ x' = f(t,x), quad x(t_0)=x_0, $
-the usual local conditions are read as follows.
-
-- Existence: if $f$ is continuous near $(t_0,x_0)$, then at least one local solution exists.
-- Uniqueness: if $f$ is locally Lipschitz in $x$ (uniformly in $t$ on a small rectangle), then the local solution is unique.
-
 #definition[Lipschitz Continuity in $x$][
   Let $D$ be a domain in the $(t,x)$-plane, and let $f$ map $D$ into the real numbers.
   We say that $f$ is Lipschitz continuous with respect to $x$ on $D$ if there exists a constant $L>0$ such that
@@ -30,15 +23,25 @@ the usual local conditions are read as follows.
   - Global Lipschitz in $x$: there exists a single constant $L>0$ such that the inequality holds on the entire domain.
 ]
 
-For IVP uniqueness, local Lipschitz is enough.
+#theorem[Local Existence and Uniqueness for First-Order IVPs][
+  Consider the IVP
+  $ x' = f(t,x), quad x(t_0)=x_0. $
+
+  - Existence: if $f$ is continuous in a neighborhood of $(t_0,x_0)$, then the IVP admits at least one local solution.
+  - Uniqueness: if, in addition, $f$ is locally Lipschitz in $x$ (uniformly in $t$ on a small rectangle), then the local solution is unique.
+
+  In particular, local Lipschitz continuity in $x$ is sufficient for IVP uniqueness.
+]
 
 The uniqueness condition is the stronger one. A common practical sufficient condition is:
 if $(partial f)/(partial x)$ exists and is continuous (or just bounded) on a neighborhood of $(t_0,x_0)$, then $f$ is locally Lipschitz in $x$, hence the IVP is locally well-posed (existence + uniqueness).
 
-So, in practice, a quick hierarchy is
-continuity of $f$ implies existence,
-local Lipschitz in $x$ implies uniqueness,
-and continuity/boundedness of $(partial f)/(partial x)$ implies local Lipschitz in $x$.
+In practice, the local hypotheses can be organized as the following implication chain near $(t_0,x_0)$:
+- continuity of $f$ implies local existence;
+- local Lipschitz continuity of $f$ in $x$ implies local uniqueness;
+- existence of $(partial f)/(partial x)$ with continuity (or boundedness) implies local Lipschitz continuity in $x$.
+
+Hence, continuity of $(partial f)/(partial x)$ (or its local boundedness) is a convenient sufficient condition for local well-posedness (existence and uniqueness).
 
 #definition[Finite time blow-up][
   Even when solutions exist and are unique locally, they may not exist for all time. If a solution $x(t)$ rapidly goes to infinity as $t$ approaches some finite time $T$, we say the solution exhibits finite time blow-up.
