@@ -1,7 +1,160 @@
 #import "../../../utils.typ": *
+
 = Equilibrium Point Analysis
 
 This chapter analyzes equilibrium points in nonlinear systems with a special focus on physiological vs. pathological steady states, including the Topp/Mohammed metabolic models.
 
-#include "second_order_nonlinear_systems.typ"
-#include "equilibrium_bio.typ"
+== Application: Vector Fields and Phase Portraits in 2D Systems
+
+In this section, we expand our mathematical toolkit to visualize the global behavior of two-dimensional nonlinear systems using phase portraits and vector fields. While our core focus is the geometric analysis of dynamical systems, we apply these techniques to classical biological and ecological models. A key mathematical distinction in these applications is the restriction of the state space: variables such as population densities or chemical concentrations are inherently strictly non-negative, confining our analysis to the first quadrant $RR_+^2$.
+
+=== Mathematical Definitions
+
+#definition[Vector Fields and Trajectories][
+  Consider an autonomous planar system:
+  $ x' &= f(x,y) \ y' &= g(x,y) $
+  where $f, g: RR^2 -> RR$ are continuously differentiable ($C^1$). This system assigns a velocity vector $(f(x,y), g(x,y))$ to every point $(x,y)$ in the relevant domain. The set of all such vectors constitutes the *vector field*. A solution curve, or *trajectory*, $(x(t), y(t))$ plotted in the $x y$-phase plane is always tangent to the vector field at every point.
+]
+
+#definition[Nullclines and Equilibria Geometry][
+  Nullclines are the geometric curves in the phase plane where the vector field is exclusively horizontal or vertical.
+  - The *x-nullcline* is the set of points where $x' = f(x,y) = 0$. The vector field is purely vertical.
+  - The *y-nullcline* is the set of points where $y' = g(x,y) = 0$. The vector field is purely horizontal.
+  
+  Mathematically, equilibrium points are strictly located at the intersections of the $x$-nullclines and $y$-nullclines.
+]
+
+=== Canonical Models
+
+#definition[The FitzHugh-Nagumo Excitable System][
+  The FitzHugh-Nagumo model is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
+  $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
+  where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales. 
+  
+  *Context:* Physically, $v$ represents the cell membrane voltage and $w$ governs the recovery of ion channels. Mathematically, analyzing the intersection of the cubic $v$-nullcline and the linear $w$-nullcline allows us to geometrically predict phenomena such as excitability, threshold loops, and continuous bursting (limit cycles).
+]
+
+=== Solved Problems
+
+#solved_problem[Lotka-Volterra Predator-Prey Phase Portrait][
+  Consider the classic Lotka-Volterra equations modeling the mathematical dynamics between a prey population $x(t)$ and a predator population $y(t)$:
+  $ x' &= a x - b x y \ y' &= -c y + d x y $
+  where $a,b,c,d > 0$ are constants related to growth, predation, and death rates. Find the nullclines, locate the equilibria in $RR_+^2$, and describe the vector field orientation in each region.
+]
+#solution[
+  *1. Nullcline Equations:*
+  Set $x' = x(a - b y) = 0 => x=0$ or $y = a/b$. These form the $x$-nullclines.
+  Set $y' = y(-c + d x) = 0 => y=0$ or $x = c/d$. These form the $y$-nullclines.
+
+  *2. Equilibrium Points:*
+  The intersections of the orthogonal nullcline sets yield two equilibria: the origin $(0,0)$ (extinction state) and the interior co-existence point $(c/d, a/b)$.
+
+  *3. Regional Vector Field Analysis:*
+  The internal horizontal and vertical nullclines $x = c/d$ and $y = a/b$ intersect, dividing the interior of the first quadrant into four distinct regions:
+  - *Bottom-Left ($x < c/d, y < a/b$):* $x'>0$ and $y'<0$. The vector field points Right and Down.
+  - *Bottom-Right ($x > c/d, y < a/b$):* $x'>0$ and $y'>0$. The vector field points Right and Up.
+  - *Top-Right ($x > c/d, y > a/b$):* $x'<0$ and $y'>0$. The vector field points Left and Up.
+  - *Top-Left ($x < c/d, y > a/b$):* $x'<0$ and $y'<0$. The vector field points Left and Down.
+
+  By continuously following the direction of the vector field arrows across the regional boundaries, we deduce that the trajectories must rotate counter-clockwise around the interior equilibrium $(c/d, a/b)$. 
+  
+  *Important Mathematical Note:* Simply showing rotation is insufficient to prove the existence of closed periodic cycles, nor does the linear center analysis guarantee it (due to structural instability of linear centers). However, constructing a first integral (a constant of motion) $V(x,y) = d x - c ln x + b y - a ln y$ rigorously establishes that the orbits form strictly closed concentric curves.
+]
+
+=== Supplementary Problems
+
+#supplementary[Competitive Exclusion Principle Phase Analysis][
+  Two species $x(t)$ and $y(t)$ competing for the same limited resource can be modeled by the Lotka-Volterra competition system:
+  $ x' &= r_1 x(1 - x - alpha y) \ y' &= r_2 y(1 - y - beta x) $
+  Sketch the corresponding nullclines for the case where $alpha > 1$ and $beta > 1$ (representing strong inter-species competition). Use phase plane geometry to visually demonstrate that the interior co-existence equilibrium is a saddle point, providing mathematical justification for the ecological principle of competitive exclusion (i.e., almost all trajectories converge to either $(1,0)$ or $(0,1)$).
+]
+
+== Application: Equilibrium Point Analysis in Biological Models
+
+In this section, we apply the mathematical tools of equilibrium point analysis to a nonlinear system of ordinary differential equations. While our primary focus remains on the mathematical methods—identifying equilibria, computing Jacobians, and determining local asymptotic stability—contextualizing these models provides concrete examples of multiple equilibria and bifurcation phenomena. To achieve this, we will briefly introduce the biological meaning of the variables in our model so that the mathematical equations have a clear physical interpretation.
+
+=== The Topp Model of Glucose-Insulin Dynamics
+
+We consider a mathematical model defined on the state space $cal(X) subset RR_+^3$ by the following autonomous vector field $x' = F(x)$:
+
+#definition[The Extended Topp Model][
+  Let the state vector be $x(t) = (G(t), I(t), beta(t))^T$. These variables represent:
+  - $G(t)$: Blood glucose concentration (sugar in the blood).
+  - $I(t)$: Blood insulin concentration (hormone that regulates sugar).
+  - $beta(t)$: Pancreatic $beta$-cell mass (the cells that produce insulin).
+
+  The system dynamics are governed by:
+  $
+    G' &= P_G - k_1 G - k_2 I G \
+    I' &= beta f(G) - gamma I \
+    beta' &= beta (r(G) - d(G))
+  $
+  where all parameters are strictly positive constants with the following biological interpretations:
+  - $P_G$: Constant glucose production rate (e.g., produced by the liver).
+  - $k_1$: Insulin-independent glucose utilization rate (sugar consumed constantly by organs like the brain).
+  - $k_2$: Insulin-dependent glucose utilization rate (sugar consumed by muscles when insulin is present).
+  - $gamma$: Insulin clearance rate (how fast insulin is removed from the blood).
+  
+  The functions $f(G)$, $r(G)$, and $d(G)$ are sufficiently smooth ($C^1$) non-negative scalar functions representing insulin secretion, $beta$-cell replication, and $beta$-cell death (apoptosis) rates, respectively.
+]
+
+In many practical analyses, $beta(t)$ evolves on a much slower timescale than $G(t)$ and $I(t)$. By invoking timescale separation, we treat $beta$ as a constant parameter ($beta equiv beta_0$), reducing the system to a two-dimensional planar subsystem.
+
+=== Mathematical Definitions of Biological States
+
+Biological states are mathematically defined by the equilibrium points of the system and their stability properties. Let $x^* = (G^*, I^*)$ be an equilibrium point of the planar subsystem, satisfying $F(x^*) = 0$.
+
+#definition[Stable Homeostatic State (Normoglycemia)][
+  An equilibrium point $x_1^*$ is defined as the *healthy state* (or "normoglycemia") if glucose is at a healthy resting level ($G^* approx 90$ mg/dL) and the point is locally asymptotically stable. Mathematically, this implies that the Jacobian matrix $J(x_1^*)$ has eigenvalues $lambda_1, lambda_2$ satisfying $max(text("Re")(lambda_1), text("Re")(lambda_2)) < 0$.
+]
+
+#definition[Attracting Pathological State (Diabetes)][
+  An equilibrium point $x_3^*$ is defined as the *pathological state* (Type 2 Diabetes) if it exhibits chronic high blood sugar ($G^* \gg 90$ mg/dL), associated with a severely depleted capacity to produce insulin (a very low parameter $beta_0$). If $x_3^*$ is locally asymptotically stable, trajectories originating within its basin of attraction $cal(B)(x_3^*)$ will strictly converge to $x_3^*$ as $t -> oo$, mathematically representing a chronic disease state.
+]
+
+=== Solved Problems
+
+#solved_problem[Nullcline Intersection and Equilibria][
+  Consider the $(G, I)$ planar subsystem with constant $beta_0$. Determine the algebraic equations for the nullclines and outline the procedure to locate the equilibrium points.
+]
+#solution[
+  The equilibrium points $(G^*, I^*)$ are solutions to the nonlinear algebraic system:
+  $ P_G - k_1 G - k_2 I G = 0 \
+    beta_0 f(G) - gamma I = 0 $
+  
+  Isolating $I$ yields the nullcline equations:
+  1. *The $G$-nullcline*: $I = (P_G - k_1 G) / (k_2 G)$.
+  2. *The $I$-nullcline*: $I = (beta_0 f(G)) / gamma$.
+
+  The phase-plane equilibria correspond to the intersections of these two curves. Substituting the $I$-nullcline into the $G$-nullcline yields a single nonlinear algebraic equation in $G$:
+  $ P_G - k_1 G - k_2 G ((beta_0 f(G)) / gamma) = 0 $
+  The positive real roots of this equation determine the $G$-coordinates of the equilibrium points.
+]
+
+#solved_problem[Numerical Computation and Saddle-Node Bifurcation][
+  Given the parameter values: $P_G = 864$, $k_1 = 6.6$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$. Compute the equilibrium points mathematically.
+]
+#solution[
+  Substituting the given functions and parameters into the intersection equation:
+  $ 864 - 6.6 G - 36 G ((1.0 dot G^2)/(13000 + G^2) dot 1/0.2) = 0 $
+  $ 864 - 6.6 G - (180 G^3)/(13000 + G^2) = 0 $
+  Multiplying by the non-zero denominator $(13000 + G^2)$ yields a cubic polynomial equation:
+  $ 864 (13000 + G^2) - 6.6 G (13000 + G^2) - 180 G^3 = 0 $
+  $ -186.6 G^3 + 864 G^2 - 85800 G + 11232000 = 0 $
+  
+  Solving this cubic polynomial numerically yields three real positive roots, corresponding to three equilibria:
+  - $x_1^*$ where $G_1^* approx 100$. (Stable Node)
+  - $x_2^*$ where $G_2^* approx 250$. (Unstable Saddle)
+  - $x_3^*$ where $G_3^* approx 600$. (Stable Node)
+
+  *Bifurcation Analysis:* Treating $beta_0$ as a bifurcation parameter, a decrease in $beta_0$ translates the $I$-nullcline. Through a saddle-node bifurcation at a critical value $beta_0 = beta_c$, the stable point $x_1^*$ and saddle point $x_2^*$ collide and annihilate, leaving $x_3^*$ as the unique global equilibrium.
+]
+
+=== Supplementary Problems
+
+#supplementary[Jacobian Matrix and Local Stability][
+  For the planar $(G, I)$ subsystem with constant $beta_0$:
+  1. Compute the analytical Jacobian matrix $J(G,I)$ evaluated at an arbitrary point $(G, I)$.
+  2. For the three numerically computed equilibrium points $x_1^*, x_2^*, x_3^*$, evaluate the Jacobian matrix.
+  3. Compute the trace, determinant, and eigenvalues of each matrix to rigorously classify the local asymptotic stability of each equilibrium point.
+]
