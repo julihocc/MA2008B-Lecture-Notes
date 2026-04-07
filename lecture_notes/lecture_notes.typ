@@ -30,28 +30,28 @@
 
 #part("Control Theory & Bio-System Modeling")
 
-#include "chapters/fundamentals_systems_modeling/main.typ"
-#include "chapters/transient_response_physiology/main.typ"
-#include "chapters/frequency_response_oscillations/main.typ"
-#include "chapters/design_compensation_control/main.typ"
+#include "chapters/01_fundamentals_systems_modeling/main.typ"
+#include "chapters/02_transient_response_physiology/main.typ"
+#include "chapters/03_frequency_response_oscillations/main.typ"
+#include "chapters/04_design_compensation_control/main.typ"
 
 #part("Nonlinear Systems & Stability Analysis")
 
-#include "chapters/nonlinear_differential_equations/main.typ"
-#include "chapters/equilibrium_point_analysis/main.typ"
-#include "chapters/stability_theory/main.typ"
-#include "chapters/bifurcation_theory/main.typ"
+#include "chapters/05_nonlinear_differential_equations/main.typ"
+#include "chapters/06_equilibrium_point_analysis/main.typ"
+#include "chapters/07_stability_theory/main.typ"
+#include "chapters/08_bifurcation_theory/main.typ"
 
 #part("Advanced Analytical Tools for Bio-Systems")
 
-#include "chapters/positivity_invariant_sets/main.typ"
-#include "chapters/the_lcis_method/main.typ"
-#include "chapters/metabolic_case_study/main.typ"
-#include "chapters/computational_implementation/main.typ"
+#include "chapters/09_positivity_invariant_sets/main.typ"
+#include "chapters/10_the_lcis_method/main.typ"
+#include "chapters/11_metabolic_case_study/main.typ"
+#include "chapters/12_computational_implementation/main.typ"
 
 #part("Physics-Informed Neural Networks")
 
-#include "chapters/scientific_ml_intro/main.typ"
-#include "chapters/pinns_forward_problem/main.typ"
-#include "chapters/pinns_inverse_problem/main.typ"
-#include "chapters/hybrid_modeling_safety/main.typ"
+#include "chapters/13_scientific_ml_intro/main.typ"
+#include "chapters/14_pinns_forward_problem/main.typ"
+#include "chapters/15_pinns_inverse_problem/main.typ"
+#include "chapters/16_hybrid_modeling_safety/main.typ"
