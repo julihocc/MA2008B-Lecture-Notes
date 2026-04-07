@@ -576,13 +576,28 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   $ x(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
 ]
 #proof[
-  Let
-  $ x(t)=Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
-  Differentiate using
-  $ (partial Phi(t,s))/(partial t)=A(t)Phi(t,s) $
-  and Leibniz rule:
-  $ x'(t)=A(t)x(t)+r(t). $
-  Also $x(t_0)=x_0$.
+  Let the proposed solution be
+  $ x(t) = Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s. $
+  We will verify this satisfies both the differential equation and the initial condition.
+  
+  First, differentiate $x(t)$ with respect to $t$:
+  $ x'(t) = diff / (diff t) [Phi(t,t_0)x_0] + diff / (diff t) [integral_(t_0)^t Phi(t,s)r(s) dif s]. $
+  Using the fundamental property of the transition matrix, $(partial Phi(t,s))/(partial t) = A(t)Phi(t,s)$, the first term becomes $A(t)Phi(t,t_0)x_0$. 
+  
+  For the second term, we apply the Leibniz integral rule (differentiation under the integral sign):
+  $ diff / (diff t) [integral_(t_0)^t Phi(t,s)r(s) dif s] &= Phi(t,t)r(t) + integral_(t_0)^t (partial Phi(t,s))/(partial t) r(s) dif s \
+  &= I r(t) + integral_(t_0)^t A(t)Phi(t,s)r(s) dif s \
+  &= r(t) + A(t) integral_(t_0)^t Phi(t,s)r(s) dif s. $
+  
+  Substituting these components back into the expression for $x'(t)$, we obtain:
+  $ x'(t) &= A(t)Phi(t,t_0)x_0 + r(t) + A(t) integral_(t_0)^t Phi(t,s)r(s) dif s \
+  &= A(t) underbrace((Phi(t,t_0)x_0 + integral_(t_0)^t Phi(t,s)r(s) dif s), = x(t)) + r(t) \
+  &= A(t)x(t) + r(t). $
+  Thus, the nonhomogeneous differential equation holds.
+  
+  Finally, evaluating the solution at the initial time $t = t_0$:
+  $ x(t_0) = Phi(t_0,t_0)x_0 + integral_(t_0)^(t_0) Phi(t_0,s)r(s) dif s = I x_0 + 0 = x_0. $
+  Therefore, the initial condition is satisfied.
 ]
 
 #definition[Vector and Induced Matrix Norms][
