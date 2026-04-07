@@ -59,23 +59,26 @@ Hence, continuity of $(partial f)/(partial x)$ (or its local boundedness) is a c
   where $ mu(t) = e^(integral_(t_0)^t p(s) dif s) $.
 ]
 #proof[
-  Consider the linear equation
-  $ x' + p(t)x = q(t). $
-  Let the integrating factor be
-  $ mu(t) = e^(integral_(t_0)^t p(s) dif s), $
-  so that $mu'(t) = p(t) mu(t)$.
-
-  Multiply the differential equation by $mu(t)$:
+  We seek an explicit formula for the solution to the linear equation $x' + p(t)x = q(t)$. The core idea is to find a function $mu(t)$, called the integrating factor, such that the left-hand side of the equation becomes the derivative of a single product.
+  
+  Define the integrating factor as:
+  $ mu(t) = exp(integral_(t_0)^t p(s) dif s). $
+  Note that by the Fundamental Theorem of Calculus and the chain rule, its derivative is:
+  $ mu'(t) = exp(integral_(t_0)^t p(s) dif s) partial / (partial t) (integral_(t_0)^t p(s) dif s) = mu(t) p(t). $
+  
+  Multiplying the original differential equation by $mu(t)$ yields:
   $ mu(t) x' + mu(t) p(t) x = mu(t) q(t). $
-  Using $mu' = p mu$, the left-hand side is
-  $ (mu(t) x(t))' = mu(t) q(t). $
-
-  Integrating from $t_0$ to $t$ gives
+  Recognizing the product rule on the left-hand side:
+  $ partial / (partial t) [mu(t) x(t)] = mu(t) q(t). $
+  
+  Integrating both sides from $t_0$ to $t$:
+  $ integral_(t_0)^t partial / (partial s) [mu(s) x(s)] dif s = integral_(t_0)^t mu(s) q(s) dif s. $
+  Applying the Fundamental Theorem of Calculus to the left side:
   $ mu(t) x(t) - mu(t_0) x(t_0) = integral_(t_0)^t mu(s) q(s) dif s. $
-  Since $mu(t_0)=1$ and $x(t_0)=x_0$,
+  
+  By definition, $mu(t_0) = exp(0) = 1$. Let $x(t_0) = x_0$. Thus:
   $ mu(t) x(t) = x_0 + integral_(t_0)^t mu(s) q(s) dif s. $
-
-  Therefore,
+  Finally, dividing by $mu(t)$ gives the general solution:
   $ x(t) = 1/mu(t) (x_0 + integral_(t_0)^t mu(s) q(s) dif s). $
 ]
 
@@ -104,7 +107,7 @@ Hence, continuity of $(partial f)/(partial x)$ (or its local boundedness) is a c
   - Stable (Lyapunov stable): solutions that start sufficiently close to $x^*$ remain close to $x^*$ for all future time.
   - Unstable: $x^*$ is not stable; arbitrarily small perturbations can move away from $x^*$.
   - Locally asymptotically stable: $x^*$ is stable and, in addition, nearby solutions satisfy
-    $ x(t) -> x^* $ as $t -> infinity$.
+    $ x(t) arrow.r x^* $ as $t arrow.r infinity$.
 ]
 
 #definition[Hyperbolic Equilibrium (1D)][
@@ -118,15 +121,20 @@ Hence, continuity of $(partial f)/(partial x)$ (or its local boundedness) is a c
 ]
 
 #proof[
-  Near $x^*$, first-order expansion gives
-  $ f(x) = f(x^*) + f'(x^*)(x-x^*) + o(x-x^*) = f'(x^*)(x-x^*) + o(x-x^*). $
-
-  If $f'(x^*)<0$, then for $x>x^*$ (small distance) we get $f(x)<0$ (arrow left),
-  and for $x<x^*$ we get $f(x)>0$ (arrow right).
-  Both directions point toward $x^*$, so trajectories approach the equilibrium.
-
-  If $f'(x^*)>0$, the signs reverse: right side arrows point right and left side arrows point left,
-  so trajectories move away from $x^*$.
+  We analyze the behavior of the system $x' = f(x)$ near an equilibrium $x^*$ by considering a small perturbation $eta(t) = x(t) - x^*$. Differentiating gives $eta' = x' = f(x^* + eta)$. 
+  Performing a Taylor expansion of $f$ around $x^*$:
+  $ f(x^* + eta) = f(x^*) + f'(x^*) eta + o(eta). $
+  Since $f(x^*) = 0$ for an equilibrium, the linearized dynamics are governed by $eta' approx f'(x^*) eta$.
+  
+  1. *Case $f'(x^*) < 0$:* 
+     For small $eta > 0$ (i.e., $x > x^*$), the velocity $x' approx f'(x^*) eta$ is negative, so $x$ decreases toward $x^*$.
+     For small $eta < 0$ (i.e., $x < x^*$), the velocity $x'$ is positive, so $x$ increases toward $x^*$.
+     Since trajectories on both sides are pushed toward $x^*$, the equilibrium is locally asymptotically stable.
+     
+  2. *Case $f'(x^*) > 0$:*
+     For small $eta > 0$, $x'$ is positive, and $x$ moves further away from $x^*$ toward the right.
+     For small $eta < 0$, $x'$ is negative, and $x$ moves further away toward the left.
+     Since trajectories depart from $x^*$ on both sides, the equilibrium is unstable.
 ]
 
 #theorem[Classification by Sign of $f'_(lambda)(x^*(lambda))$ Along Equilibrium Branches][
@@ -171,7 +179,7 @@ In this case, stability must be determined through phase-line sign analysis or h
   Integrating gives $-x^(-1) = t + C$.
   Applying $x(0)=1$, we find $-1 = C$, so
   $ -1/x = t - 1 => x(t) = 1/(1-t). $
-  As $t -> 1^-$, $x(t) -> infinity$. The solution exhibits finite time blow-up at $T=1$.
+  As $t arrow.r 1^-$, $x(t) arrow.r infinity$. The solution exhibits finite time blow-up at $T=1$.
 ]
 
 #solved_problem[Linear IVP with Integrating Factor][
@@ -364,10 +372,23 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   $ e^(A t) = sum_(k=0)^infinity (A t)^k / k!. $
 ]
 #proof[
-  Let $Phi(t)=e^(A t)$. Since $A$ is constant,
-  $ Phi'(t)=A Phi(t), quad Phi(0)=I. $
-  Setting $x(t)=Phi(t)x_0$ gives
-  $ x'(t)=A x(t) $ and $x(0)=x_0$.
+  We verify that $x(t) = e^{A t} x_0$ satisfies both the differential equation and the initial condition.
+  Recall the power series definition of the matrix exponential:
+  $ e^{A t} = I + A t + (A^2 t^2) / (2!) + (A^3 t^3) / (3!) + dots.c = sum_(k=0)^infinity (A^k t^k) / (k!). $
+  
+  Differentiating the series term-by-term with respect to $t$:
+  $ partial / (partial t) e^{A t} &= partial / (partial t) [sum_(k=0)^infinity (A^k t^k) / (k!)] = sum_(k=1)^infinity (k A^k t^(k-1)) / (k!) \
+  &= sum_(k=1)^infinity (A^k t^(k-1)) / ((k-1)!) = A sum_(k=1)^infinity (A^(k-1) t^(k-1)) / ((k-1)!). $
+  By shifting the index $j = k-1$, we see that the sum is exactly the original series:
+  $ partial / (partial t) e^{A t} = A sum_(j=0)^infinity (A^j t^j) / (j!) = A e^{A t}. $
+  
+  Substituting into $x(t) = e^{A t} x_0$:
+  $ x'(t) = (partial / (partial t) e^{A t}) x_0 = (A e^{A t}) x_0 = A (e^{A t} x_0) = A x(t). $
+  Thus, it satisfies the differential equation. 
+  
+  Furthermore, at $t = 0$:
+  $ x(0) = e^{A \cdot 0} x_0 = I x_0 = x_0. $
+  The solution is verified.
 ]
 
 #theorem[Classification by Eigenvalues in $RR^2$][
@@ -379,18 +400,20 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
     stable focus if $alpha<0$, unstable focus if $alpha>0$, center if $alpha=0$.
 ]
 #proof[
-  The behavior of the system is determined by the explicit form of the solution $x(t)$.
+  The stability and qualitative behavior of the origin are dictated by the explicit form of the general solution $x(t)$.
   
-  For distinct real eigenvalues $lambda_1, lambda_2$ with eigenvectors $v_1, v_2$, the general solution is $x(t) = c_1 e^(lambda_1 t) v_1 + c_2 e^(lambda_2 t) v_2$. 
-  - If both $lambda_i < 0$, then $e^(lambda_i t) -> 0$ as $t -> infinity$ for any initial condition, so the origin is asymptotically stable.
-  - If both $lambda_i > 0$, the exponentials grow unboundedly, making the origin unstable.
-  - If they have opposite signs (e.g., $lambda_1 > 0, lambda_2 < 0$), solutions grow along $v_1$ and decay along $v_2$, creating a saddle point.
-
-  For a complex conjugate pair $lambda = alpha plus.minus i beta$, Euler's formula gives solutions involving $e^(alpha t)(c_1 cos(beta t) + c_2 sin(beta t))$.
-  The trigonometric terms cause the trajectory to rotate around the origin, while the $e^(alpha t)$ term scales the amplitude. 
-  - If $alpha < 0$, the amplitude decays to $0$, spiraling inward (stable focus).
-  - If $alpha > 0$, the amplitude grows over time, spiraling outward (unstable focus).
-  - If $alpha = 0$, the amplitude is constant, forming closed periodic orbits (center).
+  1. *Real Distinct Eigenvalues ($lambda_1 != lambda_2$):*
+     The general solution is $x(t) = c_1 e^(lambda_1 t) v_1 + c_2 e^(lambda_2 t) v_2$, where $v_i$ are eigenvectors.
+     - If $lambda_1, lambda_2 < 0$, both terms decay to zero as $t arrow.r infinity$, resulting in an *asymptotically stable node*.
+     - If $lambda_1, lambda_2 > 0$, both terms grow unboundedly, resulting in an *unstable node*.
+     - If $lambda_1 > 0$ and $lambda_2 < 0$, trajectories approach the origin along the $v_2$-direction but are repelled along the $v_1$-direction, resulting in a *saddle*.
+     
+  2. *Complex Conjugate Eigenvalues ($lambda = alpha plus.minus i beta$):*
+     Using Euler's formula, the general solution is $x(t) = e^(alpha t) [c_1 cos(beta t) + c_2 sin(beta t)] w$, where $w$ is a complex-valued vector.
+     The trigonometric terms ($cos, sin$) represent rotational motion with frequency $beta$ (oscillations). The exponential term $e^(alpha t)$ acts as a scaling factor:
+     - If $alpha < 0$, the scaling factor decays to zero, leading to an *asymptotically stable focus* (inward spiral).
+     - If $alpha > 0$, the scaling factor grows to infinity, leading to an *unstable focus* (outward spiral).
+     - If $alpha = 0$, the amplitude remains constant, resulting in closed periodic orbits called a *center*.
 ]
 
 #proposition[Trace-Determinant Test in $RR^2$][
@@ -402,14 +425,23 @@ The origin is always an equilibrium, and its type is determined by the eigenstru
   - $Delta > 0$, $D < 0$: focus/center (stable if $tau<0$, unstable if $tau>0$, center if $tau=0$).
 ]
 #proof[
-  The characteristic polynomial for a $2 times 2$ matrix $A$ can be written as
-  $ p(lambda) = lambda^2 - tr(A)lambda + det(A) = lambda^2 - tau lambda + Delta. $
-  Its roots are given by the quadratic formula:
-  $ lambda_(1,2) = (tau plus.minus sqrt(tau^2 - 4Delta)) / 2 = (tau plus.minus sqrt(D)) / 2. $
+  The characteristic polynomial for a $2 times 2$ matrix $A$ is $det(lambda I - A) = 0$. This expands to:
+  $ p(lambda) = lambda^2 - (a + d)lambda + (a d - b c) = lambda^2 - tr(A)lambda + det(A) = lambda^2 - tau lambda + Delta. $
+  The roots are given by the quadratic equation $lambda = (tau plus.minus sqrt(tau^2 - 4Delta)) / 2 = (tau plus.minus sqrt(D)) / 2$.
   
-  - If $Delta < 0$, then $D = tau^2 - 4Delta > 0$. The roots $lambda_1, lambda_2$ are real. Since their product is $Delta < 0$, they have opposite signs, yielding a saddle.
-  - If $Delta > 0$ and $D > 0$, the roots are real and have the same sign (since their product is $Delta > 0$). Their sum is $tau$. Thus, they are both negative if $tau < 0$ (stable node) and both positive if $tau > 0$ (unstable node).
-  - If $Delta > 0$ and $D < 0$, the roots are complex conjugates $lambda = (tau plus.minus i sqrt(-D)) / 2$. The real part is $tau / 2$, which dictates the stability: stable focus if $tau < 0$, unstable focus if $tau > 0$, and center if $tau = 0$.
+  1. *Saddle ($Delta < 0$):*
+     Since $Delta < 0$, it follows that $D = tau^2 - 4Delta$ is strictly positive. The eigenvalues are real. Furthermore, since $lambda_1 lambda_2 = Delta < 0$, the two real eigenvalues must have opposite signs.
+  
+  2. *Nodes ($Delta > 0, D > 0$):*
+     The roots are real and have the same sign (since $lambda_1 lambda_2 = Delta > 0$). Their sum is $lambda_1 + lambda_2 = tau$.
+     - If $tau < 0$, both eigenvalues are negative (stable node).
+     - If $tau > 0$, both are positive (unstable node).
+     
+  3. *Complex Cases ($Delta > 0, D < 0$):*
+     The roots are $lambda = (tau plus.minus i sqrt(-D)) / 2$. The real part is $alpha = tau / 2$.
+     - If $tau < 0$, the real part is negative (stable focus).
+     - If $tau > 0$, the real part is positive (unstable focus).
+     - If $tau = 0$, the real part is zero, leaving purely imaginary roots (center).
 ]
 
 === Solved Problems
@@ -581,11 +613,11 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   We will verify this satisfies both the differential equation and the initial condition.
   
   First, differentiate $x(t)$ with respect to $t$:
-  $ x'(t) = diff / (diff t) [Phi(t,t_0)x_0] + diff / (diff t) [integral_(t_0)^t Phi(t,s)r(s) dif s]. $
+  $ x'(t) = partial / (partial t) [Phi(t,t_0)x_0] + partial / (partial t) [integral_(t_0)^t Phi(t,s)r(s) dif s]. $
   Using the fundamental property of the transition matrix, $(partial Phi(t,s))/(partial t) = A(t)Phi(t,s)$, the first term becomes $A(t)Phi(t,t_0)x_0$. 
   
   For the second term, we apply the Leibniz integral rule (differentiation under the integral sign):
-  $ diff / (diff t) [integral_(t_0)^t Phi(t,s)r(s) dif s] &= Phi(t,t)r(t) + integral_(t_0)^t (partial Phi(t,s))/(partial t) r(s) dif s \
+  $ partial / (partial t) [integral_(t_0)^t Phi(t,s)r(s) dif s] &= Phi(t,t)r(t) + integral_(t_0)^t (partial Phi(t,s))/(partial t) r(s) dif s \
   &= I r(t) + integral_(t_0)^t A(t)Phi(t,s)r(s) dif s \
   &= r(t) + A(t) integral_(t_0)^t Phi(t,s)r(s) dif s. $
   
@@ -615,9 +647,15 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   $ norm(A x) <= norm(A) norm(x). $
 ]
 #proof[
-  If $x=0$, both sides are 0 and the inequality holds trivially. If $x != 0$, by the definition of an induced norm, we have
-  $ (norm(A x)) / (norm(x)) <= max_(x != 0) (norm(A x)) / (norm(x)) = norm(A). $
-  Multiplying both sides by $norm(x)$ yields $norm(A x) <= norm(A) norm(x)$.
+  We consider two cases for the vector $x in RR^n$:
+  1. If $x = 0$, then $A x = 0$. Using the properties of norms, we have $norm(A x) = 0$ and $norm(A)norm(x) = norm(A) \cdot 0 = 0$. Thus, $0 <= 0$ holds.
+  2. If $x != 0$, we look at the definition of the induced matrix norm:
+     $ norm(A) = sup_(y != 0) (norm(A y)) / (norm(y)). $
+     Since the supremum is the least upper bound, for any specific $x != 0$ in the domain, it must be true that:
+     $ (norm(A x)) / (norm(x)) <= norm(A). $
+     Multiplying both sides of the inequality by the non-negative scalar $norm(x)$ yields:
+     $ norm(A x) <= norm(A) norm(x). $
+  In both cases, the inequality is satisfied.
 ]
 
 #theorem[Grönwall's Inequality][
@@ -627,11 +665,23 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   $ u(t) <= C exp(integral_(t_0)^t v(s) dif s). $
 ]
 #proof[
-  Let $R(t) = C + integral_(t_0)^t v(s)u(s) dif s$. Then $u(t) <= R(t)$, and by the Fundamental Theorem of Calculus, $R'(t) = v(t)u(t)$. Since $v(t) >= 0$, we have $R'(t) <= v(t)R(t)$. Therefore,
-  $ (R'(t))/R(t) <= v(t). $
-  (If $C=0$, we add $epsilon > 0$ to $C$ and take $epsilon -> 0$ at the end to avoid division by zero). Integrating from $t_0$ to $t$ gives:
-  $ ln(R(t)) - ln(R(t_0)) <= integral_(t_0)^t v(s) dif s. $
-  Exponientiating both sides and using $R(t_0) = C$, we get $R(t) <= C exp(integral_(t_0)^t v(s) dif s)$. Since $u(t) <= R(t)$, the result follows.
+  Define an auxiliary function $R(t)$ as the right-hand side of the integral inequality:
+  $ R(t) = C + integral_(t_0)^t v(s) u(s) dif s. $
+  By construction, $u(t) <= R(t)$ for all $t$. We differentiate $R(t)$ with respect to $t$ using the Fundamental Theorem of Calculus:
+  $ R'(t) = v(t) u(t). $
+  Using the assumption $u(t) <= R(t)$ and the fact that $v(t) >= 0$, we have:
+  $ R'(t) <= v(t) R(t). $
+  
+  To solve this differential inequality, we assume $C > 0$ (if $C=0$, we can consider $C + epsilon$ and let $epsilon -> 0$ at the end). Rearranging gives:
+  $ (R'(t)) / (R(t)) <= v(t). $
+  Integrating both sides from $t_0$ to $t$:
+  $ integral_(t_0)^t (R'(s)) / (R(s)) dif s <= integral_(t_0)^t v(s) dif s \
+  ln(R(t)) - ln(R(t_0)) <= integral_(t_0)^t v(s) dif s. $
+  
+  Since $R(t_0) = C$, we have $ln(R(t)) <= ln(C) + integral_(t_0)^t v(s) dif s$. Exponentiating both sides:
+  $ R(t) <= C exp(integral_(t_0)^t v(s) dif s). $
+  Finally, since $u(t) <= R(t)$, we conclude:
+  $ u(t) <= C exp(integral_(t_0)^t v(s) dif s). $
 ]
 
 #proposition[Norm-Based Growth Bound][
@@ -643,14 +693,18 @@ _Remark:_ While the rigorous proof relies on concepts like Picard iterations or 
   where $norm(dots.c)$ denotes any vector norm and its corresponding induced matrix norm.
 ]
 #proof[
-  Integrating the differential equation from $t_0$ to $t$ gives
+  First, we convert the differential equation $x' = A(t)x$ into its equivalent integral form by integrating from $t_0$ to $t$:
   $ x(t) = x(t_0) + integral_(t_0)^t A(s)x(s) dif s. $
-  Taking the norm of both sides and applying the triangle inequality for integrals and the induced matrix norm property, we obtain
+  Taking the norm of both sides and applying the triangle inequality for integrals:
+  $ norm(x(t)) <= norm(x(t_0)) + norm(integral_(t_0)^t A(s)x(s) dif s) <= norm(x_0) + integral_(t_0)^t norm(A(s)x(s)) dif s. $
+  
+  Using the property of induced matrix norms ($norm(A x) <= norm(A) norm(x)$):
   $ norm(x(t)) <= norm(x_0) + integral_(t_0)^t norm(A(s)) norm(x(s)) dif s. $
-  Since $norm(A(s)) <= M$, it follows that
+  By the given assumption that $norm(A(s)) <= M$ for all $s \in [t\_0, t]$, we substitute the bound:
   $ norm(x(t)) <= norm(x_0) + integral_(t_0)^t M norm(x(s)) dif s. $
-  Applying Grönwall's inequality yields
-  $ norm(x(t)) <= norm(x_0) e^(integral_(t_0)^t M dif s) = norm(x_0) e^(M(t-t_0)). $
+  
+  This matches the form required for Grönwall's Inequality, with $u(t) = norm(x(t))$, $C = norm(x_0)$, and $v(s) = M$. Applying the inequality:
+  $ norm(x(t)) <= norm(x_0) exp(integral_(t_0)^t M dif s) = norm(x_0) e^(M(t-t_0)). $
 ]
 
 === Solved Problems
