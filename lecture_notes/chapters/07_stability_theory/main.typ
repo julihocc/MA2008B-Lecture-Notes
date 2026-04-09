@@ -32,3 +32,36 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   Explain why $V(G, I)$ can be interpreted as the "metabolic energy distance" from the healthy state $(G^*, I^*)$, and what it means clinically when $dot(V) < 0$.
 ]
 
+#supplementary[Constructing a Weighted Quadratic Lyapunov Function][
+  Consider the linearized system $delta x' = J delta x$ with $delta x = (delta G, delta I)^T$.
+  1. Propose a weighted quadratic candidate $V = p_1 (delta G)^2 + p_2 (delta I)^2$ with $p_1, p_2 > 0$.
+  2. Compute $dot(V)$ explicitly in terms of the entries of $J$.
+  3. Derive sufficient inequalities on $p_1, p_2$ that make $dot(V)$ negative definite.
+  4. Interpret how changing $p_1/p_2$ changes the relative penalization of glucose and insulin deviations.
+]
+
+#supplementary[Invariant Level Sets and Basins of Attraction][
+  For a nonlinear planar system $x' = f(x)$ with equilibrium $x^*$ and Lyapunov function $V(x)$:
+  1. Define the sublevel set $Omega_c = {x in RR^2 : V(x) <= c}$.
+  2. State conditions under which $Omega_c$ is positively invariant.
+  3. Explain how invariant sublevel sets provide inner estimates of the basin of attraction of $x^*$.
+  4. Apply this reasoning qualitatively to glucose-insulin dynamics near a healthy equilibrium.
+]
+
+#supplementary[LaSalle Invariance Principle in a Metabolic Setting][
+  Assume a candidate Lyapunov function satisfies $dot(V)(x) <= 0$ in a compact positively invariant set $Omega$.
+  1. Define the set $E = {x in Omega : dot(V)(x) = 0}$.
+  2. Determine the largest invariant subset $M subset E$ in a model where $dot(V)=0$ implies $G=G^*$ and $I$ may vary.
+  3. Use LaSalle's invariance principle to conclude whether trajectories converge to $(G^*, I^*)$.
+  4. Discuss what this conclusion means for long-term metabolic regulation.
+]
+
+#supplementary[Indirect Method and Stability Classification][
+  Let the Jacobian at an equilibrium be
+  $ J = mat(a, b; c, d). $
+  1. Express the trace and determinant of $J$.
+  2. Write the linear stability conditions in terms of $text("tr")(J)$ and $det(J)$.
+  3. Classify the equilibrium type for each case: (i) $det(J) < 0$, (ii) $det(J) > 0$ and $text("tr")(J) < 0$, (iii) $det(J) > 0$ and $text("tr")(J) > 0$.
+  4. Explain why linear asymptotic stability supports a local Lyapunov argument for the nonlinear model.
+]
+
