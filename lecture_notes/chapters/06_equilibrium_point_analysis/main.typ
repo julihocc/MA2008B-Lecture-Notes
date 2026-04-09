@@ -31,6 +31,16 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   The FitzHugh-Nagumo model _(FitzHugh, Biophys. J. 1(6):445–466, 1961; Nagumo et al., Proc. IRE 50(10):2061–2070, 1962)_ is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
   where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales. 
+
+  *Biological interpretation of the variables and parameters:*
+  - $v(t)$: dimensionless membrane-potential variable. A rapid increase in $v$ represents the upstroke of an action potential (neuronal firing), while a decrease represents repolarization.
+  - $w(t)$: recovery (or adaptation) variable that aggregates slower ionic processes, mainly potassium activation and sodium inactivation effects.
+  - $I_"ext"$: external current input modeling synaptic drive, electrical stimulation, or an equivalent net input from surrounding tissue.
+  - $a, b$: shape parameters that shift and scale the recovery nullcline, controlling firing threshold and excitability regime.
+  - $epsilon$: time-scale ratio between fast voltage dynamics and slow recovery; smaller $epsilon$ produces clearer fast-slow behavior.
+
+  *Physiological meaning in the phase plane:*
+  In this model, resting behavior corresponds to trajectories attracted to a stable equilibrium (quiescent neuron). Repetitive spiking corresponds to trajectories attracted to a stable limit cycle. A transient but sufficiently strong increase in $I_"ext"$ can push the state across a threshold manifold, triggering a large excursion in phase space that represents an action potential before recovery returns the system toward rest.
   
   *Context:* Physically, $v$ represents the cell membrane voltage and $w$ governs the recovery of ion channels. Mathematically, analyzing the intersection of the cubic $v$-nullcline and the linear $w$-nullcline allows us to geometrically predict phenomena such as excitability, threshold loops, and continuous bursting (limit cycles).
 ]
