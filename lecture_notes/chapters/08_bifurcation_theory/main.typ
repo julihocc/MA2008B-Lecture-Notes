@@ -54,6 +54,40 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   The Goodwin limit-cycle model describes circadian rhythms via genetic negative feedback (mRNA -> Protein -> Inhibitor). Using the concept of a supercritical Hopf bifurcation, explain how an increase in the cooperativity parameter (the Hill coefficient $n$) inside the genetic loop can suddenly cause cells to transition from a steady rest state into sustained 24-hour molecular oscillations.
 ]
 
+#supplementary[Trace-Determinant Hopf Detection][
+  Consider a planar parameterized system with Jacobian at equilibrium
+  $ J(mu) = mat(a(mu), b(mu); c(mu), d(mu)). $
+  1. Write $tau(mu) = text("tr")(J(mu))$ and $Delta(mu) = det(J(mu))$.
+  2. State the algebraic Hopf conditions in terms of $tau(mu)$ and $Delta(mu)$.
+  3. Explain why the transversality condition $d tau / d mu != 0$ at $mu = mu_c$ is required.
+  4. Classify whether the equilibrium is locally stable or unstable for $tau < 0$ and $tau > 0$, assuming $Delta > 0$.
+]
+
+#supplementary[Nullcline Geometry and Oscillation Onset][
+  For a generic activator-inhibitor model
+  $ x' &= f(x,y; mu) \ y' &= g(x,y; mu), $
+  assume the $x$-nullcline is cubic-like and the $y$-nullcline is approximately linear.
+  1. Sketch qualitatively how the nullcline intersection changes as $mu$ increases.
+  2. Describe how a change in local slope can move eigenvalues from the left half-plane to the right half-plane.
+  3. Explain how this geometric transition is related to Hopf bifurcation and emergence of a limit cycle.
+]
+
+#supplementary[Biological Interpretation of Supercritical vs Subcritical Hopf][
+  Compare two physiological scenarios represented by:
+  1. A supercritical Hopf bifurcation that creates a small stable oscillation.
+  2. A subcritical Hopf bifurcation with an unstable cycle and abrupt transition.
+  For each case, explain expected behavior under small perturbations, reversibility under parameter rollback, and clinical implications for robustness of oscillatory function.
+]
+
+#supplementary[Normal Form Computation Near Hopf][
+  Study the complex normal form
+  $ z' = (alpha + i omega) z + c z |z|^2, $
+  where $alpha in RR$, $omega > 0$, and $c in CC$.
+  1. Convert to polar form $(r, theta)$ and derive the scalar amplitude equation for $r$.
+  2. Determine the radius and stability of periodic orbits as a function of $alpha$ and $text("Re")(c)$.
+  3. Use the sign of $text("Re")(c)$ to distinguish supercritical and subcritical Hopf bifurcations.
+]
+
 == Pathways to Diabetes: A Bifurcation Perspective
 
 === Mathematical Review
@@ -79,5 +113,37 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 #supplementary[Hysteresis and Irreversibility][
   Explain why a patient who crosses $R = R_c$ cannot simply reverse the disease by reducing insulin resistance back slightly below $R_c$. How does the concept of hysteresis in bifurcation diagrams explain the clinical difficulty of reversing Type 2 Diabetes?
+]
+
+#supplementary[Fold Conditions in a Scalar Equilibrium Equation][
+  Let equilibria be roots of
+  $ Phi(G; R) = 0, $
+  where $R$ is an insulin-resistance parameter.
+  1. Write the saddle-node conditions at a fold point $(G_c, R_c)$.
+  2. Explain the geometric meaning of solving
+  $ Phi(G_c; R_c) = 0 $ and $ partial Phi / partial G (G_c; R_c) = 0. $
+  3. State why these conditions imply collision of one stable and one unstable equilibrium branch.
+]
+
+#supplementary[Basin Boundary and Separatrix Shift][
+  In a bistable glucose-insulin model with equilibria $P_1$ (healthy), $P_2$ (saddle), and $P_3$ (diabetic):
+  1. Explain how the stable manifold of $P_2$ defines a separatrix.
+  2. Describe how increasing $R$ moves this separatrix in phase space.
+  3. Interpret how this movement changes the set of initial conditions that still recover to $P_1$.
+]
+
+#supplementary[Early-Warning Indicators Near a Fold][
+  Near a saddle-node bifurcation, trajectories often exhibit critical slowing down.
+  1. Define critical slowing down in terms of local eigenvalues.
+  2. Explain why recovery from perturbations becomes slower as $R -> R_c^-$. 
+  3. Propose two measurable time-series indicators that could signal approach to the fold point in a physiological dataset.
+]
+
+#supplementary[One-Parameter Continuation of Equilibria][
+  Suppose $G^*(R)$ solves an implicit equation $Phi(G, R)=0$.
+  1. Derive the continuation slope $dG^*/dR$ using implicit differentiation.
+  2. Explain why continuation may fail at the fold point.
+  3. Sketch a qualitative bifurcation diagram with stable and unstable branches, clearly marking the fold.
+  4. Relate branch stability to the sign of the dominant eigenvalue of the Jacobian of the full system.
 ]
 
