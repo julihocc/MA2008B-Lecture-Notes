@@ -3,6 +3,12 @@
 
 This chapter introduces parametric bifurcations — saddle-node, Hopf — explaining mathematically how the destruction of the physiological stable point constitutes the "Pathway to Diabetes."
 
+*Learning objectives:*
+- Identify Hopf and saddle-node bifurcation conditions from local linearization data.
+- Interpret bifurcation diagrams in terms of physiological regime changes.
+- Connect oscillation onset and loss of homeostasis to parameter variation.
+- Use continuation and fold conditions to describe irreversible transitions.
+
 == Hopf Bifurcation in Biological Oscillators
 
 === Mathematical Review
@@ -52,6 +58,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 #supplementary[Circadian Rhythm Feedback Loop][
   The Goodwin limit-cycle model describes circadian rhythms via genetic negative feedback (mRNA -> Protein -> Inhibitor). Using the concept of a supercritical Hopf bifurcation, explain how an increase in the cooperativity parameter (the Hill coefficient $n$) inside the genetic loop can suddenly cause cells to transition from a steady rest state into sustained 24-hour molecular oscillations.
+  *Hint:* Relate larger Hill coefficients to sharper nonlinear feedback and destabilization of the steady state.
 ]
 
 #supplementary[Trace-Determinant Hopf Detection][
@@ -61,6 +68,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   2. State the algebraic Hopf conditions in terms of $tau(mu)$ and $Delta(mu)$.
   3. Explain why the transversality condition $d tau / d mu != 0$ at $mu = mu_c$ is required.
   4. Classify whether the equilibrium is locally stable or unstable for $tau < 0$ and $tau > 0$, assuming $Delta > 0$.
+  *Hint:* For Hopf in 2D, enforce $Delta(mu_c) > 0$, $tau(mu_c)=0$, and sign-changing trace near $mu_c$.
 ]
 
 #supplementary[Nullcline Geometry and Oscillation Onset][
@@ -70,6 +78,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   1. Sketch qualitatively how the nullcline intersection changes as $mu$ increases.
   2. Describe how a change in local slope can move eigenvalues from the left half-plane to the right half-plane.
   3. Explain how this geometric transition is related to Hopf bifurcation and emergence of a limit cycle.
+  *Hint:* Track how the Jacobian evaluated at the moving intersection changes its trace sign.
 ]
 
 #supplementary[Biological Interpretation of Supercritical vs Subcritical Hopf][
@@ -77,6 +86,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   1. A supercritical Hopf bifurcation that creates a small stable oscillation.
   2. A subcritical Hopf bifurcation with an unstable cycle and abrupt transition.
   For each case, explain expected behavior under small perturbations, reversibility under parameter rollback, and clinical implications for robustness of oscillatory function.
+  *Hint:* Compare local attraction to a stable cycle versus escape beyond an unstable cycle threshold.
 ]
 
 #supplementary[Normal Form Computation Near Hopf][
@@ -86,6 +96,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   1. Convert to polar form $(r, theta)$ and derive the scalar amplitude equation for $r$.
   2. Determine the radius and stability of periodic orbits as a function of $alpha$ and $text("Re")(c)$.
   3. Use the sign of $text("Re")(c)$ to distinguish supercritical and subcritical Hopf bifurcations.
+  *Hint:* Write $z = r e^(i theta)$ and separate real and imaginary parts after substitution.
 ]
 
 == Pathways to Diabetes: A Bifurcation Perspective
@@ -93,11 +104,11 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 === Mathematical Review
 
 #definition[Saddle-Node Bifurcation][
-  As a bifurcation parameter $mu$ (e.g., insulin resistance $R$) increases, the two equilibria $P_1$ (stable healthy node) and $P_2$ (unstable saddle) approach each other. At the critical value $mu = mu_c$ they *collide and annihilate*, leaving only $P_3$ (diabetic). This is a saddle-node bifurcation.
+  As the bifurcation parameter $R$ (insulin resistance) increases, the two equilibria $P_1$ (stable healthy node) and $P_2$ (unstable saddle) approach each other. At the critical value $R = R_c$ they *collide and annihilate*, leaving only $P_3$ (diabetic). This is a saddle-node bifurcation.
 ]
 
 #definition[Parametric Sensitivity and "Point of No Return"][
-  Before $mu_c$, the system is multistable: trajectories starting near $P_1$ remain healthy, while those past the separatrix converge to $P_3$. At $mu > mu_c$, there is no $P_1$ at all — the patient is mathematically locked into the diabetic basin.
+  Before $R_c$, the system is multistable: trajectories starting near $P_1$ remain healthy, while those past the separatrix converge to $P_3$. At $R > R_c$, there is no $P_1$ at all — the patient is mathematically locked into the diabetic basin.
 ]
 
 === Solved Problems
@@ -113,6 +124,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 #supplementary[Hysteresis and Irreversibility][
   Explain why a patient who crosses $R = R_c$ cannot simply reverse the disease by reducing insulin resistance back slightly below $R_c$. How does the concept of hysteresis in bifurcation diagrams explain the clinical difficulty of reversing Type 2 Diabetes?
+  *Hint:* Use branch disappearance at the fold to explain why a nearby healthy attractor no longer exists.
 ]
 
 #supplementary[Fold Conditions in a Scalar Equilibrium Equation][
@@ -123,6 +135,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   2. Explain the geometric meaning of solving
   $ Phi(G_c; R_c) = 0 $ and $ partial Phi / partial G (G_c; R_c) = 0. $
   3. State why these conditions imply collision of one stable and one unstable equilibrium branch.
+  *Hint:* At the fold, the equilibrium root has multiplicity two in the scalar equation.
 ]
 
 #supplementary[Basin Boundary and Separatrix Shift][
@@ -130,6 +143,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   1. Explain how the stable manifold of $P_2$ defines a separatrix.
   2. Describe how increasing $R$ moves this separatrix in phase space.
   3. Interpret how this movement changes the set of initial conditions that still recover to $P_1$.
+  *Hint:* Describe the separatrix as a moving boundary between attraction to $P_1$ and attraction to $P_3$.
 ]
 
 #supplementary[Early-Warning Indicators Near a Fold][
@@ -137,6 +151,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   1. Define critical slowing down in terms of local eigenvalues.
   2. Explain why recovery from perturbations becomes slower as $R -> R_c^-$. 
   3. Propose two measurable time-series indicators that could signal approach to the fold point in a physiological dataset.
+  *Hint:* Link slower recovery to an eigenvalue approaching zero from the negative side.
 ]
 
 #supplementary[One-Parameter Continuation of Equilibria][
@@ -145,5 +160,6 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   2. Explain why continuation may fail at the fold point.
   3. Sketch a qualitative bifurcation diagram with stable and unstable branches, clearly marking the fold.
   4. Relate branch stability to the sign of the dominant eigenvalue of the Jacobian of the full system.
+  *Hint:* Continuation slope diverges when $partial Phi / partial G = 0$.
 ]
 
