@@ -2,7 +2,8 @@
 
 = Equilibrium Point Analysis
 
-This chapter analyzes equilibrium points in nonlinear systems with a special focus on physiological vs. pathological steady states, including the Topp/Mohammed metabolic models.
+This chapter analyzes equilibrium points in nonlinear systems with a special focus on physiological vs. pathological steady states, including the Topp/Mohammed metabolic models _(Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_.
+// TODO: Add full citation for Mohammed et al. model variant.
 
 == Application: Vector Fields and Phase Portraits in 2D Systems
 
@@ -27,7 +28,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 === Canonical Models
 
 #definition[The FitzHugh-Nagumo Excitable System][
-  The FitzHugh-Nagumo model is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
+  The FitzHugh-Nagumo model _(FitzHugh, Biophys. J. 1(6):445–466, 1961; Nagumo et al., Proc. IRE 50(10):2061–2070, 1962)_ is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
   where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales. 
   
@@ -58,7 +59,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 
   By continuously following the direction of the vector field arrows across the regional boundaries, we deduce that the trajectories must rotate counter-clockwise around the interior equilibrium $(c/d, a/b)$. 
   
-  *Important Mathematical Note:* Simply showing rotation is insufficient to prove the existence of closed periodic cycles, nor does the linear center analysis guarantee it (due to structural instability of linear centers). However, constructing a first integral (a constant of motion) $V(x,y) = d x - c ln x + b y - a ln y$ rigorously establishes that the orbits form strictly closed concentric curves.
+  *Important Mathematical Note:* Simply showing rotation is insufficient to prove the existence of closed periodic cycles, nor does the linear center analysis guarantee it (due to structural instability of linear centers). However, constructing a first integral (a constant of motion) $V(x,y) = d x - c ln x + b y - a ln y$ rigorously establishes that the orbits form strictly closed concentric curves _(cf. Strogatz, Nonlinear Dynamics and Chaos, §6.4; Murray, Mathematical Biology, Vol. I, §3.1)_.
 ]
 
 === Supplementary Problems
@@ -66,7 +67,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 #supplementary[Competitive Exclusion Principle Phase Analysis][
   Two species $x(t)$ and $y(t)$ competing for the same limited resource can be modeled by the Lotka-Volterra competition system:
   $ x' &= r_1 x(1 - x - alpha y) \ y' &= r_2 y(1 - y - beta x) $
-  Sketch the corresponding nullclines for the case where $alpha > 1$ and $beta > 1$ (representing strong inter-species competition). Use phase plane geometry to visually demonstrate that the interior co-existence equilibrium is a saddle point, providing mathematical justification for the ecological principle of competitive exclusion (i.e., almost all trajectories converge to either $(1,0)$ or $(0,1)$).
+  Sketch the corresponding nullclines for the case where $alpha > 1$ and $beta > 1$ (representing strong inter-species competition). Use phase plane geometry to visually demonstrate that the interior co-existence equilibrium is a saddle point, providing mathematical justification for the ecological principle of competitive exclusion _(Hardin, Science 131:1292–1297, 1960; Gause, The Struggle for Existence, 1934)_ (i.e., almost all trajectories converge to either $(1,0)$ or $(0,1)$).
 ]
 
 == Application: Equilibrium Point Analysis in Biological Models
@@ -77,7 +78,7 @@ In this section, we apply the mathematical tools of equilibrium point analysis t
 
 We consider a mathematical model defined on the state space $cal(X) subset RR_+^3$ by the following autonomous vector field $x' = F(x)$:
 
-#definition[The Extended Topp Model][
+#definition[The Extended Topp Model _(Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_][
   Let the state vector be $x(t) = (G(t), I(t), beta(t))^T$. These variables represent:
   - $G(t)$: Blood glucose concentration (sugar in the blood).
   - $I(t)$: Blood insulin concentration (hormone that regulates sugar).
@@ -105,7 +106,7 @@ In many practical analyses, $beta(t)$ evolves on a much slower timescale than $G
 Biological states are mathematically defined by the equilibrium points of the system and their stability properties. Let $x^* = (G^*, I^*)$ be an equilibrium point of the planar subsystem, satisfying $F(x^*) = 0$.
 
 #definition[Stable Homeostatic State (Normoglycemia)][
-  An equilibrium point $x_1^*$ is defined as the *healthy state* (or "normoglycemia") if glucose is at a healthy resting level ($G^* approx 90$ mg/dL) and the point is locally asymptotically stable. Mathematically, this implies that the Jacobian matrix $J(x_1^*)$ has eigenvalues $lambda_1, lambda_2$ satisfying $max(text("Re")(lambda_1), text("Re")(lambda_2)) < 0$.
+  An equilibrium point $x_1^*$ is defined as the *healthy state* (or "normoglycemia") if glucose is at a healthy resting level ($G^* approx 90$ mg/dL; _ADA Standards of Medical Care in Diabetes_, 2024) and the point is locally asymptotically stable. Mathematically, this implies that the Jacobian matrix $J(x_1^*)$ has eigenvalues $lambda_1, lambda_2$ satisfying $max(text("Re")(lambda_1), text("Re")(lambda_2)) < 0$.
 ]
 
 #definition[Attracting Pathological State (Diabetes)][
@@ -132,7 +133,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
 ]
 
 #solved_problem[Numerical Computation and Saddle-Node Bifurcation][
-  Given the parameter values: $P_G = 864$, $k_1 = 6.6$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$. Compute the equilibrium points mathematically.
+  Given the parameter values: $P_G = 864$, $k_1 = 6.6$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$ _(adapted from Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_. Compute the equilibrium points mathematically.
 ]
 #solution[
   Substituting the given functions and parameters into the intersection equation:
