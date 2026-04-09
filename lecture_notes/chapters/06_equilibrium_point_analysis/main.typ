@@ -34,6 +34,11 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 === Canonical Models
 
 #definition[The FitzHugh-Nagumo Excitable System][
+  The original Hodgkin-Huxley framework is a conductance-based biophysical model for membrane electrophysiology. In modern notation, it combines one voltage equation with three gating-variable equations, producing a four-dimensional nonlinear system that tracks ionic currents (mainly sodium and potassium) and their channel kinetics.
+  // TODO: cite [Hodgkin and Huxley, 1952]
+
+  In this chapter, our goal is phase-plane geometry and equilibrium analysis. For that reason, we use a reduced two-dimensional model that preserves the key fast-slow mechanism of excitability while remaining visually analyzable in the $(v,w)$ plane.
+
   The FitzHugh-Nagumo model _(FitzHugh, Biophys. J. 1(6):445–466, 1961; Nagumo et al., Proc. IRE 50(10):2061–2070, 1962)_ is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
   where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales. 
