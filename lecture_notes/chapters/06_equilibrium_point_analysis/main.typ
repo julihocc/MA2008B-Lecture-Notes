@@ -80,6 +80,45 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   Sketch the corresponding nullclines for the case where $alpha > 1$ and $beta > 1$ (representing strong inter-species competition). Use phase plane geometry to visually demonstrate that the interior co-existence equilibrium is a saddle point, providing mathematical justification for the ecological principle of competitive exclusion _(Hardin, Science 131:1292–1297, 1960; Gause, The Struggle for Existence, 1934)_ (i.e., almost all trajectories converge to either $(1,0)$ or $(0,1)$).
 ]
 
+#supplementary[Directional Field Sign Analysis in a Cubic-Linear System][
+  Consider the planar nonlinear system:
+  $ x' &= x - x^3 - y \ y' &= mu (x - y) $
+  with parameter $mu > 0$.
+  1. Compute the $x$-nullcline and $y$-nullcline equations.
+  2. Determine all equilibrium points as functions of $mu$.
+  3. Partition the phase plane using nullclines and determine the sign of $(x', y')$ in each region.
+  4. State whether the first and third quadrants are forward invariant and justify your answer mathematically.
+]
+
+#supplementary[Linearization and Local Type of Equilibria][
+  For the system
+  $ x' &= x(1 - x) - a y \ y' &= y(-1 + b x) $
+  with $a, b > 0$:
+  1. Find all equilibrium points in $RR_+^2$.
+  2. Compute the Jacobian matrix at each equilibrium.
+  3. Classify each equilibrium (node, saddle, focus, or center) using trace-determinant criteria.
+  4. Identify parameter conditions under which an interior equilibrium changes stability.
+]
+
+#supplementary[Bendixson-Dulac Exclusion of Closed Orbits][
+  Consider the system
+  $ x' &= x(2 - x - y) \ y' &= y(-1 + x - y) $
+  on the simply connected domain $Omega = {(x,y) in RR^2 : x > 0, y > 0}$.
+  1. Compute the divergence $partial f / partial x + partial g / partial y$.
+  2. Use the Bendixson criterion to determine whether periodic orbits can exist in $Omega$.
+  3. If the criterion is inconclusive for some parameterized variation, propose a Dulac function $B(x,y)$ and test again.
+]
+
+#supplementary[FitzHugh-Nagumo Excitability Threshold Exercise][
+  For the FitzHugh-Nagumo system
+  $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w), $
+  assume $a, b, epsilon > 0$ and $0 < epsilon << 1$.
+  1. Derive explicit formulas for the $v$- and $w$-nullclines.
+  2. Show how the number of equilibrium points depends on the relative position of the cubic and linear nullclines.
+  3. Explain, using phase-plane geometry, how a transient increase in $I_"ext"$ can trigger a large excursion (spike) before returning near rest.
+  4. Sketch a qualitative portrait for one quiescent regime and one oscillatory regime.
+]
+
 == Application: Equilibrium Point Analysis in Biological Models
 
 In this section, we apply the mathematical tools of equilibrium point analysis to a nonlinear system of ordinary differential equations. While our primary focus remains on the mathematical methods—identifying equilibria, computing Jacobians, and determining local asymptotic stability—contextualizing these models provides concrete examples of multiple equilibria and bifurcation phenomena. To achieve this, we will briefly introduce the biological meaning of the variables in our model so that the mathematical equations have a clear physical interpretation.
@@ -168,4 +207,37 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Compute the analytical Jacobian matrix $J(G,I)$ evaluated at an arbitrary point $(G, I)$.
   2. For the three numerically computed equilibrium points $x_1^*, x_2^*, x_3^*$, evaluate the Jacobian matrix.
   3. Compute the trace, determinant, and eigenvalues of each matrix to rigorously classify the local asymptotic stability of each equilibrium point.
+]
+
+#supplementary[Positivity and Forward Invariance of the Physiological Region][
+  Consider the reduced planar subsystem
+  $ G' &= P_G - k_1 G - k_2 I G \ I' &= beta_0 f(G) - gamma I, $
+  with $P_G, k_1, k_2, beta_0, gamma > 0$ and $f(G) >= 0$ for $G >= 0$.
+  1. Prove that the non-negative set $RR_+^2$ is forward invariant.
+  2. Evaluate the vector field on the boundaries $G=0$ and $I=0$.
+  3. Explain the biological interpretation of forward invariance in terms of glucose and insulin concentrations.
+]
+
+#supplementary[Existence of Equilibria via a Scalar Intersection Equation][
+  Starting from the nullcline substitution
+  $ P_G - k_1 G - k_2 G ((beta_0 f(G)) / gamma) = 0, $
+  define
+  $Phi(G) = P_G - k_1 G - (k_2 beta_0 / gamma) G f(G).$
+  1. Show that equilibria correspond to positive roots of $Phi(G)=0$.
+  2. Under mild assumptions on $f$ (continuous, bounded, non-negative), show that at least one positive equilibrium exists.
+  3. Give sufficient graphical conditions for having one versus three positive roots.
+]
+
+#supplementary[Parameter Sensitivity of the Healthy Equilibrium][
+  Assume $x_1^* = (G_1^*, I_1^*)$ is a stable equilibrium branch parameterized by $beta_0$.
+  1. Using implicit differentiation of the equilibrium equation, derive an expression for $dG_1^* / dbeta_0$.
+  2. Determine the sign of $dG_1^* / dbeta_0$ under biologically reasonable assumptions on $f$.
+  3. Interpret the result in terms of how reduced $beta$-cell function shifts the glycemic steady state.
+]
+
+#supplementary[Local Bifurcation Condition at a Fold Point][
+  Let $Phi(G; beta_0) = P_G - k_1 G - (k_2 beta_0 / gamma) G f(G)$.
+  1. Write the algebraic conditions that characterize a saddle-node (fold) bifurcation in this scalar reduced equation.
+  2. Express these conditions as simultaneous equations in $(G_c, beta_c)$ using $Phi(G_c; beta_c)=0$ and $partial Phi / partial G (G_c; beta_c)=0$.
+  3. Explain why these conditions correspond to the collision and disappearance of two equilibria in the full planar system.
 ]
