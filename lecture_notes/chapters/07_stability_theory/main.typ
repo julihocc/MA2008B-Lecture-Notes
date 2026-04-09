@@ -3,6 +3,12 @@
 
 This chapter covers Lyapunov's indirect and direct methods, with applications to proving local and global stability in metabolic glucose-insulin models.
 
+*Learning objectives:*
+- Construct Lyapunov candidates for planar metabolic models.
+- Use matrix inequalities to verify local asymptotic stability.
+- Apply invariant-set reasoning to estimate basins of attraction.
+- Distinguish linearized stability conclusions from nonlinear global claims.
+
 == Global Stability of Metabolic Models (Lyapunov Direct Method)
 
 === Mathematical Review
@@ -30,6 +36,7 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 
 #supplementary[Energy Interpretation][
   Explain why $V(G, I)$ can be interpreted as the "metabolic energy distance" from the healthy state $(G^*, I^*)$, and what it means clinically when $dot(V) < 0$.
+  *Hint:* Interpret each quadratic term as a weighted deviation penalty from equilibrium.
 ]
 
 #supplementary[Constructing a Weighted Quadratic Lyapunov Function][
@@ -38,6 +45,7 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   2. Compute $dot(V)$ explicitly in terms of the entries of $J$.
   3. Derive sufficient inequalities on $p_1, p_2$ that make $dot(V)$ negative definite.
   4. Interpret how changing $p_1/p_2$ changes the relative penalization of glucose and insulin deviations.
+  *Hint:* Write $dot(V)$ as a quadratic form in $(delta G, delta I)$ and apply definiteness conditions.
 ]
 
 #supplementary[Invariant Level Sets and Basins of Attraction][
@@ -46,6 +54,7 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   2. State conditions under which $Omega_c$ is positively invariant.
   3. Explain how invariant sublevel sets provide inner estimates of the basin of attraction of $x^*$.
   4. Apply this reasoning qualitatively to glucose-insulin dynamics near a healthy equilibrium.
+  *Hint:* Use $dot(V) <= 0$ on $Omega_c$ to show trajectories cannot cross outward through the boundary.
 ]
 
 #supplementary[LaSalle Invariance Principle in a Metabolic Setting][
@@ -54,6 +63,7 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   2. Determine the largest invariant subset $M subset E$ in a model where $dot(V)=0$ implies $G=G^*$ and $I$ may vary.
   3. Use LaSalle's invariance principle to conclude whether trajectories converge to $(G^*, I^*)$.
   4. Discuss what this conclusion means for long-term metabolic regulation.
+  *Hint:* Characterize all states in $E$ that remain in $E$ under system dynamics.
 ]
 
 #supplementary[Indirect Method and Stability Classification][
@@ -63,5 +73,6 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   2. Write the linear stability conditions in terms of $text("tr")(J)$ and $det(J)$.
   3. Classify the equilibrium type for each case: (i) $det(J) < 0$, (ii) $det(J) > 0$ and $text("tr")(J) < 0$, (iii) $det(J) > 0$ and $text("tr")(J) > 0$.
   4. Explain why linear asymptotic stability supports a local Lyapunov argument for the nonlinear model.
+  *Hint:* Start with the characteristic polynomial $lambda^2 - text("tr")(J) lambda + det(J)=0$.
 ]
 
