@@ -129,11 +129,11 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 #supplementary[Fold Conditions in a Scalar Equilibrium Equation][
   Let equilibria be roots of
-  $ Phi(G; R) = 0, $
+  $ Phi(G, R) = 0, $
   where $R$ is an insulin-resistance parameter.
   1. Write the saddle-node conditions at a fold point $(G_c, R_c)$.
   2. Explain the geometric meaning of solving
-  $ Phi(G_c; R_c) = 0 $ and $ partial Phi / partial G (G_c; R_c) = 0. $
+  $ Phi(G_c, R_c) = 0 $ and $ partial Phi / partial G (G_c, R_c) = 0. $
   3. State why these conditions imply collision of one stable and one unstable equilibrium branch.
   *Hint:* At the fold, the equilibrium root has multiplicity two in the scalar equation.
 ]
@@ -156,7 +156,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 #supplementary[One-Parameter Continuation of Equilibria][
   Suppose $G^*(R)$ solves an implicit equation $Phi(G, R)=0$.
-  1. Derive the continuation slope $dG^*/dR$ using implicit differentiation.
+  1. Derive the continuation slope $d G^* / d R$ using implicit differentiation.
   2. Explain why continuation may fail at the fold point.
   3. Sketch a qualitative bifurcation diagram with stable and unstable branches, clearly marking the fold.
   4. Relate branch stability to the sign of the dominant eigenvalue of the Jacobian of the full system.

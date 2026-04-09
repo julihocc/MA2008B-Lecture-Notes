@@ -244,16 +244,16 @@ Biological states are mathematically defined by the equilibrium points of the sy
 
 #supplementary[Parameter Sensitivity of the Healthy Equilibrium][
   Assume $x_1^* = (G_1^*, I_1^*)$ is a stable equilibrium branch parameterized by $beta_0$.
-  1. Using implicit differentiation of the equilibrium equation, derive an expression for $dG_1^* / dbeta_0$.
-  2. Determine the sign of $dG_1^* / dbeta_0$ under biologically reasonable assumptions on $f$.
+  1. Using implicit differentiation of the equilibrium equation, derive an expression for $d G_1^* / d beta_0$.
+  2. Determine the sign of $d G_1^* / d beta_0$ under biologically reasonable assumptions on $f$.
   3. Interpret the result in terms of how reduced $beta$-cell function shifts the glycemic steady state.
-  *Hint:* Differentiate $Phi(G_1^*(beta_0); beta_0)=0$ with respect to $beta_0$ and isolate $dG_1^*/dbeta_0$.
+  *Hint:* Differentiate $Phi(G_1^*(beta_0), beta_0)=0$ with respect to $beta_0$ and isolate $d G_1^* / d beta_0$.
 ]
 
 #supplementary[Local Bifurcation Condition at a Fold Point][
-  Let $Phi(G; beta_0) = P_G - k_1 G - (k_2 beta_0 / gamma) G f(G)$.
+  Let $Phi(G, beta_0) = P_G - k_1 G - (k_2 beta_0 / gamma) G f(G)$.
   1. Write the algebraic conditions that characterize a saddle-node (fold) bifurcation in this scalar reduced equation.
-  2. Express these conditions as simultaneous equations in $(G_c, beta_c)$ using $Phi(G_c; beta_c)=0$ and $partial Phi / partial G (G_c; beta_c)=0$.
+  2. Express these conditions as simultaneous equations in $(G_c, beta_c)$ using $Phi(G_c, beta_c)=0$ and $partial Phi / partial G (G_c, beta_c)=0$.
   3. Explain why these conditions correspond to the collision and disappearance of two equilibria in the full planar system.
-  *Hint:* At a fold, the graph of $Phi(G; beta_0)$ is tangent to the horizontal axis at the critical root.
+  *Hint:* At a fold, the graph of $Phi(G, beta_0)$ is tangent to the horizontal axis at the critical root.
 ]
