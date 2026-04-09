@@ -5,6 +5,12 @@
 This chapter analyzes equilibrium points in nonlinear systems with a special focus on physiological vs. pathological steady states, including the Topp/Mohammed metabolic models _(Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_.
 // TODO: Add full citation for Mohammed et al. model variant.
 
+*Learning objectives:*
+- Identify planar nullclines and equilibrium points from nonlinear vector fields.
+- Use Jacobian-based linearization to classify local equilibrium behavior.
+- Connect phase-plane structure to biological interpretation in metabolic and excitable systems.
+- Relate parameter changes to saddle-node mechanisms in physiological state transitions.
+
 == Application: Vector Fields and Phase Portraits in 2D Systems
 
 In this section, we expand our mathematical toolkit to visualize the global behavior of two-dimensional nonlinear systems using phase portraits and vector fields. While our core focus is the geometric analysis of dynamical systems, we apply these techniques to classical biological and ecological models. A key mathematical distinction in these applications is the restriction of the state space: variables such as population densities or chemical concentrations are inherently strictly non-negative, confining our analysis to the first quadrant $RR_+^2$.
@@ -78,6 +84,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   Two species $x(t)$ and $y(t)$ competing for the same limited resource can be modeled by the Lotka-Volterra competition system:
   $ x' &= r_1 x(1 - x - alpha y) \ y' &= r_2 y(1 - y - beta x) $
   Sketch the corresponding nullclines for the case where $alpha > 1$ and $beta > 1$ (representing strong inter-species competition). Use phase plane geometry to visually demonstrate that the interior co-existence equilibrium is a saddle point, providing mathematical justification for the ecological principle of competitive exclusion _(Hardin, Science 131:1292–1297, 1960; Gause, The Struggle for Existence, 1934)_ (i.e., almost all trajectories converge to either $(1,0)$ or $(0,1)$).
+  *Hint:* Compute all equilibria first, then use the Jacobian determinant at the interior point to verify saddle behavior.
 ]
 
 #supplementary[Directional Field Sign Analysis in a Cubic-Linear System][
@@ -88,6 +95,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   2. Determine all equilibrium points as functions of $mu$.
   3. Partition the phase plane using nullclines and determine the sign of $(x', y')$ in each region.
   4. State whether the first and third quadrants are forward invariant and justify your answer mathematically.
+  *Hint:* Use nullcline intersections to form sign regions and test the vector field orientation on each boundary.
 ]
 
 #supplementary[Linearization and Local Type of Equilibria][
@@ -98,6 +106,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   2. Compute the Jacobian matrix at each equilibrium.
   3. Classify each equilibrium (node, saddle, focus, or center) using trace-determinant criteria.
   4. Identify parameter conditions under which an interior equilibrium changes stability.
+  *Hint:* After finding equilibria, evaluate $text("tr")(J)$ and $det(J)$ symbolically before substituting parameter values.
 ]
 
 #supplementary[Bendixson-Dulac Exclusion of Closed Orbits][
@@ -107,6 +116,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   1. Compute the divergence $partial f / partial x + partial g / partial y$.
   2. Use the Bendixson criterion to determine whether periodic orbits can exist in $Omega$.
   3. If the criterion is inconclusive for some parameterized variation, propose a Dulac function $B(x,y)$ and test again.
+  *Hint:* Check whether the divergence has one strict sign on the whole first-quadrant domain.
 ]
 
 #supplementary[FitzHugh-Nagumo Excitability Threshold Exercise][
@@ -117,6 +127,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   2. Show how the number of equilibrium points depends on the relative position of the cubic and linear nullclines.
   3. Explain, using phase-plane geometry, how a transient increase in $I_"ext"$ can trigger a large excursion (spike) before returning near rest.
   4. Sketch a qualitative portrait for one quiescent regime and one oscillatory regime.
+  *Hint:* Treat $I_"ext"$ as a vertical shift of the cubic nullcline and track intersection multiplicity.
 ]
 
 == Application: Equilibrium Point Analysis in Biological Models
@@ -207,6 +218,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Compute the analytical Jacobian matrix $J(G,I)$ evaluated at an arbitrary point $(G, I)$.
   2. For the three numerically computed equilibrium points $x_1^*, x_2^*, x_3^*$, evaluate the Jacobian matrix.
   3. Compute the trace, determinant, and eigenvalues of each matrix to rigorously classify the local asymptotic stability of each equilibrium point.
+  *Hint:* Derive $J(G,I)$ once in symbolic form and reuse it at each equilibrium.
 ]
 
 #supplementary[Positivity and Forward Invariance of the Physiological Region][
@@ -216,6 +228,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Prove that the non-negative set $RR_+^2$ is forward invariant.
   2. Evaluate the vector field on the boundaries $G=0$ and $I=0$.
   3. Explain the biological interpretation of forward invariance in terms of glucose and insulin concentrations.
+  *Hint:* Show that boundary vector components point inward or tangent on each coordinate axis.
 ]
 
 #supplementary[Existence of Equilibria via a Scalar Intersection Equation][
@@ -226,6 +239,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Show that equilibria correspond to positive roots of $Phi(G)=0$.
   2. Under mild assumptions on $f$ (continuous, bounded, non-negative), show that at least one positive equilibrium exists.
   3. Give sufficient graphical conditions for having one versus three positive roots.
+  *Hint:* Compare $Phi(0)$ and $Phi(G)$ for large $G$, then apply the intermediate value theorem.
 ]
 
 #supplementary[Parameter Sensitivity of the Healthy Equilibrium][
@@ -233,6 +247,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Using implicit differentiation of the equilibrium equation, derive an expression for $dG_1^* / dbeta_0$.
   2. Determine the sign of $dG_1^* / dbeta_0$ under biologically reasonable assumptions on $f$.
   3. Interpret the result in terms of how reduced $beta$-cell function shifts the glycemic steady state.
+  *Hint:* Differentiate $Phi(G_1^*(beta_0); beta_0)=0$ with respect to $beta_0$ and isolate $dG_1^*/dbeta_0$.
 ]
 
 #supplementary[Local Bifurcation Condition at a Fold Point][
@@ -240,4 +255,5 @@ Biological states are mathematically defined by the equilibrium points of the sy
   1. Write the algebraic conditions that characterize a saddle-node (fold) bifurcation in this scalar reduced equation.
   2. Express these conditions as simultaneous equations in $(G_c, beta_c)$ using $Phi(G_c; beta_c)=0$ and $partial Phi / partial G (G_c; beta_c)=0$.
   3. Explain why these conditions correspond to the collision and disappearance of two equilibria in the full planar system.
+  *Hint:* At a fold, the graph of $Phi(G; beta_0)$ is tangent to the horizontal axis at the critical root.
 ]
