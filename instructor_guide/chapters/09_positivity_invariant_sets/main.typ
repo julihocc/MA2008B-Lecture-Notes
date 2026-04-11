@@ -95,10 +95,9 @@
   $ G_(k+1) = G_k + h [P_G - (k_1 + k_2 I_k) G_k] = G_k [1 - h (k_1 + k_2 I_k)] + h P_G. $
 
   *2. Positivity Condition:*
-  For $G_(k+1) >= 0$, we require:
-  $ h <= 1 / (k_1 + k_2 I_k) + (h P_G) / (G_k ...). $
-  More strictly, to ensure $G_(k+1) > 0$ regardless of $P_G$, we need:
-  $ h < 1 / (k_1 + k_2 I_k). $
+  For $G_(k+1) >= 0$, a sufficient condition (requiring the coefficient of $G_k$ to be non-negative) is:
+  $ 1 - h(k_1 + k_2 I_k) >= 0 quad arrow.r.double quad h <= 1 / (k_1 + k_2 I_k). $
+  Since $P_G > 0$ adds a positive term, this is a conservative bound but guarantees positivity for any $G_k >= 0$.
 
   *3. Safety Implications:*
   If an Artificial Pancreas (AP) system calculates doses using a large time step ($h$), it might over-predict the reduction in glucose, potentially resulting in a "negative glucose" calculation which corresponds to a severe hypoglycemic shock in reality.
