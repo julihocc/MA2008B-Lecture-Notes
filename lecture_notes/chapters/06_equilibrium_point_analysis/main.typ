@@ -27,7 +27,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   Nullclines are the geometric curves in the phase plane where the vector field is exclusively horizontal or vertical.
   - The *x-nullcline* is the set of points where $x' = f(x,y) = 0$. The vector field is purely vertical.
   - The *y-nullcline* is the set of points where $y' = g(x,y) = 0$. The vector field is purely horizontal.
-  
+
   Mathematically, equilibrium points are strictly located at the intersections of the $x$-nullclines and $y$-nullclines.
 ]
 
@@ -41,7 +41,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 
   The FitzHugh-Nagumo model _(FitzHugh, Biophys. J. 1(6):445–466, 1961; Nagumo et al., Proc. IRE 50(10):2061–2070, 1962)_ is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
-  where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales. 
+  where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales.
 
   *Biological interpretation of the variables and parameters:*
   - $v(t)$: dimensionless membrane-potential variable. A rapid increase in $v$ represents the upstroke of an action potential (neuronal firing), while a decrease represents repolarization.
@@ -52,7 +52,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 
   *Physiological meaning in the phase plane:*
   In this model, resting behavior corresponds to trajectories attracted to a stable equilibrium (quiescent neuron). Repetitive spiking corresponds to trajectories attracted to a stable limit cycle. A transient but sufficiently strong increase in $I_"ext"$ can push the state across a threshold manifold, triggering a large excursion in phase space that represents an action potential before recovery returns the system toward rest.
-  
+
   *Context:* Physically, $v$ represents the cell membrane voltage and $w$ governs the recovery of ion channels. Mathematically, analyzing the intersection of the cubic $v$-nullcline and the linear $w$-nullcline allows us to geometrically predict phenomena such as excitability, threshold loops, and continuous bursting (limit cycles).
 ]
 
@@ -78,8 +78,8 @@ In this section, we expand our mathematical toolkit to visualize the global beha
   - *Top-Right ($x > c/d, y > a/b$):* $x'<0$ and $y'>0$. The vector field points Left and Up.
   - *Top-Left ($x < c/d, y > a/b$):* $x'<0$ and $y'<0$. The vector field points Left and Down.
 
-  By continuously following the direction of the vector field arrows across the regional boundaries, we deduce that the trajectories must rotate counter-clockwise around the interior equilibrium $(c/d, a/b)$. 
-  
+  By continuously following the direction of the vector field arrows across the regional boundaries, we deduce that the trajectories must rotate counter-clockwise around the interior equilibrium $(c/d, a/b)$.
+
   *Important Mathematical Note:* Simply showing rotation is insufficient to prove the existence of closed periodic cycles, nor does the linear center analysis guarantee it (due to structural instability of linear centers). However, constructing a first integral (a constant of motion) $V(x,y) = d x - c ln x + b y - a ln y$ rigorously establishes that the orbits form strictly closed concentric curves _(cf. Strogatz, Nonlinear Dynamics and Chaos, §6.4; Murray, Mathematical Biology, Vol. I, §3.1)_.
 ]
 
@@ -151,8 +151,8 @@ We consider a mathematical model defined on the state space $cal(X) subset RR_+^
 
   The system dynamics are governed by:
   $
-    G' &= P_G - k_1 G - k_2 I G \
-    I' &= beta f(G) - gamma I \
+    G'    &= P_G - k_1 G - k_2 I G \
+    I'    &= beta f(G) - gamma I \
     beta' &= beta (r(G) - d(G))
   $
   where all parameters are strictly positive constants with the following biological interpretations:
@@ -160,7 +160,7 @@ We consider a mathematical model defined on the state space $cal(X) subset RR_+^
   - $k_1$: Insulin-independent glucose utilization rate (sugar consumed constantly by organs like the brain).
   - $k_2$: Insulin-dependent glucose utilization rate (sugar consumed by muscles when insulin is present).
   - $gamma$: Insulin clearance rate (how fast insulin is removed from the blood).
-  
+
   The functions $f(G)$, $r(G)$, and $d(G)$ are sufficiently smooth ($C^1$) non-negative scalar functions representing insulin secretion, $beta$-cell replication, and $beta$-cell death (apoptosis) rates, respectively.
 ]
 
@@ -175,7 +175,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
 ]
 
 #definition[Attracting Pathological State (Diabetes)][
-  An equilibrium point $x_3^*$ is defined as the *pathological state* (Type 2 Diabetes) if it exhibits chronic high blood sugar ($G^* \gg 90$ mg/dL), associated with a severely depleted capacity to produce insulin (a very low parameter $beta_0$). If $x_3^*$ is locally asymptotically stable, trajectories originating within its basin of attraction $cal(B)(x_3^*)$ will strictly converge to $x_3^*$ as $t -> oo$, mathematically representing a chronic disease state.
+  An equilibrium point $x_3^*$ is defined as the *pathological state* (Type 2 Diabetes) if it exhibits chronic high blood sugar ($G^* gt.double 90$ mg/dL), associated with a severely depleted capacity to produce insulin (a very low parameter $beta_0$). If $x_3^*$ is locally asymptotically stable, trajectories originating within its basin of attraction $cal(B)(x_3^*)$ will strictly converge to $x_3^*$ as $t -> oo$, mathematically representing a chronic disease state.
 ]
 
 === Solved Problems
@@ -186,8 +186,8 @@ Biological states are mathematically defined by the equilibrium points of the sy
 #solution[
   The equilibrium points $(G^*, I^*)$ are solutions to the nonlinear algebraic system:
   $ P_G - k_1 G - k_2 I G = 0 \
-    beta_0 f(G) - gamma I = 0 $
-  
+  beta_0 f(G) - gamma I = 0 $
+
   Isolating $I$ yields the nullcline equations:
   1. *The $G$-nullcline*: $I = (P_G - k_1 G) / (k_2 G)$.
   2. *The $I$-nullcline*: $I = (beta_0 f(G)) / gamma$.
@@ -207,7 +207,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   Multiplying by the non-zero denominator $(13000 + G^2)$ yields a cubic polynomial equation:
   $ 864 (13000 + G^2) - 6.6 G (13000 + G^2) - 180 G^3 = 0 $
   $ -186.6 G^3 + 864 G^2 - 85800 G + 11232000 = 0 $
-  
+
   Solving this cubic polynomial numerically yields three real positive roots, corresponding to three equilibria:
   - $x_1^*$ where $G_1^* approx 100$. (Stable Node)
   - $x_2^*$ where $G_2^* approx 250$. (Unstable Saddle)
