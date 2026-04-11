@@ -41,7 +41,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 
   The FitzHugh-Nagumo model _(FitzHugh, Biophys. J. 1(6):445–466, 1961; Nagumo et al., Proc. IRE 50(10):2061–2070, 1962)_ is a simplified 2D mathematical reduction of the Hodgkin-Huxley equations for neuronal action potentials. The system couples a fast variable $v(t)$ to a slow recovery variable $w(t)$:
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w) $
-  where $I_"ext"$ is an applied stimulus current, and $0 < epsilon << 1$ induces a separation of time scales.
+  where $I_"ext"$ is an applied stimulus current, and $0 < epsilon lt.double 1$ induces a separation of time scales. 
 
   *Biological interpretation of the variables and parameters:*
   - $v(t)$: dimensionless membrane-potential variable. A rapid increase in $v$ represents the upstroke of an action potential (neuronal firing), while a decrease represents repolarization.
@@ -127,7 +127,7 @@ In this section, we expand our mathematical toolkit to visualize the global beha
 #supplementary[FitzHugh-Nagumo Excitability Threshold Exercise][
   For the FitzHugh-Nagumo system
   $ v' &= v - v^3 / 3 - w + I_"ext" \ w' &= epsilon (v + a - b w), $
-  assume $a, b, epsilon > 0$ and $0 < epsilon << 1$.
+  assume $a, b, epsilon > 0$ and $0 < epsilon lt.double 1$.
   1. Derive explicit formulas for the $v$- and $w$-nullclines.
   2. Show how the number of equilibrium points depends on the relative position of the cubic and linear nullclines.
   3. Explain, using phase-plane geometry, how a transient increase in $I_"ext"$ can trigger a large excursion (spike) before returning near rest.
@@ -198,15 +198,15 @@ Biological states are mathematically defined by the equilibrium points of the sy
 ]
 
 #solved_problem[Numerical Computation and Saddle-Node Bifurcation][
-  Given the parameter values: $P_G = 864$, $k_1 = 6.6$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$ _(adapted from Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_. Compute the equilibrium points mathematically.
+  Given the parameter values: $P_G = 864$, $k_1 = 1.44$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$ _(adapted from Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_. Compute the equilibrium points mathematically.
 ]
 #solution[
   Substituting the given functions and parameters into the intersection equation:
-  $ 864 - 6.6 G - 36 G ((1.0 dot G^2)/(13000 + G^2) dot 1/0.2) = 0 $
-  $ 864 - 6.6 G - (180 G^3)/(13000 + G^2) = 0 $
+  $ 864 - 1.44 G - 36 G ((1.0 dot G^2)/(13000 + G^2) dot 1/0.2) = 0 $
+  $ 864 - 1.44 G - (180 G^3)/(13000 + G^2) = 0 $
   Multiplying by the non-zero denominator $(13000 + G^2)$ yields a cubic polynomial equation:
-  $ 864 (13000 + G^2) - 6.6 G (13000 + G^2) - 180 G^3 = 0 $
-  $ -186.6 G^3 + 864 G^2 - 85800 G + 11232000 = 0 $
+  $ 864 (13000 + G^2) - 1.44 G (13000 + G^2) - 180 G^3 = 0 $
+  $ -181.44 G^3 + 864 G^2 - 18720 G + 11232000 = 0 $
 
   Solving this cubic polynomial numerically yields three real positive roots, corresponding to three equilibria:
   - $x_1^*$ where $G_1^* approx 100$. (Stable Node)
