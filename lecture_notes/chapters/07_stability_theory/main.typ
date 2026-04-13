@@ -21,10 +21,17 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   then $x^*$ is locally asymptotically stable.
 ]
 #proof[
-  The condition $dot(V)(x) < 0$ implies that evaluating $V$ along any trajectory $x(t) in U$ yields a strictly decreasing function $V(t)$, as long as the trajectory is not at the equilibrium.
-  Because $V(x)$ is continuous and bounded below by $0$, the sequence $V(x(t))$ must approach a limit $L >= 0$ as $t arrow.r infinity$.
-  If $L > 0$, the trajectory remains bounded away from $x^*$, meaning $dot(V)(x(t))$ would be bounded away from zero by some negative constant, forcing $V(x(t))$ to eventually become negative. This contradicts $V(x) >= 0$.
-  Therefore, the limit must be $L = 0$. Since $V(x) = 0$ only at $x = x^*$, it follows that $x(t) arrow.r x^*$, proving local asymptotic stability.
+  We establish the two conditions of local asymptotic stability separately.
+
+  *Step 1: Lyapunov Stability (trajectories that start close, stay close).*
+  Since $V$ is continuous and $V(x^*) = 0$, for any $epsilon > 0$ the sublevel set
+  $ Omega_epsilon = {x in U : V(x) <= c_epsilon } $
+  can be chosen to lie inside the ball $B(x^*, epsilon)$ by taking $c_epsilon$ sufficiently small. Because $dot(V)(x) < 0$ for $x != x^*$, the value $V(x(t))$ is strictly decreasing along any trajectory. Therefore, if $x(0) in Omega_epsilon$, then $V(x(t)) <= V(x(0)) <= c_epsilon$ for all $t >= 0$, meaning $x(t)$ never leaves $Omega_epsilon subset B(x^*, epsilon)$. This proves that $x^*$ is Lyapunov stable.
+
+  *Step 2: Asymptotic Convergence (trajectories approach $x^*$).*
+  Fix $x(0)$ sufficiently close to $x^*$ so that $x(t)$ remains in $U$ for all $t >= 0$ (guaranteed by Step 1). Since $V(x(t))$ is strictly decreasing and bounded below by $0$, it converges to a limit $L >= 0$.
+  Suppose for contradiction that $L > 0$. Then the trajectory stays in the compact set ${ x in U : L <= V(x) <= V(x(0)) }$, which is bounded away from $x^*$. On this compact set, $dot(V)$ is continuous and strictly negative, so there exists $gamma > 0$ such that $dot(V)(x(t)) <= -gamma$ for all $t >= 0$. Integrating gives $V(x(t)) <= V(x(0)) - gamma t$, which eventually becomes negative. This contradicts $V(x) >= 0$, so $L = 0$.
+  Since $V(x) = 0$ only at $x = x^*$, it follows that $x(t) arrow.r x^*$ as $t arrow.r infinity$.
 ]
 
 #theorem[Lyapunov Direct Method (Global Asymptotic Stability)][
@@ -56,25 +63,26 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   - If at least one eigenvalue satisfies $text("Re")(lambda_i) > 0$, then $x^*$ is unstable.
 ]
 #proof[
-  We prove the local asymptotic stability condition. Let $A = J(x^*)$ and define the perturbation variable $delta x = x - x^*$. 
-  By Taylor expansion around $x^*$, the dynamics are:
+  We use the same Taylor expansion setup throughout. Let $A = J(x^*)$, define $delta x = x - x^*$, so the nonlinear dynamics become:
   $ delta x' = A delta x + g(delta x), $
-  where the remainder $g(delta x)$ satisfies $lim_(||delta x|| arrow.r 0) (||g(delta x)||)/(||delta x||) = 0$.
-  
-  Since the eigenvalues of $A$ have strictly negative real parts, for any symmetric positive-definite matrix $Q$, there exists a symmetric positive-definite matrix $P$ that uniquely solves the continuous Lyapunov equation:
-  $ A^T P + P A = -Q. $
-  
-  Using the previously defined Quadratic Lyapunov Function for Linear Systems as our candidate, we let $V(delta x) = delta x^T P delta x$ for the full nonlinear system. Its time derivative evaluates to:
-  $ dot(V)(delta x) &= delta x'^T P delta x + delta x^T P delta x' \
-  &= (A delta x + g(delta x))^T P delta x + delta x^T P (A delta x + g(delta x)) \
-  &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
+  where $g(delta x)$ satisfies $lim_(||delta x|| arrow.r 0) (||g(delta x)||)/(||delta x||) = 0$, meaning $g$ is genuinely higher-order near the origin.
+
+  *Case 1: all eigenvalues satisfy $text("Re")(lambda_i) < 0$ (local asymptotic stability).*
+  Since $A$ is Hurwitz, for any symmetric positive-definite $Q$ there exists a unique symmetric positive-definite $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
+  Using $V(delta x) = delta x^T P delta x$ as our candidate, the time derivative along trajectories of the full nonlinear system is:
+  $ dot(V)(delta x) &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
   &= -delta x^T Q delta x + 2 delta x^T P g(delta x). $
-  
-  Because $Q$ is positive definite, the term $-delta x^T Q delta x$ is strictly negative and shrinks proportionally to $||delta x||^2$. The remainder $g(delta x)$ vanishes faster than $||delta x||$, meaning that for sufficiently small $||delta x||$, the higher-order term $2 delta x^T P g(delta x)$ is strictly overpowered by the quadratic term.
-  Therefore, in a sufficiently small neighborhood of the origin:
-  $ dot(V)(delta x) < 0 quad text("for all ") delta x != 0. $
-  
-  By the Local Asymptotic Stability theorem of the Direct Method, the equilibrium $x^*$ is locally asymptotically stable.
+  Let $lambda_min(Q) > 0$ denote the smallest eigenvalue of $Q$ and $||P||$ the induced matrix norm of $P$. Then:
+  $ dot(V)(delta x) <= -lambda_min(Q) ||delta x||^2 + 2 ||P|| ||g(delta x)|| ||delta x||. $
+  Since $||g(delta x)|| = o(||delta x||)$, for any $epsilon > 0$ there exists $delta > 0$ such that $||g(delta x)|| <= epsilon ||delta x||$ whenever $||delta x|| < delta$. Choosing $epsilon = lambda_min(Q) \/ (4 ||P||)$ gives:
+  $ dot(V)(delta x) <= -frac(lambda_min(Q), 2) ||delta x||^2 < 0 quad text("for all ") delta x != 0 text(" with ") ||delta x|| < delta. $
+  By the Local Asymptotic Stability theorem of the Direct Method, $x^*$ is locally asymptotically stable.
+
+  *Case 2: at least one eigenvalue satisfies $text("Re")(lambda_j) > 0$ (instability).*
+  Let $alpha = text("Re")(lambda_j) > 0$ and let $v_j$ be the corresponding (possibly complex) eigenvector of $A$. Consider initial conditions of the form $delta x(0) = s dot Re(v_j)$ for small $s > 0$. For the *linearized* system $delta x' = A delta x$, the solution component along $Re(v_j)$ grows at least as fast as $e^(alpha t)$, so $||delta x_"lin"(t)|| >= s e^(alpha t) ||Re(v_j)||$.
+  For the full nonlinear system, we apply Grönwall's inequality to the error $e(t) = delta x(t) - delta x_"lin"(t)$, which satisfies $e' = A e + g(delta x)$. Since $||g(delta x)|| <= C ||delta x||^2$ near the origin, the error remains $o(e^(alpha t))$ for small $s$. Therefore, for sufficiently small $s$:
+  $ ||delta x(t)|| >= frac(s, 2) e^(alpha t) ||Re(v_j)|| arrow.r infinity. $
+  Since initial conditions with arbitrarily small $s > 0$ produce trajectories that grow away from $x^*$, the equilibrium is unstable.
 ]
 
 === Solved Problems
