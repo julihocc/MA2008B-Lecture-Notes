@@ -13,6 +13,10 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 
 === Mathematical Review
 
+A central question in the study of dynamical systems is not merely whether solutions exist, but whether they return to or remain near a reference state after a perturbation. Lyapunov's theory answers this question without solving the differential equation explicitly. The key insight is to construct an auxiliary scalar function $V(x)$—called a *Lyapunov function*—that acts as a generalized "energy": if this energy is always decreasing along trajectories, the system must be converging to its equilibrium.
+
+We develop two complementary approaches. The *direct method* works with the nonlinear system itself and provides both local and global conclusions depending on whether the Lyapunov function is defined on a neighborhood or on the whole state space. The *indirect method* (or linearization) reduces the question to checking the eigenvalues of the Jacobian at the equilibrium, at the cost of yielding only local information.
+
 #theorem[Lyapunov Direct Method (Local Asymptotic Stability)][
   Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on a neighborhood $U$ of $x^*$ such that:
   1. $V(x^*) = 0$,
@@ -153,7 +157,9 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 
 == Biomathematical Stability in Glucose-Insulin Dynamics
 
-In this section, we specialize the previous stability tools to physiological models, where equilibria represent clinically relevant states such as normoglycemia and chronic hyperglycemia.
+The abstract tools developed in the previous section—Lyapunov functions, the Lyapunov equation, and the linearization theorem—are now brought to bear on a concrete physiological problem: the regulation of blood glucose and insulin. In these models, the equilibria of interest correspond to clinically meaningful metabolic states: a *healthy equilibrium* (normoglycemia) that should be stable, and a *pathological equilibrium* (chronic hyperglycemia) whose stability signals disease progression.
+
+Wherever the Lyapunov candidate $V$ satisfies $dot(V) < 0$ only on a subset (rather than everywhere away from equilibrium), we employ LaSalle's Invariance Principle—stated below—which extends the convergence conclusion to the semi-definite case.
 
 === Mathematical Review
 
