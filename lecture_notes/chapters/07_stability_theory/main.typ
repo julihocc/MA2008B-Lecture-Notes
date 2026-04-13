@@ -160,6 +160,16 @@ In this section, we specialize the previous stability tools to physiological mod
   In biomathematics, local asymptotic stability of a healthy equilibrium means small physiological perturbations (meal load, transient stress, hormonal fluctuations) decay over time. Loss of stability indicates persistent dysregulation, which may correspond to progression toward pathological states.
 ]
 
+#theorem[LaSalle's Invariance Principle][
+  Let $Omega$ be a compact set that is positively invariant under the flow of $x' = f(x)$. Let $V : Omega arrow.r RR$ be a continuously differentiable function such that $dot(V)(x) <= 0$ for all $x in Omega$. Define:
+  $ E = {x in Omega : dot(V)(x) = 0}, $
+  and let $M$ be the largest positively invariant subset of $E$. Then every solution starting in $Omega$ converges to $M$ as $t arrow.r infinity$.
+
+  In particular, if $M = {x^*}$, then $x^*$ is asymptotically stable and every trajectory starting in $Omega$ converges to $x^*$.
+]
+
+_Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <= 0$ (only negative semi-definite, not strictly negative definite). It is especially useful in biomathematical models where $dot(V) = 0$ on a physically meaningful set, such as the glucose nullcline, rather than only at the equilibrium itself.
+
 === Solved Problems
 
 #solved_problem[Negative Definiteness Near a Healthy Equilibrium][
