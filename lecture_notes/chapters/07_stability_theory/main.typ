@@ -47,6 +47,27 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   - If all eigenvalues of $J(x^*)$ satisfy $text("Re")(lambda_i) < 0$, then $x^*$ is locally asymptotically stable.
   - If at least one eigenvalue satisfies $text("Re")(lambda_i) > 0$, then $x^*$ is unstable.
 ]
+#proof[
+  We prove the local asymptotic stability condition. Let $A = J(x^*)$ and define the perturbation variable $delta x = x - x^*$. 
+  By Taylor expansion around $x^*$, the dynamics are:
+  $ delta x' = A delta x + g(delta x), $
+  where the remainder $g(delta x)$ satisfies $lim_(||delta x|| arrow.r 0) (||g(delta x)||)/(||delta x||) = 0$.
+  
+  Since the eigenvalues of $A$ have strictly negative real parts, for any symmetric positive-definite matrix $Q$, there exists a symmetric positive-definite matrix $P$ that uniquely solves the Lyapunov equation:
+  $ A^T P + P A = -Q. $
+  
+  We propose the candidate Lyapunov function $V(delta x) = delta x^T P delta x$ for the nonlinear system. Its time derivative evaluates to:
+  $ dot(V)(delta x) &= delta x'^T P delta x + delta x^T P delta x' \
+  &= (A delta x + g(delta x))^T P delta x + delta x^T P (A delta x + g(delta x)) \
+  &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
+  &= -delta x^T Q delta x + 2 delta x^T P g(delta x). $
+  
+  Because $Q$ is positive definite, the term $-delta x^T Q delta x$ is strictly negative and shrinks proportionally to $||delta x||^2$. The remainder $g(delta x)$ vanishes faster than $||delta x||$, meaning that for sufficiently small $||delta x||$, the higher-order term $2 delta x^T P g(delta x)$ is strictly overpowered by the quadratic term.
+  Therefore, in a sufficiently small neighborhood of the origin:
+  $ dot(V)(delta x) < 0 quad text("for all ") delta x != 0. $
+  
+  By the Local Asymptotic Stability theorem of the Direct Method, the equilibrium $x^*$ is locally asymptotically stable.
+]
 
 #definition[Quadratic Lyapunov Function for Linear Systems][
   For the linear system $x' = A x$, a standard candidate is
