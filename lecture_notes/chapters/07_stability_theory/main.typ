@@ -229,6 +229,15 @@ Wherever the Lyapunov candidate $V$ satisfies $dot(V) < 0$ only on a subset (rat
 
 === Mathematical Review
 
+#definition[Generic Planar Glucose-Insulin Model][
+  A wide class of basal metabolism models can be written as a planar autonomous system:
+  $ G' = f_1(G, I) \
+    I' = f_2(G, I) $
+  where $G$ is blood glucose and $I$ is blood insulin. At a healthy equilibrium $(G^*, I^*)$, physiological feedback dictates the sign structure of the Jacobian $J$:
+  $ J = mat(frac(partial G', partial G), frac(partial G', partial I); frac(partial I', partial G), frac(partial I', partial I)) = mat(-p_1, -p_2; p_3, -p_4) $
+  where $p_1, p_2, p_3, p_4 > 0$. Here, $p_1$ represents glucose effectiveness, $p_2$ is insulin sensitivity, $p_3$ is the beta-cell responsiveness to glucose, and $p_4$ is the insulin clearance rate.
+]
+
 #definition[Candidate Lyapunov Function for Glucose-Insulin][
   For a glucose-insulin model with equilibrium $(G^*, I^*)$, define
   $ V(G, I) = (G - G^*)^2 + c (I - I^*)^2 $
@@ -251,13 +260,31 @@ _Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <
 
 === Solved Problems
 
-#solved_problem[Negative Definiteness Near a Healthy Equilibrium][
-  For the linearized glucose-insulin system $delta x' = J delta x$ near a healthy equilibrium $P_1$, verify that choosing $V = delta x^T delta x$ gives $dot(V) = delta x^T (J^T + J) delta x < 0$ when $J^T + J$ is negative definite.
+#solved_problem[Parameter-Based Stability Condition via Weighted Lyapunov Function][
+  Consider the generic linearized physiological model around a healthy equilibrium:
+  $ mat(delta G'; delta I') = mat(-p_1, -p_2; p_3, -p_4) mat(delta G; delta I), $
+  where $p_1, p_2, p_3, p_4 > 0$. Using the weighted candidate Lyapunov function 
+  $ V(delta G, delta I) = (delta G)^2 + c (delta I)^2, $
+  find a value for the weight $c > 0$ that makes $dot(V)$ strictly negative definite, thereby analytically confirming local asymptotic stability.
 ]
 #solution[
-  Compute the symmetric matrix $J^T + J$ at $P_1$. If its eigenvalues are strictly negative, then for every nonzero perturbation $delta x$, we obtain
-  $ dot(V) = delta x^T (J^T + J) delta x < 0. $
-  Therefore, perturbations in glucose and insulin decay with time, which mathematically confirms local asymptotic stability of the healthy operating point.
+  *Step 1: Compute $dot(V)$ along trajectories.*
+  Taking the time derivative of the candidate function gives:
+  $ dot(V) &= 2 (delta G) (delta G') + 2 c (delta I) (delta I') \
+  &= 2 (delta G) (-p_1 delta G - p_2 delta I) + 2 c (delta I) (p_3 delta G - p_4 delta I) \
+  &= -2 p_1 (delta G)^2 - 2 p_2 (delta G)(delta I) + 2 c p_3 (delta G)(delta I) - 2 c p_4 (delta I)^2. $
+
+  *Step 2: Eliminate the cross-terms.*
+  To make the right-hand side clearly negative definite, we can choose the scaling parameter $c$ to eliminate the mixed $(delta G)(delta I)$ term. We require:
+  $ -2 p_2 + 2 c p_3 = 0 quad => quad c = frac(p_2, p_3). $
+  Since $p_2$ (insulin sensitivity) and $p_3$ (beta-cell responsiveness) are both strictly positive, the weight $c$ is positive, maintaining $V$ as a valid positive-definite Lyapunov function.
+
+  *Step 3: Conclude stability.*
+  Substituting $c = p_2\/p_3$ back into the derivative yields:
+  $ dot(V) = -2 p_1 (delta G)^2 - 2 frac(p_2 p_4, p_3) (delta I)^2. $
+  Because all parameters $p_i$ are strictly positive, $dot(V) < 0$ for all $(delta G, delta I) != (0,0)$. 
+  
+  _Remark:_ This proves the healthy equilibrium is locally asymptotically stable under normal physiological conditions. Adjusting $c = p_2/p_3$ biologically means the "metabolic distance" is scaled by the ratio of insulin sensitivity to beta-cell sensitivity.
 ]
 
 === Supplementary Problems
