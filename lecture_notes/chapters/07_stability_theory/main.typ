@@ -42,6 +42,14 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   Because the trajectory is bounded and $V(x(t))$ must decrease to $0$, the trajectory must converge to $x^*$. Since this holds for any starting point $x(0)$, $x^*$ is globally asymptotically stable.
 ]
 
+#definition[Quadratic Lyapunov Function for Linear Systems][
+  For the linear system $x' = A x$, a standard candidate is the quadratic form:
+  $ V(x) = x^T P x, $
+  where $P$ is a symmetric positive-definite matrix ($P = P^T > 0$). Along trajectories, the time derivative is:
+  $ dot(V)(x) = x^T (A^T P + P A) x. $
+  If we can find $P$ such that $A^T P + P A = -Q$ for some symmetric positive-definite matrix $Q$, then $dot(V)(x) = -x^T Q x < 0$ (for $x != 0$), and the origin is globally asymptotically stable.
+]
+
 #theorem[Lyapunov Indirect Method (Linearization)][
   Consider an equilibrium $x^*$ of a nonlinear system $x' = f(x)$ with Jacobian matrix $J(x^*)$.
   - If all eigenvalues of $J(x^*)$ satisfy $text("Re")(lambda_i) < 0$, then $x^*$ is locally asymptotically stable.
@@ -53,10 +61,10 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   $ delta x' = A delta x + g(delta x), $
   where the remainder $g(delta x)$ satisfies $lim_(||delta x|| arrow.r 0) (||g(delta x)||)/(||delta x||) = 0$.
   
-  Since the eigenvalues of $A$ have strictly negative real parts, for any symmetric positive-definite matrix $Q$, there exists a symmetric positive-definite matrix $P$ that uniquely solves the Lyapunov equation:
+  Since the eigenvalues of $A$ have strictly negative real parts, for any symmetric positive-definite matrix $Q$, there exists a symmetric positive-definite matrix $P$ that uniquely solves the continuous Lyapunov equation:
   $ A^T P + P A = -Q. $
   
-  We propose the candidate Lyapunov function $V(delta x) = delta x^T P delta x$ for the nonlinear system. Its time derivative evaluates to:
+  Using the previously defined Quadratic Lyapunov Function for Linear Systems as our candidate, we let $V(delta x) = delta x^T P delta x$ for the full nonlinear system. Its time derivative evaluates to:
   $ dot(V)(delta x) &= delta x'^T P delta x + delta x^T P delta x' \
   &= (A delta x + g(delta x))^T P delta x + delta x^T P (A delta x + g(delta x)) \
   &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
@@ -67,14 +75,6 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   $ dot(V)(delta x) < 0 quad text("for all ") delta x != 0. $
   
   By the Local Asymptotic Stability theorem of the Direct Method, the equilibrium $x^*$ is locally asymptotically stable.
-]
-
-#definition[Quadratic Lyapunov Function for Linear Systems][
-  For the linear system $x' = A x$, a standard candidate is
-  $ V(x) = x^T P x, $
-  where $P = P^T > 0$. Along trajectories,
-  $ dot(V) = x^T (A^T P + P A) x. $
-  If $A^T P + P A < 0$, then the origin is asymptotically stable.
 ]
 
 === Solved Problems
