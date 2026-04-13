@@ -98,11 +98,33 @@ We develop two complementary approaches. The *direct method* works with the nonl
 
 === Solved Problems
 
-#solved_problem[Checking Negative Definiteness for a Linearized Model][
-  For the linearized system $delta x' = J delta x$, verify that the quadratic Lyapunov function $V = delta x^T P delta x$ yields $dot(V) = delta x^T (J^T P + P J) delta x < 0$ when $P$ is chosen as the identity (i.e., both eigenvalues of $J^T + J$ are negative).
+#solved_problem[Verifying Negative Definiteness via Quadratic Lyapunov Function][
+  Consider a nonlinear system linearized near an equilibrium, yielding the Jacobian:
+  $ J = mat(-3, 1; -2, -4). $
+  Taking $P = I$ (the identity matrix), the candidate Lyapunov function is $V(delta x) = delta x^T delta x = norm(delta x)^2$. Verify that $dot(V) < 0$ and conclude local asymptotic stability.
 ]
 #solution[
-  Compute $J^T + J$ (the symmetric part of $J$). If all eigenvalues of this symmetric matrix are strictly negative, then $dot(V) < 0$ for all $delta x != 0$. This confirms local stability and, under appropriate conditions on the nonlinear terms, global stability.
+  With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
+  $ dot(V)(delta x) = delta x^T (J^T P + P J) delta x = delta x^T (J^T + J) delta x. $
+
+  *Step 1: Compute the symmetric part $J^T + J$.*
+  $ J^T = mat(-3, -2; 1, -4), $
+  so:
+  $ J^T + J = mat(-3, -2; 1, -4) + mat(-3, 1; -2, -4) = mat(-6, -1; -1, -8). $
+
+  *Step 2: Find the eigenvalues of $J^T + J$.*
+  The characteristic polynomial is:
+  $ det(lambda I - (J^T + J)) = det mat(lambda + 6, 1; 1, lambda + 8) = (lambda + 6)(lambda + 8) - 1 = lambda^2 + 14 lambda + 47. $
+  The eigenvalues are:
+  $ lambda_(1,2) = frac(-14 plus.minus sqrt(196 - 188), 2) = frac(-14 plus.minus sqrt(8), 2) = -7 plus.minus sqrt(2). $
+  Numerically: $lambda_1 approx -5.59$ and $lambda_2 approx -8.41$. Both are strictly negative.
+
+  *Step 3: Conclude.*
+  Since all eigenvalues of $J^T + J$ are strictly negative, the matrix is negative definite, meaning:
+  $ dot(V)(delta x) = delta x^T (J^T + J) delta x < 0 quad text("for all ") delta x != 0. $
+  By the Lyapunov Direct Method (Local Asymptotic Stability), the equilibrium is locally asymptotically stable.
+
+  _Remark:_ The two eigenvalues of $J$ itself are the roots of $lambda^2 + 7lambda + 14 = 0$, giving $lambda = (-7 plus.minus i sqrt(7))/2$, both with real part $-3.5 < 0$. This is consistent with the Indirect Method, and we have now established the same conclusion via the Direct Method with an explicit Lyapunov function.
 ]
 
 === Supplementary Problems
