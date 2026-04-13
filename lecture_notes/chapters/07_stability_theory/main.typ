@@ -43,10 +43,17 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   then $x^*$ is globally asymptotically stable.
 ]
 #proof[
-  The proof follows the local case, adding a guarantee that trajectories do not escape to infinity.
-  The condition that $V(x)$ is radially unbounded ensures that its sublevel sets, defined as $Omega_c = {x : V(x) <= c}$, are bounded.
-  Since $dot(V)(x) < 0$, the scalar value $V(x(t))$ is decreasing. Thus, any trajectory starting at $x(0)$ remains trapped inside the bounded set $Omega_c$ where $c = V(x(0))$.
-  Because the trajectory is bounded and $V(x(t))$ must decrease to $0$, the trajectory must converge to $x^*$. Since this holds for any starting point $x(0)$, $x^*$ is globally asymptotically stable.
+  We again establish Lyapunov stability and then asymptotic convergence, now globally.
+
+  *Step 1: Global Lyapunov Stability (trajectories are globally bounded).*
+  Radial unboundedness ensures that for each $c > 0$ the sublevel set
+  $ Omega_c = {x : V(x) <= c} $
+  is bounded (and closed, hence compact). Since $dot(V)(x) < 0$ for $x != x^*$, the function $V(x(t))$ is strictly decreasing along every trajectory. Therefore any trajectory starting at $x(0)$ satisfies $V(x(t)) <= V(x(0))$ for all $t >= 0$, so it remains inside the compact set $Omega_{V(x(0))}$. Because $x(0)$ was arbitrary, every trajectory is bounded. This establishes global Lyapunov stability.
+
+  *Step 2: Global Asymptotic Convergence.*
+  Since $V(x(t))$ is strictly decreasing and bounded below by $0$, it converges to a limit $L >= 0$.
+  Suppose for contradiction that $L > 0$. Then the trajectory stays in the compact set ${ x : L <= V(x) <= V(x(0)) }$, which is bounded away from $x^*$. On this compact set, $dot(V)$ is continuous and strictly negative, so there exists $gamma > 0$ such that $dot(V)(x(t)) <= -gamma$ for all $t >= 0$. Integrating gives $V(x(t)) <= V(x(0)) - gamma t$, which eventually becomes negative—contradiction.
+  Therefore $L = 0$. Since $V(x) = 0$ only at $x = x^*$, we conclude $x(t) arrow.r x^*$ for every starting point $x(0)$, which is global asymptotic stability.
 ]
 
 #definition[Quadratic Lyapunov Function for Linear Systems][
