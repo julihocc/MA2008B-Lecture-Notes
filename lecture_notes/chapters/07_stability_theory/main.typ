@@ -159,8 +159,8 @@ We develop two complementary approaches. The *direct method* works with the nonl
   *Step 1: Apply the Indirect Method.*
   For both systems, the origin $x^* = 0$ is an equilibrium.
   The Jacobian (which is just the 1D derivative) evaluated at the origin is:
-  $ J_A = text("d")/(text("d")x) (-x^3) big|_0 = -3(0)^2 = 0 \
-    J_B = text("d")/(text("d")x) (x^3) big|_0 = 3(0)^2 = 0 $
+  $ J_A = text("d")/(text("d")x) (-x^3) |_0 = -3(0)^2 = 0 \
+    J_B = text("d")/(text("d")x) (x^3) |_0 = 3(0)^2 = 0 $
   In both cases, the single eigenvalue is $lambda = 0$. Since $text("Re")(lambda) = 0$, it is neither strictly negative nor strictly positive. The Indirect Method is inconclusive.
 
   *Step 2: Apply the Direct Method.*
@@ -285,6 +285,49 @@ _Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <
   Because all parameters $p_i$ are strictly positive, $dot(V) < 0$ for all $(delta G, delta I) != (0,0)$. 
   
   _Remark:_ This proves the healthy equilibrium is locally asymptotically stable under normal physiological conditions. Adjusting $c = p_2/p_3$ biologically means the "metabolic distance" is scaled by the ratio of insulin sensitivity to beta-cell sensitivity.
+]
+
+#solved_problem[Applying LaSalle's Invariance Principle][
+  Suppose an alternative Lyapunov candidate $V(delta G, delta I)$ for the generic linearized model yields a derivative that only penalizes glucose variations:
+  $ dot(V) = -2 p_1 (delta G)^2 <= 0. $
+  Because $delta I$ does not appear in $dot(V)$, the derivative is only negative semi-definite. Use LaSalle's Invariance Principle to prove that the origin is still locally asymptotically stable.
+]
+#solution[
+  *Step 1: Identify the set $E$.*
+  LaSalle's Principle requires us to first identify the set of all states where $dot(V) = 0$.
+  $ E = {(delta G, delta I) : dot(V) = 0} = {(delta G, delta I) : delta G = 0}. $
+  This corresponds to the vertical axis in the $(delta G, delta I)$ phase plane (perfect normoglycemia, but arbitrary insulin levels).
+
+  *Step 2: Find the largest invariant subset $M$ in $E$.*
+  For a trajectory to remain inside $E$ for all time, it must satisfy $delta G(t) = 0$ constantly.
+  This implies its time derivative must also be zero: $delta G' = 0$.
+  Substitute this into the system's differential equation for glucose:
+  $ delta G' = -p_1 (0) - p_2 (delta I) = 0 quad => quad -p_2 (delta I) = 0. $
+  Since insulin sensitivity $p_2 > 0$, we must have $delta I = 0$.
+
+  *Step 3: Conclude.*
+  The only physiological state that can stay in $E$ forever is $(0,0)$. Thus, the largest invariant subset $M$ is simply the origin. By LaSalle's Invariance Principle, all trajectories starting in the neighborhood converge to $M = {(0,0)}$, proving local asymptotic stability despite the semi-definite $dot(V)$.
+]
+
+#solved_problem[Pathological State: Beta-Cell Failure and Instability][
+  Consider a patient in advanced diabetes where chronic hyperglycemia has induced severe beta-cell fatigue. In this pathological state, elevated glucose *decreases* insulin secretion perfectly. The corresponding Jacobian at the pathological equilibrium is:
+  $ J_"path" = mat(-p_1, -p_2; -p_3, -p_4) $
+  where $p_1, p_2, p_3, p_4 > 0$. Under what exact parametric condition does this pathological equilibrium lose stability? Provide a clinical interpretation.
+]
+#solution[
+  *Step 1: Apply the Trace-Determinant Condition.*
+  We analyze the eigenvalues using the trace and determinant of $J_"path"$:
+  $ text("tr")(J_"path") = -p_1 - p_4 \
+    det(J_"path") = p_1 p_4 - (-p_2)(-p_3) = p_1 p_4 - p_2 p_3. $
+  
+  *Step 2: Determine Stability Boundaries.*
+  Since $p_1, p_4 > 0$, the trace is always strictly negative ($text("tr")(J_"path") < 0$).
+  For asymptotic stability, a $2 times 2$ matrix with a negative trace also requires a strictly positive determinant. 
+  The equilibrium becomes strictly unstable (a saddle point) when $det(J_"path") < 0$, which occurs when:
+  $ p_2 p_3 > p_1 p_4. $
+
+  *Step 3: Clinical Interpretation.*
+  The product $p_1 p_4$ represents the system's "natural stabilization" (glucose effectiveness $times$ insulin clearance). The product $p_2 p_3$ represents a "vicious cycle": high glucose drops insulin ($-p_3$), which further raises glucose ($-p_2$). Unstable progression occurs precisely when this pathological vicious cycle overpowers the body's baseline clearance rates.
 ]
 
 === Supplementary Problems
