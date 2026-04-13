@@ -13,8 +13,33 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 
 === Mathematical Review
 
-#theorem[Lyapunov Direct Method][
-  If there exists a continuously differentiable scalar function $V(x) > 0$ with $V(x^*) = 0$ at the equilibrium $x^*$, and $dot(V)(x) < 0$ along all trajectories of $x' = f(x)$, then $x^*$ is globally asymptotically stable.
+#theorem[Lyapunov Direct Method (Local Asymptotic Stability)][
+  Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on a neighborhood $U$ of $x^*$ such that:
+  1. $V(x^*) = 0$,
+  2. $V(x) > 0$ for all $x in U$ with $x != x^*$,
+  3. $dot(V)(x) < 0$ for all $x in U$ with $x != x^*$,
+  then $x^*$ is locally asymptotically stable.
+]
+#proof[
+  The condition $dot(V)(x) < 0$ implies that evaluating $V$ along any trajectory $x(t) in U$ yields a strictly decreasing function $V(t)$, as long as the trajectory is not at the equilibrium.
+  Because $V(x)$ is continuous and bounded below by $0$, the sequence $V(x(t))$ must approach a limit $L >= 0$ as $t arrow.r infinity$.
+  If $L > 0$, the trajectory remains bounded away from $x^*$, meaning $dot(V)(x(t))$ would be bounded away from zero by some negative constant, forcing $V(x(t))$ to eventually become negative. This contradicts $V(x) >= 0$.
+  Therefore, the limit must be $L = 0$. Since $V(x) = 0$ only at $x = x^*$, it follows that $x(t) arrow.r x^*$, proving local asymptotic stability.
+]
+
+#theorem[Lyapunov Direct Method (Global Asymptotic Stability)][
+  Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on all of the state space such that:
+  1. $V(x^*) = 0$,
+  2. $V(x) > 0$ for all $x != x^*$,
+  3. $dot(V)(x) < 0$ for all $x != x^*$,
+  4. Radial unboundedness: $V(x) arrow.r infinity$ as $||x|| arrow.r infinity$,
+  then $x^*$ is globally asymptotically stable.
+]
+#proof[
+  The proof follows the local case, adding a guarantee that trajectories do not escape to infinity.
+  The condition that $V(x)$ is radially unbounded ensures that its sublevel sets, defined as $Omega_c = {x : V(x) <= c}$, are bounded.
+  Since $dot(V)(x) < 0$, the scalar value $V(x(t))$ is decreasing. Thus, any trajectory starting at $x(0)$ remains trapped inside the bounded set $Omega_c$ where $c = V(x(0))$.
+  Because the trajectory is bounded and $V(x(t))$ must decrease to $0$, the trajectory must converge to $x^*$. Since this holds for any starting point $x(0)$, $x^*$ is globally asymptotically stable.
 ]
 
 #theorem[Lyapunov Indirect Method (Linearization)][
