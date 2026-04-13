@@ -39,7 +39,7 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
   1. $V(x^*) = 0$,
   2. $V(x) > 0$ for all $x != x^*$,
   3. $dot(V)(x) < 0$ for all $x != x^*$,
-  4. Radial unboundedness: $V(x) arrow.r infinity$ as $||x|| arrow.r infinity$,
+  4. Radial unboundedness: $V(x) arrow.r infinity$ as $norm(x) arrow.r infinity$,
   then $x^*$ is globally asymptotically stable.
 ]
 #proof[
@@ -72,23 +72,23 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 #proof[
   We use the same Taylor expansion setup throughout. Let $A = J(x^*)$, define $delta x = x - x^*$, so the nonlinear dynamics become:
   $ delta x' = A delta x + g(delta x), $
-  where $g(delta x)$ satisfies $lim_(||delta x|| arrow.r 0) (||g(delta x)||)/(||delta x||) = 0$, meaning $g$ is genuinely higher-order near the origin.
+  where $g(delta x)$ satisfies $lim_(norm(delta x) arrow.r 0) (norm(g(delta x)))/(norm(delta x)) = 0$, meaning $g$ is genuinely higher-order near the origin.
 
   *Case 1: all eigenvalues satisfy $text("Re")(lambda_i) < 0$ (local asymptotic stability).*
   Since $A$ is Hurwitz, for any symmetric positive-definite $Q$ there exists a unique symmetric positive-definite $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
   Using $V(delta x) = delta x^T P delta x$ as our candidate, the time derivative along trajectories of the full nonlinear system is:
   $ dot(V)(delta x) &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
   &= -delta x^T Q delta x + 2 delta x^T P g(delta x). $
-  Let $lambda_min(Q) > 0$ denote the smallest eigenvalue of $Q$ and $||P||$ the induced matrix norm of $P$. Then:
-  $ dot(V)(delta x) <= -lambda_min(Q) ||delta x||^2 + 2 ||P|| ||g(delta x)|| ||delta x||. $
-  Since $||g(delta x)|| = o(||delta x||)$, for any $epsilon > 0$ there exists $delta > 0$ such that $||g(delta x)|| <= epsilon ||delta x||$ whenever $||delta x|| < delta$. Choosing $epsilon = lambda_min(Q) \/ (4 ||P||)$ gives:
-  $ dot(V)(delta x) <= -frac(lambda_min(Q), 2) ||delta x||^2 < 0 quad text("for all ") delta x != 0 text(" with ") ||delta x|| < delta. $
+  Let $lambda_min(Q) > 0$ denote the smallest eigenvalue of $Q$ and $norm(P)$ the induced matrix norm of $P$. Then:
+  $ dot(V)(delta x) <= -lambda_min(Q) norm(delta x)^2 + 2 norm(P) norm(g(delta x)) norm(delta x). $
+  Since $norm(g(delta x)) = o(norm(delta x))$, for any $epsilon > 0$ there exists $delta > 0$ such that $norm(g(delta x)) <= epsilon norm(delta x)$ whenever $norm(delta x) < delta$. Choosing $epsilon = lambda_min(Q) \/ (4 norm(P))$ gives:
+  $ dot(V)(delta x) <= -frac(lambda_min(Q), 2) norm(delta x)^2 < 0 quad text("for all ") delta x != 0 text(" with ") norm(delta x) < delta. $
   By the Local Asymptotic Stability theorem of the Direct Method, $x^*$ is locally asymptotically stable.
 
   *Case 2: at least one eigenvalue satisfies $text("Re")(lambda_j) > 0$ (instability).*
-  Let $alpha = text("Re")(lambda_j) > 0$ and let $v_j$ be the corresponding (possibly complex) eigenvector of $A$. Consider initial conditions of the form $delta x(0) = s dot Re(v_j)$ for small $s > 0$. For the *linearized* system $delta x' = A delta x$, the solution component along $Re(v_j)$ grows at least as fast as $e^(alpha t)$, so $||delta x_"lin"(t)|| >= s e^(alpha t) ||Re(v_j)||$.
-  For the full nonlinear system, we apply Grönwall's inequality to the error $e(t) = delta x(t) - delta x_"lin"(t)$, which satisfies $e' = A e + g(delta x)$. Since $||g(delta x)|| <= C ||delta x||^2$ near the origin, the error remains $o(e^(alpha t))$ for small $s$. Therefore, for sufficiently small $s$:
-  $ ||delta x(t)|| >= frac(s, 2) e^(alpha t) ||Re(v_j)|| arrow.r infinity. $
+  Let $alpha = text("Re")(lambda_j) > 0$ and let $v_j$ be the corresponding (possibly complex) eigenvector of $A$. Consider initial conditions of the form $delta x(0) = s dot Re(v_j)$ for small $s > 0$. For the *linearized* system $delta x' = A delta x$, the solution component along $Re(v_j)$ grows at least as fast as $e^(alpha t)$, so $norm(delta x_"lin"(t)) >= s e^(alpha t) norm(Re(v_j))$.
+  For the full nonlinear system, we apply Grönwall's inequality to the error $e(t) = delta x(t) - delta x_"lin"(t)$, which satisfies $e' = A e + g(delta x)$. Since $norm(g(delta x)) <= C norm(delta x)^2$ near the origin, the error remains $o(e^(alpha t))$ for small $s$. Therefore, for sufficiently small $s$:
+  $ norm(delta x(t)) >= frac(s, 2) e^(alpha t) norm(Re(v_j)) arrow.r infinity. $
   Since initial conditions with arbitrarily small $s > 0$ produce trajectories that grow away from $x^*$, the equilibrium is unstable.
 ]
 
@@ -141,12 +141,12 @@ This chapter covers Lyapunov's indirect and direct methods, with applications to
 
 #supplementary[Exponential Decay Bound from a Quadratic Lyapunov Function][
   Suppose for a nonlinear system there exists $V(x)$ and constants $m_1, m_2, alpha > 0$ such that
-  $ m_1 ||x||^2 <= V(x) <= m_2 ||x||^2 $
+  $ m_1 norm(x)^2 <= V(x) <= m_2 norm(x)^2 $
   and
-  $ dot(V)(x) <= - alpha ||x||^2 $
+  $ dot(V)(x) <= - alpha norm(x)^2 $
   in a neighborhood of the origin.
   1. Show that $V(t) <= V(0) e^(-(alpha/m_2) t)$.
-  2. Derive an exponential norm estimate for $||x(t)||$ in terms of $||x(0)||$.
+  2. Derive an exponential norm estimate for $norm(x(t))$ in terms of $norm(x(0))$.
   3. Interpret the result as a quantitative stability statement.
   *Hint:* Convert the inequality for $dot(V)$ into a scalar differential inequality in $V(t)$.
 ]
@@ -214,11 +214,11 @@ _Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <
 
 #supplementary[Disturbance Rejection and Practical Stability][
   Assume meal intake acts as a bounded disturbance $u(t)$ in a glucose-insulin model:
-  $ x' = f(x) + B u(t), quad ||u(t)|| <= u_max. $
+  $ x' = f(x) + B u(t), quad norm(u(t)) <= u_max. $
   1. Explain why strict asymptotic convergence to equilibrium may be replaced by convergence to a small neighborhood.
   2. Formulate a Lyapunov inequality that implies practical stability under bounded input.
   3. Interpret this in terms of clinically acceptable glycemic variability.
-  *Hint:* Derive an estimate of the form $dot(V) <= -c_1 ||x-x^*||^2 + c_2 ||u||^2$.
+  *Hint:* Derive an estimate of the form $dot(V) <= -c_1 norm(x-x^*)^2 + c_2 norm(u)^2$.
 ]
 
 #supplementary[Basin-of-Attraction Estimate for Safe Operating Region][
