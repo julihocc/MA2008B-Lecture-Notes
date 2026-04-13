@@ -127,6 +127,50 @@ We develop two complementary approaches. The *direct method* works with the nonl
   _Remark:_ The two eigenvalues of $J$ itself are the roots of $lambda^2 + 7lambda + 14 = 0$, giving $lambda = (-7 plus.minus i sqrt(7))/2$, both with real part $-3.5 < 0$. This is consistent with the Indirect Method, and we have now established the same conclusion via the Direct Method with an explicit Lyapunov function.
 ]
 
+#solved_problem[Global Asymptotic Stability via the Direct Method][
+  Consider the nonlinear planar system:
+  $ x'_1 = -x_1 + x_2 \
+    x'_2 = -x_1 - x_2^3 $
+  Show that the origin is globally asymptotically stable by proposing the candidate Lyapunov function $V(x_1, x_2) = 1/2 x_1^2 + 1/2 x_2^2$.
+]
+#solution[
+  *Step 1: Check equilibrium and properties of $V$.*
+  The origin $(0,0)$ is an equilibrium since $f(0,0) = (0,0)$.
+  The function $V(x_1, x_2)$ is positive definite ($V(0,0)=0$ and $V > 0$ for $x != 0$).
+  Furthermore, $V(x_1, x_2) arrow.r infinity$ as $norm(x) arrow.r infinity$, meaning it is radially unbounded. This satisfies the prerequisites for the Global Direct Method.
+
+  *Step 2: Compute $dot(V)$.*
+  $ dot(V) &= frac(partial V, partial x_1) x'_1 + frac(partial V, partial x_2) x'_2 \
+  &= x_1 (-x_1 + x_2) + x_2 (-x_1 - x_2^3) \
+  &= -x_1^2 + x_1 x_2 - x_1 x_2 - x_2^4 \
+  &= -x_1^2 - x_2^4 $
+
+  *Step 3: Conclude.*
+  Since $dot(V) = -x_1^2 - x_2^4 < 0$ for all $(x_1, x_2) != (0,0)$, the derivative is strictly negative everywhere except at the equilibrium. Because $V$ is radially unbounded, the origin is globally asymptotically stable.
+]
+
+#solved_problem[Inconclusive Linearization (The Center Problem)][
+  Consider the two slightly different 1D nonlinear systems:
+  $ text("System A: ") x' = -x^3 \
+    text("System B: ") x' = x^3 $
+  Apply the Lyapunov Indirect Method (Linearization) to the origin for both systems. Does it provide a conclusion? If not, use the Direct Method to determine stability.
+]
+#solution[
+  *Step 1: Apply the Indirect Method.*
+  For both systems, the origin $x^* = 0$ is an equilibrium.
+  The Jacobian (which is just the 1D derivative) evaluated at the origin is:
+  $ J_A = text("d")/(text("d")x) (-x^3) big|_0 = -3(0)^2 = 0 \
+    J_B = text("d")/(text("d")x) (x^3) big|_0 = 3(0)^2 = 0 $
+  In both cases, the single eigenvalue is $lambda = 0$. Since $text("Re")(lambda) = 0$, it is neither strictly negative nor strictly positive. The Indirect Method is inconclusive.
+
+  *Step 2: Apply the Direct Method.*
+  Propose the candidate $V(x) = 1/2 x^2$, which is positive definite.
+  - For System A: $dot(V) = x(-x^3) = -x^4 < 0$ for $x != 0$. Thus, System A is asymptotically stable.
+  - For System B: $dot(V) = x(x^3) = x^4 > 0$ for $x != 0$. The energy is strictly increasing, so System B is unstable.
+  
+  _Remark:_ This highlights why the Indirect Method relies upon strictly non-zero real parts: when $text("Re")(lambda)=0$, the linear terms vanish and the higher-order nonlinear terms (which the Indirect Method ignores) completely dictate stability.
+]
+
 === Supplementary Problems
 
 #supplementary[Constructing a Weighted Quadratic Lyapunov Function][
