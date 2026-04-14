@@ -91,6 +91,33 @@ We develop two complementary approaches. The *direct method* works with the nonl
   $ A^T P + P A = -Q. $
   The solution is given explicitly by $P = integral_0^infinity e^(A^T t) Q e^(A t) thin d t$, which converges precisely because $A$ is Hurwitz.
 ]
+#proof[
+  *Step 1: Convergence of the integral.*
+  Since $A$ is Hurwitz, all eigenvalues satisfy $text("Re")(lambda_i) < 0$. This guarantees that the matrix exponential decays exponentially:
+  $ norm(e^(A t)) <= C e^(-alpha t) quad forall t >= 0, $
+  for some constants $C > 0$ and $alpha > 0$ (where $alpha < min_i |text("Re")(lambda_i)|$). Therefore the integrand satisfies:
+  $ norm(e^(A^T t) Q e^(A t)) <= C^2 norm(Q) e^(-2 alpha t), $
+  and since $integral_0^infinity e^(-2 alpha t) d t = 1/(2 alpha) < infinity$, the integral defining $P$ converges absolutely.
+
+  *Step 2: $P$ satisfies the Lyapunov equation.*
+  Define $P = integral_0^infinity e^(A^T t) Q e^(A t) thin d t$. We verify it solves $A^T P + P A = -Q$ by computing directly:
+  $ A^T P + P A &= integral_0^infinity (A^T e^(A^T t) Q e^(A t) + e^(A^T t) Q e^(A t) A) thin d t \
+  &= integral_0^infinity frac(d, d t) (e^(A^T t) Q e^(A t)) thin d t \
+  &= [e^(A^T t) Q e^(A t)]_0^infinity \
+  &= lim_(t arrow.r infinity) e^(A^T t) Q e^(A t) - e^0 Q e^0. $
+  Since $A$ is Hurwitz, the matrix exponential $e^(A t) arrow.r 0$ as $t arrow.r infinity$, so the limit term vanishes. Therefore:
+  $ A^T P + P A = 0 - Q = -Q. $
+
+  *Step 3: $P$ is symmetric and positive-definite.*
+  Symmetry follows directly from the formula: $(e^(A^T t) Q e^(A t))^T = e^(A^T t) Q^T e^(A t) = e^(A^T t) Q e^(A t)$ since $Q$ is symmetric. For positive-definiteness, take any nonzero vector $v$:
+  $ v^T P v = integral_0^infinity v^T e^(A^T t) Q e^(A t) v thin d t = integral_0^infinity (e^(A t) v)^T Q (e^(A t) v) thin d t > 0, $
+  since $Q > 0$ and $e^(A t) v != 0$ for all finite $t$ (as $e^(A t)$ is invertible).
+
+  *Step 4: Uniqueness.*
+  Suppose $P_1$ and $P_2$ both satisfy $A^T P + P A = -Q$. Then $D = P_1 - P_2$ satisfies $A^T D + D A = 0$. Multiplying on the left by $e^(A^T t)$ and on the right by $e^(A t)$ and integrating:
+  $ integral_0^T frac(d, d t)(e^(A^T t) D e^(A t)) thin d t = 0 quad ==> quad e^(A^T T) D e^(A T) = D. $
+  Taking $T arrow.r infinity$, the left side tends to $0$ since $A$ is Hurwitz, giving $D = 0$, hence $P_1 = P_2$.
+]
 
 #theorem[Lyapunov Indirect Method (Linearization)][
   Consider an equilibrium $x^*$ of a nonlinear system $x' = f(x)$ with Jacobian matrix $J(x^*)$.
