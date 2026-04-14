@@ -34,7 +34,11 @@ We develop two complementary approaches. The *direct method* works with the nonl
 
   *Step 2: Asymptotic Convergence (trajectories approach $x^*$).*
   Fix $x(0)$ sufficiently close to $x^*$ so that $x(t)$ remains in $U$ for all $t >= 0$ (guaranteed by Step 1). Since $V(x(t))$ is strictly decreasing and bounded below by $0$, it converges to a limit $L >= 0$.
-  Suppose for contradiction that $L > 0$. Then the trajectory stays in the compact set ${ x in U : L <= V(x) <= V(x(0)) }$, which is bounded away from $x^*$. On this compact set, $dot(V)$ is continuous and strictly negative, so there exists $gamma > 0$ such that $dot(V)(x(t)) <= -gamma$ for all $t >= 0$. Integrating gives $V(x(t)) <= V(x(0)) - gamma t$, which eventually becomes negative. This contradicts $V(x) >= 0$, so $L = 0$.
+  Suppose for contradiction that $L > 0$. Because the energy $V(x(t))$ never drops below $L$ and started at $V(x(0))$, the trajectory remains forever inside the set $K = { x in U : L <= V(x) <= V(x(0)) }$. Since $V(x^*) = 0$, the set $K$ does not contain the equilibrium $x^*$; it is bounding the trajectory away from the equilibrium.
+
+  Because $K$ is closed and bounded (a compact set), and $dot(V)$ is continuous, the Extreme Value Theorem guarantees that $dot(V)$ achieves a maximum value on $K$. Since $dot(V) < 0$ everywhere on $K$, this maximum must be some strictly negative number, say $-gamma$ (with $gamma > 0$). This means the system is losing energy at a constant minimum rate: $dot(V)(x(t)) <= -gamma$ for all $t >= 0$.
+
+  Integrating this rate of energy loss gives $V(x(t)) <= V(x(0)) - gamma t$. Because $gamma > 0$, as $t arrow.r infinity$, the total energy $V(x(t))$ is forced to become negative. This is impossible because the Lyapunov function satisfies $V(x) >= 0$ everywhere. This contradiction implies that our assumption $L > 0$ must be false, so $L = 0$.
   Since $V(x) = 0$ only at $x = x^*$, it follows that $x(t) arrow.r x^*$ as $t arrow.r infinity$.
 ]
 
@@ -56,7 +60,11 @@ We develop two complementary approaches. The *direct method* works with the nonl
 
   *Step 2: Global Asymptotic Convergence.*
   Since $V(x(t))$ is strictly decreasing and bounded below by $0$, it converges to a limit $L >= 0$.
-  Suppose for contradiction that $L > 0$. Then the trajectory stays in the compact set ${ x : L <= V(x) <= V(x(0)) }$, which is bounded away from $x^*$. On this compact set, $dot(V)$ is continuous and strictly negative, so there exists $gamma > 0$ such that $dot(V)(x(t)) <= -gamma$ for all $t >= 0$. Integrating gives $V(x(t)) <= V(x(0)) - gamma t$, which eventually becomes negative—contradiction.
+  Suppose for contradiction that $L > 0$. Because the energy $V(x(t))$ never drops below $L$ and started at $V(x(0))$, the trajectory remains forever inside the set $K = { x : L <= V(x) <= V(x(0)) }$. Since $V(x^*) = 0$, the set $K$ does not contain the equilibrium $x^*$; it is bounding the trajectory away from the equilibrium.
+
+  Because $K$ is closed and bounded (a compact set), and $dot(V)$ is continuous, the Extreme Value Theorem guarantees that $dot(V)$ achieves a maximum value on $K$. Since $dot(V) < 0$ everywhere on $K$, this maximum must be some strictly negative number, say $-gamma$ (with $gamma > 0$). This means the system is losing energy at a constant minimum rate: $dot(V)(x(t)) <= -gamma$ for all $t >= 0$.
+
+  Integrating this rate of energy loss gives $V(x(t)) <= V(x(0)) - gamma t$. Because $gamma > 0$, as $t arrow.r infinity$, the total energy $V(x(t))$ is forced to become negative, leading to a contradiction.
   Therefore $L = 0$. Since $V(x) = 0$ only at $x = x^*$, we conclude $x(t) arrow.r x^*$ for every starting point $x(0)$, which is global asymptotic stability.
 ]
 
