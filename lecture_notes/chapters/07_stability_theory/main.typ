@@ -86,9 +86,13 @@ We develop two complementary approaches. The *direct method* works with the nonl
   - If at least one eigenvalue satisfies $text("Re")(lambda_i) > 0$, then $x^*$ is unstable.
 ]
 #proof[
-  We use the same Taylor expansion setup throughout. Let $A = J(x^*)$, define $delta x = x - x^*$, so the nonlinear dynamics become:
-  $ delta x' = A delta x + g(delta x), $
-  where $g(delta x)$ satisfies $lim_(norm(delta x) arrow.r 0) (norm(g(delta x)))/(norm(delta x)) = 0$, meaning $g$ is genuinely higher-order near the origin.
+  We define the perturbation from equilibrium as $delta x = x - x^*$. Since $x^*$ is a constant, taking the time derivative of the perturbation yields:
+  $ frac(text("d"), text("d") t) (delta x) = frac(text("d") x, text("d") t) - 0 = f(x). $
+  Applying a Taylor expansion to $f(x)$ around the equilibrium $x^*$ gives:
+  $ f(x) = f(x^*) + J(x^*) (x - x^*) + g(x - x^*). $
+  Since $x^*$ is an equilibrium, $f(x^*) = 0$. Letting $A = J(x^*)$, the nonlinear dynamics expressed in terms of the perturbation become:
+  $ frac(text("d"), text("d") t) (delta x) = A delta x + g(delta x), $
+  where the remainder $g(delta x)$ satisfies $lim_(norm(delta x) arrow.r 0) (norm(g(delta x)))/(norm(delta x)) = 0$, meaning the non-linearities are genuinely higher-order near the origin.
 
   *Case 1: all eigenvalues satisfy $text("Re")(lambda_i) < 0$ (local asymptotic stability).*
   Since $A$ is Hurwitz, for any symmetric positive-definite $Q$ there exists a unique symmetric positive-definite $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
