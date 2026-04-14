@@ -95,7 +95,7 @@ We develop two complementary approaches. The *direct method* works with the nonl
   where the remainder $g(delta x)$ satisfies $lim_(norm(delta x) arrow.r 0) (norm(g(delta x)))/(norm(delta x)) = 0$, meaning the non-linearities are genuinely higher-order near the origin.
 
   *Case 1: all eigenvalues satisfy $text("Re")(lambda_i) < 0$ (local asymptotic stability).*
-  Since $A$ is Hurwitz, for any symmetric positive-definite $Q$ there exists a unique symmetric positive-definite $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
+  A matrix is said to be *Hurwitz* (or *stable*) if all of its eigenvalues have strictly negative real parts—which is precisely the condition assumed in this case. Since $A = J(x^*)$ is Hurwitz, a classical result in linear algebra (the Lyapunov stability theorem for linear systems) guarantees that for any choice of symmetric positive-definite matrix $Q$, there exists a unique symmetric positive-definite matrix $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
   Using $V(delta x) = delta x^T P delta x$ as our candidate, the time derivative along trajectories of the full nonlinear system is:
   $ dot(V)(delta x) &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
   &= -delta x^T Q delta x + 2 delta x^T P g(delta x). $
