@@ -18,6 +18,7 @@ A central question in the study of dynamical systems is not merely whether solut
 We develop two complementary approaches. The *direct method* works with the nonlinear system itself and provides both local and global conclusions depending on whether the Lyapunov function is defined on a neighborhood or on the whole state space. The *indirect method* (or linearization) reduces the question to checking the eigenvalues of the Jacobian at the equilibrium, at the cost of yielding only local information.
 
 #theorem[Lyapunov Direct Method (Local Asymptotic Stability)][
+  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on a neighborhood $U$ of $x^*$ such that:
   1. $V(x^*) = 0$,
   2. $V(x) > 0$ for all $x in U$ with $x != x^*$,
@@ -43,6 +44,7 @@ We develop two complementary approaches. The *direct method* works with the nonl
 ]
 
 #theorem[Lyapunov Direct Method (Global Asymptotic Stability)][
+  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on all of the state space such that:
   1. $V(x^*) = 0$,
   2. $V(x) > 0$ for all $x != x^*$,
@@ -86,7 +88,9 @@ We develop two complementary approaches. The *direct method* works with the nonl
   Equivalently, every solution to the linear system $x' = A x$ decays exponentially to zero.
 ]
 
-#lemma[Lyapunov Equation Solvability][
+#lemma[Lyapunov Equation Solvability]
+  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
+[
   Let $A$ be a Hurwitz matrix. Then for any symmetric positive-definite matrix $Q > 0$, there exists a unique symmetric positive-definite matrix $P > 0$ satisfying the continuous *Lyapunov equation*:
   $ A^T P + P A = -Q. $
   The solution is given explicitly by $P = integral_0^infinity e^(A^T t) Q e^(A t) thin d t$, which converges precisely because $A$ is Hurwitz.
@@ -120,14 +124,17 @@ We develop two complementary approaches. The *direct method* works with the nonl
 ]
 
 #theorem[Lyapunov Indirect Method (Linearization)][
+  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Consider an equilibrium $x^*$ of a nonlinear system $x' = f(x)$ with Jacobian matrix $J(x^*)$.
   - If all eigenvalues of $J(x^*)$ satisfy $text("Re")(lambda_i) < 0$, then $x^*$ is locally asymptotically stable.
   - If at least one eigenvalue satisfies $text("Re")(lambda_i) > 0$, then $x^*$ is unstable.
 ]
 #proof[
-  We define the perturbation from equilibrium as $delta x = x - x^*$. Since $x^*$ is a constant, taking the time derivative of the perturbation yields:
-  $ frac(text("d"), text("d") t) (delta x) = frac(text("d") x, text("d") t) - 0 = f(x). $
-  Applying a Taylor expansion to $f(x)$ around the equilibrium $x^*$ gives:
+  *Perturbation decomposition:* To analyze behavior near the equilibrium, we study deviations from $x^*$ by introducing the perturbation variable $delta x = x - x^*$. Because $x^*$ is a constant equilibrium, the time derivative of the perturbation coincides with the derivative of the state:
+  $ frac(text("d"), text("d") t) (delta x) = frac(text("d") x, text("d") t) = f(x). $
+  This change of variables focuses the analysis on how disturbances away from equilibrium evolve.
+
+  *Taylor expansion around equilibrium:* Applying a Taylor expansion to $f(x)$ around the equilibrium point $x^*$ gives:
   $ f(x) = f(x^*) + J(x^*) (x - x^*) + g(x - x^*). $
   Since $x^*$ is an equilibrium, $f(x^*) = 0$. Letting $A = J(x^*)$, the nonlinear dynamics expressed in terms of the perturbation become:
   $ frac(text("d"), text("d") t) (delta x) = A delta x + g(delta x), $
@@ -285,6 +292,7 @@ Wherever the Lyapunov candidate $V$ satisfies $dot(V) < 0$ only on a subset (rat
 === Mathematical Review
 
 #definition[Generic Planar Glucose-Insulin Model][
+  _Note:_ This simplified planar form abstracts the essential feedback structure of glucose-insulin regulation commonly found in physiological models. It captures qualitative metabolic dynamics suitable for Lyapunov analysis, though full clinical models may include additional delays and nonlinearities.
   A wide class of basal metabolism models can be written as a planar autonomous system:
   $ G' = f_1(G, I) \
     I' = f_2(G, I) $
@@ -311,7 +319,7 @@ Wherever the Lyapunov candidate $V$ satisfies $dot(V) < 0$ only on a subset (rat
   In particular, if $M = {x^*}$, then $x^*$ is asymptotically stable and every trajectory starting in $Omega$ converges to $x^*$.
 ]
 
-_Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <= 0$ (only negative semi-definite, not strictly negative definite). It is especially useful in biomathematical models where $dot(V) = 0$ on a physically meaningful set, such as the glucose nullcline, rather than only at the equilibrium itself.
+_Remark:_ LaSalle's principle extends the Direct Method to cases where $dot(V) <= 0$ (only negative semi-definite, not strictly negative definite). It is especially useful in biomathematical models where $dot(V) = 0$ on a physically meaningful set—for example, the glucose nullcline where $G' = 0$ (glucose production balances glucose clearance)—rather than having $dot(V) < 0$ everywhere away from equilibrium. This allows convergence conclusions even when the Lyapunov function is only dissipative on certain invariant surfaces.
 
 === Solved Problems
 
