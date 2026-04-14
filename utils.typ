@@ -34,6 +34,18 @@
 	breakable: true,
 )
 
+// Lemmas
+#let lemma = thmbox(
+	"lemma",
+	"Lemma",
+	fill: rgb("#F8FAFC"),
+	stroke: (left: rgb("#8B5CF6") + 3pt, rest: rgb("#E2E8F0") + 0.5pt),
+	radius: 2pt,
+	inset: 12pt,
+	base: "heading",
+	breakable: true,
+)
+
 // Propositions
 #let proposition = thmbox(
 	"proposition",

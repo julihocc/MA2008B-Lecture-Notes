@@ -80,6 +80,18 @@ We develop two complementary approaches. The *direct method* works with the nonl
   If we can find $P$ such that $A^T P + P A = -Q$ for some symmetric positive-definite matrix $Q$, then $dot(V)(x) = -x^T Q x < 0$ (for $x != 0$), and the origin is globally asymptotically stable.
 ]
 
+#definition[Hurwitz Matrix][
+  A square matrix $A$ is called *Hurwitz* (or *stable*) if all of its eigenvalues have strictly negative real part:
+  $ text("Re")(lambda_i) < 0 quad forall i. $
+  Equivalently, every solution to the linear system $x' = A x$ decays exponentially to zero.
+]
+
+#lemma[Lyapunov Equation Solvability][
+  Let $A$ be a Hurwitz matrix. Then for any symmetric positive-definite matrix $Q > 0$, there exists a unique symmetric positive-definite matrix $P > 0$ satisfying the continuous *Lyapunov equation*:
+  $ A^T P + P A = -Q. $
+  The solution is given explicitly by $P = integral_0^infinity e^(A^T t) Q e^(A t) thin d t$, which converges precisely because $A$ is Hurwitz.
+]
+
 #theorem[Lyapunov Indirect Method (Linearization)][
   Consider an equilibrium $x^*$ of a nonlinear system $x' = f(x)$ with Jacobian matrix $J(x^*)$.
   - If all eigenvalues of $J(x^*)$ satisfy $text("Re")(lambda_i) < 0$, then $x^*$ is locally asymptotically stable.
@@ -95,7 +107,7 @@ We develop two complementary approaches. The *direct method* works with the nonl
   where the remainder $g(delta x)$ satisfies $lim_(norm(delta x) arrow.r 0) (norm(g(delta x)))/(norm(delta x)) = 0$, meaning the non-linearities are genuinely higher-order near the origin.
 
   *Case 1: all eigenvalues satisfy $text("Re")(lambda_i) < 0$ (local asymptotic stability).*
-  A matrix is said to be *Hurwitz* (or *stable*) if all of its eigenvalues have strictly negative real parts—which is precisely the condition assumed in this case. Since $A = J(x^*)$ is Hurwitz, a classical result in linear algebra (the Lyapunov stability theorem for linear systems) guarantees that for any choice of symmetric positive-definite matrix $Q$, there exists a unique symmetric positive-definite matrix $P$ solving the continuous Lyapunov equation $A^T P + P A = -Q$.
+  By assumption, $A = J(x^*)$ is Hurwitz (Definition above). By the Lyapunov Equation Solvability Lemma, for any symmetric positive-definite $Q$ there exists a unique symmetric positive-definite $P$ satisfying $A^T P + P A = -Q$.
   Using $V(delta x) = delta x^T P delta x$ as our candidate, the time derivative along trajectories of the full nonlinear system is:
   $ dot(V)(delta x) &= delta x^T (A^T P + P A) delta x + 2 delta x^T P g(delta x) \
   &= -delta x^T Q delta x + 2 delta x^T P g(delta x). $
