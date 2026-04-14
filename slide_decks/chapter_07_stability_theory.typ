@@ -19,6 +19,15 @@
   - Glucose-insulin stability and clinical interpretation
 ], footer: "Chapter 7")
 
+#theme.slide("Learning Objectives", [
+  By the end of this chapter, you should be able to:
+  - Construct Lyapunov candidates for nonlinear and metabolic models
+  - Distinguish local vs global asymptotic stability assumptions
+  - Apply Jacobian-based linearization and classify edge cases
+  - Solve and interpret $A^T P + P A = -Q$ for linear systems
+  - Use LaSalle invariance when $dot(V)$ is only semi-definite
+], footer: "Objectives")
+
 #theme.section_slide("Part I", "Mathematical Stability Theory")
 
 #theme.slide("Stability Objective", [
@@ -58,6 +67,18 @@
   Then $x^*$ is globally asymptotically stable.
 ], footer: "Direct Method")
 
+#theme.slide("Sublevel Sets and Invariance", [
+  For $c>0$, define sublevel set
+  $Omega_c = {x: V(x) <= c}$.
+
+  If $dot(V) <= 0$ in a region, trajectories cannot cross outward
+  through boundary $V(x)=c$.
+
+  Consequences:
+  - Local proof: choose small invariant $Omega_c$ near $x^*$
+  - Global proof: radial unboundedness makes all $Omega_c$ bounded
+], footer: "Proof Geometry")
+
 #theme.slide("Proof Logic (Direct Method)", [
   - Sublevel sets of $V$ trap trajectories
   - Monotonicity: $dot(V) < 0$ implies strict energy decay
@@ -90,6 +111,28 @@
     - Some $Re(lambda_i(A)) = 0$ => inconclusive
   ])
 ], footer: "Indirect Method")
+
+#theme.slide("Indirect Method: Proof Skeleton", [
+  Write perturbation dynamics near equilibrium:
+  $delta x' = A delta x + g(delta x)$,
+  with $norm(g(delta x))/norm(delta x) arrow.r 0$ as $delta x arrow.r 0$.
+
+  - If $A$ is Hurwitz: choose quadratic $V = delta x^T P delta x$ and absorb
+    remainder term $2 delta x^T P g(delta x)$ in small neighborhood.
+  - If some $Re(lambda_i(A)) > 0$: unstable eigendirection dominates,
+    nonlinear remainder is higher-order and cannot suppress growth.
+], footer: "Proof Sketch")
+
+#theme.slide("Definitions for Linear Stability", [
+  #theme.definition("Hurwitz Matrix", [
+    A matrix $A$ is Hurwitz if all eigenvalues satisfy
+    $Re(lambda_i(A)) < 0$.
+  ])
+
+  #v(0.5em)
+  Equivalent dynamical statement:
+  every trajectory of $x' = A x$ decays exponentially to $0$.
+], footer: "Definitions")
 
 #theme.slide("Why Indirect Method Can Fail", [
   Compare:
@@ -130,6 +173,19 @@
   ])
 ], footer: "Linear Systems")
 
+#theme.slide("Why the Integral Formula Works", [
+  For Hurwitz $A$,
+  $P = integral_0^infinity e^(A^T t) Q e^(A t) d t$ converges because
+  $norm(e^(A t)) <= C e^(-alpha t)$.
+
+  Differentiate integrand:
+  $frac(d, d t)(e^(A^T t) Q e^(A t)) = A^T(\cdot) + (\cdot)A$,
+  giving $A^T P + P A = -Q$.
+
+  Positivity follows from
+  $v^T P v = integral_0^infinity (e^(A t)v)^T Q (e^(A t)v) d t > 0$.
+], footer: "Lemma Insight")
+
 #theme.slide("2x2 Example", [
   With $J = mat(-3, 1; -2, -4)$:
   - Eigenvalues of $J$: $-3.5 plus.minus i sqrt(7)/2$ (Hurwitz)
@@ -149,6 +205,15 @@
   especially in coupled biomathematical models.
 ], footer: "Advanced Tool")
 
+#theme.slide("Supplementary Problem Set (Math Theory)", [
+  Core practice directions from chapter notes:
+  - Weighted quadratic Lyapunov design for $2 times 2$ Jacobians
+  - Invariant sublevel sets and basin-of-attraction estimates
+  - Trace-determinant classification and nonlinear interpretation
+  - Solving Lyapunov equation for explicit $A, Q$
+  - Exponential decay bounds from inequalities on $V$ and $dot(V)$
+], footer: "Supplementary Problems")
+
 #theme.section_slide("Part II", "Biomathematical Stability")
 
 #theme.slide("Glucose-Insulin Model Setup", [
@@ -162,6 +227,16 @@
   Clinical view: stability means perturbations in glucose/insulin
   decay back to healthy operating point.
 ], footer: "Biomath Review")
+
+#theme.slide("Clinical Interpretation of Stability", [
+  In this chapter's biomathematical framing:
+  - Local asymptotic stability means meal/stress perturbations decay
+  - Loss of stability indicates persistent dysregulation
+  - Competing equilibria can represent healthy and pathological states
+
+  Stability analysis thus supports both mechanistic insight
+  and intervention planning.
+], footer: "Clinical Context")
 
 #theme.slide("Weighted Lyapunov Design", [
   Compute $dot(V)$ and cancel mixed term via
@@ -194,6 +269,15 @@
 
   Interpretation: pathological feedback dominates natural stabilization.
 ], footer: "Clinical Interpretation")
+
+#theme.slide("Supplementary Problem Set (Biomath)", [
+  Chapter practice themes:
+  - Metabolic energy interpretation of $V(G,I)$
+  - LaSalle argument with semi-definite metabolic dissipation
+  - Robust stability under parameter uncertainty $theta$
+  - Practical stability with bounded meal disturbances
+  - Basin-of-attraction set as safe operating region
+], footer: "Supplementary Problems")
 
 #theme.slide("Method Selection Summary", [
   #table(
