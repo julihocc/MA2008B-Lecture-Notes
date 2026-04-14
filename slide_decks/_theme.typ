@@ -52,7 +52,7 @@
 
 #let section_slide(label, title) = {
   page(width: slide_width, height: slide_height, fill: colors.primary)[
-    #set align(horizon)
+    #set align(center + horizon)
     #set text(fill: colors.white)
 
     #text(size: 16pt, weight: "regular")[#label]
@@ -71,7 +71,11 @@
     footer: align(right, text(size: sizes.note, fill: colors.muted)[#footer]),
   )[
     #set text(size: sizes.body, fill: colors.text)
-    #body
+    #align(center + horizon)[
+      #block(width: 92%)[
+        #body
+      ]
+    ]
   ]
 }
 
