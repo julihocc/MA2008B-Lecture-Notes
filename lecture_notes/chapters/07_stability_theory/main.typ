@@ -54,9 +54,11 @@ We develop two complementary approaches. The *direct method* works with the nonl
   We again establish Lyapunov stability and then asymptotic convergence, now globally.
 
   *Step 1: Global Lyapunov Stability (trajectories are globally bounded).*
-  Radial unboundedness ensures that for each $c > 0$ the sublevel set
+  First, we establish that for any constant $c > 0$, the sublevel set
   $ Omega_c = {x : V(x) <= c} $
-  is bounded (and closed, hence compact). Since $dot(V)(x) < 0$ for $x != x^*$, the function $V(x(t))$ is strictly decreasing along every trajectory. Therefore any trajectory starting at $x(0)$ satisfies $V(x(t)) <= V(x(0))$ for all $t >= 0$, so it remains inside the compact set $Omega_{V(x(0))}$. Because $x(0)$ was arbitrary, every trajectory is bounded. This establishes global Lyapunov stability.
+  is a bounded set. To see why, suppose for contradiction that $Omega_c$ was unbounded. This would mean it contains points $x$ arbitrarily far from the origin ($norm(x) arrow.r infinity$). However, the radial unboundedness property requires that as $norm(x) arrow.r infinity$, the value of $V(x)$ must also grow to infinity, meaning $V(x)$ will eventually strictly exceed $c$. This contradicts the definition of $Omega_c$, which requires $V(x) <= c$. Therefore, $Omega_c$ cannot extend to infinity and must be bound within some finite radius. Since $V$ is continuous, $Omega_c$ is also closed, making it a compact set.
+
+  Since $dot(V)(x) < 0$ for $x != x^*$, the energy function $V(x(t))$ is strictly decreasing along every trajectory. Therefore, any trajectory starting at an initial state $x(0)$ satisfies $V(x(t)) <= V(x(0))$ for all $t >= 0$. This implies the trajectory can never escape the compact sublevel set $Omega_{V(x(0))}$. Because $x(0)$ was arbitrary and its corresponding sublevel set is always bounded, every trajectory in the system is bounded. This establishes global Lyapunov stability.
 
   *Step 2: Global Asymptotic Convergence.*
   Since $V(x(t))$ is strictly decreasing and bounded below by $0$, it converges to a limit $L >= 0$.
