@@ -68,6 +68,8 @@ We develop two complementary approaches. The *direct method* works with the nonl
 
   Integrating this rate of energy loss gives $V(x(t)) <= V(x(0)) - gamma t$. Because $gamma > 0$, as $t arrow.r infinity$, the total energy $V(x(t))$ is forced to become negative, leading to a contradiction.
   Therefore $L = 0$. Since $V(x) = 0$ only at $x = x^*$, we conclude $x(t) arrow.r x^*$ for every starting point $x(0)$, which is global asymptotic stability.
+
+  _Remark:_ Notice that Step 2 (the contradiction argument) is mechanically identical to the local proof. The profound difference between the theorems lies entirely in Step 1: how we guarantee the trajectory stays trapped so that the Extreme Value Theorem can be applied. In the local proof, we trap the trajectory by forcing the initial state $x(0)$ to start strictly inside a tiny, carefully chosen safe bubble near the origin. In the global proof, we trap the trajectory by requiring *radial unboundedness*. This powerful condition mathematically forces every single energy level to act as an inescapable, bounded bowl, ensuring trajectories can never slide away to infinity.
 ]
 
 #definition[Quadratic Lyapunov Function for Linear Systems][
