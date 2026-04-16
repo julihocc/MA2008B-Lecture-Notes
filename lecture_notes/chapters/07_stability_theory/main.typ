@@ -170,20 +170,22 @@ We develop two complementary approaches. The *direct method* works with the nonl
   3. Verify that $dot(V) < 0$ for all $delta x != 0$ and conclude that the equilibrium is locally asymptotically stable.
 ]
 #solution[
-    *Step 0: Why choose $P = I$?*
-    For a linear system, the standard quadratic Lyapunov candidate is $V(delta x) = delta x^T P delta x$ with $P = P^T > 0$. The identity matrix is the simplest positive-definite choice, so it is natural to first test whether the Euclidean energy
-    $ V(delta x) = delta x^T I delta x = delta x^T delta x = norm(delta x)^2 $
-    already works. This choice succeeds precisely when the symmetric part $J^T + J$ is negative definite.
+  *1. Why is $P = I$ a natural first choice?*
+  For a linear system, the standard quadratic Lyapunov candidate is $V(delta x) = delta x^T P delta x$ with $P = P^T > 0$. The identity matrix is the simplest positive-definite choice, so it is natural to first test whether the Euclidean energy
+  $ V(delta x) = delta x^T I delta x = delta x^T delta x = norm(delta x)^2 $
+  already works. This choice succeeds precisely when the symmetric part $J^T + J$ is negative definite.
 
-    With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
+  *2. Compute $dot(V)$ for the linearized system.*
+  With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
   $ dot(V)(delta x) = delta x^T (J^T P + P J) delta x = delta x^T (J^T + J) delta x. $
 
-    *Step 1: Compute the symmetric part $J^T + J$.*
+  We first compute the symmetric part $J^T + J$:
   $ J^T = mat(-3, -2; 1, -4), $
   so:
   $ J^T + J = mat(-3, -2; 1, -4) + mat(-3, 1; -2, -4) = mat(-6, -1; -1, -8). $
 
-  *Step 2: Find the eigenvalues of $J^T + J$.*
+  *3. Verify that $dot(V) < 0$ and conclude stability.*
+  To show $dot(V) < 0$ for all $delta x != 0$, it is enough to show that $J^T + J$ is negative definite. We compute its eigenvalues.
   The characteristic polynomial is:
   $ det(lambda I - (J^T + J)) = det mat(lambda + 6, 1; 1, lambda + 8) = (lambda + 6)(lambda + 8) - 1 = lambda^2 + 14 lambda + 47. $
   The eigenvalues are:
