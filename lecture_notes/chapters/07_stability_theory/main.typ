@@ -163,13 +163,22 @@ We develop two complementary approaches. The *direct method* works with the nonl
 #solved_problem[Verifying Negative Definiteness via Quadratic Lyapunov Function][
   Consider a nonlinear system linearized near an equilibrium, yielding the Jacobian:
   $ J = mat(-3, 1; -2, -4). $
-  Taking $P = I$ (the identity matrix), the candidate Lyapunov function is $V(delta x) = delta x^T delta x = norm(delta x)^2$. Verify that $dot(V) < 0$ and conclude local asymptotic stability.
+  Use the quadratic Lyapunov candidate obtained by choosing $P = I$:
+  $ V(delta x) = delta x^T delta x = norm(delta x)^2. $
+  1. Briefly explain why $P = I$ is a natural first choice.
+  2. Compute $dot(V)$ for the linearized system.
+  3. Verify that $dot(V) < 0$ for all $delta x != 0$ and conclude that the equilibrium is locally asymptotically stable.
 ]
 #solution[
-  With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
+    *Step 0: Why choose $P = I$?*
+    For a linear system, the standard quadratic Lyapunov candidate is $V(delta x) = delta x^T P delta x$ with $P = P^T > 0$. The identity matrix is the simplest positive-definite choice, so it is natural to first test whether the Euclidean energy
+    $ V(delta x) = delta x^T I delta x = delta x^T delta x = norm(delta x)^2 $
+    already works. This choice succeeds precisely when the symmetric part $J^T + J$ is negative definite.
+
+    With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
   $ dot(V)(delta x) = delta x^T (J^T P + P J) delta x = delta x^T (J^T + J) delta x. $
 
-  *Step 1: Compute the symmetric part $J^T + J$.*
+    *Step 1: Compute the symmetric part $J^T + J$.*
   $ J^T = mat(-3, -2; 1, -4), $
   so:
   $ J^T + J = mat(-3, -2; 1, -4) + mat(-3, 1; -2, -4) = mat(-6, -1; -1, -8). $
