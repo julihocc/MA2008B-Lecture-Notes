@@ -239,19 +239,32 @@ _Primary source for the formal Lyapunov statements in this subsection:_ Khalil, 
   Apply the Lyapunov Indirect Method (Linearization) to the origin for both systems. Does it provide a conclusion? If not, use the Direct Method to determine stability.
 ]
 #solution[
-  *Step 1: Apply the Indirect Method.*
-  For both systems, the origin $x^* = 0$ is an equilibrium.
-  The Jacobian (which is just the 1D derivative) evaluated at the origin is:
-  $ J_A = text("d")/(text("d")x) (-x^3) |_0 = -3(0)^2 = 0 \
-    J_B = text("d")/(text("d")x) (x^3) |_0 = 3(0)^2 = 0 $
-  In both cases, the single eigenvalue is $lambda = 0$. Since $text("Re")(lambda) = 0$, it is neither strictly negative nor strictly positive. The Indirect Method is inconclusive.
+  *1. Apply Lyapunov's Indirect Method (linearization).* 
+  For both systems, the equilibrium is $x^*=0$. In 1D, the Jacobian is the derivative of the right-hand side with respect to $x$.
 
-  *Step 2: Apply the Direct Method.*
-  Propose the candidate $V(x) = 1/2 x^2$, which is positive definite.
-  - For System A: $dot(V) = x(-x^3) = -x^4 < 0$ for $x != 0$. Thus, System A is asymptotically stable.
-  - For System B: $dot(V) = x(x^3) = x^4 > 0$ for $x != 0$. The energy is strictly increasing, so System B is unstable.
-  
-  _Remark:_ This highlights why the Indirect Method relies upon strictly non-zero real parts: when $text("Re")(lambda)=0$, the linear terms vanish and the higher-order nonlinear terms (which the Indirect Method ignores) completely dictate stability.
+  For System A,
+  $ J_A = (text("d"), text("d")x) (-x^3) |_0 = -3x^2 |_0 = 0. $
+  For System B,
+  $ J_B = (text("d"), text("d")x) (x^3) |_0 = 3x^2 |_0 = 0. $
+
+  Thus, in both cases the linearized dynamics are $delta x' = 0 dot delta x$, with eigenvalue $lambda=0$. Since $text("Re")(lambda)=0$, the indirect method is inconclusive for both systems.
+
+  *2. Apply Lyapunov's Direct Method.*
+  Use the standard candidate
+  $ V(x) = 1/2 x^2, $
+  which is positive definite. Its derivative along trajectories is
+  $ dot(V)(x) = (text("d")V, text("d")x) x' = x x'. $
+
+  For System A $(x'=-x^3)$:
+  $ dot(V)_A(x) = x(-x^3) = -x^4. $
+  Hence $dot(V)_A(0)=0$ and $dot(V)_A(x)<0$ for all $x!=0$. Therefore, the origin is asymptotically stable; since this holds globally and $V$ is radially unbounded in 1D, it is globally asymptotically stable.
+
+  For System B $(x'=x^3)$:
+  $ dot(V)_B(x) = x(x^3) = x^4. $
+  Hence $dot(V)_B(0)=0$ and $dot(V)_B(x)>0$ for all $x!=0$. The Lyapunov function increases away from the origin, so the origin is unstable.
+
+  *Summary.*
+  The linearizations of Systems A and B are identical at the origin (both give $lambda=0$), but the true nonlinear behaviors are opposite: System A is globally asymptotically stable, while System B is unstable. This is exactly the regime where higher-order nonlinear terms dominate and linearization alone cannot decide stability.
 ]
 
 === Supplementary Problems
