@@ -207,19 +207,29 @@ _Primary source for the formal Lyapunov statements in this subsection:_ Khalil, 
   Show that the origin is globally asymptotically stable by proposing the candidate Lyapunov function $V(x_1, x_2) = 1/2 x_1^2 + 1/2 x_2^2$.
 ]
 #solution[
-  *Step 1: Check equilibrium and properties of $V$.*
-  The origin $(0,0)$ is an equilibrium since $f(0,0) = (0,0)$.
-  The function $V(x_1, x_2)$ is positive definite ($V(0,0)=0$ and $V > 0$ for $x != 0$).
-  Furthermore, $V(x_1, x_2) arrow.r infinity$ as $norm(x) arrow.r infinity$, meaning it is radially unbounded. This satisfies the prerequisites for the Global Direct Method.
+  *1. Verify positive definiteness and radial unboundedness of $V$.*
+  To apply the global Lyapunov direct method, we check the candidate
+  $ V(x_1, x_2) = 1/2 x_1^2 + 1/2 x_2^2. $
+  At the origin, $V(0,0)=0$. For any $(x_1, x_2) != (0,0)$, at least one square term is nonzero, so $V(x_1, x_2) > 0$. Hence $V$ is positive definite.
 
-  *Step 2: Compute $dot(V)$.*
-  $ dot(V) &= frac(partial V, partial x_1) x'_1 + frac(partial V, partial x_2) x'_2 \
-  &= x_1 (-x_1 + x_2) + x_2 (-x_1 - x_2^3) \
+  Also, as $norm(x) arrow.r infinity$, we have $V(x_1, x_2) = 1/2 norm(x)^2 arrow.r infinity$. Therefore $V$ is radially unbounded, so its sublevel sets are bounded across the whole state space.
+
+  *2. Compute $dot(V)$ along trajectories.*
+  Using the chain rule,
+  $ dot(V)(x_1, x_2) = frac(partial V, partial x_1) x'_1 + frac(partial V, partial x_2) x'_2. $
+  Since $frac(partial V, partial x_1)=x_1$ and $frac(partial V, partial x_2)=x_2$, substituting
+  $ x'_1 = -x_1 + x_2, quad x'_2 = -x_1 - x_2^3 $
+  gives
+  $ dot(V) &= x_1(-x_1 + x_2) + x_2(-x_1 - x_2^3) \
   &= -x_1^2 + x_1 x_2 - x_1 x_2 - x_2^4 \
-  &= -x_1^2 - x_2^4 $
+  &= -x_1^2 - x_2^4. $
 
-  *Step 3: Conclude.*
-  Since $dot(V) = -x_1^2 - x_2^4 < 0$ for all $(x_1, x_2) != (0,0)$, the derivative is strictly negative everywhere except at the equilibrium. Because $V$ is radially unbounded, the origin is globally asymptotically stable.
+  *3. Verify negative definiteness and conclude.*
+  We have
+  $ dot(V)(x_1, x_2) = -(x_1^2 + x_2^4). $
+  At $(0,0)$, $dot(V)=0$. For every $(x_1, x_2) != (0,0)$, $x_1^2 + x_2^4 > 0$, hence $dot(V) < 0$. So $dot(V)$ is negative definite.
+
+  Because $V$ is positive definite and radially unbounded, and $dot(V)$ is negative definite on $RR^2 \ {(0,0)}$, the origin is globally asymptotically stable by Lyapunov's direct method.
 ]
 
 #solved_problem[Inconclusive Linearization (The Center Problem)][
