@@ -169,13 +169,17 @@ _Primary source for the formal Lyapunov statements in this subsection:_ Khalil, 
 ]
 #solution[
   *1. Why is $P = I$ a natural first choice?*
-  For a linear system, the standard quadratic Lyapunov candidate is $V(delta x) = delta x^T P delta x$ with $P = P^T > 0$. The identity matrix is the simplest positive-definite choice, so it is natural to first test whether the Euclidean energy
-  $ V(delta x) = delta x^T I delta x = delta x^T delta x = norm(delta x)^2 $
-  already works. This choice succeeds precisely when the symmetric part $J^T + J$ is negative definite.
+  For a linear system, the standard quadratic Lyapunov candidate is
+  $ V(delta x) = delta x^T P delta x, quad P = P^T > 0. $
+  Choosing $P = I$ gives the squared Euclidean distance to the equilibrium,
+  $ V(delta x) = delta x^T I delta x = delta x^T delta x = norm(delta x)^2, $
+  which is the simplest positive-definite candidate. If this choice already yields $dot(V) < 0$, no more elaborate search for $P$ is needed.
 
   *2. Compute $dot(V)$ for the linearized system.*
-  With $P = I$, the time derivative of $V$ along trajectories of $delta x' = J delta x$ is:
-  $ dot(V)(delta x) = delta x^T (J^T P + P J) delta x = delta x^T (J^T + J) delta x. $
+  The linearized dynamics are $delta x' = J delta x$. Using the chain rule,
+  $ dot(V)(delta x) = (delta x')^T delta x + delta x^T delta x'. $
+  Substituting $delta x' = J delta x$ gives
+  $ dot(V)(delta x) = delta x^T J^T delta x + delta x^T J delta x = delta x^T (J^T + J) delta x. $
 
   We first compute the symmetric part $J^T + J$:
   $ J^T = mat(-3, -2; 1, -4), $
@@ -183,19 +187,17 @@ _Primary source for the formal Lyapunov statements in this subsection:_ Khalil, 
   $ J^T + J = mat(-3, -2; 1, -4) + mat(-3, 1; -2, -4) = mat(-6, -1; -1, -8). $
 
   *3. Verify that $dot(V) < 0$ and conclude stability.*
-  To show $dot(V) < 0$ for all $delta x != 0$, it is enough to show that $J^T + J$ is negative definite. We compute its eigenvalues.
-  The characteristic polynomial is:
-  $ det(lambda I - (J^T + J)) = det mat(lambda + 6, 1; 1, lambda + 8) = (lambda + 6)(lambda + 8) - 1 = lambda^2 + 14 lambda + 47. $
-  The eigenvalues are:
-  $ lambda_(1,2) = frac(-14 plus.minus sqrt(196 - 188), 2) = frac(-14 plus.minus sqrt(8), 2) = -7 plus.minus sqrt(2). $
-  Numerically: $lambda_1 approx -5.59$ and $lambda_2 approx -8.41$. Both are strictly negative.
-
-  *Step 3: Conclude.*
-  Since all eigenvalues of $J^T + J$ are strictly negative, the matrix is negative definite, meaning:
+  To prove $dot(V) < 0$ for all $delta x != 0$, it is enough to show that the symmetric matrix
+  $ Q = J^T + J = mat(-6, -1; -1, -8) $
+  is negative definite. For a $2 times 2$ symmetric matrix, Sylvester's criterion gives:
+  $ D_1 = -6 < 0, quad D_2 = det(Q) = (-6)(-8) - (-1)(-1) = 47 > 0. $
+  Hence $Q$ is negative definite, so
   $ dot(V)(delta x) = delta x^T (J^T + J) delta x < 0 quad text("for all ") delta x != 0. $
-  By the Lyapunov Direct Method (Local Asymptotic Stability), the equilibrium is locally asymptotically stable.
+  Therefore, for the linearized system, the origin is asymptotically stable by the Lyapunov direct argument.
 
-  _Remark:_ The two eigenvalues of $J$ itself are the roots of $lambda^2 + 7lambda + 14 = 0$, giving $lambda = (-7 plus.minus i sqrt(7))/2$, both with real part $-3.5 < 0$. This is consistent with the Indirect Method, and we have now established the same conclusion via the Direct Method with an explicit Lyapunov function.
+  _Remark:_ The eigenvalues of $J$ are the roots of $lambda^2 + 7 lambda + 14 = 0$, namely
+  $ lambda = frac(-7 plus.minus i sqrt(7), 2), $
+  both with real part $-3.5 < 0$. This is consistent with the indirect method, so the original nonlinear system is locally asymptotically stable near the equilibrium.
 ]
 
 #solved_problem[Global Asymptotic Stability via the Direct Method][
