@@ -17,8 +17,9 @@ A central question in the study of dynamical systems is not merely whether solut
 
 We develop two complementary approaches. The *direct method* works with the nonlinear system itself and provides both local and global conclusions depending on whether the Lyapunov function is defined on a neighborhood or on the whole state space. The *indirect method* (or linearization) reduces the question to checking the eigenvalues of the Jacobian at the equilibrium, at the cost of yielding only local information.
 
+_Primary source for the formal Lyapunov statements in this subsection:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
+
 #theorem[Lyapunov Direct Method (Local Asymptotic Stability)][
-  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on a neighborhood $U$ of $x^*$ such that:
   1. $V(x^*) = 0$,
   2. $V(x) > 0$ for all $x in U$ with $x != x^*$,
@@ -44,7 +45,6 @@ We develop two complementary approaches. The *direct method* works with the nonl
 ]
 
 #theorem[Lyapunov Direct Method (Global Asymptotic Stability)][
-  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Let $x^*$ be an equilibrium point of $x' = f(x)$. If there exists a continuously differentiable scalar function $V(x)$ defined on all of the state space such that:
   1. $V(x^*) = 0$,
   2. $V(x) > 0$ for all $x != x^*$,
@@ -89,7 +89,6 @@ We develop two complementary approaches. The *direct method* works with the nonl
 ]
 
 #lemma[Lyapunov Equation Solvability]
-  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
 [
   Let $A$ be a Hurwitz matrix. Then for any symmetric positive-definite matrix $Q > 0$, there exists a unique symmetric positive-definite matrix $P > 0$ satisfying the continuous *Lyapunov equation*:
   $ A^T P + P A = -Q. $
@@ -124,7 +123,6 @@ We develop two complementary approaches. The *direct method* works with the nonl
 ]
 
 #theorem[Lyapunov Indirect Method (Linearization)][
-  _Source:_ Khalil, H. K. (2002). Nonlinear Systems (3rd ed.). Prentice Hall. Ch. 4.
   Consider an equilibrium $x^*$ of a nonlinear system $x' = f(x)$ with Jacobian matrix $J(x^*)$.
   - If all eigenvalues of $J(x^*)$ satisfy $text("Re")(lambda_i) < 0$, then $x^*$ is locally asymptotically stable.
   - If at least one eigenvalue satisfies $text("Re")(lambda_i) > 0$, then $x^*$ is unstable.
