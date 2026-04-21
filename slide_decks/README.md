@@ -9,7 +9,8 @@ slide_decks/
 ├── README.md                          # This file
 ├── _theme.typ                         # Reusable Berkeley-inspired theme
 ├── _template.typ                      # Template for new slide decks
-├── chapter_07_stability_theory.typ    # Chapter 7: Stability Theory
+├── 07_stability_theory/
+│   └── main.typ                       # Chapter 7: Stability Theory
 └── [future chapters]
 ```
 
@@ -30,7 +31,8 @@ The `_theme.typ` module provides:
 
 1. **Copy the template:**
    ```bash
-   cp _template.typ chapter_##_topic.typ
+  mkdir ##_chapter_topic
+  cp _template.typ ##_chapter_topic/main.typ
    ```
 
 2. **Customize the template:**
@@ -40,14 +42,14 @@ The `_theme.typ` module provides:
 
 3. **Compile to PDF:**
    ```bash
-   typst compile --root .. slide_decks/chapter_##_topic.typ
+  typst compile --root .. slide_decks/##_chapter_topic/main.typ
    ```
 
 ## Example Usage
 
 ```typst
-#import "_theme.typ" as theme
-#import "../utils.typ": *
+#import "../_theme.typ" as theme
+#import "../../utils.typ": *
 
 #theme.slide_setup()
 

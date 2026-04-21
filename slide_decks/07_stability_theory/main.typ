@@ -1,5 +1,5 @@
-#import "_theme.typ" as theme
-#import "../utils.typ": *
+#import "../_theme.typ" as theme
+#import "../../utils.typ": *
 
 #theme.slide_setup()
 
