@@ -78,11 +78,29 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   At $(x^*, y^*)$, note that $x^* y^* = b^2 / (a + b^2)$. Let $D = a + b^2$.
   $ J = mat(-1 + 2 b^2/D, D; -2 b^2/D, -D). $
   
-  *3. Determine the Hopf condition:*
-  The determinant is $Delta = D - 2b^2 + 2b^2 = D = a + b^2 > 0$.
-  The trace is $tau = -1 + 2b^2 / (a+b^2) - (a+b^2) = (b^2 - a - (a+b^2)^2) / (a+b^2)$.
-  A Hopf bifurcation occurs when the trace crosses exactly zero ($tau = 0$ while $Delta > 0$).
-  Setting $tau = 0$ yields the critical condition $b^2 - a = (a+b^2)^2$. For appropriate values of $a$ and $b$ (e.g., $a=0.1, b=0.6$), $tau$ crosses from negative to positive. Because the eigenvalues correspond to $tau plus.minus i sqrt(4 Delta - tau^2)/2$, crossing $tau=0$ vertically crosses the imaginary axis, producing a limit cycle representing sustained glycolytic oscillations.
+  *3. Verify the Hopf algebraic conditions:*
+  For a planar system, Hopf requires $Delta > 0$, $tau = 0$, and transversality.
+  $ Delta = det(J) = (-1 + 2b^2 / D)(-D) - D(-2b^2 / D) = D = a + b^2 > 0. $
+  $ tau = "tr"(J) = -1 + 2b^2 / (a+b^2) - (a+b^2)
+  = (b^2 - a - (a+b^2)^2) / (a+b^2). $
+
+  Setting $tau = 0$ gives
+  $ b^2 - a = (a+b^2)^2. $
+  Let $z = b^2$. Then $z$ solves
+  $ z^2 - (1 - 2a) z + (a + a^2) = 0, $
+  whose discriminant is $1 - 8a$. Hence real critical values exist iff $a <= 1/8$, with
+  $ z_c = ((1 - 2a) plus.minus sqrt(1 - 8a)) / 2, quad b_c = sqrt(z_c). $
+
+  *4. Check transversality:*
+  Using $z=b^2$,
+  $ tau(z) = -1 + 2z/(a+z) - (a+z), $
+  so
+  $ d tau / d z = -1 + 2a / (a+z)^2, quad d tau / d b = 2b(-1 + 2a / (a+b^2)^2). $
+  At a nondegenerate critical point $b=b_c>0$, $d tau / d b != 0$, so the conjugate eigenvalues cross the imaginary axis with nonzero speed.
+
+  Therefore, for parameters with $a <= 1/8$ and nondegenerate crossing at $b=b_c$, the equilibrium undergoes a Hopf bifurcation. The local oscillation frequency at onset is
+  $ omega_0 = sqrt(Delta(b_c)) = sqrt(a + b_c^2). $
+  (Supercritical vs. subcritical type is determined by the first Lyapunov coefficient $ell_1$.)
 ]
 
 === Supplementary Problems
@@ -168,7 +186,23 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   In a glucose-insulin model, the healthy equilibrium $G_1^*(R)$ depends on insulin resistance $R$. As $R$ increases, $G_1^*$ rises. At a critical $R_c$, $G_1^*$ and an unstable $G_2^*(R)$ meet and merge. Describe the bifurcation diagram.
 ]
 #solution[
-  Plot $G^*$ on the vertical axis versus $R$ on the horizontal axis. The stable $P_1$ branch rises gently. The unstable $P_2$ branch descends. At $R = R_c$ they merge at a "fold point" — the saddle-node bifurcation. For $R > R_c$ only the diabetic $P_3$ branch persists.
+  Let equilibria satisfy a scalar reduced equation
+  $ Phi(G, R) = 0. $
+  A fold (saddle-node) at $(G_c, R_c)$ is characterized by
+  $ Phi(G_c, R_c) = 0, quad partial_G Phi(G_c, R_c) = 0, $
+  $ partial_(G G) Phi(G_c, R_c) != 0, quad partial_R Phi(G_c, R_c) != 0. $
+
+  By a local shift $u = G - G_c$, $r = R - R_c$, the equilibrium equation is equivalent (to second order) to
+  $ 0 = beta r + gamma u^2 + o(|r| + |u|^2), quad beta gamma != 0. $
+  Thus nearby equilibrium branches are
+  $ u_(plus.minus)(r) approx plus.minus sqrt(-(beta/gamma) r), $
+  which shows two branches on one side of $R_c$ and no branch on the other side.
+
+  Stability follows from the linearization sign in the reduced direction:
+  $ lambda = partial_G Phi(G^*(R), R). $
+  On the upper branch ($P_1$) one has $lambda < 0$ (stable), while on the lower branch ($P_2$) one has $lambda > 0$ (unstable). At $R = R_c$, $P_1$ and $P_2$ coalesce and annihilate.
+
+  Therefore the bifurcation diagram is a fold: stable healthy branch $P_1$ and unstable threshold branch $P_2$ meet at $(R_c, G_c)$; beyond that point only the diabetic branch $P_3$ remains as the attracting equilibrium.
 ]
 
 === Supplementary Problems
