@@ -19,12 +19,28 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   A *smooth equilibrium branch* is a curve $(x^*(mu), mu)$ satisfying $f(x^*(mu), mu) = 0$ for all $mu$ in an open interval. The *Jacobian along the branch* is $A(mu) := D_x f(x^*(mu), mu) in RR^(n times n)$.
 ]
 
+#example[
+  The system $x' = mu - x^2$, $y' = -y$ has a single equilibrium for each $\mu$. Solving $mu = (x^*)^2$ gives two branches when $mu > 0$: $x^* = plus.minus sqrt(mu)$ with $y^* = 0$. The Jacobian at equilibrium is
+  $ A(mu) = mat(-2x^*, 0; 0, -1) = mat(minus 2sqrt(mu), 0; 0, -1). $
+  As $mu$ increases, the $x$-component eigenvalue $-2sqrt(mu)$ becomes more negative, indicating strengthening stability in that direction.
+]
+
+
 #definition[Hopf Bifurcation Point][
   A point $(x^*(mu_c), mu_c)$ on an equilibrium branch is a *Hopf bifurcation point* if:
   + $A(mu_c)$ has a *simple pair* of purely imaginary eigenvalues $lambda_(1,2)(mu_c) = plus.minus i omega_0$ with $omega_0 > 0$.
   + All remaining eigenvalues of $A(mu_c)$ have *nonzero* real part.
   Condition (1) makes the critical center manifold exactly two-dimensional; Condition (2) rules out additional zero or imaginary eigenvalues that would require a higher-codimension analysis.
 ]
+
+#example[
+  Consider the planar system
+  $ x' = -y + x(mu - x^2 - y^2), quad y' = x + y(mu - x^2 - y^2). $
+  Equilibrium: $(x^*, y^*) = (0, 0)$ for all $mu$. The Jacobian at the origin is
+  $ J(0,0; mu) = mat(mu, -1; 1, mu). $
+  Eigenvalues: $lambda = mu plus.minus i$. At $mu = 0$, we have $lambda = plus.minus i$, a simple conjugate pair of purely imaginary eigenvalues. For $mu < 0$, both eigenvalues have negative real part (stable); for $mu > 0$, both have positive real part (unstable). This is a clean Hopf bifurcation at $mu_c = 0$.
+]
+
 
 #theorem[Poincaré–Andronov–Hopf][
   Suppose $dot(x) = f(x, mu)$ is sufficiently smooth and $(x^*(mu_c), mu_c)$ is a Hopf bifurcation point. Assume in addition:
@@ -36,11 +52,23 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   In both cases the period of the bifurcating orbit satisfies $T(mu) -> 2pi \/ omega_0$ as $mu -> mu_c$.
 ]
 
+#example[
+  The Van der Pol oscillator $x'' + (x^2 - mu) x' + x = 0$ can be written as
+  $ x' = y, quad y' = -x - (x^2 - mu) y. $
+  The origin is an equilibrium for all $mu$. The Jacobian is $J = mat(0, 1; -1, mu)$ with eigenvalues $lambda = mu \/ 2 plus.minus sqrt(mu^2 \/ 4 - 1)$. At $mu = 0$, $lambda = plus.minus i$ (Hopf point with $omega_0 = 1$). For $mu > 0$, the Lyapunov coefficient is $ell_1 = -1\/16 < 0$ (supercritical), so a stable limit cycle emerges for small $mu > 0$. The bifurcation is reversible: reducing $mu$ back below zero shrinks the cycle back to the origin. The period of the emerging cycle is $T(mu) approx 2pi$ for small $mu$.
+]
+
+
 #definition[First Lyapunov Coefficient][
   For a sufficiently smooth planar system $dot(x) = f(x, y; mu)$, $dot(y) = g(x, y; mu)$ at an equilibrium with eigenvalues $plus.minus i omega_0$, write all partial derivatives at the equilibrium with subscript notation ($f_(x x) := partial^2 f \/ partial x^2$, etc.). The *first Lyapunov coefficient* is
   $ ell_1 = 1/16 [f_(x x x) + f_(x y y) + g_(x x y) + g_(y y y)] $
   $ + 1/(16 omega_0) [f_(x y)(f_(x x) + f_(y y)) - g_(x y)(g_(x x) + g_(y y)) - f_(x x) g_(x x) + f_(y y) g_(y y)]. $
   The sign of $ell_1$ fully determines the bifurcation type: $ell_1 < 0$ gives a stable (supercritical) limit cycle; $ell_1 > 0$ gives an unstable (subcritical) one.
+]
+#example[
+  For the system
+  $ x' = -y + x(mu - r^2), quad y' = x + y(mu - r^2) $
+  where $r^2 = x^2 + y^2$, convert to polar coordinates: $r' = r(mu - r^2)$, $theta' = 1$. When $mu = 0$ the origin is a center with $omega_0 = 1$. The cubic nonlinearity $-r^3$ in the amplitude equation determines the Lyapunov coefficient: $ell_1 = -1/4 < 0$. This indicates a supercritical bifurcation—stable limit cycles emerge smoothly from the origin as $mu$ increases above zero.
 ]
 
 #proposition[Planar Hopf Detection via Trace and Determinant][
@@ -53,9 +81,21 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   The transversality condition $tau'(mu_c) != 0$ is equivalent to $alpha'(mu_c) != 0$ in the Hopf theorem, since $tau = 2 alpha$ for the planar system.
 ]
 
+#example[
+  For the system $dot(x) = mu x - y - x(x^2 + y^2)$, $dot(y) = x + mu y - y(x^2 + y^2)$, the origin is always an equilibrium with Jacobian
+  $ J = mat(mu, -1; 1, mu). $
+  Thus $tau = 2mu$ and $Delta = mu^2 + 1 > 0$ always. A Hopf bifurcation occurs at $mu_c = 0$ where $tau = 0$. For $mu < 0$ the origin is stable; for $mu > 0$ it is unstable, with $omega_0 = sqrt(Delta) = 1$. Numerical continuation or bifurcation software would identify $mu = 0$ as the Hopf point by monitoring when $tau$ crosses zero with $tau'(mu_c) = 2 != 0$.
+]
+
+
 #definition[Limit Cycles and Structural Stability][
   A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations — heartbeats, circadian clocks, insulin pulses — are self-sustaining and robust to noise.
 ]
+
+#example[
+  In the Van der Pol oscillator $x'' + (x^2 - mu) x' + x = 0$ (or equivalently $x' = y$, $y' = -x - (x^2 - mu) y$), for any $mu > 0$ a unique stable limit cycle exists in the $(x, y)$ plane. Adding a small perturbation like $+ 0.01 sin(t)$ to the system barely deforms this cycle; it remains the dominant attractor. In contrast, a center (e.g., the conservative oscillator $x'' + x = 0$) has a family of concentric cycles; any nonlinear perturbation destroys this continuous family. The Van der Pol limit cycle's robustness under perturbation is what makes it a genuine biological attractor.
+]
+
 
 === Solved Problems
 
@@ -204,11 +244,28 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   Conditions (3) and (4) together guarantee that exactly two equilibrium branches — one stable, one unstable — collide and disappear at $(x_c, mu_c)$.
 ]
 
+#example[
+  The scalar system $dot(x) = mu - x^2$ has equilibria satisfying $x^2 = mu$. For $mu > 0$, two equilibria exist: $x^* = plus.minus sqrt(mu)$. The upper branch $x^+ = +sqrt(mu)$ has $f_x = -2x^+ < 0$ (stable), while the lower branch $x^- = -sqrt(mu)$ has $f_x = -2x^- > 0$ (unstable). At $mu = 0$, both branches meet at $x_c = 0$ where $f_x = 0$ (the zero eigenvalue). Beyond $mu = 0$ (i.e., for $\mu < 0$), no real equilibria exist. The fold point is $(\mu_c, x_c) = (0, 0)$.
+]
+
+
 #theorem[Saddle-Node Bifurcation Normal Form][
   Under the conditions of the definition above, there exist a $C^k$ local change of coordinates and smooth reparameterization $nu = nu(mu)$ (with $nu(mu_c) = 0$, $nu'(mu_c) != 0$) such that the system is locally topologically equivalent to the *normal form*
   $ dot(u) = nu - u^2. $
   Equilibria: $u^* = plus.minus sqrt(nu)$ exist for $nu > 0$ (two branches), and no real equilibrium exists for $nu < 0$. The branch $u^* = +sqrt(nu)$ is stable ($partial f \/ partial u = -2u^* < 0$) and the branch $u^* = -sqrt(nu)$ is unstable ($partial f \/ partial u > 0$). At $nu = 0$ a single *non-hyperbolic* equilibrium $u = 0$ remains; its stable manifold has codimension one.
 ]
+
+#example[
+  Consider the planar system
+  $ dot(x) = mu - x^2 - y, quad dot(y) = -y. $
+  The $y$-equation forces $y$ to decay toward zero exponentially, so near the fold we focus on the $x$-dynamics. Setting $y approx 0$, we get $dot(x) approx mu - x^2$, which is exactly the normal form. For $mu > 0$, two equilibria exist: $(plus.minus sqrt(mu), 0)$. The linearization at $(sqrt(mu), 0)$ is $-2sqrt(mu) < 0$ (stable), while at $(-sqrt(mu), 0)$ it is $2sqrt(mu) > 0$ (unstable). At $mu = 0$, the two collide at the origin. The full 2D system undergoes a saddle-node bifurcation along the $x$-direction while the $y$-direction remains contracting. This is a concrete realization of the abstract normal form.
+]
+
+
+#example[
+  The system $dot(x) = mu - x^2$ already exhibits the normal form with $u = x$ and $nu = mu$: no coordinate change is needed. For $mu > 0$, the $u$-axis is crossed by the parabola $nu = u^2$ at two points; below the parabola, no equilibrium exists; above it, two exist with opposite stability. This parabolic bifurcation diagram is topologically the same for *any* system undergoing a saddle-node bifurcation near its critical point.
+]
+
 
 #proposition[Scalar Fold Conditions][
   For the scalar equation $dot(x) = f(x, mu)$ with $f : RR times RR -> RR$, the saddle-node conditions at $(x_c, mu_c)$ reduce to:
@@ -216,6 +273,15 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   By the Implicit Function Theorem, these conditions imply the existence of an equilibrium curve $x^*(mu)$ with a quadratic turning point at $(x_c, mu_c)$. The continuation slope satisfies
   $ (d x^*) / (d mu) = - f_mu / f_x, $
   which diverges as $f_x -> 0$ at the fold, explaining why numerical continuation must switch to arc-length parameterization near the bifurcation.
+]
+#example[
+  For $f(x, mu) = mu - x^2$, check the fold conditions at $(x_c, mu_c) = (0, 0)$:
+  - $f(0, 0) = 0$ ✓
+  - $f_x = -2x$, so $f_x(0, 0) = 0$ ✓
+  - $f_{x x} = -2 != 0$ ✓
+  - $f_mu = 1 != 0$ ✓
+  
+  The continuation slope is $d x^* / d mu = -f_mu / f_x = -1 / (-2x)$, which is undefined at $x = 0$. This explains the vertical tangent to the parabolic bifurcation curve at the fold point—the equilibrium curve must be reparameterized by arc length to continue past the fold.
 ]
 
 #definition[Hysteresis and Multistability][
