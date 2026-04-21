@@ -8,20 +8,20 @@
 
 ## Architecture and content flow
 - `lecture_notes/ma2008b_lecture_notes.typ` sets page/text/theorem rendering, then includes modules in fixed order.
-- Each module follows: `lecture_notes/chapters/XX_topic/<topic_name>.typ` with `= Module Title` and chapter content below it.
+- Each module follows: `lecture_notes/chapters/XX_topic/XX_topic.typ` so the file stem matches the numbered folder name.
 - Subtopic files are `X.Y_slug.typ`, typically structured as:
   - `== <Topic>`
   - `=== Mathematical Review`
   - `=== Solved Problems`
   - `=== Supplementary Problems`
-- Example pattern: `lecture_notes/chapters/08_bifurcation_theory/bifurcation_theory.typ`.
+- Example pattern: `lecture_notes/chapters/08_bifurcation_theory/08_bifurcation_theory.typ`.
 - Keep include ordering untouched unless the user asks to reorder (order defines final PDF sequence).
 
 ## Typst conventions used in this repo
 - Import shared theorem helpers from root `utils.typ` using `#import "../../../utils.typ": *` in section files.
 - Reuse existing blocks from `utils.typ`: `#definition`, `#theorem`, `#proposition`, `#corollary`, `#example`, `#solved_problem`, `#supplementary`, `#proof`, `#solution`.
 - Match existing notation/style in nearby files (e.g., `mat(...)`, `dot(x)`, `G(s) = C(s I - A)^(-1)B + D`).
-- Preserve filename and heading depth conventions (`<topic_name>.typ`, `X.Y_slug.typ`, with `=`, `==`, `===`).
+- Preserve filename and heading depth conventions (`XX_topic.typ`, `X.Y_slug.typ`, with `=`, `==`, `===`).
 
 ## Developer workflow
 - Primary authoring workflow is VS Code + TinyMist.

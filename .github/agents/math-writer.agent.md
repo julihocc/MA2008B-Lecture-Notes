@@ -37,7 +37,7 @@ All section files import `utils.typ` with `#import "../../../utils.typ": *`. Use
 - Equilibria: `x^*`, Jacobian: `J(x^*)`, eigenvalues: `lambda_1, lambda_2`.
 
 ### File structure rules
-- Chapter file: `lecture_notes/chapters/XX_topic/<topic_name>.typ` with heading `= Chapter Title`
+- Chapter file: `lecture_notes/chapters/XX_topic/XX_topic.typ` with heading `= Chapter Title`
 - Subsections use `==` and `===` headings.
 - Standard subsection order: `=== Mathematical Definitions` -> `=== Solved Problems` -> `=== Supplementary Problems`
 - Never reorder `#include` lists unless asked.

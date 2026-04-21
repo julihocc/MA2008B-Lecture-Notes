@@ -74,5 +74,5 @@ disable-model-invocation: false
 ## Repository Notes
 - Book entrypoint: `lecture_notes/ma2008b_lecture_notes.typ`.
 - Compile from repo root using `--root .`.
-- Chapter sources are under `lecture_notes/chapters/**/<topic_name>.typ`.
+- Chapter sources are under `lecture_notes/chapters/**/XX_topic.typ`, matching the numbered folder stem.
 
