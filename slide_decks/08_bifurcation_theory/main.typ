@@ -28,7 +28,7 @@
 #theme.section_slide("Part I", "Hopf Bifurcation")
 
 #theme.slide("Hopf in Planar Systems", [
-  For $dot(x)=f(x, mu)$ with Jacobian $A(mu)$ at equilibrium:
+  For a sufficiently smooth system $dot(x)=f(x, mu)$ with Jacobian $A(mu)$ at equilibrium:
   - $tau(mu) = "tr"(A(mu))$
   - $Delta(mu) = det(A(mu))$
 
@@ -43,7 +43,7 @@
 
 #theme.slide("Supercritical vs Subcritical", [
   #theme.definition("First Lyapunov Coefficient", [
-    The sign of $ell_1$ determines local Hopf type.
+    For sufficiently smooth planar systems, the sign of $ell_1$ determines the local Hopf type.
   ])
 
   - $ell_1 < 0$: supercritical Hopf, stable limit cycle emerges
