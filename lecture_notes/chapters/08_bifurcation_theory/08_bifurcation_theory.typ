@@ -106,83 +106,217 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   Show that the unique equilibrium can undergo a Hopf bifurcation as $b$ varies.
 ]
 #solution[
-  *1. Find the equilibrium:*
-  Set $y' = 0$: $b = (a + x^2) y => y = b / (a + x^2)$.
-  Substitute into $x'=0$:
-  $ -x + a (b / (a + x^2)) + x^2 (b / (a + x^2)) = 0 $
-  $ -x + (a+x^2) / (a+x^2) b = 0 => x = b. $
-  Thus, $y = b / (a + b^2)$. The unique equilibrium is $(x^*, y^*) = (b, b / (a + b^2))$.
+  *1. Solve the equilibrium equations explicitly.*
+  At equilibrium we require $x' = 0$ and $y' = 0$.
 
-  *2. Evaluate the Jacobian at the equilibrium:*
-  $ J(x,y) = mat(-1 + 2 x y, a + x^2; -2 x y, - (a + x^2)). $
-  At $(x^*, y^*)$, note that $x^* y^* = b^2 / (a + b^2)$. Let $D = a + b^2$.
-  $ J = mat(-1 + 2 b^2/D, D; -2 b^2/D, -D). $
-  
-  *3. Verify the Hopf algebraic conditions:*
-  For a planar system, Hopf requires $Delta > 0$, $tau = 0$, and transversality.
-  $ Delta = det(J) = (-1 + 2b^2 / D)(-D) - D(-2b^2 / D) = D = a + b^2 > 0. $
-  $ tau = "tr"(J) = -1 + 2b^2 / (a+b^2) - (a+b^2)
-  = (b^2 - a - (a+b^2)^2) / (a+b^2). $
+  Start with the second equation:
+  $ 0 = b - a y - x^2 y = b - (a + x^2) y. $
+  Rearranging gives
+  $ (a + x^2) y = b quad => quad y = b / (a + x^2). $
 
-  Setting $tau = 0$ gives
-  $ b^2 - a = (a+b^2)^2. $
-  Let $z = b^2$. Then $z$ solves
-  $ z^2 - (1 - 2a) z + (a + a^2) = 0, $
-  whose discriminant is $1 - 8a$. Hence real critical values exist iff $a <= 1/8$, with
-  $ z_c = ((1 - 2a) plus.minus sqrt(1 - 8a)) / 2, quad b_c = sqrt(z_c). $
+  Substitute this expression into the first equation:
+  $ 0 = -x + a y + x^2 y = -x + a frac(b, a + x^2) + x^2 frac(b, a + x^2). $
+  Combine the last two terms over the common denominator:
+  $ 0 = -x + frac(a b + x^2 b, a + x^2) = -x + frac(b(a + x^2), a + x^2) = -x + b. $
+  Hence
+  $ x^* = b. $
 
-  *4. Check transversality:*
-  Using $z=b^2$,
-  $ tau(z) = -1 + 2z/(a+z) - (a+z), $
-  so
-  $ d tau / d z = -1 + 2a / (a+z)^2, quad d tau / d b = 2b(-1 + 2a / (a+b^2)^2). $
-  At a nondegenerate critical point $b=b_c>0$, $d tau / d b != 0$, so the conjugate eigenvalues cross the imaginary axis with nonzero speed.
+  Substituting $x^* = b$ back into the formula for $y$ gives
+  $ y^* = b / (a + b^2). $
 
-  Therefore, for parameters with $a <= 1/8$ and nondegenerate crossing at $b=b_c$, the equilibrium undergoes a Hopf bifurcation. The local oscillation frequency at onset is
+  Therefore the system has the unique equilibrium
+  $ (x^*, y^*) = (b, b / (a + b^2)). $
+
+  *2. Compute the Jacobian matrix.*
+  Write
+  $ f(x,y) = -x + a y + x^2 y, quad g(x,y) = b - a y - x^2 y. $
+  The partial derivatives are
+  $ f_x = -1 + 2 x y, quad f_y = a + x^2, $
+  $ g_x = -2 x y, quad g_y = -(a + x^2). $
+  Thus
+  $ J(x,y) = mat(-1 + 2 x y, a + x^2; -2 x y, -(a + x^2)). $
+
+  At the equilibrium, let
+  $ D = a + b^2. $
+  Then
+  $ x^* y^* = b dot frac(b, a + b^2) = b^2 / D, $
+  so the Jacobian becomes
+  $ J(x^*, y^*) = mat(-1 + 2 b^2 / D, D; -2 b^2 / D, -D). $
+
+  *3. Compute the trace and determinant step by step.*
+  For a planar Hopf bifurcation we inspect
+  $ tau = "tr"(J), quad Delta = det(J). $
+
+  First the determinant:
+  $ Delta = (-1 + 2 b^2 / D)(-D) - D (-2 b^2 / D). $
+  Expand each term separately:
+  $ (-1 + 2 b^2 / D)(-D) = D - 2 b^2, $
+  $ D (-2 b^2 / D) = -2 b^2. $
+  Therefore
+  $ Delta = (D - 2 b^2) - (-2 b^2) = D = a + b^2 > 0. $
+
+  Now the trace:
+  $ tau = (-1 + 2 b^2 / D) + (-D) = -1 + 2 b^2 / D - D. $
+  Write the first two terms over the denominator $D$:
+  $ -1 + 2 b^2 / D = -D / D + 2 b^2 / D = (2 b^2 - D) / D. $
+  Since $D = a + b^2$,
+  $ 2 b^2 - D = 2 b^2 - (a + b^2) = b^2 - a. $
+  Hence
+  $ tau = (b^2 - a) / D - D = (b^2 - a - D^2) / D. $
+  Substituting back $D = a + b^2$ yields
+  $ tau = (b^2 - a - (a + b^2)^2) / (a + b^2). $
+
+  *4. Solve the Hopf condition $tau = 0$.*
+  Since the denominator $a + b^2$ is strictly positive, the condition $tau = 0$ is equivalent to
+  $ b^2 - a - (a + b^2)^2 = 0. $
+  Rearranging gives
+  $ b^2 - a = (a + b^2)^2. $
+
+  Set
+  $ z = b^2. $
+  Then the equation becomes
+  $ z - a = (a + z)^2 = a^2 + 2 a z + z^2. $
+  Moving all terms to one side,
+  $ 0 = z^2 + (2 a - 1) z + (a^2 + a), $
+  or equivalently
+  $ z^2 - (1 - 2 a) z + (a + a^2) = 0. $
+
+  The discriminant is
+  $ (1 - 2 a)^2 - 4(a + a^2) = 1 - 8 a. $
+  Therefore real critical values exist exactly when
+  $ a <= 1/8. $
+  In that case,
+  $ z_c = ((1 - 2 a) plus.minus sqrt(1 - 8 a)) / 2, $
+  and since $z = b^2$,
+  $ b_c = sqrt(z_c). $
+
+  *5. Verify transversality.*
+  Express the trace as a function of $z = b^2$:
+  $ tau(z) = -1 + 2 z / (a + z) - (a + z). $
+  Differentiate term by term:
+  $ d tau / d z = 2 frac((a + z) - z, (a + z)^2) - 1 = 2 a / (a + z)^2 - 1. $
+  Since $z = b^2$, the chain rule gives
+  $ d tau / d b = d tau / d z dot d z / d b = 2 b (2 a / (a + b^2)^2 - 1). $
+
+  At a nondegenerate critical value $b = b_c > 0$, if
+  $ d tau / d b != 0, $
+  then the pair of complex eigenvalues crosses the imaginary axis with nonzero speed. This is exactly the transversality condition.
+
+  *6. State the conclusion clearly.*
+  We have shown:
+  - $Delta > 0$ at the equilibrium,
+  - $tau = 0$ at the critical value $b = b_c$,
+  - $d tau / d b != 0$ at a nondegenerate crossing.
+
+  Therefore, for parameters with $a <= 1/8$ and nondegenerate crossing at $b = b_c$, the equilibrium undergoes a Hopf bifurcation as $b$ varies. At onset, the oscillation frequency is
   $ omega_0 = sqrt(Delta(b_c)) = sqrt(a + b_c^2). $
-  (Supercritical vs. subcritical type is determined by the first Lyapunov coefficient $ell_1$.)
+  Determining whether the Hopf bifurcation is supercritical or subcritical requires the sign of the first Lyapunov coefficient $ell_1$.
 ]
 
 #solved_problem[Planar System Hopf with Explicit Lyapunov Coefficient][
   Consider the planar system
-  $ x' = -x + y + x(x^2 + y^2) \ y' = -x - y + y(x^2 + y^2) - mu $
-  where $mu$ is a bifurcation parameter. Show that an equilibrium undergoes a Hopf bifurcation and determine the bifurcation type (supercritical vs. subcritical).
+  $ x' = mu x - y - x(x^2 + y^2) \ y' = x + mu y - y(x^2 + y^2) $
+  where $mu$ is a bifurcation parameter. Show that the origin undergoes a Hopf bifurcation and determine the bifurcation type (supercritical vs. subcritical).
 ]
 #solution[
-  *1. Find the equilibrium:*
-  At equilibrium, $x' = y' = 0$. By symmetry, seek $x^* = 0$.
-  From $x' = 0$: $y + y(y^2) = 0 => y(1 + y^2) = 0$, so $y^* = 0$.
-  From $y' = 0$: $-x - 0 - mu = 0$, contradicting $x^* = 0$ unless $mu = 0$.
+  *1. Verify that the origin is an equilibrium for every $mu$.*
+  Substituting $(x,y) = (0,0)$ into the system gives
+  $ x' = mu dot 0 - 0 - 0(0^2 + 0^2) = 0, $
+  $ y' = 0 + mu dot 0 - 0(0^2 + 0^2) = 0. $
+  Therefore the origin is an equilibrium for all parameter values.
 
-  *[Correct setup:]*
-  Rewrite in polar coordinates $(r, theta)$:
-  $ r' = r(r^2) - mu = r^3 - mu, quad theta' = -1. $
-  Equilibrium: $r^* = mu^(1/3)$, constant $theta$.
+  *2. Compute the Jacobian and the linearized eigenvalues.*
+  Let
+  $ f(x,y) = mu x - y - x(x^2 + y^2), $
+  $ g(x,y) = x + mu y - y(x^2 + y^2). $
+  Then
+  $ f_x = mu - 3 x^2 - y^2, quad f_y = -1 - 2 x y, $
+  $ g_x = 1 - 2 x y, quad g_y = mu - x^2 - 3 y^2. $
 
-  *2. Linearize near equilibrium:*
-  Let $rho = r - r^*$. Then
-  $ rho' = (r^*)^3 + 3(r^*)^2 rho - mu + O(rho^2) = 3(r^*)^2 rho. $
-  $ theta' = -1. $
+  Evaluating at the origin gives
+  $ J(0,0; mu) = mat(mu, -1; 1, mu). $
+  Hence
+  $ tau(mu) = "tr"(J) = 2 mu, quad Delta(mu) = det(J) = mu^2 + 1. $
 
-  Eigenvalues: $lambda_1 = 3(r^*)^2 = 3 mu^(2/3)$ (radial), $lambda_2 = -i$ (angular).
-  No Hopf here; instead, a saddle-node in the radial direction.
+  The characteristic polynomial is
+  $ lambda^2 - 2 mu lambda + (mu^2 + 1) = 0, $
+  so the eigenvalues are
+  $ lambda_(1,2) = mu plus.minus i. $
 
-  *[Canonical Hopf example:]*
-  Use instead
-  $ x' = y, quad y' = -x + mu x - x^3. $
-  Equilibrium: $y^* = 0$, $x^* = 0$. Jacobian:
-  $ J = mat(0, 1; -1 + mu, 0). $
-  $ tau = 0, quad Delta = 1 - mu. $
-  Hopf when $mu_c = 1$ (center condition $tau = 0$).
+  At $mu = 0$ we obtain
+  $ lambda_(1,2) = plus.minus i, $
+  a simple conjugate pair of purely imaginary eigenvalues. Moreover,
+  $ tau(0) = 0, quad Delta(0) = 1 > 0, quad tau'(0) = 2 != 0. $
+  Therefore the Hopf algebraic conditions are satisfied at
+  $ mu_c = 0. $
 
-  *3. Compute Lyapunov coefficient:*
-  For the cubic system, $f(x,y) = y$, $g(x,y) = -x + mu x - x^3$.
-  Third derivatives: $f_{x x x} = 0$, $f_{x y y} = 0$, $g_{x x y} = -6x$, $g_{y y y} = 0$ (at origin).
-  $ ell_1 = 1/16[0 + 0 - 6(0) + 0] + ... = 0 quad (text("center")) $
+  *3. Rewrite the system in polar coordinates to study the nonlinear terms.*
+  Set
+  $ x = r cos(theta), quad y = r sin(theta). $
+  The standard identities are
+  $ r' = (x x' + y y') / r, $
+  $ theta' = (x y' - y x') / r^2. $
 
-  For a fully nonlinear example (avoid degeneracy), see standard references (Kuznetsov, Guckenheimer-Holmes).
-  When $ell_1 < 0$: supercritical (stable cycle emerges).
-  When $ell_1 > 0$: subcritical (unstable cycle precedes).
+  Compute $x x' + y y'$ first:
+  $ x x' + y y' = x(mu x - y - x(x^2 + y^2)) + y(x + mu y - y(x^2 + y^2)). $
+  Expand term by term:
+  $ x x' + y y' = mu x^2 - x y - x^2(x^2 + y^2) + x y + mu y^2 - y^2(x^2 + y^2). $
+  The mixed terms cancel, so
+  $ x x' + y y' = mu(x^2 + y^2) - (x^2 + y^2)^2. $
+  Since $x^2 + y^2 = r^2$,
+  $ x x' + y y' = mu r^2 - r^4. $
+  Therefore
+  $ r' = (mu r^2 - r^4) / r = mu r - r^3. $
+
+  Now compute $x y' - y x'$:
+  $ x y' - y x' = x(x + mu y - y(x^2 + y^2)) - y(mu x - y - x(x^2 + y^2)). $
+  Expanding gives
+  $ x y' - y x' = x^2 + mu x y - x y(x^2 + y^2) - mu x y + y^2 + x y(x^2 + y^2). $
+  Again the mixed terms cancel, leaving
+  $ x y' - y x' = x^2 + y^2 = r^2. $
+  Hence
+  $ theta' = r^2 / r^2 = 1. $
+
+  The polar form is therefore
+  $ r' = mu r - r^3, quad theta' = 1. $
+
+  *4. Find the periodic orbit branch from the amplitude equation.*
+  Nontrivial periodic orbits correspond to nonzero constant radii, so we solve
+  $ r' = 0. $
+  From
+  $ mu r - r^3 = r(mu - r^2) = 0, $
+  we obtain
+  $ r = 0 quad text("or") quad r^2 = mu. $
+  Thus a nonzero periodic orbit exists exactly when
+  $ mu > 0, $
+  and its radius is
+  $ r_* = sqrt(mu). $
+
+  *5. Determine the stability of both the equilibrium and the cycle.*
+  For the equilibrium $r = 0$, the linearized radial equation is
+  $ r' approx mu r. $
+  Therefore:
+  - if $mu < 0$, small radii decay and the origin is stable;
+  - if $mu > 0$, small radii grow and the origin is unstable.
+
+  For the nonzero branch $r_* = sqrt(mu)$ with $mu > 0$, differentiate the radial right-hand side
+  $ F(r) = mu r - r^3. $
+  Then
+  $ F'(r) = mu - 3 r^2. $
+  Evaluating at $r = r_*$ gives
+  $ F'(r_*) = mu - 3 mu = -2 mu < 0. $
+  Therefore the periodic orbit of radius $sqrt(mu)$ is stable.
+
+  *6. Read off the bifurcation type.*
+  As $mu$ passes through $0$:
+  - the origin changes from stable to unstable,
+  - a small stable limit cycle is born for $mu > 0$.
+
+  This is exactly a *supercritical Hopf bifurcation*.
+
+  In normal-form language, the amplitude equation has cubic coefficient $-1$, so the first Lyapunov coefficient is negative. In particular,
+  $ ell_1 < 0, $
+  which agrees with the supercritical classification.
 ]
 
 === Supplementary Problems
@@ -294,82 +428,139 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   In a glucose-insulin model, the healthy equilibrium $G_1^*(R)$ depends on insulin resistance $R$. As $R$ increases, $G_1^*$ rises. At a critical $R_c$, $G_1^*$ and an unstable $G_2^*(R)$ meet and merge. Describe the bifurcation diagram.
 ]
 #solution[
-  Let equilibria satisfy a scalar reduced equation
-  $ Phi(G, R) = 0. $
-  A fold (saddle-node) at $(G_c, R_c)$ is characterized by
+  Let the equilibria be described by a scalar reduced equation
+  $ Phi(G, R) = 0, $
+  where $G$ is the equilibrium glucose level and $R$ is the insulin-resistance parameter.
+
+  *1. State the local fold conditions.*
+  A saddle-node bifurcation at $(G_c, R_c)$ is characterized by
   $ Phi(G_c, R_c) = 0, quad partial_G Phi(G_c, R_c) = 0, $
   $ partial_(G G) Phi(G_c, R_c) != 0, quad partial_R Phi(G_c, R_c) != 0. $
+  The first condition says there is an equilibrium at $(G_c, R_c)$. The second says the equilibrium is non-hyperbolic in the reduced scalar direction. The last two conditions guarantee that the contact is genuinely quadratic and that the parameter really unfolds the degeneracy.
 
-  By a local shift $u = G - G_c$, $r = R - R_c$, the equilibrium equation is equivalent (to second order) to
+  *2. Introduce local coordinates around the critical point.*
+  Define shifted variables
+  $ u = G - G_c, quad r = R - R_c. $
+  After Taylor expansion and rescaling, the equilibrium equation takes the local normal-form shape
   $ 0 = beta r + gamma u^2 + o(|r| + |u|^2), quad beta gamma != 0. $
-  Thus nearby equilibrium branches are
-  $ u_(plus.minus)(r) approx plus.minus sqrt(-(beta/gamma) r), $
-  which shows two branches on one side of $R_c$ and no branch on the other side.
 
-  Stability follows from the linearization sign in the reduced direction:
+  Ignoring the higher-order terms for the local picture, we solve
+  $ beta r + gamma u^2 = 0. $
+  Rearranging gives
+  $ u^2 = -(beta/gamma) r. $
+  Therefore the nearby equilibrium branches are
+  $ u_(plus.minus)(r) approx plus.minus sqrt(-(beta/gamma) r). $
+
+  This formula shows the key geometric fact:
+  - on one side of $R_c$, there are *two* nearby equilibria;
+  - at $R = R_c$, these two equilibria collide into one double root;
+  - on the other side of $R_c$, there is *no* nearby equilibrium.
+
+  *3. Interpret the two branches biologically and dynamically.*
+  In the problem statement, the branch $G_1^*(R)$ is the healthy equilibrium and the branch $G_2^*(R)$ is unstable. Their collision at $R = R_c$ means that the healthy state disappears in a fold.
+
+  The local stability along each branch is determined by the reduced scalar eigenvalue
   $ lambda = partial_G Phi(G^*(R), R). $
-  On the upper branch ($P_1$) one has $lambda < 0$ (stable), while on the lower branch ($P_2$) one has $lambda > 0$ (unstable). At $R = R_c$, $P_1$ and $P_2$ coalesce and annihilate.
+  On the healthy branch one has
+  $ lambda < 0, $
+  so that branch is stable. On the threshold branch one has
+  $ lambda > 0, $
+  so that branch is unstable.
 
-  Therefore the bifurcation diagram is a fold: stable healthy branch $P_1$ and unstable threshold branch $P_2$ meet at $(R_c, G_c)$; beyond that point only the diabetic branch $P_3$ remains as the attracting equilibrium.
+  At the critical value $R = R_c$, both branches meet at $(R_c, G_c)$ and annihilate each other.
+
+  *4. Describe the bifurcation diagram in words.*
+  The bifurcation diagram is therefore a standard fold diagram:
+  - a stable branch $P_1$ representing healthy glucose regulation,
+  - an unstable branch $P_2$ representing the threshold state,
+  - collision of $P_1$ and $P_2$ at $(R_c, G_c)$.
+
+  For $R$ beyond the fold, the healthy branch no longer exists, so trajectories can no longer relax back to that physiological equilibrium. The only remaining attracting state is the diabetic branch $P_3$, which lies away from the fold and persists after the collision.
 ]
 
 #solved_problem[Explicit Fold-Point Computation][
   Consider a scalar model of glucose regulation
-  $ dot(G) = Phi(G, R) = R G (1 - G/K) - d G, $
-  where $R$ (insulin resistance), $K$ (carrying capacity), and $d$ (glucose clearance) are parameters.
+  $ dot(G) = Phi(G, R) = (R - d) - (G - K/2)^2 / K, $
+  where $R$ (insulin resistance), $K > 0$ (a glucose scale), and $d$ (a critical resistance threshold) are parameters.
   Find the fold (saddle-node) point in the $(G, R)$ plane and sketch the bifurcation diagram as $R$ varies.
 ]
 #solution[
-  *1. Find equilibria:*
-  Set $dot(G) = 0$:
-  $ Phi(G, R) = R G (1 - G/K) - d G = 0 \ => G [R(1 - G/K) - d] = 0. $
-  Either $G^* = 0$ or $R(1 - G/K) = d$.
+  *1. Solve the equilibrium equation exactly.*
+  Equilibria satisfy
+  $ Phi(G, R) = 0, $
+  so
+  $ (R - d) - (G - K/2)^2 / K = 0. $
+  Rearranging gives
+  $ (G - K/2)^2 / K = R - d. $
+  Multiplying by $K$,
+  $ (G - K/2)^2 = K(R - d). $
 
-  From the second equation:
-  $ 1 - G/K = d/R => G^* = K(1 - d/R) = K(R - d)/R. $
-  Equilibrium exists for $G^* > 0$ iff $R > d$.
+  Therefore:
+  - if $R < d$, the right-hand side is negative, so there is no real equilibrium;
+  - if $R = d$, there is one double equilibrium;
+  - if $R > d$, there are two equilibria.
 
-  *2. Find fold conditions:*
-  Compute partial derivatives:
-  $ partial_G Phi = R(1 - 2G/K) - d. $
-  $ partial_R Phi = G(1 - G/K). $
-  $ partial_{GG} Phi = -2R/K. $
+  For $R > d$, taking square roots yields
+  $ G - K/2 = plus.minus sqrt(K(R - d)), $
+  hence the equilibrium branches are
+  $ G^*_(plus.minus)(R) = K/2 plus.minus sqrt(K(R - d)). $
 
-  Fold conditions:
-  - $Phi(G_c, R_c) = 0$ (equilibrium)
-  - $partial_G Phi(G_c, R_c) = 0$ (non-hyperbolicity)
-  - $partial_R Phi(G_c, R_c) != 0$ (transversality)
+  *2. Compute the fold conditions directly.*
+  Differentiate $Phi(G,R)$ with respect to $G$ and $R$:
+  $ partial_G Phi = -2(G - K/2) / K, $
+  $ partial_R Phi = 1, $
+  $ partial_(G G) Phi = -2 / K. $
 
-  From $partial_G Phi = 0$:
-  $ R_c(1 - 2G_c/K) = d => R_c = d / (1 - 2G_c/K). $
+  At a fold point we require
+  $ Phi(G_c, R_c) = 0, quad partial_G Phi(G_c, R_c) = 0. $
 
-  From $Phi(G_c, R_c) = 0$ and substituting:
-  $ [d/(1 - 2G_c/K)] dot G_c(1 - G_c/K) = d G_c. $
-  $ G_c(1 - G_c/K) = G_c(1 - 2G_c/K). $
-  $ 1 - G_c/K = 1 - 2G_c/K => G_c/K = 0 quad (text("trivial")) $
-  or proceed by substitution.
+  The condition $partial_G Phi = 0$ gives immediately
+  $ -2(G_c - K/2) / K = 0 quad => quad G_c = K/2. $
 
-  Simplify: $1 - G_c/K = (d/R_c)(1 - 2G_c/K)^(-1)$ leads to
-  $ G_c = K/2, quad R_c = 2d. $
+  Substitute this into the equilibrium equation:
+  $ 0 = (R_c - d) - (G_c - K/2)^2 / K = (R_c - d) - 0, $
+  so
+  $ R_c = d. $
 
-  Check: At $(G_c, R_c) = (K/2, 2d)$,
-  $ partial_G Phi = 2d(1 - 1) - d = -d != 0 $
-  (contradiction). Recompute: $partial_G Phi = R(1-2G/K) - d = 2d(0) - d = -d != 0$.
+  Thus the fold point is
+  $ (G_c, R_c) = (K/2, d). $
 
-  Correct approach: set $partial_G Phi = 0$:
-  $ R(1 - 2G/K) = d => G = (R - d)K / (2R). $
-  Insert into $Phi = 0$:
-  $ R dot (R-d)K/(2R) dot (1 - (R-d)/(2R)) - d dot (R-d)K/(2R) = 0 $
-  $ (R-d)K/(2) dot ((R+d)/(2R)) = d(R-d)K/(2R). $
-  Simplify and solve: $R_c = 4d$, $G_c = 3K/4$.
+  *3. Check nondegeneracy and transversality.*
+  The second derivative is
+  $ partial_(G G) Phi = -2 / K != 0, $
+  because $K > 0$. Also
+  $ partial_R Phi = 1 != 0. $
+  Therefore the degeneracy is exactly the one required for a saddle-node bifurcation.
 
-  *3. Bifurcation diagram:*
-  - For $R < d$: no interior equilibrium.
-  - For $d < R < 4d$: two interior equilibria (upper stable, lower unstable).
-  - For $R = 4d$: fold point; branches merge.
-  - For $R > 4d$: one interior equilibrium (stable).
+  *4. Determine the stability of the two branches.*
+  For a scalar equation, local stability is determined by the sign of
+  $ partial_G Phi(G^*(R), R). $
 
-  Hysteresis: starting from a high-$R$ state (diabetic equilibrium), reducing $R$ does not restore the healthy equilibrium until $R$ drops below $4d$.
+  On the upper branch
+  $ G^*_+(R) = K/2 + sqrt(K(R - d)), $
+  we have
+  $ G^*_+(R) - K/2 = sqrt(K(R - d)) > 0, $
+  so
+  $ partial_G Phi(G^*_+(R), R) = -2 sqrt(K(R - d)) / K < 0. $
+  Hence the upper branch is stable.
+
+  On the lower branch
+  $ G^*_-(R) = K/2 - sqrt(K(R - d)), $
+  we have
+  $ G^*_-(R) - K/2 = -sqrt(K(R - d)) < 0, $
+  so
+  $ partial_G Phi(G^*_-(R), R) = 2 sqrt(K(R - d)) / K > 0. $
+  Hence the lower branch is unstable.
+
+  *5. Describe the bifurcation diagram clearly.*
+  The bifurcation diagram has the standard fold shape:
+  - For $R < d$, there are no real equilibria.
+  - At $R = d$, the two branches meet at the single non-hyperbolic point $G = K/2$.
+  - For $R > d$, there are two equilibrium branches:
+    $ G^*_-(R) = K/2 - sqrt(K(R - d)) quad text("(unstable)"), $
+    $ G^*_+(R) = K/2 + sqrt(K(R - d)) quad text("(stable)"). $
+
+  So as $R$ decreases toward the critical value $d$, the stable and unstable branches approach each other, collide at $(K/2, d)$, and disappear together. That collision is exactly the saddle-node bifurcation.
 ]
 
 === Supplementary Problems
