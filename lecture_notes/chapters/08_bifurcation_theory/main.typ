@@ -13,17 +13,48 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 === Mathematical Review
 
-#definition[Hopf Bifurcation][
-  A Hopf (or Poincaré-Andronov-Hopf) bifurcation occurs when a local equilibrium point loses or gains stability as a pair of complex conjugate eigenvalues of the linearization cross the imaginary axis. At the bifurcation point, a periodic orbit (limit cycle) is born or destroyed.
+#definition[Parameterized System and Equilibrium Branch][
+  Let $f : RR^n times RR -> RR^n$ be a map of class $C^k$ with $k >= 5$. The *parameterized autonomous system* is
+  $ dot(x) = f(x, mu), quad x in RR^n, quad mu in RR. $
+  A *smooth equilibrium branch* is a curve $(x^*(mu), mu)$ satisfying $f(x^*(mu), mu) = 0$ for all $mu$ in an open interval. The *Jacobian along the branch* is $A(mu) := D_x f(x^*(mu), mu) in RR^(n times n)$.
 ]
 
-#definition[Biological Significance of Limit Cycles][
-  Unlike mechanical pendulums where continuous oscillation depends exclusively on perfect initial conditions and zero friction (a structural center), biological oscillations are driven by *limit cycles*. Limit cycles are robust isolated periodic orbits: if biological noise pushes the system off the cycle, the trajectories spiral back onto it. This mathematical structure is responsible for heartbeats, circadian rhythms, and insulin pulses (as discussed in Chapter 3).
+#definition[Hopf Bifurcation Point][
+  A point $(x^*(mu_c), mu_c)$ on an equilibrium branch is a *Hopf bifurcation point* if:
+  + $A(mu_c)$ has a *simple pair* of purely imaginary eigenvalues $lambda_(1,2)(mu_c) = plus.minus i omega_0$ with $omega_0 > 0$.
+  + All remaining eigenvalues of $A(mu_c)$ have *nonzero* real part.
+  Condition (1) makes the critical center manifold exactly two-dimensional; Condition (2) rules out additional zero or imaginary eigenvalues that would require a higher-codimension analysis.
 ]
 
-#theorem[Supercritical vs. Subcritical Hopf][
-  - *Supercritical Hopf:* A stable equilibrium becomes unstable, and a *stable* limit cycle is born enclosing the equilibrium. This represents a smooth, reversible onset of biological oscillation.
-  - *Subcritical Hopf:* A stable equilibrium becomes unstable, and an *unstable* limit cycle shrinks and vanishes. This often represents a catastrophic "hard" transition to a completely different physiological state (e.g., cardiac arrhythmia).
+#theorem[Poincaré–Andronov–Hopf][
+  Suppose $dot(x) = f(x, mu)$ is $C^k$ ($k >= 5$) and $(x^*(mu_c), mu_c)$ is a Hopf bifurcation point. Assume in addition:
+  - *(Transversality)* The eigenvalues $lambda(mu) = alpha(mu) plus.minus i omega(mu)$ near $mu_c$ satisfy $alpha'(mu_c) != 0$, i.e.\ the real part crosses zero with nonzero speed.
+  - *(Non-degeneracy)* The *first Lyapunov coefficient* $ell_1(mu_c) != 0$.
+  Then a unique family of periodic orbits bifurcates from $(x^*(mu_c), mu_c)$:
+  - $ell_1 < 0$ *(supercritical)*: a family of *stable* limit cycles exists on the side where $alpha > 0$; the equilibrium loses stability smoothly and the transition is reversible.
+  - $ell_1 > 0$ *(subcritical)*: a family of *unstable* limit cycles precedes the stability loss; crossing $mu_c$ produces a catastrophic *hard* transition to a distant attractor.
+  In both cases the period of the bifurcating orbit satisfies $T(mu) -> 2pi \/ omega_0$ as $mu -> mu_c$.
+]
+
+#definition[First Lyapunov Coefficient][
+  For a planar $C^5$ system $dot(x) = f(x, y; mu)$, $dot(y) = g(x, y; mu)$ at an equilibrium with eigenvalues $plus.minus i omega_0$, write all partial derivatives at the equilibrium with subscript notation ($f_(x x) := partial^2 f \/ partial x^2$, etc.). The *first Lyapunov coefficient* is
+  $ ell_1 = 1/16 [f_(x x x) + f_(x y y) + g_(x x y) + g_(y y y)] $
+  $ + 1/(16 omega_0) [f_(x y)(f_(x x) + f_(y y)) - g_(x y)(g_(x x) + g_(y y)) - f_(x x) g_(x x) + f_(y y) g_(y y)]. $
+  The sign of $ell_1$ fully determines the bifurcation type: $ell_1 < 0$ gives a stable (supercritical) limit cycle; $ell_1 > 0$ gives an unstable (subcritical) one.
+]
+
+#proposition[Planar Hopf Detection via Trace and Determinant][
+  For the parameterized planar system above, let $tau(mu) = "tr"(A(mu))$ and $Delta(mu) = det(A(mu))$. Then:
+  + The eigenvalues are $lambda_(1,2) = (tau plus.minus sqrt(tau^2 - 4 Delta)) \/ 2$.
+  + The equilibrium is a *stable spiral* when $tau < 0$ and $Delta > tau^2 \/ 4$, and an *unstable spiral* when $tau > 0$ and $Delta > tau^2 \/ 4$.
+  + A *Hopf bifurcation* at $mu_c$ requires simultaneously:
+    $ tau(mu_c) = 0, quad Delta(mu_c) > 0, quad tau'(mu_c) != 0. $
+  + At $mu_c$, the purely imaginary eigenvalues are $lambda_(1,2) = plus.minus i sqrt(Delta(mu_c)) = plus.minus i omega_0$.
+  The transversality condition $tau'(mu_c) != 0$ is equivalent to $alpha'(mu_c) != 0$ in the Hopf theorem, since $tau = 2 alpha$ for the planar system.
+]
+
+#definition[Limit Cycles and Structural Stability][
+  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations — heartbeats, circadian clocks, insulin pulses — are self-sustaining and robust to noise.
 ]
 
 === Solved Problems
@@ -103,12 +134,32 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 === Mathematical Review
 
-#definition[Saddle-Node Bifurcation][
-  As the bifurcation parameter $R$ (insulin resistance) increases, the two equilibria $P_1$ (stable healthy node) and $P_2$ (unstable saddle) approach each other. At the critical value $R = R_c$ they *collide and annihilate*, leaving only $P_3$ (diabetic). This is a saddle-node bifurcation.
+#definition[Saddle-Node (Fold) Bifurcation Point][
+  Consider $dot(x) = f(x, mu)$ with $f : RR^n times RR -> RR^n$ of class $C^k$ ($k >= 2$). A point $(x_c, mu_c)$ is a *saddle-node bifurcation point* (also called a *fold*) if:
+  + $f(x_c, mu_c) = 0$ (equilibrium condition).
+  + $A_c := D_x f(x_c, mu_c)$ has a *simple zero eigenvalue*; all other eigenvalues have nonzero real part.
+  + *(Non-degeneracy / curvature)* Let $v$ and $w$ be right and left eigenvectors of $A_c$ for eigenvalue $0$, normalized so that $w^T v = 1$. Then
+    $ a := w^T [D_x^2 f(x_c, mu_c)(v, v)] != 0. $
+  + *(Transversality / parameter sensitivity)* $b := w^T [partial_mu f(x_c, mu_c)] != 0.$
+  Conditions (3) and (4) together guarantee that exactly two equilibrium branches — one stable, one unstable — collide and disappear at $(x_c, mu_c)$.
 ]
 
-#definition[Parametric Sensitivity and "Point of No Return"][
-  Before $R_c$, the system is multistable: trajectories starting near $P_1$ remain healthy, while those past the separatrix converge to $P_3$. At $R > R_c$, there is no $P_1$ at all — the patient is mathematically locked into the diabetic basin.
+#theorem[Saddle-Node Bifurcation Normal Form][
+  Under the conditions of the definition above, there exist a $C^k$ local change of coordinates and smooth reparameterization $nu = nu(mu)$ (with $nu(mu_c) = 0$, $nu'(mu_c) != 0$) such that the system is locally topologically equivalent to the *normal form*
+  $ dot(u) = nu - u^2. $
+  Equilibria: $u^* = plus.minus sqrt(nu)$ exist for $nu > 0$ (two branches), and no real equilibrium exists for $nu < 0$. The branch $u^* = +sqrt(nu)$ is stable ($partial f \/ partial u = -2u^* < 0$) and the branch $u^* = -sqrt(nu)$ is unstable ($partial f \/ partial u > 0$). At $nu = 0$ a single *non-hyperbolic* equilibrium $u = 0$ remains; its stable manifold has codimension one.
+]
+
+#proposition[Scalar Fold Conditions][
+  For the scalar equation $dot(x) = f(x, mu)$ with $f : RR times RR -> RR$, the saddle-node conditions at $(x_c, mu_c)$ reduce to:
+  $ f(x_c, mu_c) = 0, quad f_x(x_c, mu_c) = 0, quad f_(x x)(x_c, mu_c) != 0, quad f_mu(x_c, mu_c) != 0. $
+  By the Implicit Function Theorem, these conditions imply the existence of an equilibrium curve $x^*(mu)$ with a quadratic turning point at $(x_c, mu_c)$. The continuation slope satisfies
+  $ (d x^*) / (d mu) = - f_mu / f_x, $
+  which diverges as $f_x -> 0$ at the fold, explaining why numerical continuation must switch to arc-length parameterization near the bifurcation.
+]
+
+#definition[Hysteresis and Multistability][
+  When a system exhibits two fold points at $mu = mu_1 < mu_2$, the bifurcation diagram displays an *S-shaped* equilibrium curve with three coexisting branches for $mu_1 < mu < mu_2$: upper (stable), middle (unstable), and lower (stable). The resulting phenomenon is *hysteresis*: the state at a given $mu$ depends on the direction of parameter variation, not just the current value of $mu$. If the system jumps from the upper to the lower branch at $mu_2$, reducing $mu$ restores the upper branch only at $mu_1 < mu_2$. In the diabetes context, this means that once insulin resistance $R$ surpasses $R_c$ and the healthy equilibrium disappears, reducing $R$ slightly below $R_c$ is *insufficient* for recovery — a far larger therapeutic intervention is required.
 ]
 
 === Solved Problems
