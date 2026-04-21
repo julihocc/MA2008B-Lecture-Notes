@@ -1,7 +1,7 @@
-#import "../../../utils.typ": *
+﻿#import "../../../utils.typ": *
 = Bifurcation Theory
 
-This chapter introduces parametric bifurcations — saddle-node, Hopf — explaining mathematically how the destruction of the physiological stable point constitutes the "Pathway to Diabetes."
+This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaining mathematically how the destruction of the physiological stable point constitutes the "Pathway to Diabetes."
 
 *Learning objectives:*
 - Identify Hopf and saddle-node bifurcation conditions from local linearization data.
@@ -42,25 +42,25 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 ]
 
 
-#theorem[Poincaré–Andronov–Hopf][
+#theorem[Poincare-Andronov-Hopf][
   Suppose $dot(x) = f(x, mu)$ is sufficiently smooth and $(x^*(mu_c), mu_c)$ is a Hopf bifurcation point. Assume in addition:
-  - *(Transversality)* The eigenvalues $lambda(mu) = alpha(mu) plus.minus i omega(mu)$ near $mu_c$ satisfy $alpha'(mu_c) != 0$, i.e.\ the real part crosses zero with nonzero speed.
+  - *(Transversality)* The eigenvalues $lambda(mu) = alpha(mu) plus.minus i omega(mu)$ near $mu_c$ satisfy $alpha'(mu_c) != 0$, i.e. the real part crosses zero with nonzero speed.
   - *(Non-degeneracy)* The *first Lyapunov coefficient* $ell_1(mu_c) != 0$.
   Then a unique family of periodic orbits bifurcates from $(x^*(mu_c), mu_c)$:
   - $ell_1 < 0$ *(supercritical)*: a family of *stable* limit cycles exists on the side where $alpha > 0$; the equilibrium loses stability smoothly and the transition is reversible.
   - $ell_1 > 0$ *(subcritical)*: a family of *unstable* limit cycles precedes the stability loss; crossing $mu_c$ produces a catastrophic *hard* transition to a distant attractor.
-  In both cases the period of the bifurcating orbit satisfies $T(mu) -> 2pi \/ omega_0$ as $mu -> mu_c$.
+  In both cases the period of the bifurcating orbit satisfies $T(mu) -> 2pi / omega_0$ as $mu -> mu_c$.
 ]
 
 #example[
   The Van der Pol oscillator $x'' + (x^2 - mu) x' + x = 0$ can be written as
   $ x' = y, quad y' = -x - (x^2 - mu) y. $
-  The origin is an equilibrium for all $mu$. The Jacobian is $J = mat(0, 1; -1, mu)$ with eigenvalues $lambda = mu \/ 2 plus.minus sqrt(mu^2 \/ 4 - 1)$. At $mu = 0$, $lambda = plus.minus i$ (Hopf point with $omega_0 = 1$). For $mu > 0$, the Lyapunov coefficient is $ell_1 = -1\/16 < 0$ (supercritical), so a stable limit cycle emerges for small $mu > 0$. The bifurcation is reversible: reducing $mu$ back below zero shrinks the cycle back to the origin. The period of the emerging cycle is $T(mu) approx 2pi$ for small $mu$.
+  The origin is an equilibrium for all $mu$. The Jacobian is $J = mat(0, 1; -1, mu)$ with eigenvalues $lambda = mu / 2 plus.minus sqrt(mu^2 / 4 - 1)$. At $mu = 0$, $lambda = plus.minus i$ (Hopf point with $omega_0 = 1$). For $mu > 0$, the Lyapunov coefficient is $ell_1 = -1/16 < 0$ (supercritical), so a stable limit cycle emerges for small $mu > 0$. The bifurcation is reversible: reducing $mu$ back below zero shrinks the cycle back to the origin. The period of the emerging cycle is $T(mu) approx 2pi$ for small $mu$.
 ]
 
 
 #definition[First Lyapunov Coefficient][
-  For a sufficiently smooth planar system $dot(x) = f(x, y; mu)$, $dot(y) = g(x, y; mu)$ at an equilibrium with eigenvalues $plus.minus i omega_0$, write all partial derivatives at the equilibrium with subscript notation ($f_(x x) := partial^2 f \/ partial x^2$, etc.). The *first Lyapunov coefficient* is
+  For a sufficiently smooth planar system $dot(x) = f(x, y; mu)$, $dot(y) = g(x, y; mu)$ at an equilibrium with eigenvalues $plus.minus i omega_0$, write all partial derivatives at the equilibrium with subscript notation ($f_(x x) := partial^2 f / partial x^2$, etc.). The *first Lyapunov coefficient* is
   $ ell_1 = 1/16 [f_(x x x) + f_(x y y) + g_(x x y) + g_(y y y)] $
   $ + 1/(16 omega_0) [f_(x y)(f_(x x) + f_(y y)) - g_(x y)(g_(x x) + g_(y y)) - f_(x x) g_(x x) + f_(y y) g_(y y)]. $
   The sign of $ell_1$ fully determines the bifurcation type: $ell_1 < 0$ gives a stable (supercritical) limit cycle; $ell_1 > 0$ gives an unstable (subcritical) one.
@@ -68,13 +68,13 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 #example[
   For the system
   $ x' = -y + x(mu - r^2), quad y' = x + y(mu - r^2) $
-  where $r^2 = x^2 + y^2$, convert to polar coordinates: $r' = r(mu - r^2)$, $theta' = 1$. When $mu = 0$ the origin is a center with $omega_0 = 1$. The cubic nonlinearity $-r^3$ in the amplitude equation determines the Lyapunov coefficient: $ell_1 = -1/4 < 0$. This indicates a supercritical bifurcation—stable limit cycles emerge smoothly from the origin as $mu$ increases above zero.
+  where $r^2 = x^2 + y^2$, convert to polar coordinates: $r' = r(mu - r^2)$, $theta' = 1$. When $mu = 0$ the origin is a center with $omega_0 = 1$. The cubic nonlinearity $-r^3$ in the amplitude equation determines the Lyapunov coefficient: $ell_1 = -1/4 < 0$. This indicates a supercritical bifurcation--stable limit cycles emerge smoothly from the origin as $mu$ increases above zero.
 ]
 
 #proposition[Planar Hopf Detection via Trace and Determinant][
   For the parameterized planar system above, let $tau(mu) = "tr"(A(mu))$ and $Delta(mu) = det(A(mu))$. Then:
-  + The eigenvalues are $lambda_(1,2) = (tau plus.minus sqrt(tau^2 - 4 Delta)) \/ 2$.
-  + The equilibrium is a *stable spiral* when $tau < 0$ and $Delta > tau^2 \/ 4$, and an *unstable spiral* when $tau > 0$ and $Delta > tau^2 \/ 4$.
+  + The eigenvalues are $lambda_(1,2) = (tau plus.minus sqrt(tau^2 - 4 Delta)) / 2$.
+  + The equilibrium is a *stable spiral* when $tau < 0$ and $Delta > tau^2 / 4$, and an *unstable spiral* when $tau > 0$ and $Delta > tau^2 / 4$.
   + A *Hopf bifurcation* at $mu_c$ requires simultaneously:
     $ tau(mu_c) = 0, quad Delta(mu_c) > 0, quad tau'(mu_c) != 0. $
   + At $mu_c$, the purely imaginary eigenvalues are $lambda_(1,2) = plus.minus i sqrt(Delta(mu_c)) = plus.minus i omega_0$.
@@ -89,7 +89,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 
 
 #definition[Limit Cycles and Structural Stability][
-  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations — heartbeats, circadian clocks, insulin pulses — are self-sustaining and robust to noise.
+  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations -- heartbeats, circadian clocks, insulin pulses -- are self-sustaining and robust to noise.
 ]
 
 #example[
@@ -241,7 +241,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   + *(Non-degeneracy / curvature)* Let $v$ and $w$ be right and left eigenvectors of $A_c$ for eigenvalue $0$, normalized so that $w^T v = 1$. Then
     $ a := w^T [D_x^2 f(x_c, mu_c)(v, v)] != 0. $
   + *(Transversality / parameter sensitivity)* $b := w^T [partial_mu f(x_c, mu_c)] != 0.$
-  Conditions (3) and (4) together guarantee that exactly two equilibrium branches — one stable, one unstable — collide and disappear at $(x_c, mu_c)$.
+  Conditions (3) and (4) together guarantee that exactly two equilibrium branches -- one stable, one unstable -- collide and disappear at $(x_c, mu_c)$.
 ]
 
 #example[
@@ -252,7 +252,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 #theorem[Saddle-Node Bifurcation Normal Form][
   Under the conditions of the definition above, there exist a $C^k$ local change of coordinates and smooth reparameterization $nu = nu(mu)$ (with $nu(mu_c) = 0$, $nu'(mu_c) != 0$) such that the system is locally topologically equivalent to the *normal form*
   $ dot(u) = nu - u^2. $
-  Equilibria: $u^* = plus.minus sqrt(nu)$ exist for $nu > 0$ (two branches), and no real equilibrium exists for $nu < 0$. The branch $u^* = +sqrt(nu)$ is stable ($partial f \/ partial u = -2u^* < 0$) and the branch $u^* = -sqrt(nu)$ is unstable ($partial f \/ partial u > 0$). At $nu = 0$ a single *non-hyperbolic* equilibrium $u = 0$ remains; its stable manifold has codimension one.
+  Equilibria: $u^* = plus.minus sqrt(nu)$ exist for $nu > 0$ (two branches), and no real equilibrium exists for $nu < 0$. The branch $u^* = +sqrt(nu)$ is stable ($partial f / partial u = -2u^* < 0$) and the branch $u^* = -sqrt(nu)$ is unstable ($partial f / partial u > 0$). At $nu = 0$ a single *non-hyperbolic* equilibrium $u = 0$ remains; its stable manifold has codimension one.
 ]
 
 #example[
@@ -276,16 +276,16 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
 ]
 #example[
   For $f(x, mu) = mu - x^2$, check the fold conditions at $(x_c, mu_c) = (0, 0)$:
-  - $f(0, 0) = 0$ ✓
-  - $f_x = -2x$, so $f_x(0, 0) = 0$ ✓
-  - $f_{x x} = -2 != 0$ ✓
-  - $f_mu = 1 != 0$ ✓
+  - $f(0, 0) = 0$ [OK]
+  - $f_x = -2x$, so $f_x(0, 0) = 0$ [OK]
+  - $f_{x x} = -2 != 0$ [OK]
+  - $f_mu = 1 != 0$ [OK]
   
-  The continuation slope is $d x^* / d mu = -f_mu / f_x = -1 / (-2x)$, which is undefined at $x = 0$. This explains the vertical tangent to the parabolic bifurcation curve at the fold point—the equilibrium curve must be reparameterized by arc length to continue past the fold.
+  The continuation slope is $d x^* / d mu = -f_mu / f_x = -1 / (-2x)$, which is undefined at $x = 0$. This explains the vertical tangent to the parabolic bifurcation curve at the fold point--the equilibrium curve must be reparameterized by arc length to continue past the fold.
 ]
 
 #definition[Hysteresis and Multistability][
-  When a system exhibits two fold points at $mu = mu_1 < mu_2$, the bifurcation diagram displays an *S-shaped* equilibrium curve with three coexisting branches for $mu_1 < mu < mu_2$: upper (stable), middle (unstable), and lower (stable). The resulting phenomenon is *hysteresis*: the state at a given $mu$ depends on the direction of parameter variation, not just the current value of $mu$. If the system jumps from the upper to the lower branch at $mu_2$, reducing $mu$ restores the upper branch only at $mu_1 < mu_2$. In the diabetes context, this means that once insulin resistance $R$ surpasses $R_c$ and the healthy equilibrium disappears, reducing $R$ slightly below $R_c$ is *insufficient* for recovery — a far larger therapeutic intervention is required.
+  When a system exhibits two fold points at $mu = mu_1 < mu_2$, the bifurcation diagram displays an *S-shaped* equilibrium curve with three coexisting branches for $mu_1 < mu < mu_2$: upper (stable), middle (unstable), and lower (stable). The resulting phenomenon is *hysteresis*: the state at a given $mu$ depends on the direction of parameter variation, not just the current value of $mu$. If the system jumps from the upper to the lower branch at $mu_2$, reducing $mu$ restores the upper branch only at $mu_1 < mu_2$. In the diabetes context, this means that once insulin resistance $R$ surpasses $R_c$ and the healthy equilibrium disappears, reducing $R$ slightly below $R_c$ is *insufficient* for recovery -- a far larger therapeutic intervention is required.
 ]
 
 === Solved Problems
@@ -414,4 +414,7 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   4. Relate branch stability to the sign of the dominant eigenvalue of the Jacobian of the full system.
   *Hint:* Continuation slope diverges when $partial Phi / partial G = 0$.
 ]
+
+
+
 
