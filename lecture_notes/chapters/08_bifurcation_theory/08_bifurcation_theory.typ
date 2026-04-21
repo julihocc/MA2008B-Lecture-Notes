@@ -20,7 +20,7 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
 ]
 
 #example[
-  The system $x' = mu - x^2$, $y' = -y$ has a single equilibrium for each $\mu$. Solving $mu = (x^*)^2$ gives two branches when $mu > 0$: $x^* = plus.minus sqrt(mu)$ with $y^* = 0$. The Jacobian at equilibrium is
+  The system $x' = mu - x^2$, $y' = -y$ has a single equilibrium for each $mu$. Solving $mu = (x^*)^2$ gives two branches when $mu > 0$: $x^* = plus.minus sqrt(mu)$ with $y^* = 0$. The Jacobian at equilibrium is
   $ A(mu) = mat(-2x^*, 0; 0, -1) = mat(minus 2sqrt(mu), 0; 0, -1). $
   As $mu$ increases, the $x$-component eigenvalue $-2sqrt(mu)$ becomes more negative, indicating strengthening stability in that direction.
 ]
@@ -245,7 +245,7 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
 ]
 
 #example[
-  The scalar system $dot(x) = mu - x^2$ has equilibria satisfying $x^2 = mu$. For $mu > 0$, two equilibria exist: $x^* = plus.minus sqrt(mu)$. The upper branch $x^+ = +sqrt(mu)$ has $f_x = -2x^+ < 0$ (stable), while the lower branch $x^- = -sqrt(mu)$ has $f_x = -2x^- > 0$ (unstable). At $mu = 0$, both branches meet at $x_c = 0$ where $f_x = 0$ (the zero eigenvalue). Beyond $mu = 0$ (i.e., for $\mu < 0$), no real equilibria exist. The fold point is $(\mu_c, x_c) = (0, 0)$.
+  The scalar system $dot(x) = mu - x^2$ has equilibria satisfying $x^2 = mu$. For $mu > 0$, two equilibria exist: $x^* = plus.minus sqrt(mu)$. The upper branch $x^+ = +sqrt(mu)$ has $f_x = -2x^+ < 0$ (stable), while the lower branch $x^- = -sqrt(mu)$ has $f_x = -2x^- > 0$ (unstable). At $mu = 0$, both branches meet at $x_c = 0$ where $f_x = 0$ (the zero eigenvalue). Beyond $mu = 0$ (i.e., for $mu < 0$), no real equilibria exist. The fold point is $(mu_c, x_c) = (0, 0)$.
 ]
 
 

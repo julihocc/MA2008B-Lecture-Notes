@@ -7,7 +7,7 @@
 #let CC = $bb(C)$
 #let NN = $bb(N)$
 
-// Initialize the counters and rules. This function must be called in a show rule in lecture_notes.typ
+// Initialize the counters and rules. This function must be called in a show rule in the root lecture-notes entrypoint.
 // #show: thmrules
 
 // Definitions
