@@ -1,35 +1,35 @@
-# Copilot Instructions for MA2008B-Lecture-Notes
+﻿# Copilot Instructions for MA2008B-Lecture-Notes
 
 ## Purpose and source of truth
 - This repository is a Typst manuscript for lecture notes, not an app/service codebase.
-- Make content edits in `lecture_notes/`; use `docs/MA2008B-Analítico.md` only to align syllabus scope.
-- Main document entrypoint is `lecture_notes/lecture_notes.typ`.
-- If docs and source files disagree, treat `lecture_notes/sections/` and `lecture_notes/lecture_notes.typ` as source of truth.
+- Make content edits in `lecture_notes/`; use `docs/MA2008B-Analitico.md` only to align syllabus scope.
+- Main document entrypoint is `lecture_notes/ma2008b_lecture_notes.typ`.
+- If docs and source files disagree, treat `lecture_notes/chapters/` and `lecture_notes/ma2008b_lecture_notes.typ` as source of truth.
 
 ## Architecture and content flow
-- `lecture_notes/lecture_notes.typ` sets page/text/theorem rendering, then includes modules in fixed order.
-- Each module follows: `lecture_notes/sections/XX_topic/XX_main.typ` with `= Module Title`, intro paragraph, ordered `#include` list.
+- `lecture_notes/ma2008b_lecture_notes.typ` sets page/text/theorem rendering, then includes modules in fixed order.
+- Each module follows: `lecture_notes/chapters/XX_topic/<topic_name>.typ` with `= Module Title` and chapter content below it.
 - Subtopic files are `X.Y_slug.typ`, typically structured as:
   - `== <Topic>`
   - `=== Mathematical Review`
   - `=== Solved Problems`
   - `=== Supplementary Problems`
-- Example pattern: `lecture_notes/sections/01_control_theory/01_main.typ` -> `1.1_conventional_methods.typ`.
+- Example pattern: `lecture_notes/chapters/08_bifurcation_theory/bifurcation_theory.typ`.
 - Keep include ordering untouched unless the user asks to reorder (order defines final PDF sequence).
 
 ## Typst conventions used in this repo
 - Import shared theorem helpers from root `utils.typ` using `#import "../../../utils.typ": *` in section files.
 - Reuse existing blocks from `utils.typ`: `#definition`, `#theorem`, `#proposition`, `#corollary`, `#example`, `#solved_problem`, `#supplementary`, `#proof`, `#solution`.
 - Match existing notation/style in nearby files (e.g., `mat(...)`, `dot(x)`, `G(s) = C(s I - A)^(-1)B + D`).
-- Preserve filename and heading depth conventions (`XX_main.typ`, `X.Y_slug.typ`, with `=`, `==`, `===`).
+- Preserve filename and heading depth conventions (`<topic_name>.typ`, `X.Y_slug.typ`, with `=`, `==`, `===`).
 
 ## Developer workflow
 - Primary authoring workflow is VS Code + TinyMist.
 - Workspace settings (`.vscode/settings.json`) enforce:
   - `tinymist.exportPdf: "onSave"`
   - `tinymist.formatterMode: "typstfmt"`
-- CLI compile (if needed): `typst compile lecture_notes/lecture_notes.typ` from repo root.
-- If `utils.typ` is imported from `lecture_notes/lecture_notes.typ`, compile with root set to repository root: `typst compile --root . lecture_notes/lecture_notes.typ`.
+- CLI compile (if needed): `typst compile lecture_notes/ma2008b_lecture_notes.typ` from repo root.
+- If `utils.typ` is imported from `lecture_notes/ma2008b_lecture_notes.typ`, compile with root set to repository root: `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ`.
 
 ## Python companion scripts
 - `python_scripts/` is a manual mirror of `lecture_notes/sections/` (see `python_scripts/README.md`).

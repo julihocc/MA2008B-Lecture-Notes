@@ -11,8 +11,8 @@
   colors: (primary: tecBlue, secondary: tecLightBlue, boxeq: rgb("#F8FAFC"), header: tecDarkBlue),
   fonts: (body: "New Computer Modern", math: "New Computer Modern Math"),
   title-page: book-title-page(
-    subtitle: "Instructor's Guide - Solutions Manual",
-    edition: "v1.1.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
+    subtitle: "For Non-Linear Optimization",
+    edition: "v1.2.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
     year: str(datetime.today().year()),
     institution: "TecnolÃ³gico de Monterrey",
     series: "IDM19 - Lecture Notes",

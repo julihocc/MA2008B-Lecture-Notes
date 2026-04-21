@@ -1,4 +1,4 @@
----
+﻿---
 name: typst-expression-render-qa
 description: 'Validate and repair Typst math syntax when expressions do not render correctly. Use when writer-generated equations compile poorly, math tokens are misparsed, or chapter expressions show rendering artifacts.'
 argument-hint: 'Target scope: file path, chapter, or full book'
@@ -21,9 +21,9 @@ disable-model-invocation: false
 
 ## Input Scope
 1. If user gives a file path, process that file first.
-2. If user gives a chapter, process the chapter `main.typ`.
+2. If user gives a chapter, process that chapter's topic-named Typst file.
 3. Otherwise process full book by compiling:
-- `typst compile --root . lecture_notes/lecture_notes.typ`
+- `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ`
 
 ## Procedure
 1. Reproduce the problem.
@@ -51,7 +51,7 @@ disable-model-invocation: false
 
 6. Final validation.
 - For file/chapter-level repair, run one full-book compile check:
-- `typst compile --root . lecture_notes/lecture_notes.typ`
+- `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ`
 
 ## Decision Rules
 - Prioritize parser/render fixes over style edits.
@@ -72,6 +72,7 @@ disable-model-invocation: false
 - User receives concise fix summary and any unresolved ambiguity questions.
 
 ## Repository Notes
-- Book entrypoint: `lecture_notes/lecture_notes.typ`.
+- Book entrypoint: `lecture_notes/ma2008b_lecture_notes.typ`.
 - Compile from repo root using `--root .`.
-- Chapter sources are under `lecture_notes/chapters/**/main.typ`.
+- Chapter sources are under `lecture_notes/chapters/**/<topic_name>.typ`.
+

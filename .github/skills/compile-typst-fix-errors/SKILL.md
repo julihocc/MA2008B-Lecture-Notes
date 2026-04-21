@@ -1,4 +1,4 @@
----
+﻿---
 name: compile-typst-fix-errors
 description: 'Compile Typst lecture notes, diagnose build failures, and apply minimal source fixes until compilation succeeds. Use for lecture_notes/ build breaks, Typst syntax errors, include path issues, and theorem/block formatting mistakes.'
 argument-hint: 'Scope to check, e.g. full book, one chapter, or a specific Typst file'
@@ -23,11 +23,11 @@ disable-model-invocation: false
 1. If user provides a file path, compile that file first.
 2. If user says chapter only, compile the chapter main file.
 3. Otherwise compile the full book entrypoint:
-   - `typst compile --root . lecture_notes/lecture_notes.typ`
+   - `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ`
 
 ## Procedure
 1. Identify compile target.
-- Default target is full-book `lecture_notes/lecture_notes.typ`.
+- Default target is full-book `lecture_notes/ma2008b_lecture_notes.typ`.
 - If targeted fix requested, compile the requested file first, then optionally full book.
 
 2. Run compile and capture diagnostics.
@@ -62,7 +62,7 @@ disable-model-invocation: false
 
 ## Default Policies
 - After any chapter-level fix, run one full-book validation compile by default:
-   - `typst compile --root . lecture_notes/lecture_notes.typ`
+   - `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ`
 - For mathematically ambiguous expressions, ask-first policy is mandatory (no best-effort silent rewrites).
 
 ## Quality Criteria
@@ -79,6 +79,7 @@ disable-model-invocation: false
 
 ## Repository-Specific Notes
 - Primary source is under `lecture_notes/`.
-- Entrypoint is `lecture_notes/lecture_notes.typ`.
-- For root imports, use `typst compile --root . lecture_notes/lecture_notes.typ` from repository root.
+- Entrypoint is `lecture_notes/ma2008b_lecture_notes.typ`.
+- For root imports, use `typst compile --root . lecture_notes/ma2008b_lecture_notes.typ` from repository root.
 - Prefer surgical edits in chapter files over broad rewrites.
+
