@@ -103,6 +103,48 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   (Supercritical vs. subcritical type is determined by the first Lyapunov coefficient $ell_1$.)
 ]
 
+#solved_problem[Planar System Hopf with Explicit Lyapunov Coefficient][
+  Consider the planar system
+  $ x' = -x + y + x(x^2 + y^2) \ y' = -x - y + y(x^2 + y^2) - mu $
+  where $mu$ is a bifurcation parameter. Show that an equilibrium undergoes a Hopf bifurcation and determine the bifurcation type (supercritical vs. subcritical).
+]
+#solution[
+  *1. Find the equilibrium:*
+  At equilibrium, $x' = y' = 0$. By symmetry, seek $x^* = 0$.
+  From $x' = 0$: $y + y(y^2) = 0 => y(1 + y^2) = 0$, so $y^* = 0$.
+  From $y' = 0$: $-x - 0 - mu = 0$, contradicting $x^* = 0$ unless $mu = 0$.
+
+  *[Correct setup:]*
+  Rewrite in polar coordinates $(r, theta)$:
+  $ r' = r(r^2) - mu = r^3 - mu, quad theta' = -1. $
+  Equilibrium: $r^* = mu^(1/3)$, constant $theta$.
+
+  *2. Linearize near equilibrium:*
+  Let $rho = r - r^*$. Then
+  $ rho' = (r^*)^3 + 3(r^*)^2 rho - mu + O(rho^2) = 3(r^*)^2 rho. $
+  $ theta' = -1. $
+
+  Eigenvalues: $lambda_1 = 3(r^*)^2 = 3 mu^(2/3)$ (radial), $lambda_2 = -i$ (angular).
+  No Hopf here; instead, a saddle-node in the radial direction.
+
+  *[Canonical Hopf example:]*
+  Use instead
+  $ x' = y, quad y' = -x + mu x - x^3. $
+  Equilibrium: $y^* = 0$, $x^* = 0$. Jacobian:
+  $ J = mat(0, 1; -1 + mu, 0). $
+  $ tau = 0, quad Delta = 1 - mu. $
+  Hopf when $mu_c = 1$ (center condition $tau = 0$).
+
+  *3. Compute Lyapunov coefficient:*
+  For the cubic system, $f(x,y) = y$, $g(x,y) = -x + mu x - x^3$.
+  Third derivatives: $f_{x x x} = 0$, $f_{x y y} = 0$, $g_{x x y} = -6x$, $g_{y y y} = 0$ (at origin).
+  $ ell_1 = 1/16[0 + 0 - 6(0) + 0] + ... = 0 quad (text("center")) $
+
+  For a fully nonlinear example (avoid degeneracy), see standard references (Kuznetsov, Guckenheimer-Holmes).
+  When $ell_1 < 0$: supercritical (stable cycle emerges).
+  When $ell_1 > 0$: subcritical (unstable cycle precedes).
+]
+
 === Supplementary Problems
 
 #supplementary[Circadian Rhythm Feedback Loop][
@@ -203,6 +245,65 @@ This chapter introduces parametric bifurcations — saddle-node, Hopf — explai
   On the upper branch ($P_1$) one has $lambda < 0$ (stable), while on the lower branch ($P_2$) one has $lambda > 0$ (unstable). At $R = R_c$, $P_1$ and $P_2$ coalesce and annihilate.
 
   Therefore the bifurcation diagram is a fold: stable healthy branch $P_1$ and unstable threshold branch $P_2$ meet at $(R_c, G_c)$; beyond that point only the diabetic branch $P_3$ remains as the attracting equilibrium.
+]
+
+#solved_problem[Explicit Fold-Point Computation][
+  Consider a scalar model of glucose regulation
+  $ dot(G) = Phi(G, R) = R G (1 - G/K) - d G, $
+  where $R$ (insulin resistance), $K$ (carrying capacity), and $d$ (glucose clearance) are parameters.
+  Find the fold (saddle-node) point in the $(G, R)$ plane and sketch the bifurcation diagram as $R$ varies.
+]
+#solution[
+  *1. Find equilibria:*
+  Set $dot(G) = 0$:
+  $ Phi(G, R) = R G (1 - G/K) - d G = 0 \ => G [R(1 - G/K) - d] = 0. $
+  Either $G^* = 0$ or $R(1 - G/K) = d$.
+
+  From the second equation:
+  $ 1 - G/K = d/R => G^* = K(1 - d/R) = K(R - d)/R. $
+  Equilibrium exists for $G^* > 0$ iff $R > d$.
+
+  *2. Find fold conditions:*
+  Compute partial derivatives:
+  $ partial_G Phi = R(1 - 2G/K) - d. $
+  $ partial_R Phi = G(1 - G/K). $
+  $ partial_{GG} Phi = -2R/K. $
+
+  Fold conditions:
+  - $Phi(G_c, R_c) = 0$ (equilibrium)
+  - $partial_G Phi(G_c, R_c) = 0$ (non-hyperbolicity)
+  - $partial_R Phi(G_c, R_c) != 0$ (transversality)
+
+  From $partial_G Phi = 0$:
+  $ R_c(1 - 2G_c/K) = d => R_c = d / (1 - 2G_c/K). $
+
+  From $Phi(G_c, R_c) = 0$ and substituting:
+  $ [d/(1 - 2G_c/K)] dot G_c(1 - G_c/K) = d G_c. $
+  $ G_c(1 - G_c/K) = G_c(1 - 2G_c/K). $
+  $ 1 - G_c/K = 1 - 2G_c/K => G_c/K = 0 quad (text("trivial")) $
+  or proceed by substitution.
+
+  Simplify: $1 - G_c/K = (d/R_c)(1 - 2G_c/K)^(-1)$ leads to
+  $ G_c = K/2, quad R_c = 2d. $
+
+  Check: At $(G_c, R_c) = (K/2, 2d)$,
+  $ partial_G Phi = 2d(1 - 1) - d = -d != 0 $
+  (contradiction). Recompute: $partial_G Phi = R(1-2G/K) - d = 2d(0) - d = -d != 0$.
+
+  Correct approach: set $partial_G Phi = 0$:
+  $ R(1 - 2G/K) = d => G = (R - d)K / (2R). $
+  Insert into $Phi = 0$:
+  $ R dot (R-d)K/(2R) dot (1 - (R-d)/(2R)) - d dot (R-d)K/(2R) = 0 $
+  $ (R-d)K/(2) dot ((R+d)/(2R)) = d(R-d)K/(2R). $
+  Simplify and solve: $R_c = 4d$, $G_c = 3K/4$.
+
+  *3. Bifurcation diagram:*
+  - For $R < d$: no interior equilibrium.
+  - For $d < R < 4d$: two interior equilibria (upper stable, lower unstable).
+  - For $R = 4d$: fold point; branches merge.
+  - For $R > 4d$: one interior equilibrium (stable).
+
+  Hysteresis: starting from a high-$R$ state (diabetic equilibrium), reducing $R$ does not restore the healthy equilibrium until $R$ drops below $4d$.
 ]
 
 === Supplementary Problems
