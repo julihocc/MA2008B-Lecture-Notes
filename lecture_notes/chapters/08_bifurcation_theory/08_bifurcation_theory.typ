@@ -52,8 +52,12 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   As $mu$ approaches $0$ from above, the two equilibrium branches move toward each other and meet at the non-hyperbolic point $(0,0)$, where the Jacobian becomes singular.
 ]
 
-#definition[Limit Cycles and Structural Stability][
-  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations -- heartbeats, circadian clocks, insulin pulses -- are self-sustaining and robust to noise.
+#definition[Limit Cycle][
+  Let $dot(x) = f(x)$, $x in RR^n$, be an autonomous system with $f$ of class $C^1$. A *limit cycle* is an isolated periodic orbit: a closed trajectory $Gamma$ such that no other closed orbit lies in a sufficiently small tubular neighborhood of $Gamma$.
+
+  More precisely, $Gamma$ is *stable* (or *attracting*) if there exists a neighborhood $U$ of $Gamma$ such that every trajectory starting in $U$ satisfies $"dist"(phi_t(x_0), Gamma) -> 0$ as $t -> +oo$. It is *unstable* (or *repelling*) if the same holds as $t -> -oo$. A limit cycle that is attracting from one side and repelling from the other is called *semi-stable*.
+
+  A limit cycle is *structurally stable*: it persists, up to continuous orbit-preserving conjugacy, under any sufficiently small $C^1$ perturbation of $f$. This contrasts with the center of a Hamiltonian system, which is surrounded by a one-parameter family of closed orbits and is destroyed by generic perturbations.
 ]
 
 #example[
