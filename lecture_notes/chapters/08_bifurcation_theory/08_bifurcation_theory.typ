@@ -49,9 +49,24 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   $ lambda_1 = 2 sqrt(mu), quad lambda_2 = -1, $
   so one is positive and one is negative, making that branch unstable.
 
-  This example already shows the geometric idea of a fold: as $mu$ approaches $0$ from above, the two equilibrium branches move toward each other and meet at the non-hyperbolic point $(0,0)$.
+  As $mu$ approaches $0$ from above, the two equilibrium branches move toward each other and meet at the non-hyperbolic point $(0,0)$, where the Jacobian becomes singular.
 ]
 
+#definition[Limit Cycles and Structural Stability][
+  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations -- heartbeats, circadian clocks, insulin pulses -- are self-sustaining and robust to noise.
+]
+
+#example[
+  In the Van der Pol oscillator $x'' + (x^2 - mu) x' + x = 0$ (equivalently $x' = y$, $y' = -x - (x^2 - mu) y$), take $mu > 0$. The origin is no longer the only long-term observable structure: nearby trajectories are repelled from the equilibrium but are trapped by nonlinear damping farther away, so they approach a closed periodic orbit.
+
+  The important point is that this closed orbit is *isolated*. There is one distinguished cycle that attracts nearby trajectories, rather than a whole continuum of closed curves. That isolated nature is what makes it a limit cycle rather than a center.
+
+  Now compare this with the conservative oscillator $x'' + x = 0$. In that system every initial condition with fixed energy lies on its own closed orbit, so there is a whole one-parameter family of periodic trajectories. Because these orbits are not isolated, even a small perturbation to the vector field typically destroys the family.
+
+  By contrast, if we perturb the Van der Pol system slightly, for example by adding a small forcing term such as $+ 0.01 sin(t)$, the attracting oscillatory behavior persists as a slightly deformed nearby cycle. So the qualitative behavior survives the perturbation.
+
+  That is the practical meaning of structural stability here: the oscillation is not an artifact of exact algebraic symmetry, but a robust dynamical feature of the system.
+]
 
 #definition[Hopf Bifurcation Point][
   A point $(x^*(mu_c), mu_c)$ on an equilibrium branch is a *Hopf bifurcation point* if:
@@ -97,7 +112,23 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   For a sufficiently smooth planar system $dot(x) = f(x, y; mu)$, $dot(y) = g(x, y; mu)$ at an equilibrium with eigenvalues $plus.minus i omega_0$, write all partial derivatives at the equilibrium with subscript notation ($f_(x x) := partial^2 f / partial x^2$, etc.). The *first Lyapunov coefficient* is
   $ ell_1 = 1/16 [f_(x x x) + f_(x y y) + g_(x x y) + g_(y y y)] $
   $ + 1/(16 omega_0) [f_(x y)(f_(x x) + f_(y y)) - g_(x y)(g_(x x) + g_(y y)) - f_(x x) g_(x x) + f_(y y) g_(y y)]. $
-  The sign of $ell_1$ fully determines the bifurcation type: $ell_1 < 0$ gives a stable (supercritical) limit cycle; $ell_1 > 0$ gives an unstable (subcritical) one.
+]
+
+#example[
+  Consider the system at a critical Hopf point:
+  $ x' = -y - x^3 - x y^2, quad y' = x - x^2 y - y^3. $
+  The origin is an equilibrium with Jacobian $J = mat(0, -1; 1, 0)$, giving eigenvalues $plus.minus i$ and critical frequency $omega_0 = 1$.
+  
+  Let's compute the first Lyapunov coefficient. The right-hand sides are $f(x,y) = -y - x^3 - x y^2$ and $g(x,y) = x - x^2 y - y^3$.
+  Because there are no quadratic terms, all second partial derivatives evaluated at $(0,0)$ are zero. Thus, the entire second bracket in the $ell_1$ formula vanishes.
+  
+  For the third derivatives at $(0,0)$, we have:
+  $ f_(x x x) = -6, quad f_(x y y) = -2, quad g_(x x y) = -2, quad g_(y y y) = -6. $
+  
+  Plugging these into the formula yields:
+  $ ell_1 = 1/16 [-6 - 2 - 2 - 6] = -16/16 = -1. $
+  
+  Since $ell_1 < 0$, any emerging limit cycle will be stable (attracting).
 ]
 
 #theorem[Poincare-Andronov-Hopf][
@@ -221,23 +252,6 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
   $ omega_0 = 1. $
 
   For $mu < 0$, the trace is negative and the origin is a stable spiral. For $mu > 0$, the trace is positive and the origin is an unstable spiral. This is exactly how the trace-determinant test detects a Hopf crossing in practice.
-]
-
-
-#definition[Limit Cycles and Structural Stability][
-  A *limit cycle* is an isolated closed orbit in phase space. It is *stable* (attracting) if nearby trajectories spiral onto it, and *unstable* (repelling) if they spiral away. Unlike the *center* of a conservative system (which is structurally unstable and destroyed by any perturbation), a limit cycle persists under small smooth perturbations to the vector field. This structural stability is the mathematical reason biological oscillations -- heartbeats, circadian clocks, insulin pulses -- are self-sustaining and robust to noise.
-]
-
-#example[
-  In the Van der Pol oscillator $x'' + (x^2 - mu) x' + x = 0$ (equivalently $x' = y$, $y' = -x - (x^2 - mu) y$), take $mu > 0$. The origin is no longer the only long-term observable structure: nearby trajectories are repelled from the equilibrium but are trapped by nonlinear damping farther away, so they approach a closed periodic orbit.
-
-  The important point is that this closed orbit is *isolated*. There is one distinguished cycle that attracts nearby trajectories, rather than a whole continuum of closed curves. That isolated nature is what makes it a limit cycle rather than a center.
-
-  Now compare this with the conservative oscillator $x'' + x = 0$. In that system every initial condition with fixed energy lies on its own closed orbit, so there is a whole one-parameter family of periodic trajectories. Because these orbits are not isolated, even a small perturbation to the vector field typically destroys the family.
-
-  By contrast, if we perturb the Van der Pol system slightly, for example by adding a small forcing term such as $+ 0.01 sin(t)$, the attracting oscillatory behavior persists as a slightly deformed nearby cycle. So the qualitative behavior survives the perturbation.
-
-  That is the practical meaning of structural stability here: the oscillation is not an artifact of exact algebraic symmetry, but a robust dynamical feature of the system.
 ]
 
 
