@@ -1,4 +1,4 @@
-﻿#import "../../../utils.typ": *
+#import "../../../utils.typ": *
 = Bifurcation Theory
 
 This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaining mathematically how the destruction of the physiological stable point constitutes the "Pathway to Diabetes."
@@ -20,6 +20,8 @@ This chapter introduces parametric bifurcations -- saddle-node, Hopf -- explaini
 ]
 
 #example[
+  Consider the planar system
+  $ x' = mu - x^2, quad y' = -y. $
   Start by finding the equilibria. The second equation gives
   $ y' = -y = 0 quad => quad y^* = 0. $
   Substituting this into the first equation yields
