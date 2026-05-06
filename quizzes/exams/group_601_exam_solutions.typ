@@ -1,9 +1,14 @@
-#import "../../utils.typ": *
+#import "exam_template.typ": *
 
-= Solutions: Exam for Group 601
+#show: exam.with(
+  title: "Solutions: Exam for Group 601",
+  date: "",
+  show_student_info: false
+)
+
 _Covering Sections 5.1, 5.2, 5.3, and 6.1_
 
-#solved_problem[Question 1: First-Order Differential Equations][
+#question(title: "First-Order Differential Equations")[
   Consider the autonomous differential equation:
   $ x' = 2x - x^2 $
   1. Find all equilibrium points of the system.
@@ -28,7 +33,7 @@ _Covering Sections 5.1, 5.2, 5.3, and 6.1_
   Trajectories move away from $0$ and toward $2$, confirming that $0$ is unstable and $2$ is asymptotically stable.
 ]
 
-#solved_problem[Question 2: Constant-Coefficient Linear Systems][
+#question(title: "Constant-Coefficient Linear Systems")[
   Consider the linear system $x' = A x$, where the matrix $A$ is given by:
   $ A = mat(-2, -3; 1, 1) $
   1. Compute the trace ($tau$) and determinant ($Delta$) of the matrix $A$.
@@ -49,7 +54,7 @@ _Covering Sections 5.1, 5.2, 5.3, and 6.1_
   Therefore, the origin is a *stable focus* (or stable spiral).
 ]
 
-#solved_problem[Question 3: Time-Dependent Linear Systems][
+#question(title: "Time-Dependent Linear Systems")[
   Consider the time-dependent linear system $x' = A(t) x$, where:
   $ A(t) = mat(-t, 0; 0, 2t) $
   1. Solve the individual differential equations $x'_1 = -t x_1$ and $x'_2 = 2t x_2$.
@@ -70,7 +75,7 @@ _Covering Sections 5.1, 5.2, 5.3, and 6.1_
   Since the exponential function is never zero, $det(Phi(t)) != 0$ for all real $t$.
 ]
 
-#solved_problem[Question 4: Vector Fields and Nullclines][
+#question(title: "Vector Fields and Nullclines")[
   Consider the planar competition model:
   $ x' &= x(1 - x) - x y \
     y' &= y(1 - y) - x y $

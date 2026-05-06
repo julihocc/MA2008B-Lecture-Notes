@@ -1,9 +1,13 @@
-#import "../../utils.typ": *
+#import "exam_template.typ": *
 
-= Exam for Group 602
+#show: exam.with(
+  title: "Exam for Group 602",
+  date: "",
+)
+
 _Covering Mathematical Content from Chapters 5 to 8_
 
-#exercise[Question 1: Nonlinear Phase Plane Analysis (Chapters 5 & 6)][
+#question(title: "Nonlinear Phase Plane Analysis")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -11,7 +15,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   2. Find all equilibrium points in $RR^2$ algebraically.
 ]
 
-#exercise[Question 2: Lyapunov Direct Method (Chapter 7)][
+#question(title: "Lyapunov Direct Method")[
   Consider the same planar nonlinear system as in Question 1:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -22,7 +26,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   3. Based on your result for $dot(V)(x,y)$, what can you conclude about the stability of the origin? Is it locally or globally asymptotically stable? Justify your answer.
 ]
 
-#exercise[Question 3: Linearization and Jacobian Analysis (Chapter 7)][
+#question(title: "Linearization and Jacobian Analysis")[
   Consider the nonlinear system:
   $ x' &= x(1 - x - y) \
     y' &= y(2 - y - 3x) $
@@ -32,7 +36,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   4. Compute the trace and determinant of the evaluated Jacobian, and classify the local stability of the equilibrium using the Lyapunov Indirect Method.
 ]
 
-#exercise[Question 4: Bifurcation Analysis (Chapter 8)][
+#question(title: "Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $
   where $mu$ is a real bifurcation parameter.

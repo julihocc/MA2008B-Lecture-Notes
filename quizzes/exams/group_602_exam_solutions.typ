@@ -1,9 +1,14 @@
-#import "../../utils.typ": *
+#import "exam_template.typ": *
 
-= Solutions: Exam for Group 602
+#show: exam.with(
+  title: "Solutions: Exam for Group 602",
+  date: "",
+  show_student_info: false
+)
+
 _Covering Mathematical Content from Chapters 5 to 8_
 
-#solved_problem[Question 1: Nonlinear Phase Plane Analysis (Chapters 5 & 6)][
+#question(title: "Nonlinear Phase Plane Analysis")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -26,7 +31,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Therefore, the equilibrium points are $(0,0)$ and $(1,-1)$.
 ]
 
-#solved_problem[Question 2: Lyapunov Direct Method (Chapter 7)][
+#question(title: "Lyapunov Direct Method")[
   Consider the same planar nonlinear system as in Question 1:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -46,8 +51,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   &= x(-x + y^2) + y(-y - x^2) \
   &= -x^2 + x y^2 - y^2 - x^2 y \
   &= -(x^2 + y^2) + x y (y - x). $
-  (Wait, notice that if we use the simpler terms near the origin, we can bound it. But let's compute it accurately). Let's use the provided result.
-  $ dot(V)(x,y) = -x^2 - y^2 + x y^2 - x^2 y. $
+  So $dot(V)(x,y) = -x^2 - y^2 + x y^2 - x^2 y$.
 
   *3. Stability Conclusion:*
   Near the origin (for small $x$ and $y$), the quadratic terms $-(x^2 + y^2)$ dominate the cubic terms $x y^2 - x^2 y$. Specifically, we can bound the cubic terms in polar coordinates:
@@ -56,7 +60,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   It is not globally asymptotically stable because there is another equilibrium at $(1,-1)$, which means trajectories starting near $(1,-1)$ will not converge to $(0,0)$.
 ]
 
-#solved_problem[Question 3: Linearization and Jacobian Analysis (Chapter 7)][
+#question(title: "Linearization and Jacobian Analysis")[
   Consider the nonlinear system:
   $ x' &= x(1 - x - y) \
     y' &= y(2 - y - 3x) $
@@ -73,7 +77,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Thus, it is an equilibrium point.
 
   *2. General Jacobian Matrix:*
-  Let $f(x,y) = x - x^2 - xy$ and $g(x,y) = 2y - y^2 - 3xy$.
+  Let $f(x,y) = x - x^2 - x y$ and $g(x,y) = 2y - y^2 - 3 x y$.
   $ f_x = 1 - 2x - y, quad f_y = -x $
   $ g_x = -3y, quad g_y = 2 - 2y - 3x $
   $ J(x,y) = mat(1 - 2x - y, -x; -3y, 2 - 2y - 3x). $
@@ -87,7 +91,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Since $Delta < 0$, the eigenvalues have opposite signs. Thus, the equilibrium $(1/2, 1/2)$ is a *saddle point*, which is *unstable*.
 ]
 
-#solved_problem[Question 4: Bifurcation Analysis (Chapter 8)][
+#question(title: "Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $
   where $mu$ is a real bifurcation parameter.
