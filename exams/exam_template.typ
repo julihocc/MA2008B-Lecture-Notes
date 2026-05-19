@@ -69,6 +69,10 @@
 
     #v(0.75em)
 
+    *Writing Instructions.* Start each selected problem on a new page. A single solution may continue across several pages if necessary, but do not write two different problem solutions on the same page.
+
+    #v(0.75em)
+
     *Grading Rule.*
 
     #table(
@@ -107,5 +111,4 @@
     *Solution:* \
     #body
   ]
-  pagebreak(weak: true)
 }
