@@ -81,6 +81,10 @@
 
     *Grading Rule.*
 
+    Partial credit may be awarded for partially correct selected problems. Fractional correctness is assigned to maximize the student's score using the same marginal weights: the first correct problem is worth 4 points, the second 3 points, the third 2 points, and the fourth 1 point. For example, one fully correct problem, one problem graded as $2/3$ correct, one problem graded as $1/3$ correct, and one problem graded as $0$ correct gives $4 + 3 dot (2/3) + 2 dot (1/3) + 1 dot 0 = 20/3 approx 6.67$ points out of 10.
+
+    #v(0.75em)
+
     #table(
       columns: 2,
       [Correct selected problems], [Final score],
