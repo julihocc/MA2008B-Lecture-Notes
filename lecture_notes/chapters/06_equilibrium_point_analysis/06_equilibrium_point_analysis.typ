@@ -197,7 +197,7 @@ Biological states are mathematically defined by the equilibrium points of the sy
   The positive real roots of this equation determine the $G$-coordinates of the equilibrium points.
 ]
 
-#solved_problem[Numerical Computation and Saddle-Node Bifurcation][
+#solved_problem[Numerical Computation and Uniqueness of Equilibrium][
   Given the parameter values: $P_G = 864$, $k_1 = 1.44$, $k_2 = 36$, $gamma = 0.2$, $beta_0 = 1.0$, and the non-linear function $f(G) = G^2/(13000 + G^2)$ _(adapted from Topp et al., J. Theor. Biol. 206(4):605–619, 2000)_. Compute the equilibrium points mathematically.
 ]
 #solution[
@@ -208,12 +208,24 @@ Biological states are mathematically defined by the equilibrium points of the sy
   $ 864 (13000 + G^2) - 1.44 G (13000 + G^2) - 180 G^3 = 0 $
   $ -181.44 G^3 + 864 G^2 - 18720 G + 11232000 = 0 $
 
-  Solving this cubic polynomial numerically yields three real positive roots, corresponding to three equilibria:
-  - $x_1^*$ where $G_1^* approx 100$. (Stable Node)
-  - $x_2^*$ where $G_2^* approx 250$. (Unstable Saddle)
-  - $x_3^*$ where $G_3^* approx 600$. (Stable Node)
+  Solving this cubic polynomial numerically yields exactly one positive real root:
+  $ G^* approx 40.306. $
+  The corresponding insulin coordinate is
+  $ I^* = (beta_0 f(G^*)) / gamma
+      = 1/0.2 dot (G^*)^2/(13000 + (G^*)^2)
+      approx 0.555. $
+  Thus the planar subsystem has the unique physiological equilibrium
+  $ x^* approx (40.306, 0.555). $
 
-  *Bifurcation Analysis:* Treating $beta_0$ as a bifurcation parameter, a decrease in $beta_0$ translates the $I$-nullcline. Through a saddle-node bifurcation at a critical value $beta_0 = beta_c$, the stable point $x_1^*$ and saddle point $x_2^*$ collide and annihilate, leaving $x_3^*$ as the unique global equilibrium.
+  This uniqueness is not only numerical. For this choice of $f$,
+  $ G f(G) = G^3/(13000 + G^2), $
+  and
+  $ d/(d G) (G^3/(13000 + G^2))
+      = (G^2 (39000 + G^2))/(13000 + G^2)^2 > 0
+      quad "for" G > 0. $
+  Therefore
+  $ Phi'(G) = -k_1 - (k_2 beta_0)/gamma d/(d G)(G f(G)) < 0. $
+  Since $Phi(0)=864 > 0$ and $Phi(G) -> -oo$ as $G -> oo$, the intermediate value theorem and strict monotonicity imply exactly one positive equilibrium. This numerical example therefore illustrates equilibrium computation for the reduced planar model, not a saddle-node bifurcation.
 ]
 
 === Supplementary Problems
@@ -221,9 +233,9 @@ Biological states are mathematically defined by the equilibrium points of the sy
 #supplementary[Jacobian Matrix and Local Stability][
   For the planar $(G, I)$ subsystem with constant $beta_0$:
   1. Compute the analytical Jacobian matrix $J(G,I)$ evaluated at an arbitrary point $(G, I)$.
-  2. For the three numerically computed equilibrium points $x_1^*, x_2^*, x_3^*$, evaluate the Jacobian matrix.
-  3. Compute the trace, determinant, and eigenvalues of each matrix to rigorously classify the local asymptotic stability of each equilibrium point.
-  *Hint:* Derive $J(G,I)$ once in symbolic form and reuse it at each equilibrium.
+  2. For the numerically computed equilibrium point $x^* approx (40.306, 0.555)$, evaluate the Jacobian matrix.
+  3. Compute the trace, determinant, and eigenvalues of this matrix to rigorously classify the local asymptotic stability of the equilibrium point.
+  *Hint:* Use $f'(G) = (2 dot 13000 dot G)/(13000 + G^2)^2$ for this secretion function.
 ]
 
 #supplementary[Positivity and Forward Invariance of the Physiological Region][

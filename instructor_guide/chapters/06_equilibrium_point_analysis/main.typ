@@ -120,10 +120,20 @@
   Let $F(G,I) = P_G - k_1 G - k_2 I G$ and $H(G,I) = beta_0 f(G) - gamma I$.
   $ J(G,I) = mat(partial F / partial G, partial F / partial I; partial H / partial G, partial H / partial I) = mat(-k_1 - k_2 I, -k_2 G; beta_0 f'(G), -gamma) $
 
-  *2. Evaluation at Equilibria:*
+  *2. Evaluation at the Computed Equilibrium:*
   At an equilibrium $(G^*, I^*)$, we have $I^* = (beta_0 f(G^*))/gamma$. Substituting this:
   $ J^* = mat(-k_1 - k_2 I^*, -k_2 G^*; beta_0 f'(G^*), -gamma) $
-  For the stable points $x_1, x_3$, $text("tr")(J) < 0$ and $det(J) > 0$. For the saddle $x_2$, $det(J) < 0$.
+  For the numerical values used in the lecture notes,
+  $ G^* approx 40.306, quad I^* approx 0.555. $
+  Since
+  $ f'(G) = (2 dot 13000 dot G)/(13000 + G^2)^2, $
+  the Jacobian at the equilibrium is approximately
+  $ J^* approx mat(-21.436, -1451.033; 0.004900, -0.200). $
+  Hence
+  $ text("tr")(J^*) approx -21.636, quad det(J^*) approx 11.397, $
+  and the eigenvalues are approximately
+  $ lambda_1 approx -21.096, quad lambda_2 approx -0.540. $
+  Both eigenvalues are negative, so the unique equilibrium is a locally asymptotically stable node.
 ]
 
 #supplementary[Positivity and Forward Invariance of the Physiological Region][
