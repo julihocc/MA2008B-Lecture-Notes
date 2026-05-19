@@ -26,7 +26,7 @@
   )
   
   // Set a clean, classic serif font for exams
-  set text(size: 11pt)
+  set text(size: 10pt)
   set par(justify: true, leading: 0.7em)
 
   align(center)[
@@ -56,7 +56,7 @@
 #let grading_cell() = box(width: 100%, height: 1.15em)
 
 #let final_score_table() = {
-  text(size: 9pt)[
+  text(size: 10pt)[
     #table(
       columns: 2,
       inset: 4pt,
@@ -72,7 +72,7 @@
 }
 
 #let problem_grading_table() = {
-  text(size: 9pt)[
+  text(size: 10pt)[
     #table(
       columns: (0.65fr, 1fr, 1fr, 1.1fr),
       align: (center, center, center, center),
@@ -93,7 +93,7 @@
 
 #let selection_grading_rule() = {
   block[
-    #set text(size: 9.4pt)
+    #set text(size: 10pt)
     #set par(justify: true, leading: 0.55em)
 
     *Problem Selection.* This exam contains five problems. Select exactly four problems to be graded by marking the corresponding boxes below. Only the selected problems will be graded.
