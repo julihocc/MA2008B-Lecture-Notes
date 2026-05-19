@@ -165,25 +165,34 @@
   - *As $G -> oo$*: Since $f(G)$ is bounded (e.g., sigmoid), the term $-k_1 G$ dominates. Thus, for sufficiently large $G$, $Phi(G) < 0$.
   - *Conclusion*: By the IVT, there must exist at least one $G^* > 0$ such that $Phi(G^*) = 0$.
 
-  *2. Graphical Conditions:*
-  One root exists if $Phi(G)$ is strictly decreasing. Three roots (bistability) occur if the insulin term $(k_2 beta_0 / gamma) G f(G)$ is sufficiently sigmoidal to allow $Phi(G)$ to "dip" and rise against the linear decay $-k_1 G$.
+  *2. Uniqueness for the Numerical Example:*
+  For $f(G)=G^2/(13000+G^2)$,
+  $ G f(G) = G^3/(13000+G^2) $
+  and
+  $ d/(d G)(G f(G)) = (G^2(39000 + G^2))/(13000+G^2)^2 > 0 $
+  for $G>0$. Hence
+  $ Phi'(G) = -k_1 - (k_2 beta_0/gamma) d/(d G)(G f(G)) < 0. $
+  Thus $Phi$ is strictly decreasing and the positive equilibrium is unique.
+
+  *3. Why Three Roots Are Not a Parameter Tweak Here:*
+  Three positive roots would require $Phi$ to turn around, so $partial Phi / partial G$ would have to change sign. With the present $f$ and positive parameters this cannot happen. Multiple positive equilibria would require a different scalar feedback shape or a higher-dimensional mechanism, not only a small numerical adjustment of the listed parameters.
 ]
 
 #supplementary[Parameter Sensitivity of the Healthy Equilibrium][
-  Assume $x_1^* = (G_1^*, I_1^*)$ is a stable equilibrium branch parameterized by $beta_0$.
+  Assume the unique equilibrium branch $x^*(beta_0) = (G^*(beta_0), I^*(beta_0))$ is parameterized by $beta_0$.
 ]
 #solution[
   *1. Implicit Differentiation:*
-  Differentiate $Phi(G_1, beta_0) = 0$ with respect to $beta_0$:
-  $ (partial Phi / partial G) (d G_1^* / d beta_0) + (partial Phi / partial beta_0) = 0 \ => d G_1^* / d beta_0 = - (partial Phi / partial beta_0) / (partial Phi / partial G) $
+  Differentiate $Phi(G^*(beta_0), beta_0) = 0$ with respect to $beta_0$:
+  $ (partial Phi / partial G) (d G^* / d beta_0) + (partial Phi / partial beta_0) = 0 \ => d G^* / d beta_0 = - (partial Phi / partial beta_0) / (partial Phi / partial G) $
 
   *2. Sign Determination:*
   - $partial Phi / partial beta_0 = -(k_2 / gamma) G f(G) < 0$.
-  - For a stable equilibrium, we generally require the slope $partial Phi / partial G < 0$.
-  - Thus, $d G_1^* / d beta_0 = - ("negative") / ("negative") < 0$.
+  - For $f(G)=G^2/(13000+G^2)$, $partial Phi / partial G < 0$ for all $G>0$.
+  - Thus, $d G^* / d beta_0 = - ("negative") / ("negative") < 0$.
   
   *3. Interpretation:*
-  Increasing $beta_0$ (more insulin-producing mass) lowers the steady-state glucose level $G_1^*$. Conversely, $beta$-cell loss ($beta_0$ decreasing) raises blood sugar.
+  Increasing $beta_0$ (more insulin-producing capacity) lowers the steady-state glucose level $G^*$. Conversely, reduced $beta$-cell function ($beta_0$ decreasing) raises the glycemic steady state.
 ]
 
 #supplementary[Local Bifurcation Condition at a Fold Point][
@@ -198,4 +207,9 @@
 
   *2. Geometric Interpretation:*
   This corresponds to the point where the $G$-nullcline and $I$-nullcline are tangent. Beyond $beta_c$, the curves no longer intersect in that region, leading to the annihilation of the stable and saddle equilibria.
+
+  *3. Verification for the Present Secretion Function:*
+  With $f(G)=G^2/(13000+G^2)$,
+  $ partial Phi / partial G = -k_1 - (k_2 beta_0/gamma) d/(d G)(G^3/(13000+G^2)). $
+  The derivative term is positive for $G>0$, so $partial Phi / partial G < 0$ for all positive $G$ and positive parameters. Therefore the fold condition $partial Phi / partial G=0$ cannot be satisfied in this reduced planar numerical example.
 ]
