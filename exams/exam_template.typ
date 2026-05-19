@@ -73,6 +73,9 @@
     - Start each selected problem on a new page. A single solution may continue across several pages if necessary, but do not write two different problem solutions on the same page.
     - At the top center of the first page of each selected solution, write the problem name exactly as it appears in the exam.
     - If one solution uses multiple pages, number those pages clearly, for example: "Page 1 of 3", "Page 2 of 3", "Page 3 of 3".
+    - Write the selected problems in increasing question order.
+    - Include the main computations or reasoning; unsupported final answers may not be counted as correct.
+    - Clearly state the final answer or classification for each selected problem.
 
     #v(0.75em)
 
