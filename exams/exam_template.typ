@@ -90,7 +90,7 @@
   q_counter.step()
   v(2em, weak: true)
   block(breakable: true)[
-    #text(weight: "bold")[Question #context q_counter.display().] #if title != none [*#title*]
+    #text(weight: "bold")[Question #context q_counter.display()] #if title != none [-- *#title*]
     #v(0.5em)
     #body
   ]
