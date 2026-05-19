@@ -53,7 +53,7 @@
 }
 
 // Student-facing selection and grading policy
-#let grading_blank() = line(length: 100%, stroke: 0.45pt + black)
+#let grading_cell() = box(width: 100%, height: 1.35em)
 
 #let final_score_table() = {
   text(size: 9pt)[
@@ -79,12 +79,12 @@
       inset: 5pt,
       stroke: 0.45pt + black,
       [*Problem*], [*Progress %*], [*Max points*], [*Awarded points*],
-      [1], [#grading_blank()], [#grading_blank()], [#grading_blank()],
-      [2], [#grading_blank()], [#grading_blank()], [#grading_blank()],
-      [3], [#grading_blank()], [#grading_blank()], [#grading_blank()],
-      [4], [#grading_blank()], [#grading_blank()], [#grading_blank()],
-      [5], [#grading_blank()], [#grading_blank()], [#grading_blank()],
-      [*Total*], [], [], [#grading_blank()],
+      [1], [#grading_cell()], [#grading_cell()], [#grading_cell()],
+      [2], [#grading_cell()], [#grading_cell()], [#grading_cell()],
+      [3], [#grading_cell()], [#grading_cell()], [#grading_cell()],
+      [4], [#grading_cell()], [#grading_cell()], [#grading_cell()],
+      [5], [#grading_cell()], [#grading_cell()], [#grading_cell()],
+      [*Total*], [], [], [#grading_cell()],
     )
     #v(0.25em)
     #text(size: 8.5pt)[Awarded points = progress percentage $times$ maximum points.]
