@@ -124,7 +124,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   $ x' = mu x - x^3 $
   where $mu$ is a real bifurcation parameter.
   1. Find all equilibrium points $x^*$ as a function of the parameter $mu$.
-  2. Use the first-derivative test to determine the local stability of each equilibrium branch.
+  2. Use the first-derivative test to determine the local stability of each equilibrium branch. (Treat the cases $mu < 0$ and $mu > 0$ separately).
   3. Identify the critical parameter value $mu_c$ where a bifurcation occurs. What type of bifurcation is this?
 ]
 #solution[

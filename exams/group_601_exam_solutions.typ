@@ -141,7 +141,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   $ J(G,I) = mat(-k_1 - k_2 I, -k_2 G; beta_0 f'(G), -gamma). $
 
   *2. Evaluation at $x^* approx (40.306,0.555)$:*
-  Using the given parameters and derivative,
+  Using the unrounded equilibrium corresponding to this displayed approximation,
+  together with the given parameters and derivative,
   $ J^* approx mat(-21.436, -1451.033; 0.004900, -0.200). $
 
   *3. Stability Classification:*
