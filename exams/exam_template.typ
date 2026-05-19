@@ -53,6 +53,44 @@
 }
 
 // Student-facing selection and grading policy
+#let grading_blank() = line(length: 100%, stroke: 0.45pt + black)
+
+#let final_score_table() = {
+  text(size: 9pt)[
+    #table(
+      columns: 2,
+      inset: 5pt,
+      stroke: 0.45pt + black,
+      [*Correct selected problems*], [*Final score*],
+      [0], [0/10],
+      [1], [4/10],
+      [2], [7/10],
+      [3], [9/10],
+      [4], [10/10],
+    )
+  ]
+}
+
+#let problem_grading_table() = {
+  text(size: 9pt)[
+    #table(
+      columns: (0.65fr, 1fr, 1fr, 1.1fr),
+      align: (center, center, center, center),
+      inset: 5pt,
+      stroke: 0.45pt + black,
+      [*Problem*], [*Progress %*], [*Max points*], [*Awarded points*],
+      [1], [#grading_blank()], [#grading_blank()], [#grading_blank()],
+      [2], [#grading_blank()], [#grading_blank()], [#grading_blank()],
+      [3], [#grading_blank()], [#grading_blank()], [#grading_blank()],
+      [4], [#grading_blank()], [#grading_blank()], [#grading_blank()],
+      [5], [#grading_blank()], [#grading_blank()], [#grading_blank()],
+      [*Total*], [], [], [#grading_blank()],
+    )
+    #v(0.25em)
+    #text(size: 8.5pt)[Awarded points = progress percentage $times$ maximum points.]
+  ]
+}
+
 #let selection_grading_rule() = {
   block[
     *Problem Selection.* This exam contains five problems. Select exactly four problems to be graded by marking the corresponding boxes below. Only the selected problems will be graded.
@@ -85,14 +123,11 @@
 
     #v(0.75em)
 
-    #table(
-      columns: 2,
-      [Correct selected problems], [Final score],
-      [0], [0/10],
-      [1], [4/10],
-      [2], [7/10],
-      [3], [9/10],
-      [4], [10/10],
+    #grid(
+      columns: (0.8fr, 1.8fr),
+      gutter: 1.25em,
+      [#final_score_table()],
+      [#problem_grading_table()],
     )
   ]
 }
