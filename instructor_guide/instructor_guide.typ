@@ -14,7 +14,7 @@
     subtitle: "Instructor's Guide - Solutions Manual",
     edition: "v1.1.0 (Compiled: " + datetime.today().display("[day] [month repr:short] [year]") + ")",
     year: str(datetime.today().year()),
-    institution: "TecnolÃ³gico de Monterrey",
+    institution: "Tecnológico de Monterrey",
     series: "IDM19 - Lecture Notes",
     logo: none,
     cover: none,
@@ -30,29 +30,29 @@
 
 #part("Control Theory & Bio-System Modeling")
 
-#include "chapters/01_fundamentals_systems_modeling/fundamentals_systems_modeling.typ"
-#include "chapters/02_transient_response_physiology/transient_response_physiology.typ"
-#include "chapters/03_frequency_response_oscillations/frequency_response_oscillations.typ"
-#include "chapters/04_design_compensation_control/design_compensation_control.typ"
+#include "chapters/01_fundamentals_systems_modeling/main.typ"
+#include "chapters/02_transient_response_physiology/main.typ"
+#include "chapters/03_frequency_response_oscillations/main.typ"
+#include "chapters/04_design_compensation_control/main.typ"
 
 #part("Nonlinear Systems & Stability Analysis")
 
-#include "chapters/05_nonlinear_differential_equations/nonlinear_differential_equations.typ"
-#include "chapters/06_equilibrium_point_analysis/equilibrium_point_analysis.typ"
-#include "chapters/07_stability_theory/stability_theory.typ"
-#include "chapters/08_bifurcation_theory/bifurcation_theory.typ"
+#include "chapters/05_nonlinear_differential_equations/main.typ"
+#include "chapters/06_equilibrium_point_analysis/main.typ"
+#include "chapters/07_stability_theory/main.typ"
+#include "chapters/08_bifurcation_theory/main.typ"
 
 #part("Advanced Analytical Tools for Bio-Systems")
 
-#include "chapters/09_positivity_invariant_sets/positivity_invariant_sets.typ"
-#include "chapters/10_the_lcis_method/lcis_method.typ"
-#include "chapters/11_metabolic_case_study/metabolic_case_study.typ"
-#include "chapters/12_computational_implementation/computational_implementation.typ"
+#include "chapters/09_positivity_invariant_sets/main.typ"
+#include "chapters/10_the_lcis_method/main.typ"
+#include "chapters/11_metabolic_case_study/main.typ"
+#include "chapters/12_computational_implementation/main.typ"
 
 #part("Physics-Informed Neural Networks")
 
-#include "chapters/13_scientific_ml_intro/scientific_ml_intro.typ"
-#include "chapters/14_pinns_forward_problem/pinns_forward_problem.typ"
-#include "chapters/15_pinns_inverse_problem/pinns_inverse_problem.typ"
-#include "chapters/16_hybrid_modeling_safety/hybrid_modeling_safety.typ"
+#include "chapters/13_scientific_ml_intro/main.typ"
+#include "chapters/14_pinns_forward_problem/main.typ"
+#include "chapters/15_pinns_inverse_problem/main.typ"
+#include "chapters/16_hybrid_modeling_safety/main.typ"
 
