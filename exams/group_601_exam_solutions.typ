@@ -115,9 +115,9 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   Then
   $ J(x,y) = mat(1 - 2x - 2y, -2x; -3y, 1 - 2y - 3x). $
   At $(1/5,2/5)$,
-  $ J = mat(-1/5, -2/5; -6/5, -1/5). $
+  $ J = mat(-1/5, -2/5; -6/5, -2/5). $
   Therefore
-  $ det(J) = (-1/5)(-1/5) - (-2/5)(-6/5) = 1/25 - 12/25 = -11/25 < 0. $
+  $ det(J) = (-1/5)(-2/5) - (-2/5)(-6/5) = 2/25 - 12/25 = -2/5 < 0. $
   Since the determinant is negative, the interior equilibrium is a *saddle point*.
 ]
 
