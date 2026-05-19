@@ -91,6 +91,38 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Since $Delta < 0$, the eigenvalues have opposite signs. Thus, the equilibrium $(1/2, 1/2)$ is a *saddle point*, which is *unstable*.
 ]
 
+#question(title: "Time-Dependent Linear IVP")[
+  Consider the time-dependent linear system
+  $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
+  1. Write the two scalar differential equations for $x_1(t)$ and $x_2(t)$.
+  2. Solve each scalar equation using the initial condition.
+  3. Write the solution vector $x(t)$.
+]
+#solution[
+  *1. Scalar Equations:*
+  Since $A(t)$ is diagonal, the system decouples:
+  $ x_1' = x_1, quad x_2' = -t x_2. $
+
+  *2. Solving with Initial Data:*
+  For the first equation,
+  $ x_1(t) = c_1 e^t. $
+  Since $x_1(0)=1$, we get $c_1=1$, so
+  $ x_1(t)=e^t. $
+
+  For the second equation,
+  $ (d x_2)/x_2 = -t d t. $
+  Integrating gives
+  $ ln abs(x_2) = -t^2/2 + C, $
+  so
+  $ x_2(t)=c_2 e^(-t^2/2). $
+  Since $x_2(0)=1$, we get $c_2=1$, so
+  $ x_2(t)=e^(-t^2/2). $
+
+  *3. Solution Vector:*
+  Therefore,
+  $ x(t)=mat(e^t; e^(-t^2/2)). $
+]
+
 #question(title: "Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $

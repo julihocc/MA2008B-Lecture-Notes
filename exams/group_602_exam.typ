@@ -36,6 +36,14 @@ _Covering Mathematical Content from Chapters 5 to 8_
   4. Compute the trace and determinant of the evaluated Jacobian, and classify the local stability of the equilibrium using the Lyapunov Indirect Method.
 ]
 
+#question(title: "Time-Dependent Linear IVP")[
+  Consider the time-dependent linear system
+  $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
+  1. Write the two scalar differential equations for $x_1(t)$ and $x_2(t)$.
+  2. Solve each scalar equation using the initial condition.
+  3. Write the solution vector $x(t)$.
+]
+
 #question(title: "Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $
