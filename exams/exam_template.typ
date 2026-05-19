@@ -53,13 +53,13 @@
 }
 
 // Student-facing selection and grading policy
-#let grading_cell() = box(width: 100%, height: 1.35em)
+#let grading_cell() = box(width: 100%, height: 1.15em)
 
 #let final_score_table() = {
   text(size: 9pt)[
     #table(
       columns: 2,
-      inset: 5pt,
+      inset: 4pt,
       stroke: 0.45pt + black,
       [*Correct selected problems*], [*Final score*],
       [0], [0/10],
@@ -76,7 +76,7 @@
     #table(
       columns: (0.65fr, 1fr, 1fr, 1.1fr),
       align: (center, center, center, center),
-      inset: 5pt,
+      inset: 4pt,
       stroke: 0.45pt + black,
       [*Problem*], [*Progress %*], [*Max points*], [*Awarded points*],
       [1], [#grading_cell()], [#grading_cell()], [#grading_cell()],
@@ -93,6 +93,9 @@
 
 #let selection_grading_rule() = {
   block[
+    #set text(size: 9.4pt)
+    #set par(justify: true, leading: 0.55em)
+
     *Problem Selection.* This exam contains five problems. Select exactly four problems to be graded by marking the corresponding boxes below. Only the selected problems will be graded.
 
     #grid(
@@ -105,7 +108,7 @@
       [$square$ Question 5],
     )
 
-    #v(0.75em)
+    #v(0.45em)
 
     *Writing Instructions.*
     - The maximum time allowed for the exam is 90 minutes.
@@ -116,13 +119,13 @@
     - Include the main computations or reasoning; unsupported final answers may not be counted as correct.
     - Clearly state the final answer or classification for each selected problem.
 
-    #v(0.75em)
+    #v(0.45em)
 
     *Grading Rule.*
 
     Partial credit may be awarded for partially correct selected problems. Fractional correctness is assigned to maximize the student's score using the same marginal weights: the first correct problem is worth 4 points, the second 3 points, the third 2 points, and the fourth 1 point. For example, one fully correct problem, one problem graded as $2/3$ correct, one problem graded as $1/3$ correct, and one problem graded as $0$ correct gives $4 + 3 dot (2/3) + 2 dot (1/3) + 1 dot 0 = 20/3 approx 6.67$ points out of 10.
 
-    #v(0.75em)
+    #v(0.45em)
 
     #grid(
       columns: (0.8fr, 1.8fr),
@@ -131,6 +134,7 @@
       [#problem_grading_table()],
     )
   ]
+  pagebreak()
 }
 
 // Question formatting
