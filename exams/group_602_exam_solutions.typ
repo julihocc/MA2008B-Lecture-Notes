@@ -6,9 +6,9 @@
   show_student_info: false
 )
 
-_Covering Mathematical Content from Chapters 5 to 8_
+_Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
-#question(title: "Nonlinear Phase Plane Analysis")[
+#question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -31,43 +31,39 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Therefore, the equilibrium points are $(0,0)$ and $(1,-1)$.
 ]
 
-#question(title: "Lyapunov Direct Method")[
-  Consider the same planar nonlinear system as in Question 1:
+#question(title: "7.1 Lyapunov Direct Method")[
+  Consider the planar nonlinear system
   $ x' &= -x + y^2 \
-    y' &= -y - x^2 $
-  We will analyze the stability of the origin $(0,0)$ using the Lyapunov direct method. Let the candidate Lyapunov function be:
-  $ V(x, y) = 1/2 x^2 + 1/2 y^2 $
+    y' &= -y - x^2, $
+  and the candidate Lyapunov function
+  $ V(x,y) = 1/2 x^2 + 1/2 y^2. $
   1. Verify that $V(x, y)$ is positive definite.
-  2. Compute the derivative $dot(V)(x,y)$ along the trajectories of the system.
-  3. Based on your result for $dot(V)(x,y)$, what can you conclude about the stability of the origin? Is it locally or globally asymptotically stable? Justify your answer.
+  2. Compute $dot(V)(x,y)$ along trajectories.
+  3. Use $dot(V)$ to classify the local stability of the origin.
 ]
 #solution[
   *1. Positive Definiteness:*
-  We have $V(0,0) = 0$. For any $(x,y) != (0,0)$, either $x^2 > 0$ or $y^2 > 0$ (or both). Thus, $V(x,y) > 0$ for all $(x,y) != (0,0)$. Therefore, $V$ is positive definite.
+  We have $V(0,0) = 0$. For any $(x,y) != (0,0)$, $V(x,y)>0$. Therefore, $V$ is positive definite.
 
   *2. Derivative Along Trajectories:*
   Using the chain rule:
-  $ dot(V)(x,y) &= frac(partial V, partial x) x' + frac(partial V, partial y) y' \
+  $ dot(V)(x,y) &= x x' + y y' \
   &= x(-x + y^2) + y(-y - x^2) \
   &= -x^2 + x y^2 - y^2 - x^2 y \
   &= -(x^2 + y^2) + x y (y - x). $
-  So $dot(V)(x,y) = -x^2 - y^2 + x y^2 - x^2 y$.
 
   *3. Stability Conclusion:*
-  Near the origin (for small $x$ and $y$), the quadratic terms $-(x^2 + y^2)$ dominate the cubic terms $x y^2 - x^2 y$. Specifically, we can bound the cubic terms in polar coordinates:
-  $ dot(V)(r, theta) = -r^2 + r^3(cos theta sin^2 theta - cos^2 theta sin theta). $
-  For small $r$, $dot(V) < 0$. Therefore, $dot(V)$ is locally negative definite near the origin. By the Lyapunov direct method, the origin is *locally asymptotically stable*.
-  It is not globally asymptotically stable because there is another equilibrium at $(1,-1)$, which means trajectories starting near $(1,-1)$ will not converge to $(0,0)$.
+  Near the origin, the negative quadratic term $-(x^2+y^2)$ dominates the cubic term $x y(y-x)$. Hence $dot(V)<0$ in a sufficiently small punctured neighborhood of the origin. The origin is *locally asymptotically stable*.
 ]
 
-#question(title: "Linearization and Jacobian Analysis")[
+#question(title: "7.2 Linearization and Jacobian Analysis")[
   Consider the nonlinear system:
   $ x' &= x(1 - x - y) \
     y' &= y(2 - y - 3x) $
   1. Verify that the point $(x^*, y^*) = (1/2, 1/2)$ is an equilibrium point of the system.
   2. Compute the general Jacobian matrix $J(x,y)$ for this system.
   3. Evaluate the Jacobian matrix at the equilibrium $(1/2, 1/2)$.
-  4. Compute the trace and determinant of the evaluated Jacobian, and classify the local stability of the equilibrium using the Lyapunov Indirect Method.
+  4. Compute the trace and determinant, and classify the local stability of the equilibrium.
 ]
 #solution[
   *1. Verifying Equilibrium:*
@@ -91,7 +87,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   Since $Delta < 0$, the eigenvalues have opposite signs. Thus, the equilibrium $(1/2, 1/2)$ is a *saddle point*, which is *unstable*.
 ]
 
-#question(title: "Time-Dependent Linear IVP")[
+#question(title: "5.3 Time-Dependent Linear IVP")[
   Consider the time-dependent linear system
   $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
   1. Write the two scalar differential equations for $x_1(t)$ and $x_2(t)$.
@@ -123,7 +119,7 @@ _Covering Mathematical Content from Chapters 5 to 8_
   $ x(t)=mat(e^t; e^(-t^2/2)). $
 ]
 
-#question(title: "Bifurcation Analysis")[
+#question(title: "8.1 Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $
   where $mu$ is a real bifurcation parameter.
