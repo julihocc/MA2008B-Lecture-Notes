@@ -6,96 +6,148 @@
   show_student_info: false
 )
 
-_Covering Sections 5.1, 5.2, 5.3, and 6.1_
+_Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
 
-#question(title: "First-Order Differential Equations")[
+#question(title: "5.1 Phase-Line Analysis")[
   Consider the autonomous differential equation:
-  $ x' = 2x - x^2 $
-  1. Find all equilibrium points of the system.
-  2. Use the first-derivative test to classify the local stability of each equilibrium point.
-  3. Sketch the phase line and confirm your stability analysis.
+  $ x' = x(x - 1)(x - 4). $
+  1. Find all equilibrium points.
+  2. Determine the sign of $x'$ on each interval determined by the equilibria.
+  3. Classify each equilibrium point as stable or unstable.
 ]
 #solution[
   *1. Equilibrium Points:*
-  Equilibria occur where $x' = 0$:
-  $ 2x - x^2 = x(2 - x) = 0. $
-  Therefore, the equilibrium points are $x^* = 0$ and $x^* = 2$.
+  Equilibria occur where
+  $ x(x - 1)(x - 4) = 0. $
+  Hence
+  $ x^* = 0, quad x^* = 1, quad x^* = 4. $
 
-  *2. First-Derivative Test:*
-  Let $f(x) = 2x - x^2$. Then the derivative is $f'(x) = 2 - 2x$.
-  - At $x^* = 0$: $f'(0) = 2 > 0$. Thus, $x^* = 0$ is *unstable*.
-  - At $x^* = 2$: $f'(2) = 2 - 4 = -2 < 0$. Thus, $x^* = 2$ is *locally asymptotically stable*.
+  *2. Phase-Line Signs:*
+  Test one point in each interval:
+  - If $x < 0$, then $x' < 0$.
+  - If $0 < x < 1$, then $x' > 0$.
+  - If $1 < x < 4$, then $x' < 0$.
+  - If $x > 4$, then $x' > 0$.
 
-  *3. Phase Line:*
-  - For $x < 0$, $f(x) < 0$ (arrows point left).
-  - For $0 < x < 2$, $f(x) > 0$ (arrows point right).
-  - For $x > 2$, $f(x) < 0$ (arrows point left).
-  Trajectories move away from $0$ and toward $2$, confirming that $0$ is unstable and $2$ is asymptotically stable.
+  *3. Stability:*
+  The arrows point away from $0$, toward $1$, and away from $4$.
+  Therefore $x^*=0$ is unstable, $x^*=1$ is locally asymptotically stable, and $x^*=4$ is unstable.
 ]
 
-#question(title: "Constant-Coefficient Linear Systems")[
-  Consider the linear system $x' = A x$, where the matrix $A$ is given by:
-  $ A = mat(-2, -3; 1, 1) $
-  1. Compute the trace ($tau$) and determinant ($Delta$) of the matrix $A$.
-  2. Find the discriminant $D = tau^2 - 4 Delta$.
-  3. Use the trace-determinant plane criteria to classify the critical point at the origin.
+#question(title: "5.2 Trace-Determinant Classification")[
+  Consider the linear system $x' = A x$, where
+  $ A = mat(-2, 3; -1, 0). $
+  1. Compute the trace $tau$ and determinant $Delta$ of $A$.
+  2. Compute the discriminant $D = tau^2 - 4 Delta$.
+  3. Use the trace-determinant criteria to classify the critical point at the origin.
 ]
 #solution[
   *1. Trace and Determinant:*
-  $ tau = text("tr")(A) = -2 + 1 = -1 $
-  $ Delta = det(A) = (-2)(1) - (-3)(1) = -2 + 3 = 1 $
+  $ tau = text("tr")(A) = -2 + 0 = -2. $
+  $ Delta = det(A) = (-2)(0) - 3(-1) = 3. $
 
   *2. Discriminant:*
-  $ D = tau^2 - 4 Delta = (-1)^2 - 4(1) = 1 - 4 = -3 $
+  $ D = tau^2 - 4 Delta = (-2)^2 - 4(3) = 4 - 12 = -8. $
 
   *3. Classification:*
   Since $Delta > 0$ and $D < 0$, the eigenvalues are complex conjugates.
-  Because $tau < 0$, the real part of the eigenvalues is negative.
-  Therefore, the origin is a *stable focus* (or stable spiral).
+  Since $tau < 0$, their real part is negative.
+  Therefore the origin is a *stable focus*.
 ]
 
-#question(title: "Time-Dependent Linear Systems")[
-  Consider the time-dependent linear system $x' = A(t) x$, where:
-  $ A(t) = mat(-t, 0; 0, 2t) $
-  1. Solve the individual differential equations $x'_1 = -t x_1$ and $x'_2 = 2t x_2$.
-  2. Construct a fundamental matrix $Phi(t)$ for this system.
-  3. Verify that $det(Phi(t)) != 0$ for all $t$.
-]
-#solution[
-  *1. Solving Individual Equations:*
-  - For $x'_1 = -t x_1$: separating variables gives $(d x_1) / x_1 = -t d t$. Integrating yields $ln|x_1| = -t^2/2 + C_1$, so $x_1(t) = c_1 e^(-t^2/2)$.
-  - For $x'_2 = 2t x_2$: similarly, $(d x_2) / x_2 = 2t d t$. Integrating yields $ln|x_2| = t^2 + C_2$, so $x_2(t) = c_2 e^(t^2)$.
-
-  *2. Constructing the Fundamental Matrix:*
-  Placing the independent solutions into the columns of a matrix gives:
-  $ Phi(t) = mat(e^(-t^2/2), 0; 0, e^(t^2)) $
-
-  *3. Verifying the Determinant:*
-  $ det(Phi(t)) = e^(-t^2/2) dot e^(t^2) - 0 = e^(t^2/2). $
-  Since the exponential function is never zero, $det(Phi(t)) != 0$ for all real $t$.
-]
-
-#question(title: "Vector Fields and Nullclines")[
-  Consider the planar competition model:
-  $ x' &= x(1 - x) - x y \
-    y' &= y(1 - y) - x y $
-  where $x, y >= 0$.
-  1. Determine the algebraic equations for the $x$-nullclines and $y$-nullclines.
-  2. Find all equilibrium points in the non-negative quadrant $RR_+^2$.
+#question(title: "5.3 Fundamental Matrix Computation")[
+  Consider the time-dependent linear system $x' = A(t)x$, where
+  $ A(t) = mat(2t, 0; 0, -3). $
+  1. Solve the two scalar equations for $x_1(t)$ and $x_2(t)$.
+  2. Construct a fundamental matrix $Phi(t)$.
+  3. Verify that $Phi(t)$ is invertible for all real $t$.
 ]
 #solution[
-  *1. Nullcline Equations:*
-  - *x-nullclines*: Set $x' = 0$.
-    $ x(1 - x - y) = 0 quad => quad x = 0 quad text("or") quad y = 1 - x. $
-  - *y-nullclines*: Set $y' = 0$.
-    $ y(1 - y - x) = 0 quad => quad y = 0 quad text("or") quad y = 1 - x. $
+  *1. Scalar Solutions:*
+  The system is decoupled:
+  $ x_1' = 2t x_1, quad x_2' = -3x_2. $
+  Therefore
+  $ x_1(t) = c_1 e^(t^2), quad x_2(t) = c_2 e^(-3t). $
 
-  *2. Equilibrium Points:*
-  Equilibria are points where an $x$-nullcline intersects a $y$-nullcline.
-  - Intersection of $x = 0$ and $y = 0$: $(0, 0)$.
-  - Intersection of $x = 0$ and $y = 1 - x$: $y = 1 - 0 = 1$, giving $(0, 1)$.
-  - Intersection of $y = 1 - x$ and $y = 0$: $0 = 1 - x => x = 1$, giving $(1, 0)$.
-  - Intersection of $y = 1 - x$ and $y = 1 - x$: This occurs for any point on the line segment $y = 1 - x$ where $x, y >= 0$. Thus, there is a continuous line of equilibrium points connecting $(1,0)$ and $(0,1)$.
+  *2. Fundamental Matrix:*
+  A fundamental matrix is
+  $ Phi(t) = mat(e^(t^2), 0; 0, e^(-3t)). $
 
-  The equilibrium points in $RR_+^2$ are $(0,0)$, and any point $(x, y)$ such that $x + y = 1$ with $x, y >= 0$.
+  *3. Invertibility:*
+  $ det(Phi(t)) = e^(t^2) e^(-3t) = e^(t^2 - 3t). $
+  Since an exponential is never zero, $det(Phi(t)) != 0$ for all $t in RR$.
+]
+
+#question(title: "6.1 Nullclines and Equilibria")[
+  Consider the planar competition system
+  $ x' &= x(1 - x - 2y) \
+    y' &= y(1 - y - 3x), $
+  where $x,y >= 0$.
+  1. Determine the $x$-nullclines and $y$-nullclines.
+  2. Find all equilibrium points in $RR_+^2$.
+  3. Use the Jacobian determinant at the interior equilibrium to decide whether it is a saddle point.
+]
+#solution[
+  *1. Nullclines:*
+  Setting $x'=0$ gives
+  $ x = 0 quad "or" quad 1 - x - 2y = 0. $
+  Thus the $x$-nullclines are
+  $ x=0 quad "and" quad x + 2y = 1. $
+
+  Setting $y'=0$ gives
+  $ y = 0 quad "or" quad 1 - y - 3x = 0. $
+  Thus the $y$-nullclines are
+  $ y=0 quad "and" quad 3x + y = 1. $
+
+  *2. Equilibria in $RR_+^2$:*
+  The boundary intersections give
+  $ (0,0), quad (1,0), quad (0,1). $
+  For the interior equilibrium, solve
+  $ x + 2y = 1, quad 3x + y = 1. $
+  This gives
+  $ x = 1/5, quad y = 2/5. $
+  Hence the equilibria are
+  $ (0,0), quad (1,0), quad (0,1), quad (1/5, 2/5). $
+
+  *3. Interior Stability Type:*
+  Let
+  $ F(x,y) = x(1 - x - 2y), quad H(x,y) = y(1 - y - 3x). $
+  Then
+  $ J(x,y) = mat(1 - 2x - 2y, -2x; -3y, 1 - 2y - 3x). $
+  At $(1/5,2/5)$,
+  $ J = mat(-1/5, -2/5; -6/5, -1/5). $
+  Therefore
+  $ det(J) = (-1/5)(-1/5) - (-2/5)(-6/5) = 1/25 - 12/25 = -11/25 < 0. $
+  Since the determinant is negative, the interior equilibrium is a *saddle point*.
+]
+
+#question(title: "6.2 Topp Planar Equilibrium Stability")[
+  For the reduced Topp planar subsystem with
+  $ P_G = 864, quad k_1 = 1.44, quad k_2 = 36, quad gamma = 0.2, quad beta_0 = 1, $
+  and
+  $ f(G) = G^2/(13000 + G^2), $
+  the unique equilibrium is
+  $ x^* approx (40.306, 0.555). $
+  1. Write the Jacobian matrix $J(G,I)$ for the planar subsystem.
+  2. Evaluate $J$ at $x^*$ using
+     $ f'(G) = (2 dot 13000 dot G)/(13000 + G^2)^2. $
+  3. Use the trace, determinant, and eigenvalues to classify the equilibrium.
+]
+#solution[
+  *1. Jacobian Matrix:*
+  The planar subsystem is
+  $ G' = P_G - k_1 G - k_2 I G, quad I' = beta_0 f(G) - gamma I. $
+  Therefore
+  $ J(G,I) = mat(-k_1 - k_2 I, -k_2 G; beta_0 f'(G), -gamma). $
+
+  *2. Evaluation at $x^* approx (40.306,0.555)$:*
+  Using the given parameters and derivative,
+  $ J^* approx mat(-21.436, -1451.033; 0.004900, -0.200). $
+
+  *3. Stability Classification:*
+  The trace and determinant are approximately
+  $ text("tr")(J^*) approx -21.636, quad det(J^*) approx 11.397. $
+  The eigenvalues are approximately
+  $ lambda_1 approx -21.096, quad lambda_2 approx -0.540. $
+  Both eigenvalues are real and negative, so the unique equilibrium is a *locally asymptotically stable node*.
 ]
