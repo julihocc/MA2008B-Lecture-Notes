@@ -52,6 +52,37 @@
   body
 }
 
+// Student-facing selection and grading policy
+#let selection_grading_rule() = {
+  block[
+    *Problem Selection.* This exam contains five problems. Select exactly four problems to be graded by marking the corresponding boxes below. Only the selected problems will be graded.
+
+    #grid(
+      columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+      gutter: 1em,
+      [$square$ Question 1],
+      [$square$ Question 2],
+      [$square$ Question 3],
+      [$square$ Question 4],
+      [$square$ Question 5],
+    )
+
+    #v(0.75em)
+
+    *Grading Rule.*
+
+    #table(
+      columns: 2,
+      [Correct selected problems], [Final score],
+      [0], [0/10],
+      [1], [4/10],
+      [2], [7/10],
+      [3], [9/10],
+      [4], [10/10],
+    )
+  ]
+}
+
 // Question formatting
 #let q_counter = counter("question")
 

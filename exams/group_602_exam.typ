@@ -7,6 +7,8 @@
 
 _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
+#selection_grading_rule()
+
 #question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \

@@ -7,6 +7,8 @@
 
 _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
 
+#selection_grading_rule()
+
 #question(title: "5.1 Phase-Line Analysis")[
   Consider the autonomous differential equation:
   $ x' = x(x - 1)(x - 4). $
