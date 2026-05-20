@@ -41,6 +41,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   The third quadrant is also not forward invariant: on the boundary $x=0$ with $y<0$, one has $x'=-y>0$, so the vector field points out of the third quadrant.
 ]
 
+#solution_pagebreak()
+
 #question(title: "7.1 Constructing a Weighted Quadratic Lyapunov Function")[
   Consider the linearized system $delta x' = J delta x$ with $delta x = (delta x_1, delta x_2)^T$.
   1. Propose a weighted quadratic candidate $V = p_1 (delta x_1)^2 + p_2 (delta x_2)^2$ with $p_1, p_2 > 0$.
@@ -76,6 +78,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   The ratio $p_1/p_2$ changes how strongly deviations in the first coordinate are penalized relative to deviations in the second coordinate. It also changes the mixed term $p_1 b + p_2 c$; when possible, choosing the ratio to reduce or cancel this mixed term makes negative definiteness easier to verify.
 ]
 
+#solution_pagebreak()
+
 #question(title: "7.2 Indirect Method and Stability Classification")[
   Let the Jacobian at an equilibrium be
   $ J = mat(a, b; c, d). $
@@ -105,6 +109,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   *4. Link to a Lyapunov Argument:*
   When the linearization is asymptotically stable, the Jacobian is Hurwitz. The Lyapunov equation then gives a positive-definite quadratic form $V(delta x)=delta x^T P delta x$ whose derivative is negative definite for the linearized system. For the nonlinear model, higher-order terms are dominated in a sufficiently small neighborhood, so the same quadratic function gives a local Lyapunov proof of asymptotic stability.
 ]
+
+#solution_pagebreak()
 
 #question(title: "5.3 Time-Dependent Linear IVP")[
   Consider the time-dependent linear system
@@ -137,6 +143,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   Therefore,
   $ x(t)=mat(e^t; e^(-t^2/2)). $
 ]
+
+#solution_pagebreak()
 
 #question(title: "8.1 Trace-Determinant Hopf Detection")[
   Consider a planar parameterized system with Jacobian at equilibrium

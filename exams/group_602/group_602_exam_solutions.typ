@@ -31,6 +31,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   Therefore, the equilibrium points are $(0,0)$ and $(1,-1)$.
 ]
 
+#solution_pagebreak()
+
 #question(title: "7.1 Lyapunov Direct Method")[
   Consider the planar nonlinear system
   $ x' &= -x + y^2 \
@@ -55,6 +57,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   *3. Stability Conclusion:*
   Near the origin, the negative quadratic term $-(x^2+y^2)$ dominates the cubic term $x y(y-x)$. Hence $dot(V)<0$ in a sufficiently small punctured neighborhood of the origin. The origin is *locally asymptotically stable*.
 ]
+
+#solution_pagebreak()
 
 #question(title: "7.2 Linearization and Jacobian Analysis")[
   Consider the nonlinear system:
@@ -87,6 +91,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   Since $Delta < 0$, the eigenvalues have opposite signs. Thus, the equilibrium $(1/2, 1/2)$ is a *saddle point*, which is *unstable*.
 ]
 
+#solution_pagebreak()
+
 #question(title: "5.3 Time-Dependent Linear IVP")[
   Consider the time-dependent linear system
   $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
@@ -118,6 +124,8 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   Therefore,
   $ x(t)=mat(e^t; e^(-t^2/2)). $
 ]
+
+#solution_pagebreak()
 
 #question(title: "8.1 Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
