@@ -34,6 +34,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   Therefore $x^*=0$ is unstable, $x^*=1$ is locally asymptotically stable, and $x^*=4$ is unstable.
 ]
 
+#solution_pagebreak()
+
 #question(title: "5.2 Trace-Determinant Classification")[
   Consider the linear system $x' = A x$, where
   $ A = mat(-2, 3; -1, 0). $
@@ -54,6 +56,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   Since $tau < 0$, their real part is negative.
   Therefore the origin is a *stable focus*.
 ]
+
+#solution_pagebreak()
 
 #question(title: "5.3 Fundamental Matrix Computation")[
   Consider the time-dependent linear system $x' = A(t)x$, where
@@ -77,6 +81,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   $ det(Phi(t)) = e^(t^2) e^(-3t) = e^(t^2 - 3t). $
   Since an exponential is never zero, $det(Phi(t)) != 0$ for all $t in RR$.
 ]
+
+#solution_pagebreak()
 
 #question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar competition system
@@ -120,6 +126,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   $ det(J) = (-1/5)(-2/5) - (-2/5)(-6/5) = 2/25 - 12/25 = -2/5 < 0. $
   Since the determinant is negative, the interior equilibrium is a *saddle point*.
 ]
+
+#solution_pagebreak()
 
 #question(title: "6.2 Topp Planar Equilibrium Stability")[
   For the reduced Topp planar subsystem with

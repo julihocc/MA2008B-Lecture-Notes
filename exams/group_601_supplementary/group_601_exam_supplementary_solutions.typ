@@ -30,6 +30,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   Therefore $x^*=0$ is unstable, $x^*=1$ is locally asymptotically stable, and $x^*=4$ is unstable.
 ]
 
+#solution_pagebreak()
+
 #question(title: "5.2 Trace-Determinant Diagram Point")[
   For
   $ A = mat(-2,3;-1,0), $
@@ -48,6 +50,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   Since $tau < 0$, their real part is negative.
   Therefore the origin is a *stable focus*.
 ]
+
+#solution_pagebreak()
 
 #question(title: "5.3 Fundamental Matrix Computation")[
   For
@@ -69,6 +73,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   $ det(Phi(t)) = e^(t^2) e^(-3t) = e^(t^2 - 3t). $
   Since an exponential is never zero, $det(Phi(t)) != 0$ for all $t in RR$.
 ]
+
+#solution_pagebreak()
 
 #question(title: "6.1 Competitive Exclusion Principle Phase Analysis")[
   Two species $x(t)$ and $y(t)$ competing for the same limited resource can be modeled by the Lotka-Volterra competition system:
@@ -109,6 +115,8 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
   $ det(J(x^*,y^*)) = r_1 r_2 x^* y^* (1 - alpha beta) < 0. $
   The determinant is negative, so the interior coexistence equilibrium is a saddle point. Its stable manifold separates the basins of attraction of the boundary equilibria $(1,0)$ and $(0,1)$, which is the phase-plane mechanism behind competitive exclusion.
 ]
+
+#solution_pagebreak()
 
 #question(title: "6.2 Jacobian Matrix and Local Stability")[
   For the planar $(G, I)$ subsystem with constant $beta_0$:
