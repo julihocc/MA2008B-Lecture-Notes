@@ -1,4 +1,4 @@
-#import "exam_template.typ": *
+#import "../exam_template.typ": *
 
 #show: exam.with(
   title: "Exam for Group 602",
