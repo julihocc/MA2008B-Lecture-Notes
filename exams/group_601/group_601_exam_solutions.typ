@@ -8,6 +8,9 @@
 
 _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
 
+#set text(size: 9.4pt)
+#set par(justify: true, leading: 0.55em)
+
 #question(title: "5.1 Phase-Line Analysis")[
   Consider the autonomous differential equation:
   $ x' = x(x - 1)(x - 4). $
@@ -95,36 +98,26 @@ _Covering Sections 5.1, 5.2, 5.3, 6.1, and 6.2_
 ]
 #solution[
   *1. Nullclines:*
-  Setting $x'=0$ gives
-  $ x = 0 quad "or" quad 1 - x - 2y = 0. $
-  Thus the $x$-nullclines are
-  $ x=0 quad "and" quad x + 2y = 1. $
-
-  Setting $y'=0$ gives
-  $ y = 0 quad "or" quad 1 - y - 3x = 0. $
-  Thus the $y$-nullclines are
-  $ y=0 quad "and" quad 3x + y = 1. $
+  From $x'=0$ we get $x=0$ or $x+2y=1$.
+  From $y'=0$ we get $y=0$ or $3x+y=1$.
 
   *2. Equilibria in $RR_+^2$:*
-  The boundary intersections give
-  $ (0,0), quad (1,0), quad (0,1). $
-  For the interior equilibrium, solve
-  $ x + 2y = 1, quad 3x + y = 1. $
-  This gives
-  $ x = 1/5, quad y = 2/5. $
-  Hence the equilibria are
+  The boundary intersections are $(0,0)$, $(1,0)$, and $(0,1)$.
+  The interior equilibrium solves $x+2y=1$ and $3x+y=1$, hence
+  $ (x,y) = (1/5, 2/5). $
+  Thus the equilibria are
   $ (0,0), quad (1,0), quad (0,1), quad (1/5, 2/5). $
 
   *3. Interior Stability Type:*
-  Let
-  $ F(x,y) = x(1 - x - 2y), quad H(x,y) = y(1 - y - 3x). $
-  Then
+  For
+  $ F=x(1-x-2y), quad H=y(1-y-3x), $
+  the Jacobian is
   $ J(x,y) = mat(1 - 2x - 2y, -2x; -3y, 1 - 2y - 3x). $
   At $(1/5,2/5)$,
-  $ J = mat(-1/5, -2/5; -6/5, -2/5). $
-  Therefore
-  $ det(J) = (-1/5)(-2/5) - (-2/5)(-6/5) = 2/25 - 12/25 = -2/5 < 0. $
-  Since the determinant is negative, the interior equilibrium is a *saddle point*.
+  $ J = mat(-1/5, -2/5; -6/5, -2/5), $
+  so
+  $ det(J) = (-1/5)(-2/5) - (-2/5)(-6/5) = -2/5 < 0. $
+  Therefore the interior equilibrium is a *saddle point*.
 ]
 
 #solution_pagebreak()
