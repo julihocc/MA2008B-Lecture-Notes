@@ -162,3 +162,5 @@
     #body
   ]
 }
+
+#let solution_pagebreak() = pagebreak()
