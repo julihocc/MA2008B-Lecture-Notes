@@ -19,8 +19,8 @@ This audit records how each problem in this solution document relates to the sup
     align: left,
     [*Q*], [*Exam topic*], [*Classification*], [*Evidence*],
     [Q1], [6.1 Nullclines and Equilibria], [Not an exact supplementary problem], [The method resembles Section 6.1 nullcline and equilibrium work, and is related to *Supplementary Problem 6.1.4.2* ("Directional Field Sign Analysis in a Cubic-Linear System"). However, the exam uses a different system and fewer tasks. No matching supplementary, solved problem, or example statement was found for this exact system.],
-    [Q2], [7.1 Lyapunov Direct Method], [Not an exact supplementary problem], [The task resembles *Theorem 7.1.1.1* and solved Lyapunov examples, but it is not a supplementary statement. No matching supplementary, solved problem, or example statement was found for this exact system.],
-    [Q3], [7.2 Linearization and Jacobian Analysis], [Not an exact supplementary problem], [The task resembles Jacobian, trace-determinant, and local-stability classification material, including *Supplementary Problem 7.1.3.3* ("Indirect Method and Stability Classification"). However, this specific nonlinear system is not taken exactly from a supplementary statement.],
+    [Q2], [7.1 Lyapunov Direct Method], [Not an exact supplementary problem], [The task resembles *Theorem 7.1.1.1* and *Solved Problem 7.1.2.2* ("Global Asymptotic Stability via the Direct Method"), but it is not a supplementary statement. No matching supplementary, solved problem, or example statement was found for this exact system.],
+    [Q3], [7.2 Linearization and Jacobian Analysis], [Not an exact supplementary problem], [The task resembles Jacobian, trace-determinant, and local-stability classification material, including *Supplementary Problem 6.1.4.3* ("Linearization and Local Type of Equilibria") and *Supplementary Problem 7.1.3.3* ("Indirect Method and Stability Classification"). However, this specific nonlinear system is not taken exactly from a supplementary statement.],
     [Q4], [5.3 Time-Dependent Linear IVP], [Exact supplementary problem], [This is *Supplementary Problem 5.3.3.3* ("IVP with Time-Dependent Coefficients"), with the exam adding itemized solution steps.],
     [Q5], [8.1 Bifurcation Analysis], [Solved-problem source, not supplementary], [This is essentially *Solved Problem 5.1.2.8* ("Pitchfork Bifurcation Analysis"), with the parameter written as $mu$ instead of $lambda$.],
   )
@@ -75,7 +75,13 @@ This audit records how each problem in this solution document relates to the sup
   &= -(x^2 + y^2) + x y (y - x). $
 
   *3. Stability Conclusion:*
-  Near the origin, the negative quadratic term $-(x^2+y^2)$ dominates the cubic term $x y(y-x)$. Hence $dot(V)<0$ in a sufficiently small punctured neighborhood of the origin. The origin is *locally asymptotically stable*.
+  Let $r = sqrt(x^2 + y^2)$. Since $abs(x) <= r$, $abs(y) <= r$, and
+  $ abs(y - x) <= abs(y) + abs(x) <= 2r, $
+  we have
+  $ abs(x y (y - x)) <= 2 r^3. $
+  Therefore,
+  $ dot(V) <= -r^2 + 2 r^3 = -r^2(1 - 2r). $
+  If $0 < r < 1/2$, then $1 - 2r > 0$, so $dot(V)<0$. Hence $dot(V)$ is negative definite in a sufficiently small punctured neighborhood of the origin, and the origin is *locally asymptotically stable*.
 ]
 
 #solution_pagebreak()
@@ -166,9 +172,10 @@ This audit records how each problem in this solution document relates to the sup
   - Branch $x^* = 0$: $f_x(0, mu) = mu$. 
     For $mu < 0$, $f_x < 0$ (stable). For $mu > 0$, $f_x > 0$ (unstable).
   - Branches $x^* = plus.minus sqrt(mu)$ (when $mu > 0$): 
-    $f_x(plus.minus sqrt(mu), mu) = mu - 3(plus.minus sqrt(mu))^2 = mu - 3mu = -2mu$. 
+  $f_x(plus.minus sqrt(mu), mu) = mu - 3(plus.minus sqrt(mu))^2 = mu - 3mu = -2mu$. 
     Since $mu > 0$, $-2mu < 0$. Both of these branches are stable.
+  - At $mu = 0$, the only equilibrium is $x^*=0$, and $f_x(0,0)=0$. The first-derivative test is inconclusive exactly at this parameter value.
 
   *3. Bifurcation Type:*
-  At the critical value $mu_c = 0$, the stable branch $x^* = 0$ loses stability and splits into two new stable branches. This is a *supercritical pitchfork bifurcation*.
+  The critical value is $mu_c = 0$. At this value the derivative test becomes inconclusive at the origin; as $mu$ crosses from negative to positive, the branch $x^*=0$ loses stability and two new stable branches $x^* = plus.minus sqrt(mu)$ appear. This is a *supercritical pitchfork bifurcation*.
 ]
