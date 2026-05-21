@@ -8,6 +8,24 @@
 
 _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
+== Source audit for Group 602 exam problems
+
+This audit records how each problem in this solution document relates to the supplementary problems in the lecture notes.
+
+#text(size: 8pt)[
+  #table(
+    columns: (0.35fr, 1.45fr, 1.45fr, 3.25fr),
+    inset: 4pt,
+    align: left,
+    [*Q*], [*Exam topic*], [*Classification*], [*Evidence*],
+    [Q1], [6.1 Nullclines and Equilibria], [Not an exact supplementary problem], [The method resembles Section 6.1 nullcline and equilibrium work, and is related to the supplementary problem "Directional Field Sign Analysis in a Cubic-Linear System." However, the exam uses a different system and fewer tasks. No matching supplementary, solved problem, or example statement was found for this exact system.],
+    [Q2], [7.1 Lyapunov Direct Method], [Not an exact supplementary problem], [The task resembles the Lyapunov direct method theorem and solved Lyapunov examples, but it is not a supplementary statement. No matching supplementary, solved problem, or example statement was found for this exact system.],
+    [Q3], [7.2 Linearization and Jacobian Analysis], [Not an exact supplementary problem], [The task resembles Jacobian, trace-determinant, and local-stability classification material, including related supplementary problems. However, this specific nonlinear system is not taken exactly from a supplementary statement.],
+    [Q4], [5.3 Time-Dependent Linear IVP], [Exact supplementary problem], [This is the supplementary problem "IVP with Time-Dependent Coefficients" from Section 5.3, with the exam adding itemized solution steps.],
+    [Q5], [8.1 Bifurcation Analysis], [Solved-problem source, not supplementary], [This is essentially the solved problem "Pitchfork Bifurcation Analysis" from Section 5, with the parameter written as $mu$ instead of $lambda$.],
+  )
+]
+
 #question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
