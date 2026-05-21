@@ -26,6 +26,8 @@ This audit records how each problem in this solution document relates to the sup
   )
 ]
 
+#solution_pagebreak()
+
 #question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
