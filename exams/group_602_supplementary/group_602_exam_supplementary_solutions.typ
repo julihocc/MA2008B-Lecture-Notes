@@ -112,12 +112,9 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
 #solution_pagebreak()
 
-#question(title: "5.3 Time-Dependent Linear IVP")[
-  Consider the time-dependent linear system
-  $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
-  1. Write the two scalar differential equations for $x_1(t)$ and $x_2(t)$.
-  2. Solve each scalar equation using the initial condition.
-  3. Write the solution vector $x(t)$.
+#question(title: "5.3 IVP with Time-Dependent Coefficients")[
+  Solve
+  $ x' = A(t)x, quad A(t)=mat(1,0;0,-t), quad x(0)=mat(1;1). $
 ]
 #solution[
   *1. Scalar Equations:*
