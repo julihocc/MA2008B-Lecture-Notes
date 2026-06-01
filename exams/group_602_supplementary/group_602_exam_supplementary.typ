@@ -55,7 +55,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   $ J(mu) = mat(a(mu), b(mu); c(mu), d(mu)). $
   1. Write $tau(mu) = text("tr")(J(mu))$ and $Delta(mu) = det(J(mu))$.
   2. State the algebraic Hopf conditions in terms of $tau(mu)$ and $Delta(mu)$.
-  3. Explain why the transversality condition $d tau / d mu != 0$ at $mu = mu_c$ is required.
+  3. Explain why the transversality condition $frac(d tau, d mu)|_(mu = mu_c) != 0$ is required.
   4. Classify whether the equilibrium is locally stable or unstable for $tau < 0$ and $tau > 0$, assuming $Delta > 0$.
   *Hint:* For Hopf in 2D, enforce $Delta(mu_c) > 0$, $tau(mu_c)=0$, and sign-changing trace near $mu_c$.
 ]
