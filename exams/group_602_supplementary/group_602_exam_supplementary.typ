@@ -3,13 +3,16 @@
 #show: exam.with(
   title: "Exam for Group 602",
   date: "",
+  compact: true,
 )
+
+#let exam_question = question.with(compact: true)
 
 _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
-#selection_grading_rule()
+#selection_grading_rule(compact: true)
 
-#question(title: "6.1 Directional Field Sign Analysis in a Cubic-Linear System")[
+#exam_question(title: "6.1 Directional Field Sign Analysis in a Cubic-Linear System")[
   Consider the planar nonlinear system:
   $ x' &= x - x^3 - y \ y' &= mu (x - y) $
   with parameter $mu > 0$.
@@ -20,7 +23,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   *Hint:* Use nullcline intersections to form sign regions and test the vector field orientation on each boundary.
 ]
 
-#question(title: "7.1 Constructing a Weighted Quadratic Lyapunov Function")[
+#exam_question(title: "7.1 Constructing a Weighted Quadratic Lyapunov Function")[
   Consider the linearized system $delta x' = J delta x$ with $delta x = (delta x_1, delta x_2)^T$.
   1. Propose a weighted quadratic candidate $V = p_1 (delta x_1)^2 + p_2 (delta x_2)^2$ with $p_1, p_2 > 0$.
   2. Compute $dot(V)$ explicitly in terms of the entries of $J$.
@@ -29,7 +32,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   *Hint:* Write $dot(V)$ as a quadratic form in $(delta G, delta I)$ and apply definiteness conditions.
 ]
 
-#question(title: "7.2 Indirect Method and Stability Classification")[
+#exam_question(title: "7.2 Indirect Method and Stability Classification")[
   Let the Jacobian at an equilibrium be
   $ J = mat(a, b; c, d). $
   1. Express the trace and determinant of $J$.
@@ -39,7 +42,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   *Hint:* Start with the characteristic polynomial $lambda^2 - text("tr")(J) lambda + det(J)=0$.
 ]
 
-#question(title: "5.3 IVP with Time-Dependent Coefficients")[
+#exam_question(title: "5.3 IVP with Time-Dependent Coefficients")[
   Solve
   $ x' = A(t)x, quad A(t)=mat(1,0;0,-t), quad x(0)=mat(1;1). $
   1. Solve the scalar equation for $x_1(t)$ without using the initial condition.
@@ -47,7 +50,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   3. Use the initial condition to determine the constants and write the solution vector $x(t)$.
 ]
 
-#question(title: "8.1 Trace-Determinant Hopf Detection")[
+#exam_question(title: "8.1 Trace-Determinant Hopf Detection")[
   Consider a planar parameterized system with Jacobian at equilibrium
   $ J(mu) = mat(a(mu), b(mu); c(mu), d(mu)). $
   1. Write $tau(mu) = text("tr")(J(mu))$ and $Delta(mu) = det(J(mu))$.

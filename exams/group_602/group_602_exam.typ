@@ -3,13 +3,16 @@
 #show: exam.with(
   title: "Exam for Group 602",
   date: "",
+  compact: true,
 )
+
+#let exam_question = question.with(compact: true)
 
 _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 
-#selection_grading_rule()
+#selection_grading_rule(compact: true)
 
-#question(title: "6.1 Nullclines and Equilibria")[
+#exam_question(title: "6.1 Nullclines and Equilibria")[
   Consider the planar nonlinear system:
   $ x' &= -x + y^2 \
     y' &= -y - x^2 $
@@ -17,7 +20,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   2. Find all equilibrium points in $RR^2$ algebraically.
 ]
 
-#question(title: "7.1 Lyapunov Direct Method")[
+#exam_question(title: "7.1 Lyapunov Direct Method")[
   Consider the planar nonlinear system
   $ x' &= -x + y^2 \
     y' &= -y - x^2, $
@@ -28,7 +31,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   3. Use $dot(V)$ to classify the local stability of the origin.
 ]
 
-#question(title: "7.2 Linearization and Jacobian Analysis")[
+#exam_question(title: "7.2 Linearization and Jacobian Analysis")[
   Consider the nonlinear system:
   $ x' &= x(1 - x - y) \
     y' &= y(2 - y - 3x) $
@@ -38,7 +41,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   4. Compute the trace and determinant, and classify the local stability of the equilibrium.
 ]
 
-#question(title: "5.3 Time-Dependent Linear IVP")[
+#exam_question(title: "5.3 Time-Dependent Linear IVP")[
   Consider the time-dependent linear system
   $ x' = A(t)x, quad A(t) = mat(1, 0; 0, -t), quad x(0)=mat(1;1). $
   1. Write the two scalar differential equations for $x_1(t)$ and $x_2(t)$.
@@ -46,7 +49,7 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
   3. Write the solution vector $x(t)$.
 ]
 
-#question(title: "8.1 Bifurcation Analysis")[
+#exam_question(title: "8.1 Bifurcation Analysis")[
   Consider the parameterized nonlinear scalar equation:
   $ x' = mu x - x^3 $
   where $mu$ is a real bifurcation parameter.
