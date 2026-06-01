@@ -115,6 +115,9 @@ _Covering Sections 6.1, 7.1, 7.2, 5.3, and 8.1_
 #question(title: "5.3 IVP with Time-Dependent Coefficients")[
   Solve
   $ x' = A(t)x, quad A(t)=mat(1,0;0,-t), quad x(0)=mat(1;1). $
+  1. Solve the scalar equation for $x_1(t)$ without using the initial condition.
+  2. Solve the scalar equation for $x_2(t)$ without using the initial condition.
+  3. Use the initial condition to determine the constants and write the solution vector $x(t)$.
 ]
 #solution[
   *1. Scalar Equations:*
